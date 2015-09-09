@@ -28,7 +28,7 @@
    * [项目：生日管家笔记](birthdaymanager/birthdaymanagermd.md)
    * [数据存储](data_save/datasave_md.md)
        * [plist存储](data_save/plistmd.md)
-       * [偏好设置存储](data_save/preference.md)
+       * [偏好设置存储](data_save/preferencemd.md)
        * [归档](data_save/archiving.md)
    * [UIGestureRecognizer](uigesturerecognizer/uigesturerecognizer.md)
    * [触摸事件](touchevent/touchevent.md)

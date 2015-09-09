@@ -8,6 +8,7 @@
     2. 快速做键值对的存储
 
 -  读取代码
+
 ```objc
 - (IBAction)save:(id)sender {
 

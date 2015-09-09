@@ -4,13 +4,13 @@
 iOS中的事件可以分为3大类型
 ![](./touchClassify.png)
 ##2. 响应者对象
-<1>在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象”
+- 在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象”
 
-<2>UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件
+- UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件
 
 ##3.UIResponder
 
-<1> UIResponder内部提供了以下方法来处理事件
+-  UIResponder内部提供了以下方法来处理事件
 ```objc
 触摸事件
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
@@ -90,9 +90,9 @@ UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触�
 该方法记录了前一个触摸点的位置
 ```
 ##6.UIEvent
-<1>每产生一个事件，就会产生一个UIEvent对象
+- 每产生一个事件，就会产生一个UIEvent对象
 
-<2>UIEvent：称为事件对象，记录事件产生的时刻和类型
+- UIEvent：称为事件对象，记录事件产生的时刻和类型
 
 `常见属性`
 
@@ -105,8 +105,8 @@ UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触�
 ```objc
 @property(nonatomic,readonly) NSTimeInterval  timestamp;
 ```
-<3>UIEvent还提供了相应的方法可以获得在某个view上面的触摸对象（UITouch）
-<4>touches和event参数
+- UIEvent还提供了相应的方法可以获得在某个view上面的触摸对象（UITouch）
+- touches和event参数
 ```objc
 一次完整的触摸过程，会经历3个状态：
 触摸开始：- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -114,7 +114,7 @@ UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触�
 触摸结束：- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 触摸取消（可能会经历）：- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 ```
-<5>4个触摸事件处理方法中，都有NSSet *touches和UIEvent *event两个参数
+- 4个触摸事件处理方法中，都有NSSet *touches和UIEvent *event两个参数
 - 一次完整的触摸过程中，只会产生一个事件对象，4个触摸方法都是同一个event参数
 如果两根手指同时触摸一个view，那么view只会调用一次touchesBegan:withEvent:方法，touches参数中装着2个UITouch对象.
 - 如果这两根手指一前一后分开触摸同一个view，那么view会分别调用2次touchesBegan:withEvent:方法，并且每次调用时的touches参数中只包含一个UITouch对象
@@ -122,18 +122,18 @@ UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触�
 - 根据touches中UITouch的个数可以判断出是单点触摸还是多点触摸
 ##7.事件的产生和传递
 
-<1> 发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中
+-  发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中
 
-<2>  UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常，先发送事件给应用程序的主窗口（keyWindow）
+-   UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常，先发送事件给应用程序的主窗口（keyWindow）
 
-<3> 主窗口会在视图层次结构中找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程的第一步
+-  主窗口会在视图层次结构中找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程的第一步
 
-<4>找到合适的视图控件后，就会调用视图控件的touches方法来作具体的事件处理
+- 找到合适的视图控件后，就会调用视图控件的touches方法来作具体的事件处理
 - touchesBegan…
 - touchesMoved…
 - touchedEnded…
 
-<5> 如果父控件不能接收触摸事件，那么子控件就不可能接收到触摸事件(掌握)
+-  如果父控件不能接收触摸事件，那么子控件就不可能接收到触摸事件(掌握)
 
 ##8.UIView不接收触摸事件的三种情况
 1.不接收用户交互
@@ -190,13 +190,13 @@ touchedEnded…
 
 ##13.监听触摸事件的做法
 1.如果想监听一个view上面的触摸事件，之前的做法是
-<1>自定义一个view
-<2>实现view的touches方法，在方法内部实现具体处理代码
+- 自定义一个view
+- 实现view的touches方法，在方法内部实现具体处理代码
 
 2.通过touches方法监听view触摸事件，有很明显的几个缺点
-<1>必须得自定义view
-<2>由于是在view内部的touches方法中监听触摸事件，因此默认情况下，无法让其他外界对象监听view的触摸事件
-<3>不容易区分用户的具体手势行为
+- 必须得自定义view
+- 由于是在view内部的touches方法中监听触摸事件，因此默认情况下，无法让其他外界对象监听view的触摸事件
+- 不容易区分用户的具体手势行为
 
 3.iOS 3.2之后，苹果推出了手势识别功能（Gesture Recognizer) 在触摸事件处理方面，大大简化了开发者的开发难度
 

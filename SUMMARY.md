@@ -25,7 +25,7 @@
        * [代码创建的控制器](ios_start/codecreatemd.md)
        * [控制器的View](ios_start/loadviewcontrolview_md.md)
    * [导航控制器](uinavigationcontroller/uinavigationcontrollermd.md)
-   * [项目：生日管家笔记](birthdaymanager/birthdaymanager.md)
+   * [项目：生日管家笔记](birthdaymanager/birthdaymanagermd.md)
    * [数据存储](data_save/data_save.md)
        * [plist存储](data_save/plist.md)
        * [偏好设置存储](data_save/preference.md)

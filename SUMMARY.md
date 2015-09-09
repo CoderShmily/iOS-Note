@@ -35,6 +35,6 @@
    * [Quartz2D](quartz2d/quartz2dmd.md)
    * [Core Animation](core_animation/core_animation.md)
    * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontrollermd.md)
-   * [代码管理(Svn & Git)](code_manger/code_manger.md)
+   * [代码管理(Svn & Git)](code_manger/codemanger_md.md)
    * [百度地图](baidumap/baidumapmd.md)
 

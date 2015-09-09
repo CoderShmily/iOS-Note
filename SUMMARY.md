@@ -6,7 +6,7 @@
    * [Autoresizing](autoresizing/autoresizingmd.md)
    * [UIView](uiview/uiviewmd.md)
    * [UIImage](uiimage/uiimagemd.md)
-   * [UIImageView](uiimageview/uiimageview.md)
+   * [UIImageView](uiimageview/uiimageviewmd.md)
    * [UIControl](uicontrol/uicontrol.md)
    * [UIButton](uibutton/uibutton.md)
    * [Xib 布局文件](xib_file/xib_file.md)

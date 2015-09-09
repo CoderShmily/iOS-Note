@@ -30,7 +30,7 @@
        * [plist存储](data_save/plistmd.md)
        * [偏好设置存储](data_save/preferencemd.md)
        * [归档](data_save/archivingmd.md)
-   * [UIGestureRecognizer](uigesturerecognizer/uigesturerecognizer.md)
+   * [UIGestureRecognizer](uigesturerecognizer/uigesturerecognizermd.md)
    * [触摸事件](touchevent/touchevent.md)
    * [Quartz2D](quartz2d/quartz2d.md)
    * [Core Animation](core_animation/core_animation.md)

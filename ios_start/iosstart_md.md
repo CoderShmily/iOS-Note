@@ -1,14 +1,15 @@
 ##一、IOS启动过程
+
 ![](./ios-start.png)
 #### 1. UIApplicationMain
 ![](./UIApplicationMain.png)
 ![](./UIApplicationMain2.png)
 #### 2. UIWindow
-<1> UIWindow是一种特殊的UIView，通常在一个app中只会有一个UIWindow
+-  UIWindow是一种特殊的UIView，通常在一个app中只会有一个UIWindow
 
-<2>iOS程序启动完毕后，创建的第一个视图控件就是UIWindow，接着创建控制器的view，最后将控制器的view添加到UIWindow上，于是控制器的view就显示在屏幕上了
+- iOS程序启动完毕后，创建的第一个视图控件就是UIWindow，接着创建控制器的view，最后将控制器的view添加到UIWindow上，于是控制器的view就显示在屏幕上了
 
-<3>一个iOS程序之所以能显示到屏幕上，完全是因为它有UIWindow
+- 一个iOS程序之所以能显示到屏幕上，完全是因为它有UIWindow
     也就说，没有UIWindow，就看不见任何UI界面
 ![](./UIWindow1.png)
 1.UIWindow的获得

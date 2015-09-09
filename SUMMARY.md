@@ -18,7 +18,7 @@
        * [UIDatePicker自定义生日键盘](uidatepickerview/uidatepickerviewmd.md)
    * [UITextField](uitextfield/uitextfieldmd.md)
    * [UIApplication](uiapplication/uiapplicationmd.md)
-   * [iOS7中的状态栏](ios7_status/ios7_status.md)
+   * [iOS7中的状态栏](ios7_status/ios7status_md.md)
    * [iOS程序的启动过程](ios_start/ios_start.md)
        * [通过storyboard加载控制器](ios_start/loadviewcontrol_bystoryboard.md)
        * [通过xib创建控制器](ios_start/loadviewcontrol_byxib_md.md)

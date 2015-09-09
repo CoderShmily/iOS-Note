@@ -32,7 +32,7 @@
        * [归档](data_save/archivingmd.md)
    * [UIGestureRecognizer](uigesturerecognizer/uigesturerecognizermd.md)
    * [触摸事件](touchevent/toucheventmd.md)
-   * [Quartz2D](quartz2d/quartz2d.md)
+   * [Quartz2D](quartz2d/quartz2dmd.md)
    * [Core Animation](core_animation/core_animation.md)
    * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontrollermd.md)
    * [代码管理(Svn & Git)](code_manger/code_manger.md)

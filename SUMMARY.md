@@ -22,7 +22,7 @@
    * [iOS程序的启动过程](ios_start/iosstart_md.md)
        * [通过storyboard加载控制器](ios_start/loadviewcontrolbystoryboard_md.md)
        * [通过xib创建控制器](ios_start/loadviewcontrolbyxib_md_md.md)
-       * [代码创建的控制器](ios_start/codeCreate.md)
+       * [代码创建的控制器](ios_start/codecreatemd.md)
        * [控制器的View](ios_start/loadviewcontrol_view.md)
    * [导航控制器](uinavigationcontroller/uinavigationcontroller.md)
    * [项目：生日管家笔记](birthdaymanager/birthdaymanager.md)

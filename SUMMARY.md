@@ -34,7 +34,7 @@
    * [触摸事件](touchevent/touchevent.md)
    * [Quartz2D](quartz2d/quartz2d.md)
    * [Core Animation](core_animation/core_animation.md)
-   * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontroller.md)
+   * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontrollermd.md)
    * [代码管理(Svn & Git)](code_manger/code_manger.md)
    * [百度地图](baidumap/baidumap.md)
 

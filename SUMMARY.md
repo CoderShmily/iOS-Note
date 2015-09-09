@@ -19,7 +19,7 @@
    * [UITextField](uitextfield/uitextfieldmd.md)
    * [UIApplication](uiapplication/uiapplicationmd.md)
    * [iOS7中的状态栏](ios7_status/ios7status_md.md)
-   * [iOS程序的启动过程](ios_start/ios_start.md)
+   * [iOS程序的启动过程](ios_start/iosstart_md.md)
        * [通过storyboard加载控制器](ios_start/loadviewcontrol_bystoryboard.md)
        * [通过xib创建控制器](ios_start/loadviewcontrol_byxib_md.md)
        * [代码创建的控制器](ios_start/codeCreate.md)

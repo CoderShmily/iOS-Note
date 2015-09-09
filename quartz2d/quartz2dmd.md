@@ -86,17 +86,17 @@ Quartz2D提供了以下几种类型的Graphics Context：
     ```
 3. drawRect:中取得的上下文
 
-    <1> 在drawRect:方法中取得上下文后，就可以绘制东西到view上
-    <2> View内部有个layer（图层）属性，drawRect:方法中取得的是一个Layer Graphics Context，因此，绘制的东西其实是绘 制到view的layer上去了
+    -  在drawRect:方法中取得上下文后，就可以绘制东西到view上
+    - View内部有个layer（图层）属性，drawRect:方法中取得的是一个Layer Graphics Context，因此，绘制的东西其实是绘 制到view的layer上去了
 
-    <3> View之所以能显示东西，完全是因为它内部的layer
+    - View之所以能显示东西，完全是因为它内部的layer
 
-    <4> 不管以后是否需要上下文，只要绘制东西，都要在drawRect方法写，才能显示到view
+    - 不管以后是否需要上下文，只要绘制东西，都要在drawRect方法写，才能显示到view
 
-    <5> setNeedsDisplay底层会调用drawRect重绘,但不是马上。
+    - setNeedsDisplay底层会调用drawRect重绘,但不是马上。
  注意：调用setNeedsDisplay并不会马上触发drawRect方法，仅仅是给当前这个view设置一个重新绘制的标志，等下一次屏幕刷新的时候才会去调用drawRect
 
-    <6> 1.获取上下文 2.拼接路径 3.把路径添加到上下文 4.渲染上下文
+    -  1.获取上下文 2.拼接路径 3.把路径添加到上下文 4.渲染上下文
 ###6. Quartz2D须知
 
 Quartz2D的API是纯C语言的

@@ -46,7 +46,7 @@ UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触�
 
 ##5.UITouch
 
-<1> UITouch的说明
+-  UITouch的说明
 
 1. 当用户用一根手指触摸屏幕时，会创建一个与手指相关联的UITouch对象
 
@@ -60,7 +60,7 @@ UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触�
 
 6. 提示：iPhone开发中，要避免使用双击事件！
 
-<2>UITouch的属性
+- UITouch的属性
 
 ```objc
 触摸产生时所处的窗口
@@ -79,7 +79,7 @@ UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触�
 @property(nonatomic,readonly) UITouchPhase        phase;
 
 ```
-<3>UITouch的方法
+- UITouch的方法
 ```objc
 - (CGPoint)locationInView:(UIView *)view;
 返回值表示触摸在view上的位置

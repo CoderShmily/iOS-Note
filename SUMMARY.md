@@ -9,7 +9,7 @@
    * [UIImageView](uiimageview/uiimageviewmd.md)
    * [UIControl](uicontrol/uicontrolmd.md)
    * [UIButton](uibutton/uibuttonmd.md)
-   * [Xib 布局文件](xib_file/xib_file.md)
+   * [Xib 布局文件](xib_file/xibfile_md.md)
    * [KVC--KVO](kvc--kvo/kvc--kvo.md)
    * [UIScrollView](uiscrollview/uiscrollview.md)
    * [NSTimer](nstimer/nstimer.md)

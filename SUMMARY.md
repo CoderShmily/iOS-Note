@@ -7,7 +7,7 @@
    * [UIView](uiview/uiviewmd.md)
    * [UIImage](uiimage/uiimagemd.md)
    * [UIImageView](uiimageview/uiimageviewmd.md)
-   * [UIControl](uicontrol/uicontrol.md)
+   * [UIControl](uicontrol/uicontrolmd.md)
    * [UIButton](uibutton/uibutton.md)
    * [Xib 布局文件](xib_file/xib_file.md)
    * [KVC--KVO](kvc--kvo/kvc--kvo.md)

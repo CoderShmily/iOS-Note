@@ -5,7 +5,7 @@
    * [UILable](uilabel/uilabelmd.md)
    * [Autoresizing](autoresizing/autoresizingmd.md)
    * [UIView](uiview/uiviewmd.md)
-   * [UIImage](uiimage/uiimage.md)
+   * [UIImage](uiimage/uiimagemd.md)
    * [UIImageView](uiimageview/uiimageview.md)
    * [UIControl](uicontrol/uicontrol.md)
    * [UIButton](uibutton/uibutton.md)

@@ -1,6 +1,5 @@
 ### UIDatePicker 和 UITextField代理
 
-
 <1> UIDatePicker重要属性
 ```objc
 // 获取当前的时间

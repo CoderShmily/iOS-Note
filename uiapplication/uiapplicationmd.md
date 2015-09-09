@@ -1,12 +1,13 @@
 
-### 一、什么是UIApplication?
-<1>每个应用都有自己的UIApplication对象,而且是单例的,由系统创建
+### 一、什么是UIApplication
 
-<2>通过[UIApplication sharedApplication]可以获得这个单例对象
+- 每个应用都有自己的UIApplication对象,而且是单例的,由系统创建
 
-<3>一个iOS程序启动后创建的第一个对象就是UIApplication对象
+- 通过[UIApplication sharedApplication]可以获得这个单例对象
 
-1.设置应用程序图标右上角的红色提醒数字
+- 一个iOS程序启动后创建的第一个对象就是UIApplication对象
+
+- 设置应用程序图标右上角的红色提醒数字
 
 ```objc
 // 获得单例的UIApplication对象
@@ -47,9 +48,9 @@ UIApplication *app = [UIApplication sharedApplication];
 ```
 4.UIApplication和delegate
 
-<1>所有的移动操作系统都有个致命的缺点：app很容易受到打扰。比如一个来电或者锁屏会导致app进入后台甚至被终止
+- 所有的移动操作系统都有个致命的缺点：app很容易受到打扰。比如一个来电或者锁屏会导致app进入后台甚至被终止
 
-<2>还有很多其它类似的情况会导致app受到干扰，在app受到干扰时，会产生一些系统事件，这时UIApplication会通知它的delegate对象，让delegate代理来处理这些系统事件
+- 还有很多其它类似的情况会导致app受到干扰，在app受到干扰时，会产生一些系统事件，这时UIApplication会通知它的delegate对象，让delegate代理来处理这些系统事件
 
 - delegate可处理的事件包括：
         - 应用程序的生命周期事件(如程序启动和关闭)
@@ -57,14 +58,14 @@ UIApplication *app = [UIApplication sharedApplication];
         - 内存警告
         - …
 
-<3>设置代理的过程
+- 设置代理的过程
 ![](./delegate.png)
 
 ### 二、UIApplicationDelegate
 
-<1>每次新建完项目，都有个带有“AppDelegate”字眼的类，它就是UIApplication的代理
+- 每次新建完项目，都有个带有“AppDelegate”字眼的类，它就是UIApplication的代理
 
-<2>XXAppDelegate默认已经遵守了UIApplicationDelegate协议，已经是UIApplication的代理
+- XXAppDelegate默认已经遵守了UIApplicationDelegate协议，已经是UIApplication的代理
 ![](./appdelegate.png)
 
 ```objc

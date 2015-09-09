@@ -12,7 +12,7 @@
    * [Xib 布局文件](xib_file/xibfile_md.md)
    * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [UIScrollView](uiscrollview/uiscrollviewmd.md)
-   * [NSTimer](nstimer/nstimer.md)
+   * [NSTimer](nstimer/nstimermd.md)
    * [自动布局](autoresizing/autoresizing.md)
    * [UItableView](uitableview/uitableview.md)
    * [UIPickerView](uipickerview/uipickerview.md)

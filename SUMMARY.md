@@ -10,7 +10,7 @@
    * [UIControl](uicontrol/uicontrolmd.md)
    * [UIButton](uibutton/uibuttonmd.md)
    * [Xib 布局文件](xib_file/xibfile_md.md)
-   * [KVC--KVO](kvc--kvo/kvc--kvo.md)
+   * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [UIScrollView](uiscrollview/uiscrollview.md)
    * [NSTimer](nstimer/nstimer.md)
    * [自动布局](autoresizing/autoresizing.md)

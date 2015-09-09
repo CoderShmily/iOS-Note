@@ -1,4 +1,5 @@
 # Autoresizing
+
 A![](Autoresizing.png)
 Width(中间的横线) 勾选 宽度跟随父控件的宽度等比例伸缩
 // (父控件宽度变化多少倍，这个子控件也变多少倍)

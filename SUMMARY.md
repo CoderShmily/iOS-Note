@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [UIKit](SUMMARY.md)
    * [UILable](uilabel/uilabelmd.md)
-   * [Autoresizing](autoresizing/autoresizing.md)
+   * [Autoresizing](autoresizing/autoresizingmd.md)
    * [UIView](uiview/uiview.md)
    * [UIImage](uiimage/uiimage.md)
    * [UIImageView](uiimageview/uiimageview.md)

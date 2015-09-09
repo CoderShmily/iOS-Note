@@ -14,7 +14,7 @@
    * [UIScrollView](uiscrollview/uiscrollviewmd.md)
    * [NSTimer](nstimer/nstimermd.md)
    * [自动布局](autoresizing/autoresizing.md)
-   * [UItableView](uitableview/uitableview.md)
+   * [UItableView](uitableview/uitableviewmd.md)
    * [UIPickerView](uipickerview/uipickerview.md)
        * [UIDatePicker自定义生日键盘](uidatepickerview/uidatepickerview.md)
    * [UITextField](uitextfield/uitextfield.md)

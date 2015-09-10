@@ -145,6 +145,7 @@ hidden = YES
 3.透明
 alpha = 0.0 ~ 0.01
 
+
 `提示：UIImageView的userInteractionEnabled默认就是NO，因此UIImageView以及它的子控件默认是不能接收触摸事件的`
 
 ##9.触摸事件处理的详细过程
@@ -198,7 +199,7 @@ touchedEnded…
 - 由于是在view内部的touches方法中监听触摸事件，因此默认情况下，无法让其他外界对象监听view的触摸事件
 - 不容易区分用户的具体手势行为
 
-3.iOS 3.2之后，苹果推出了手势识别功能（Gesture Recognizer) 在触摸事件处理方面，大大简化了开发者的开发难度
+3.iOS3.2之后，苹果推出了手势识别功能（Gesture Recognizer) 在触摸事件处理方面，大大简化了开发者的开发难度
 
 #备注
 

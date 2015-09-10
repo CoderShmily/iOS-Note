@@ -10,7 +10,7 @@
     - UISwipeGestureRecognizer(轻扫)
     - UIRotationGestureRecognizer(旋转)
     - UILongPressGestureRecognizer(长按)
-    -
+    
     - 每一个手势识别器的用法都差不多，比如UITapGestureRecognizer的使用步骤如下
 创建手势识别器对象
 UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
@@ -48,8 +48,7 @@ typedef NS_ENUM(NSInteger, UIGestureRecognizerState) {
 };
 
 ```
-###手势识别状态变化示意图
-![](./gestureChange.png)
+
 
 ##测试范例
 

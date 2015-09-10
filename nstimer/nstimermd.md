@@ -14,5 +14,8 @@ self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@s
 - 关闭定时器
 
 ```objc
+// 移除定时器
 [self.timer invalidate];
+// 要清空
+self.timer = nil;
 ```

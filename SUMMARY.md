@@ -37,5 +37,5 @@
    * [Core Animation](core_animation/coreanimation_md.md)
    * [代码管理(Svn & Git)](code_manger/codemanger_md.md)
    * [百度地图](baidumap/baidumapmd.md)
-   * 多媒体播放
+   * [多媒体播放](duo_mei_ti_bo_fang.md)
 

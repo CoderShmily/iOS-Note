@@ -39,4 +39,5 @@
    * [百度地图](baidumap/baidumapmd.md)
    * [多媒体播放](duo_mei_ti_bo_fang.md)
 * [项目](xiang_mu.md)
+   * QQ音乐
 

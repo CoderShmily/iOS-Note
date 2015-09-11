@@ -1,4 +1,6 @@
-UIPopoverController
+### UIPopoverController
+
+```
 设置内容控制器
 - (id)initWithContentViewController:(UIViewController *)viewController;
 设置内容给的尺寸
@@ -23,3 +25,4 @@ UIPopoverController
 @property (nonatomic, copy) NSArray *passthroughViews;
 
 这个属性是设置当UIPopoverController显示出来时，哪些控件可以继续跟用户进行正常交互。这样的话，点击区域外的控件就不会让UIPopoverController消失了
+```

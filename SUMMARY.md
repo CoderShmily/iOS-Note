@@ -16,7 +16,7 @@
    * [UIApplication](uiapplication/uiapplicationmd.md)
    * [UIGestureRecognizer](uigesturerecognizer/uigesturerecognizermd.md)
    * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontrollermd.md)
-   * UIPopoverController
+   * [UIPopoverController](UIPopoverController/UIPopoverController.md)
    * [定时器](timer/timermdmd.md)
        * [nstimermd.md](timer/nstimermd.md)
    * [KVC--KVO](kvc--kvo/kvc--kvomd.md)

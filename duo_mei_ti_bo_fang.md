@@ -34,6 +34,12 @@
 
 ## 二、视频播放
 
+- iOS提供了MPMoviePlayerController、MPMoviePlayerViewController两个类，可以用来轻松播放视频和网络流媒体/网络音频
+- 提示：网络音频同样使用此控制器播放
+- YouTobe就是用MPMoviePlayerController实现的
+- MPMoviePlayerViewController只能全屏播放视频
+上述两个类都定义在了MediaPlayer框架中
+
 1.音乐播放中2> 3> 4>
 
 2.VLC
@@ -44,15 +50,35 @@ kxmovie(可以咨询王红元)
 
 Vitamio
 
-三、录音
+
+
+
+#### MPMoviePlayerController支持的格式
+
+
+
+```
+MPMoviePlayerController
+继承自NSObject
+内部有个view可以展示视频内容
+将该视图添加其他控制器的view上，即可显示视频内容
+MPMoviePlayerController可以播放的视频格式包括：
+H.264、MPEG-4等
+支持的文件扩展名包括：avi,mkv,mov,m4v,mp4等
+
+可以从苹果官网：http://support.apple.com/kb/HT1425下载一些用来测试的视频文件，文件都比较小
+
+提示：MPMoviePlayerController并不支持所有的视频格式，如果要播放不支持的视频格式，需要借助第三方框架进行解码，如VLC
+https://github.com/videolan/vlc
+
+```
+
+##三、录音
+
 1.AVAudioRecorder
 
 
-
-
-
-
-## 三、设置录制音频的质量
+- 设置录制音频的质量
 
 ```objc
 // 创建录音配置信息的字典

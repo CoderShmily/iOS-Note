@@ -18,7 +18,6 @@
    * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontrollermd.md)
    * [UIPopoverController](UIPopoverController/uipopovercontrollermd.md)
    * [触摸事件](touchevent/toucheventmd.md)
-   * [代码管理(Svn & Git)](code_manger/codemanger_md.md)
 * [项目](xiang_mu/xiangmu_md.md)
    * [项目：生日管家笔记](birthdaymanager/birthdaymanagermd.md)
    * [QQ音乐](qqyin_le/qqyinle_md.md)
@@ -44,5 +43,6 @@
    * [iOS7中的状态栏](ios7_status/ios7status_md.md)
    * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [多媒体播放](duo_mei_ti_bo_fang/duomei_ti_bo_fang_md.md)
+   * [代码管理(Svn & Git)](code_manger/codemanger_md.md)
    * 0
 

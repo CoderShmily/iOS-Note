@@ -570,7 +570,6 @@ void CGContextClip(CGContextRef c)
     // 边框宽度
     attr[NSStrokeWidthAttributeName] = @1;
 
-
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowOffset = CGSizeMake(3, 3);
     shadow.shadowColor = [UIColor yellowColor];
@@ -587,8 +586,61 @@ void CGContextClip(CGContextRef c)
     // 会自动换行
     //    [str drawInRect:rect withAttributes:attr];
 }
-
-
 @end
 
 ```
+###补充笔记
+```
+// 图层3D旋转效果
+_imageView.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+
+// KVC
+// 结构体CATransform3D转换对象
+NSValue *value = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI, 0, 1, 0)];
+
+
+// 隐式动画
+// _layer.bounds = CGRectMake(0, 0, arc4random_uniform(150), arc4random_uniform(150));
+// 动画都是包装到一个事务
+// 开启事务
+[CATransaction begin];
+// 不需要隐式动画
+// [CATransaction setDisableActions:YES];
+
+[CATransaction setAnimationDuration:2];
+// 提交事务
+[CATransaction commit];
+
+阴影层 要设置frame 不然看不见啊
+CG开头的声明结构体,不加 *
+CA开头的除了CATransform3D不加 * 其余要加;
+核心动画都是假象，不改变图层原来的frame
+
+给View添加拖拽手势的时候，拖拽view,如果修改transform属性，并不会改变center bounds，底层会改变frame的origin.
+
+CATransform3DMakeRotation
+CATransform3DRotation 多了一个transform参数 可以先创建修改其他参数，再传进来
+
+对本身做形变处理 修改自己的锚点
+复制层对复制出来的图层做形变()，复制层修改自己的锚点
+Translate 对于上个layer 每个点的坐标变化x-y-z(左负右正)
+Rotate 相对于上个layer 绕着以父层的锚点为原点建立坐标系，以传入的x-y-z为终点的方向向量旋转
+Scale 相对于上个layer的 每个点的坐标都缩小为原来的x-y-z倍（可以定位中心点，长宽高缩小x-y-z倍）
+position与anchorPoint在同一点 position相对于superLayer, anchorPoint相对于layer本身范围(0-1,0-1);
+
+
+如何增加立体感，近大远小
+// 400.0 可以理解为，人的眼睛离手机屏幕的垂直距离，越小，近大远小效果越明显
+transform.m34 = -1 / 400.0;
+
+[path removeAllPoints]; // 删除路径上所有点
+[layer removeAllAnimations]; // 移除图层上所有动画
+
+// 添加一个小圆, 默认跟大圆一样，有几个相同的属性，frame,y圆角半径，背景色
+// copy:有相同属性的新对象
+// copy底层其实是调用copyWithZone:
+UIView *smallCircleView = [self copy]; // copy是NSObject对象的
+
+```
+
+

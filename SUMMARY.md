@@ -19,7 +19,6 @@
    * [UIPopoverController](UIPopoverController/uipopovercontrollermd.md)
    * [Xib 布局文件](xib_file/xibfile_md.md)
    * [自动布局](autoresizing/autoresizingmd.md)
-   * [iOS7中的状态栏](ios7_status/ios7status_md.md)
    * [iOS程序的启动过程](ios_start/iosstart_md.md)
        * [通过storyboard加载控制器](ios_start/loadviewcontrolbystoryboard_md.md)
        * [通过xib创建控制器](ios_start/loadviewcontrolbyxib_md_md.md)
@@ -43,6 +42,7 @@
 * [定时器](timer/timermdmd.md)
    * [nstimermd.md](timer/nstimermd.md)
 * [其他](其他/qi_ta_md.md)
+   * [iOS7中的状态栏](ios7_status/ios7status_md.md)
    * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [多媒体播放](duo_mei_ti_bo_fang/duomei_ti_bo_fang_md.md)
    * 0

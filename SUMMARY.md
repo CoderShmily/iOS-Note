@@ -16,7 +16,7 @@
    * [UIApplication](uiapplication/uiapplicationmd.md)
    * [UIGestureRecognizer](uigesturerecognizer/uigesturerecognizermd.md)
    * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontrollermd.md)
-   * [NSTimer](nstimer/nstimermd.md)
+   * [定时器](nstimer/nstimermd.md)
    * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [Xib 布局文件](xib_file/xibfile_md.md)
    * [自动布局](autoresizing/autoresizingmd.md)

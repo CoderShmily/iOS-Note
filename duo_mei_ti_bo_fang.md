@@ -72,6 +72,39 @@ H.264、MPEG-4等
 https://github.com/videolan/vlc
 
 ```
+#### MPMoviePlayerController的使用
+
+```
+# 加载视频资源(注意，如果url为nil同样可以加载)
+
+NSAssert(self.url, @"URL不能为空");
+[[MPMoviePlayerController alloc] initWithContentURL:self.url];
+// 显示
+[self.view addSubview:self.moviePlayer.view];
+通过设置AutoresizingMask属性可以在横竖屏转换时自动调整视图大小
+// 播放
+[self.moviePlayer play];
+// 全屏
+[self.moviePlayer setFullscreen:YES animated:YES];
+
+# MPMoviePlayerController的播放状态是通过通知中心监听的
+
+```
+
+#### 常用监听通知事件
+```
+// 状态变化
+MPMoviePlayerPlaybackStateDidChangeNotification
+// 播放结束
+MPMoviePlayerPlaybackDidFinishNotification
+// 退出全屏
+MPMoviePlayerDidExitFullscreenNotification
+// 截屏完成
+MPMoviePlayerThumbnailImageRequestDidFinishNotification
+// 截屏方法
+requestThumbnailImagesAtTimes:timeOption:
+
+```
 
 ##三、录音
 

@@ -207,3 +207,40 @@ NSString *ID = @"wine";
     return YES;
 }
 ```
+
+```
+//  注册cell
+[self.tableView registerNib:(UINib *) forCellReuseIdentifier:(NSString *)];
+[self.tableView registerClass:(__unsafe_unretained Class) forCellReuseIdentifier:(NSString *)];
+
+// 从缓存池中取得cell
+[self.tableView dequeueReusableCellWithIdentifier:(NSString *)];
+
+ 
+代码创建cell:
+通过代码创建 '重用标示符' 的cell不会调用initWithFrame 会调用initWithStyle方法(也要调用super方法)
+cell中的自定义view添加到contentView 在layoutSubviews中调完父类方法后,重新计算位置
+从plist加载模型数据调用arrayWithContentsOfFile
+计算frame 常用函数 CGRectGetMaxX CGRectGetMaxY CGRectGetHeight CGRectGetMaxX
+
+Xib创建cell
+需要手动注册标示符 [self.tableView registerNib:(UINib *) forCellReuseIdentifier:(NSString *)];
+
+storyBoard创建cell
+cell重用时,会先去storyBoard中查找有重用标示符的cell,所以不用注册(如果注册,注册的cell优先级高)
+cell的类型应该是动态cell,应为静态cell的个数和数据是提前固定了(调整默认个数,可以创建多种cell的模板) 
+静态cell课以快速创建设置界面等..
+如果控件不能拖线,确认控制器.还不行可以手动写IBOutlet然后连线
+
+
+自定义分割线的几种方法
+自定义高度为1的View
+重写cell的frame
+调整cell内部的子控件的位置
+
+// 滚动完毕就会调用（如果是代码设置ContentOffset导致滚动完毕，才会调用这个方法）
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+
+// 滚动完毕就会调用（如果是人为拖拽scrollView导致滚动完毕，才会调用这个方法）
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+```

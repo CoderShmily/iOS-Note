@@ -12,6 +12,14 @@
 只能播放本地的音频文件
 >MPMusicPlayerController
 
+```objc
+
+AVAudioPlayer对象的url属性只读,所以每播放一首歌曲都要创建一个对象,可以用字典把每个对象存储起来
+AVAudioPlayer对象局部变量不行,需要放到字典数组中,或定义属性引用
+
+
+```
+
 
 2> AVPlayer
 能播放本地、远程的音频、视频文件

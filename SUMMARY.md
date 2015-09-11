@@ -17,7 +17,6 @@
    * [UIGestureRecognizer](uigesturerecognizer/uigesturerecognizermd.md)
    * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontrollermd.md)
    * [UIPopoverController](UIPopoverController/uipopovercontrollermd.md)
-   * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [Xib 布局文件](xib_file/xibfile_md.md)
    * [自动布局](autoresizing/autoresizingmd.md)
    * [iOS7中的状态栏](ios7_status/ios7status_md.md)
@@ -44,6 +43,7 @@
 * [定时器](timer/timermdmd.md)
    * [nstimermd.md](timer/nstimermd.md)
 * [其他](其他/qi_ta_md.md)
+   * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [多媒体播放](duo_mei_ti_bo_fang/duomei_ti_bo_fang_md.md)
    * 0
 

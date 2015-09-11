@@ -19,3 +19,4 @@ self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@s
 // 要清空
 self.timer = nil;
 ```
+

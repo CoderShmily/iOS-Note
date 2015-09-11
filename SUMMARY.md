@@ -40,8 +40,8 @@
    * [百度地图](baidumap/baidumapmd.md)
    * [多媒体播放](duo_mei_ti_bo_fang/duomei_ti_bo_fang_md.md)
 * [项目](xiang_mu/xiangmu_md.md)
+   * [项目：生日管家笔记](birthdaymanager/birthdaymanagermd.md)
    * [QQ音乐](qqyin_le/qqyinle_md.md)
-* [项目：生日管家笔记](birthdaymanager/birthdaymanagermd.md)
 * [网络多线程](wang_luo_duo_xian_cheng/wangluo_duo_xian_cheng.md)
    * [HTML5](HTML5/html5.md)
 

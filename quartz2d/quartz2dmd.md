@@ -590,7 +590,7 @@ void CGContextClip(CGContextRef c)
 
 ```
 ###补充笔记
-```
+```objc
 // 图层3D旋转效果
 _imageView.layer.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
 

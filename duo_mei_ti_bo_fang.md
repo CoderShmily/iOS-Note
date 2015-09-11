@@ -1,4 +1,5 @@
 一、音频播放
+
 1.音效播放（短时间的音频文件）
 1> AudioServicesCreateSystemSoundID
 2> AudioServicesPlaySystemSound
@@ -28,12 +29,13 @@
 监听缓冲进度、下载速度、下载进度
 
 二、视频播放
+
 1.音乐播放中2> 3> 4>
 
 2.VLC
 
 3.FFmpeg
-kxmovie
+kxmovie(可以咨询王鸿远)
 Vitamio
 
 三、录音

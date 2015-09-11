@@ -12,7 +12,6 @@
    * [UItableView](uitableview/uitableviewmd.md)
    * [UIPickerView](uipickerview/uipickerviewmd.md)
        * [UIDatePicker自定义生日键盘](uidatepickerview/uidatepickerviewmd.md)
-   * [UIControl](uicontrol/uicontrolmd.md)
    * [UIApplication](uiapplication/uiapplicationmd.md)
    * [UIGestureRecognizer](uigesturerecognizer/uigesturerecognizermd.md)
    * [UICollectionViewController](uicollectionviewcontroller/uicollectionviewcontrollermd.md)

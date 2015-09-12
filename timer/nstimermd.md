@@ -9,8 +9,10 @@ self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@s
 
 // 修改NSTimer在NSRunLoop中的模式：NSRunLoopCommonModes
 // 主线程不管在处理什么操作，都会抽时间处理NSTimer
-[[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+[[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
 ```
+- NSRunLoopCommonModes模式包含NSDefaultRunLoopMode
+- NSRunLoopCommonModes可以在处理拖拽事件时依然让定时器计数
 - 关闭定时器
 
 ```objc

@@ -1,6 +1,8 @@
 ## UIVIew
 
 #### UIView的常见属性
+
+```
 - @property(nonatomic,readonly) UIView *superview;  // 获得自己的父控件对象
 - @property(nonatomic,readonly,copy) NSArray *subviews; // 获得自己的所有子控件对象
 - @property(nonatomic) NSInteger tag; // 控件的ID(标识)，父控件可以通过tag来找到对应的子控件
@@ -12,7 +14,7 @@
 
 - @property(nonatomic) UIViewContentMode contentMode; // 内容模式：用来控制图片如何显示
 - @property(nonatomic) BOOL clipsToBounds; // 超出图片的部分是否裁剪
-
+```
 
 #### UIView的常见方法
 ```objc

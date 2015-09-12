@@ -12,10 +12,22 @@
 只能播放本地的音频文件
 >MPMusicPlayerController
 
-```objc
-
+```
 AVAudioPlayer对象的url属性只读,所以每播放一首歌曲都要创建一个对象,可以用字典把每个对象存储起来
-AVAudioPlayer对象局部变量不行,需要放到字典数组中,或定义属性引用
+AVAudioPlayer对象局部变量不行,需要定义属性强引用,或放到字典/数组中强引用
+```
+
+```objc
+// 创建播放器对象
+ NSURL *url = [[NSBundle mainBundle] URLForResource:@"1.mp3" withExtension:nil];
+ AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+
+// 开始播放
+[player play]; 
+// 暂停播放
+[player pause]; 
+// 判断播放状态
+[player isPlaying];
 
 
 ```

@@ -1,13 +1,6 @@
 ## NSTimer的使用
 - 开启定时器
 
-
-
-
-<body bgcolor="red"> 111 </body>
-
-<font color=red> 内容 </font>
-
 ```objc
 @property (nonatomic, weak) NSTimer *timer;
 

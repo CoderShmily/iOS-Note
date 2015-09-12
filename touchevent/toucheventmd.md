@@ -203,6 +203,7 @@ touchedEnded…
 
 #备注
 
+
 面试 : UIEvent
 ```
 当修改父控件的透明度alpha,会影响子控件的alpha

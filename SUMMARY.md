@@ -28,7 +28,7 @@
        * [代码创建的控制器](ios_start/codecreatemd.md)
        * [控制器的View](ios_start/loadviewcontrolview_md.md)
    * [定时器](timer/timermdmd.md)
-       * [nstimermd.md](timer/nstimermd.md)
+       * [NSTimer](timer/nstimermd.md)
    * [数据存储](data_save/datasave_md.md)
        * [plist存储](data_save/plistmd.md)
        * [偏好设置存储](data_save/preferencemd.md)

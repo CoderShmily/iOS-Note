@@ -21,6 +21,7 @@ self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@s
 // 要清空
 self.timer = nil;
 ```
+- `定时器声明为局部变量也会一直执行`,为了停止定时器,通常会定义weak属性引用定时器对象
 
 ![](nstimer.jpg)
 

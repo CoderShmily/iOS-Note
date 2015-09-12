@@ -1,10 +1,10 @@
 ## NSTimer的使用
 - 开启定时器
 
-<table><tr><td bgcolor = #FF0000> 内容 </td></tr></table>
 
-<table><tr><td bgcolor=red>这里的背景色</td></tr></table>
 
+
+<body bgcolor="red"> 111 </body>
 
 <font color=red> 内容 </font>
 

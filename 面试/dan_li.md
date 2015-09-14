@@ -15,8 +15,10 @@ static Tools *_instance; // 程序运行期间只分配一分内存
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
     // 由于alloc方法内部会调用allocWithZone: 所以我们只需要保证在该方法只创建一个对象即可
-    /*
+    /* 
     if (_instance == nil) {
+     // 如果多线程执行到此,有线程sleep,醒了可能已经分配过内存
+     // 此方法不可靠
         _instance = [super allocWithZone:zone];
     }
      */

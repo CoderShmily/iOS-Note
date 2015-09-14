@@ -14,6 +14,7 @@
 ![](./UIWindow1.png)
 1.UIWindow的获得
 ![](./UIWindow2.png)
+
 ```objc
 
 // 1.创建窗口

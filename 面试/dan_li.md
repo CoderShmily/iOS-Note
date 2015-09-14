@@ -28,6 +28,8 @@ static Tools *_instance; // 程序运行期间只分配一分内存
     });
     return _instance;
 }
+
+// 让copy方法也返回同一个对象,copy会调用copyWithZone
 - (id)copyWithZone:(NSZone *)zone
 {
     // 因为copy方法必须通过实例对象调用, 所以可以直接返回_instance

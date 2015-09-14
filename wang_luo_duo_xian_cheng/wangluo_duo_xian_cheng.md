@@ -57,4 +57,5 @@ Content-Type: image/jpeg   // 返回数据的类型
 Content-Length: 56811   // 返回数据的长度
 Date: Mon, 23 Jun 2014 12:54:52 GMT  // 响应的时间
 响应体：服务器返回给客户端的具体数据，比如文件数据
+
 ```

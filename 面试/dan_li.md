@@ -1,4 +1,13 @@
 ```objc
+@interface Tools : NSObject<NSCopying, NSMutableCopying>
+// 一般情况下, 如果一个类是单例, 那么都会提供一个类方法用于快速创建单例对象
+// 而且这个类方法的名称是有一定的规则: share + 类名称 / default + 类名称 / 类名称开头
++ (instancetype)shareTools;
+@end
+```
+
+
+```objc
 # 由于alloc方法内部会调用allocWithZone: 所以我们只需要保证在该方法只创建一个对象即可
 ```
 

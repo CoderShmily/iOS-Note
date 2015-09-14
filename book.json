@@ -1,1 +1,41 @@
-{}
+{
+    "author": "_",
+    "description": "_",
+    "extension": null,
+    "generator": "site",
+    "isbn": null,
+    "links": {
+        "sharing": {
+            "all": null,
+            "facebook": null,
+            "google": null,
+            "twitter": null,
+            "weibo": null
+        },
+        "sidebar": {
+            "yangfch3's github": "http://github.com/yangfch3"
+        }
+    },
+    "output": null,
+    "pdf": {
+        "fontSize": 12,
+        "footerTemplate": null,
+        "headerTemplate": null,
+        "margin": {
+            "bottom": 36,
+            "left": 62,
+            "right": 62,
+            "top": 36
+        },
+        "pageNumbers": false,
+        "paperSize": "a4"
+    },
+    "plugins": ["disqus","codeblock-filename"],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "hub7diary"
+        }
+    },
+    "title": "yangfch3's Diary",
+    "variables": {}
+}

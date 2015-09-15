@@ -102,6 +102,24 @@ NSThread *current = [NSThread currentThread];
 - 将任务添加到队列中
     - GCD会自动将队列中的任务取出，放到对应的线程中执行
     - 任务的取出遵循队列的FIFO原则：先进先出，后进后出
+    
+#### GCD执行任务
+- 用同步的方式执行任务
+```objc
+dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
+# queue：队列
+# block：任务
+```
+
+- 用异步的方式执行任务
+```objc
+dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
+```
+##### 同步和异步的区别
+- 同步：只能在当前线程中执行任务，不具备开启新线程的能力
+- 异步：可以在新的线程中执行任务，具备开启新线程的能力
+
+
 
 
 

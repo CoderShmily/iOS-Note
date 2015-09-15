@@ -106,7 +106,7 @@ NSThread *current = [NSThread currentThread];
 #### GCD执行任务
 
 - 用同步的方式执行任务
-- <font color = red>同步：只能在当前线程中执行任务，不具备开启新线程的能力</font>
+    - 同步：只能在当前线程中执行任务，不具备开启新线程的能力
 ```objc
 dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 // queue：队列
@@ -114,10 +114,70 @@ dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 ```
 
 - 用异步的方式执行任务
-- <font color = red>异步：可以在新的线程中执行任务，具备开启新线程的能力</font>
+    - 异步：可以在新的线程中执行任务，具备开启新线程的能力
 ```objc
 dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
 ```
+- GCD中还有个用来执行任务的函数
+```objc
+dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
+# 在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行
+# 这个queue不能是全局的并发队列
+```
+
+#### GCD的队列可以分为2大类型
+- 并发队列（Concurrent Dispatch Queue）
+    - 可以让多个任务并发（同时）执行（自动开启多个线程同时执行任务）
+    - 并发功能只有在异步（dispatch_async）函数下才有效
+- 串行队列（Serial Dispatch Queue）
+    - 让任务一个接着一个地执行（一个任务执行完毕后，再执行下一个任务）
+
+#### 同步和异步主要影响：能不能开启新的线程
+- 同步：只是在当前线程中执行任务，不具备开启新线程的能力
+- 异步：可以在新的线程中执行任务，具备开启新线程的能力
+
+#### 并发和串行主要影响：任务的执行方式
+- 并发：允许多个任务并发（同时）执行
+- 串行：一个任务执行完毕后，再执行下一个任务
+
+#### 并发队列
+```objc
+// 队列名称 队列的类型
+dispatch_queue_create(const char *label,dispatch_queue_attr_t attr); 
+
+# eg:创建并发队列
+dispatch_queue_t queue = dispatch_queue_create("com.520it.queue", DISPATCH_QUEUE_CONCURRENT);
+
+# 获得全局并发队列
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); 
+```
+##### 全局并发队列的优先级
+```objc
+#define DISPATCH_QUEUE_PRIORITY_HIGH 2 // 高
+#define DISPATCH_QUEUE_PRIORITY_DEFAULT 0 // 默认（中）
+#define DISPATCH_QUEUE_PRIORITY_LOW (-2) // 低
+#define DISPATCH_QUEUE_PRIORITY_BACKGROUND INT16_MIN // 后台
+```
+
+#### 串行队列
+
+##### GCD中获得串行有2种途径
+- 使用dispatch_queue_create函数创建串行队列
+```objc
+// 创建串行队列（队列类型传递NULL或者DISPATCH_QUEUE_SERIAL）
+dispatch_queue_t queue = dispatch_queue_create("com.520it.queue", NULL); 
+```
+
+- 使用主队列（跟主线程相关联的队列）
+```objc
+# 主队列是GCD自带的一种特殊的串行队列放在主队列中的任务，都会放到主线程中执行
+dispatch_queue_t queue = dispatch_get_main_queue();
+```
+
+#### 各种队列的执行效果
+![](各种队列的执行效果.png)
+<font color=red>注意:使用sync函数往当前串行队列中添加任务，会卡住当前的串行队列</font>
+
 
 
 

@@ -240,49 +240,6 @@ dispatch_group_notify(group, dispatch_get_main_queue(), ^{
     // 等前面的异步操作都执行完毕后，回到主线程...
 });
 ```
-#### 单例模式
-
-单例模式的作用
-```
-1. 可以保证在程序运行过程，一个类只有一个实例，而且该实例易于供外界访问
-2. 从而方便地控制了实例个数，并节约系统资源
-```
-- ARC中，单例模式的实现
-
-```objc
-// 提供1个类方法让外界访问唯一的实例
-+ (instancetype)sharedTools
-{
-    return [[self alloc] init];
-}
-
-// 在.m中保留一个全局的static的实例
-static Tools *_instance;
-
-// 重写allocWithZone:方法，在这里创建唯一的实例
-// 注意线程安全,判断是否为nil,可能多次创建
-+ (instancetype)allocWithZone:(struct _NSZone *)zone
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _instance = [super allocWithZone:zone];
-    });
-    return _instance;
-}
-
-// 实现copyWithZone:方法
-- (id)copyWithZone:(struct _NSZone *)zone
-{
-    // 因为copy方法必须通过实例对象调用,所以可以直接返回_instance
-    return _instance;
-}
-
-- (id)mutableCopyWithZone:(NSZone *)zone
-{
-    return _instance;
-}
-
-```
 
 
 

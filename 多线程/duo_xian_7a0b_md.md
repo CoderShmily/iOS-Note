@@ -253,11 +253,7 @@ dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 // 提供1个类方法让外界访问唯一的实例
 + (instancetype)sharedInstance
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _instance = [[self alloc] init];
-    });
-    return _instance;
+    return [[self alloc] init];
 }
 
 // 在.m中保留一个全局的static的实例

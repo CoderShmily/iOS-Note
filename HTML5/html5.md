@@ -43,3 +43,13 @@ Web开发新时代
     - 主流技术 HTML5+CSS3
     - HTML5亮点 Canvas/HTML5音视频/Web存储/Geolocaton/Workers多线程处理
     - CSS3亮点
+    
+
+- 标签选择器 div{}
+- 类选择器 .name{}
+- id选择器 #name{}
+- 并列选择器  (逻辑或) div,.name{}
+- 复合选择器 (逻辑与) div.name{}
+- 后代选择期 
+- 直接后代选择器
+- 

@@ -104,20 +104,21 @@ NSThread *current = [NSThread currentThread];
     - 任务的取出遵循队列的FIFO原则：先进先出，后进后出
     
 #### GCD执行任务
+
 - 用同步的方式执行任务
+- <font color = red>同步：只能在当前线程中执行任务，不具备开启新线程的能力</font>
 ```objc
 dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
-# queue：队列
-# block：任务
+// queue：队列
+// block：任务
 ```
 
 - 用异步的方式执行任务
+- <font color = red>异步：可以在新的线程中执行任务，具备开启新线程的能力</font>
 ```objc
 dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
 ```
-##### 同步和异步的区别
-- 同步：只能在当前线程中执行任务，不具备开启新线程的能力
-- 异步：可以在新的线程中执行任务，具备开启新线程的能力
+
 
 
 

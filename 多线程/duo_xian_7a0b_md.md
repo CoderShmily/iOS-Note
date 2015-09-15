@@ -251,15 +251,16 @@ dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 
 ```objc
 // 提供1个类方法让外界访问唯一的实例
-+ (instancetype)sharedInstance
++ (instancetype)sharedTools
 {
     return [[self alloc] init];
 }
 
 // 在.m中保留一个全局的static的实例
-static id _instance;
+static Tools *_instance;
 
-// 重写allocWithZone:方法，在这里创建唯一的实例（注意线程安全）
+// 重写allocWithZone:方法，在这里创建唯一的实例
+// 注意线程安全,判断是否为nil,可能多次创建
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
     static dispatch_once_t onceToken;
@@ -271,6 +272,12 @@ static id _instance;
 
 // 实现copyWithZone:方法
 - (id)copyWithZone:(struct _NSZone *)zone
+{
+    // 因为copy方法必须通过实例对象调用,所以可以直接返回_instance
+    return _instance;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone
 {
     return _instance;
 }

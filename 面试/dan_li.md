@@ -71,3 +71,105 @@ static Tools *_instance;
 
 <font color=red>单例不能继承,类的静态变量只被初始化一次,子类和父类谁先调用,创建的就是哪种类型的变量,以后也不会改变</font>
 
+
+#### 创建很多单例
+
+- 利用宏定义
+
+```objc
+//
+//  Single.h
+//  01-掌握-单例ARC
+//
+//  Created by apple on 15/8/6.
+//  Copyright (c) 2015年 小码哥. All rights reserved.
+//
+
+#define interfaceSingle(name)  + (instancetype)share##name
+
+#if __has_feature(objc_arc)
+// 如果是ARC
+#define implementationSingle(name)  + (instancetype)share##name \
+{ \
+    return [[self alloc] init]; \
+} \
+static id _instance; \
++ (instancetype)allocWithZone:(struct _NSZone *)zone \
+{ \
+    static dispatch_once_t onceToken; \
+    dispatch_once(&onceToken, ^{ \
+        _instance = [super allocWithZone:zone]; \
+    }); \
+    return _instance; \
+} \
+- (id)copyWithZone:(NSZone *)zone \
+{ \
+    return _instance; \
+} \
+- (id)mutableCopyWithZone:(NSZone *)zone \
+{ \
+    return _instance; \
+}
+#else
+// 如果不是ARC
+#define implementationSingle(name)  + (instancetype)share##name \
+{ \
+return [[self alloc] init]; \
+} \
+static id _instance; \
++ (instancetype)allocWithZone:(struct _NSZone *)zone \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [super allocWithZone:zone]; \
+}); \
+return _instance; \
+} \
+- (id)copyWithZone:(NSZone *)zone \
+{ \
+return _instance; \
+} \
+- (id)mutableCopyWithZone:(NSZone *)zone \
+{ \
+return _instance; \
+}\
+- (oneway void)release \
+{} \
+- (instancetype)retain \
+{ \
+    return _instance; \
+} \
+- (NSUInteger)retainCount \
+{ \
+    return MAXFLOAT; \
+}
+#endif
+```
+
+- 使用宏定义
+
+```
+//  FileTools.h
+
+#import <Foundation/Foundation.h>
+#import "Single.h"
+
+@interface FileTools : NSObject
+//+ (instancetype)shareFileTools;
+interfaceSingle(FileTools);
+@end
+
+```
+
+```
+//  FileTools.m
+
+#import "FileTools.h"
+
+@implementation FileTools
+
+implementationSingle(FileTools)
+
+@end
+
+```

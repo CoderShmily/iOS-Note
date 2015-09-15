@@ -1,9 +1,9 @@
 ### 线程状态
-- 新建 需要start才能进入就绪
-- 就绪
-- 运行
-- 阻塞
-- 死亡
+- 新建(New) 需要start才能进入就绪
+- 就绪(Runnable)
+- 运行(Running)
+- 阻塞(Blocked)
+- 死亡(Dead)
 
 
 ### 创建线程的方法
@@ -15,7 +15,7 @@
 
 3. NSThread *thread = [[NSThread alloc] initWithTarget:self selector:SEL object:nil];
 
-# 1.2.创建后自动启动  3需要自己启动线程
+# 1.2.创建后自动启动  3需要自己start
 ```
 
 ### 主线程相关用法
@@ -26,5 +26,8 @@
 + (BOOL)isMainThread; // 是否为主线程
 
 ```
-
+### 获得当前线程
+```objc
+NSThread *current = [NSThread currentThread];
+```
 

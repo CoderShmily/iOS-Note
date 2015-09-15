@@ -178,6 +178,37 @@ dispatch_queue_t queue = dispatch_get_main_queue();
 ![](各种队列的执行效果.png)
 <font color=red>注意:使用sync函数往当前串行队列中添加任务，会卡住当前的串行队列</font>
 
+#### 线程间通信示例
+
+```
+# 从子线程回到主线程
+dispatch_async(
+dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行耗时的异步操作...
+      dispatch_async(dispatch_get_main_queue(), ^{
+        // 回到主线程，执行UI刷新操作
+        });
+});
+
+```
+
+#### 延时执行
+- 调用NSObject的方法
+```
+[self performSelector:@selector(run) withObject:nil afterDelay:2.0];
+// 2秒后再调用self的run方法
+```
+- 使用GCD函数
+```
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    // 2秒后执行这里的代码...
+});
+```
+- 使用NSTimer
+```
+[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(test) userInfo:nil repeats:NO];
+```
+
 
 
 

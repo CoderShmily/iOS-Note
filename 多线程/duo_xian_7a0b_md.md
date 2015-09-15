@@ -163,12 +163,13 @@ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAU
 
 ##### GCD中获得串行有2种途径
 - 使用dispatch_queue_create函数创建串行队列
-```objc
+```
 // 创建串行队列（队列类型传递NULL或者DISPATCH_QUEUE_SERIAL）
 dispatch_queue_t queue = dispatch_queue_create("com.520it.queue", NULL); 
 ```
 
 - 使用主队列（跟主线程相关联的队列）
+
 ```objc
 # 主队列是GCD自带的一种特殊的串行队列放在主队列中的任务，都会放到主线程中执行
 dispatch_queue_t queue = dispatch_get_main_queue();
@@ -181,7 +182,7 @@ dispatch_queue_t queue = dispatch_get_main_queue();
 #### 线程间通信示例
 
 ```
-# 从子线程回到主线程
+// 从子线程回到主线程
 dispatch_async(
 dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     // 执行耗时的异步操作...
@@ -207,6 +208,37 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), 
 - 使用NSTimer
 ```
 [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(test) userInfo:nil repeats:NO];
+```
+
+#### 一次性代码
+```
+// 使用dispatch_once函数能保证某段代码在程序运行过程中只被执行1次
+static dispatch_once_t onceToken;
+dispatch_once(&onceToken, ^{
+    // 只执行1次的代码(这里面默认是线程安全的)
+});
+```
+#### 快速迭代
+```
+// 使用dispatch_apply函数能进行快速迭代遍历
+dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index){
+    // 执行10次代码，index顺序不确定
+});
+```
+### 队列组
+若有此需求：分别异步执行2个耗时的操作,等2个异步操作都执行完毕后，再回到主线程执行操作
+
+```objc
+dispatch_group_t group =  dispatch_group_create();
+dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行1个耗时的异步操作
+});
+dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行1个耗时的异步操作
+});
+dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    // 等前面的异步操作都执行完毕后，回到主线程...
+});
 ```
 
 

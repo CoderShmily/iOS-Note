@@ -9,7 +9,7 @@
 为什么要用:
 跨平台,编写的UI界面支持所有平台的浏览器
 不能完成一些单独的功能 拍照,访问相册
- 
+
 
 框架
 编辑器
@@ -35,3 +35,11 @@
     - (eclipse/MyEclipse)
     - Dreamwave (Dreamwave/fireworks/flash 三剑客)
     - WebStrom
+
+Web开发新时代
+- Web1.0
+- Web2.0
+- Web3.0
+    - 主流技术 HTML5+CSS3
+    - HTML5亮点 Canvas/HTML5音视频/Web存储/Geolocaton/Workers多线程处理
+    - CSS3亮点

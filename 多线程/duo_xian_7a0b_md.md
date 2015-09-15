@@ -15,7 +15,7 @@
 
 3. NSThread *thread = [[NSThread alloc] initWithTarget:self selector:SEL object:nil];
 
-# 1.2.创建后自动启动  3需要自己start
+# 1.2.创建后自动启动  3需要自己start线程
 ```
 
 ### 主线程相关用法

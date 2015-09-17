@@ -8,6 +8,7 @@
     Person *person = [[Person alloc] init];
     person.age = 10;
     person.name = @"adas";
+    
     // 获取temp文件夹路径
     NSString *tempPath = NSTemporaryDirectory();
 

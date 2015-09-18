@@ -60,3 +60,9 @@ Web开发新时代
 # JS (Netspace设计)
 用于浏览器客户端的脚本语言
 脚本语言:解析(不是编译)
+
+数据类型:
+number(整数 小数)
+object(null)
+boolean
+string('')

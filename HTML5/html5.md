@@ -56,6 +56,24 @@ Web开发新时代
 - 属性选择器 选择器1[选择器2] 选择器1[选择器2][选择器3]
 选择器1[选择器2 = "xxx"];
 - 伪类
+
+CSS 书写样式
+CSS有3种书写形式
+行内样式：（内联样式）直接在标签的style属性中书写
+```
+<body style="color: red;">
+```
+页内样式：在本网页的style标签中书写
+```
+<style>
+    body {
+        color: red;
+    }
+</style>
+`
+外部样式：在单独的CSS文件中书写，然后在网页中用link标签引用
+<link rel="stylesheet" href="index.css">
+
  
 # JS (Netspace设计)
 用于浏览器客户端的脚本语言

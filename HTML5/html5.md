@@ -64,7 +64,7 @@ CSS有3种书写形式
 <body style="color: red;">
 ```
 页内样式：在本网页的style标签中书写
-
+```
 <!--可修改本文章的文本格式-->
 <style>
     .test {
@@ -75,12 +75,12 @@ CSS有3种书写形式
     }
 </style>
 
-
+```
 外部样式：在单独的CSS文件中书写，然后在网页中用link标签引用
 ```
 <link rel="stylesheet" href="index.css">
 ```
-<h1>eeeeeeeeeeee</h1>
+
 # JS (Netspace设计)
 用于浏览器客户端的脚本语言
 脚本语言:解析(不是编译)

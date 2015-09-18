@@ -68,9 +68,11 @@ CSS有3种书写形式
 <style>
     body {
         color: red;
+        background-color: green;
     }
 </style>
-`
+``
+
 外部样式：在单独的CSS文件中书写，然后在网页中用link标签引用
 <link rel="stylesheet" href="index.css">
 

@@ -21,6 +21,8 @@
   NSLog(@"科学技术法:%e",f);
   NSLog(@"科学技术法(用最简短的方式):%g",f);
   NSLog(@"同时打印两个整数：i＝%i,f=%f",i,f);
+  %ld - NSIntegeter 
+  %zd - NSUInteger
   
 // 把结构体转换为NSString打印出来
 

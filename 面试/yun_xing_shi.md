@@ -1,5 +1,11 @@
 ```objc
     class_getInstanceMethod();
+    class_addMethod();
+    
+    method_getImplementation();
+    method_getTypeEncoding();
+    method_exchangeImplementations;
+
 ```
 
 ```objc

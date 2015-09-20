@@ -8,12 +8,13 @@ method_getImplementation();
 method_getTypeEncoding();
 method_exchangeImplementations;
 
-
-
-
 ```
 
 ```objc
+objc_setAssociatedObject
+objc_getAssociatedObject
+objc_removeAssociatedObjects
+
 object_getClass(id obj);
 object_getClassName(id obj);
 object_getIvar(id obj, Ivar ivar);

@@ -21,8 +21,7 @@
   NSLog(@"科学技术法:%e",f);
   NSLog(@"科学技术法(用最简短的方式):%g",f);
   NSLog(@"同时打印两个整数：i＝%i,f=%f",i,f);
-  %ld - NSIntegeter 
-  %zd - NSUInteger
+  NSLog(@"%%"); 输出一个%
   
 // 把结构体转换为NSString打印出来
 
@@ -36,3 +35,4 @@
     NSStringFromSelector(SEL aSelector);
     
 ```
+![](格式化输出.png)

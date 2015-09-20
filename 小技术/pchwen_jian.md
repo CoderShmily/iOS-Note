@@ -1,6 +1,6 @@
 - pch文件使用前要包含路径
     - 从工程目录下开始
-    - $(src)00000/PrefixHeader.pch
+    - $(SRC)00000/PrefixHeader.pch
 ![](pch设置.png)
 
 

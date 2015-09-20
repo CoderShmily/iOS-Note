@@ -8,7 +8,7 @@
 
 # 参数解释
 1. options:枚举
-enum{
+enum NSStringCompareOptions{
     NSCaseInsensitiveSearch = 1,//不区分大小写比较
     NSLiteralSearch = 2,//区分大小写比较
     NSBackwardsSearch = 4,//从字符串末尾开始搜索
@@ -30,7 +30,7 @@ location: 需要比较的字串起始位置（以0为起始）
 length: 需要比较的字串长度
  
 3. 返回值：
-typedef enum _NSComparisonResult {
+enum NSComparisonResult {
      NSOrderedAscending = -1,    // < 升序
      NSOrderedSame,              // = 等于
      NSOrderedDescending   // > 降序

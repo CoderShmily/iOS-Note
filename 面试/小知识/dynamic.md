@@ -13,7 +13,8 @@
 由于使用@dynamic，我们需要自己提供setter和getter方法。一般有两种方法：
 - 1)自己提供setter和getter方法，将编译器自动生成的setter和getter方法手动再写一遍；
 - 2)动态方法决议(DynamicMethod Resolution)，在运行时提供setter和getter对应实现的C函数。
-    对于第一种方法，需要在类中显式提供实例变量，因为@dynamic不能像@synthesize那样向实现文件(.m)提供实例变量。
+    
+对于第一种方法，需要在类中显式提供实例变量，因为@dynamic不能像@synthesize那样向实现文件(.m)提供实例变量。
 
 ```objc
 #import <Foundation/Foundation.h>

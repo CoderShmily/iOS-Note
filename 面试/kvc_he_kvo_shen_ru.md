@@ -30,3 +30,103 @@ KVO是Key-Value Observing的缩写。它提供一种机制，当指定的对象�
 - 定义一个UIButton，在button的点击方法里面，去改变People的age。
 - 你就可以收到age改变时发出来的通知
 - 在对象销毁的时候，移除通知。
+
+# KVO 进阶
+KVO(Key Value Observing)，是观察者模式在Foundation中的实现
+
+#### KVO的原理
+
+简而言之就是：
+- 当一个object有观察者时，动态创建这个object的类的子类
+- 对于每个被观察的property，重写其set方法
+- 在重写的set方法中调用- willChangeValueForKey:和- didChangeValueForKey:通知观察者
+- 当一个property没有观察者时，删除重写的方法
+- 当没有observer观察任何一个property时，删除动态创建的子类
+
+空说无凭，简单验证下。
+```objc
+@interface Sark : NSObject
+@property (nonatomic, copy) NSString *name;
+@end
+
+@implementation Sark
+@end
+Sark *sark = [Sark new];
+// breakpoint 1
+[sark addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+// breakpoint 2
+sark.name = @"萨萨萨";
+[sark removeObserver:self forKeyPath:@"name"];
+// breakpoint 3
+```
+断住后分别使用- class和object_getClass()打出sark对象的Class和真实的Class
+```objc
+// breakpoint 1
+(lldb) po sark.class
+Sark
+(lldb) po object_getClass(sark)
+Sark
+
+// breakpoint 2
+(lldb) po sark.class
+Sark
+(lldb) po object_getClass(sark)
+NSKVONotifying_Sark
+
+// breakpoint 3
+(lldb) po sark.class
+Sark
+(lldb) po object_getClass(sark)
+Sark
+```
+上面的结果说明，在sark对象被观察时,framework使用runtime动态创建了一个Sark类的子类`NSKVONotifying_Sark`而且为了隐藏这个行为,`NSKVONotifying_Sark`重写了-class方法返回之前的类,就好像什么也没发生过一样但是使用object_getClass()时就暴露了, 因为这 个方法返回的是这个对象的`isa指针`，`这个指针指向的一定是个这个对象的类对象`.
+
+然后来偷窥一下这个动态类实现的方法，这里请出一个NSObject的扩展NSObject+DLIntrospection，它封装了打印一个类的方法、属性、协议等常用调试方法，一目了然。
+```objc
+@interface NSObject (DLIntrospection)
++ (NSArray *)classes;
++ (NSArray *)properties;
++ (NSArray *)instanceVariables;
++ (NSArray *)classMethods;
++ (NSArray *)instanceMethods;
+
++ (NSArray *)protocols;
++ (NSDictionary *)descriptionForProtocol:(Protocol *)proto;
+
++ (NSString *)parentClassHierarchy;
+@end
+```
+然后继续在刚才的断点处调试：
+```
+// breakpoint 1
+(lldb) po [object_getClass(sark) instanceMethods]
+<__NSArrayI 0x8e9aa00>(
+- (void)setName:(id)arg0 ,
+- (void).cxx_destruct,
+- (id)name
+)
+// breakpoint 2
+(lldb) po [object_getClass(sark) instanceMethods]
+<__NSArrayI 0x8d55870>(
+- (void)setName:(id)arg0 ,
+- (class)class,
+- (void)dealloc,
+- (BOOL)_isKVOA
+)
+// breakpoint 3
+(lldb) po [object_getClass(sark) instanceMethods]
+<__NSArrayI 0x8e9cff0>(
+- (void)setName:(id)arg0 ,
+- (void).cxx_destruct,
+- (id)name
+)
+```
+首先就有个扎眼的`- .cxx_destruct`冒出来，这货是个啥？详细的探 究请参考我的另一篇文章。
+
+大概就是说arc下这个方法在所有dealloc调用完成后负责释放所有的变量，当然这个和kvo没啥关系了，回到正题。
+从上面breakpoint2的打印可以看出，动态类重写了4个方法：
+
+- setName:最主要的重写方法，set值时调用通知函数
+- class隐藏自己必备啊，返回原来类的class
+- dealloc做清理犯罪现场工作
+- _isKVOA这就是内部使用的标示了，判断这个类有没被KVO动态生成子类

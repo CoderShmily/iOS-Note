@@ -1,18 +1,18 @@
 在声明property属性后，有2种实现选择
 
-@synthesize
+- @synthesize
 编译器期间，让编译器自动生成getter/setter方法。
 当有自定义的存或取方法时，自定义会屏蔽自动生成该方法
 
-@dynamic
+- @dynamic
 告诉编译器，不自动生成getter/setter方法，避免编译期间产生警告
 然后由自己实现存取方法
 
 或存取方法在运行时动态创建绑定：主要使用在CoreData的实现NSManagedObject子类时使用，由Core Data框架在程序运行的时动态生成子类属性
 
 由于使用@dynamic，我们需要自己提供setter和getter方法。一般有两种方法：
-- (1)自己提供setter和getter方法，将编译器自动生成的setter和getter方法手动再写一遍；
-- (2)动态方法决议(DynamicMethod Resolution)，在运行时提供setter和getter对应实现的C函数。
+- 1)自己提供setter和getter方法，将编译器自动生成的setter和getter方法手动再写一遍；
+- 2)动态方法决议(DynamicMethod Resolution)，在运行时提供setter和getter对应实现的C函数。
     对于第一种方法，需要在类中显式提供实例变量，因为@dynamic不能像@synthesize那样向实现文件(.m)提供实例变量。
 
 ```objc

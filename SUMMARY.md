@@ -51,4 +51,5 @@
 * [小技术](小技术/xiao_ji_zhu.md)
    * [字符串处理](小技术/zi_fu_chuan_chu_li.md)
    * [硬件信息的获取](小技术/ying_jian_xin_xi_de_huo_qu.md)
+   * NSLog
 

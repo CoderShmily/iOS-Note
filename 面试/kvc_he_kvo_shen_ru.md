@@ -126,7 +126,28 @@ Sark
 大概就是说arc下这个方法在所有dealloc调用完成后负责释放所有的变量，当然这个和kvo没啥关系了，回到正题。
 从上面breakpoint2的打印可以看出，动态类重写了4个方法：
 
-- setName:最主要的重写方法，set值时调用通知函数
-- class隐藏自己必备啊，返回原来类的class
-- dealloc做清理犯罪现场工作
-- _isKVOA这就是内部使用的标示了，判断这个类有没被KVO动态生成子类
+- `- setName:`最主要的重写方法，set值时调用通知函数
+- `- class`隐藏自己必备啊，返回原来类的class
+- `- dealloc`做清理犯罪现场工作
+- `- _isKVOA`这就是内部使用的标示了，判断这个类有没被KVO动态生成子类
+
+接下来验证一下KVO重写set方法后是否调用了`- willChangeValueForKey:`和<br>`- didChangeValueForKey:`最直接的验证方法就是在Sark类中重写这两个方法：
+
+```objc
+@implementation Sark
+
+- (void)willChangeValueForKey:(NSString *)key
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [super willChangeValueForKey:key];
+}
+
+- (void)didChangeValueForKey:(NSString *)key
+{
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    [super didChangeValueForKey:key];
+}
+
+@end
+```
+没问题。

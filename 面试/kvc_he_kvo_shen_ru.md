@@ -10,6 +10,7 @@ KVC即NSKeyValueCoding，就是键-值编码的意思。一个非正式的 Proto
 
 #### 3.KVC和KVO有什么区别？
 KVO是建立在KVC之上的，KVO能够观察一个对象的KVC key-path值的变化。
+
 ---
 
 

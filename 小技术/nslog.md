@@ -9,6 +9,7 @@
 ```
 
 - 格式化输出
+
 ```
 //常用打印语句
   NSLog(@"字符串:%@",name);
@@ -20,4 +21,16 @@
   NSLog(@"科学技术法:%e",f);
   NSLog(@"科学技术法(用最简短的方式):%g",f);
   NSLog(@"同时打印两个整数：i＝%i,f=%f",i,f);
+  
+// 把结构体转换为NSString打印出来
+
+    NSLog(@"%@", NSStringFromCGRect(rect));
+    // 列出一些....
+    NSStringFromCGRect(CGRect rect);
+    NSStringFromCGSize(CGSize size);
+    NSStringFromCGPoint(CGPoint point);
+    NSStringFromClass(Class  __unsafe_unretained aClass);
+    NSStringFromRange(NSRange range);
+    NSStringFromSelector(SEL aSelector);
+    
 ```

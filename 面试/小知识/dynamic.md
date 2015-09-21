@@ -6,9 +6,7 @@
 
 - @dynamic
 告诉编译器，不自动生成getter/setter方法，避免编译期间产生警告
-然后由自己实现存取方法
-
-或存取方法在运行时动态创建绑定：主要使用在CoreData的实现NSManagedObject子类时使用，由Core Data框架在程序运行的时动态生成子类属性
+然后由自己实现存取方法或存取方法在运行时动态创建绑定：主要使用在CoreData的实现NSManagedObject子类时使用，由CoreData框架在程序运行的时动态生成子类属性
 
 由于使用@dynamic，我们需要自己提供setter和getter方法。一般有两种方法：
 - 1)自己提供setter和getter方法，将编译器自动生成的setter和getter方法手动再写一遍；

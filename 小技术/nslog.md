@@ -32,7 +32,7 @@
     NSStringFromCGPoint(CGPoint point);
     NSStringFromClass(Class  __unsafe_unretained aClass);
     NSStringFromRange(NSRange range);
-    NSStringFromSelector(SEL aSelector);
+    NSStringFromSelector(SEL aSelector);// SEL _cmd打印
     
 ```
 ![](格式化输出.png)

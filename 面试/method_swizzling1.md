@@ -24,9 +24,9 @@ Method origMethod = class_getInstanceMethod(class, origSelector);  //获取SEL�
 Method是一个结构体，我们想要的IMP就在里面，看看结构
 ```
 struct objc_method {
-    SEL method_name                                          OBJC2_UNAVAILABLE;
-    char *method_types                                       OBJC2_UNAVAILABLE;
-    IMP method_imp                                           OBJC2_UNAVAILABLE;
+    SEL method_name                     OBJC2_UNAVAILABLE;
+    char *method_types                  OBJC2_UNAVAILABLE;
+    IMP method_imp                      OBJC2_UNAVAILABLE;
 }
 ```
 ```

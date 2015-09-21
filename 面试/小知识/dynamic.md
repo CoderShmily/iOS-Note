@@ -108,6 +108,14 @@ http://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ObjCRuntim
     return [super resolveInstanceMethod:sel];
 }
 
+//+ (BOOL)resolveClassMethod:(SEL)name
+//{
+//    NSLog(@" >> Class resolving %@", NSStringFromSelector(name));
+//    
+//    return [super resolveClassMethod:name];
+//}
+
+
 void setName(id self, SEL _cmd, NSString* name)
 {
     // Implement @property (copy)

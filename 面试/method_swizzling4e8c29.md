@@ -1,4 +1,4 @@
-### Method Swizzling
+### Method Swizzling (方法混淆)
 
 ```
 本文翻译自NSHipster的文章Method Swizzling。

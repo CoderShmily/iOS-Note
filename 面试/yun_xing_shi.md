@@ -100,3 +100,8 @@ struct objc_class {
         NSLog(@"protocol---->%@", [NSString stringWithUTF8String:protocolName]);
     }
 ```
+- 方法调用在运行时的过程
+
+```
+
+```

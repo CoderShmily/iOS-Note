@@ -248,3 +248,108 @@ static Method _class_resolveInstanceMethod(Class cls, SEL sel)
 #### 加入消息转发
 
 在前文[《深入浅出Cocoa之消息》](http://www.cnblogs.com/kesalin/archive/2011/08/15/objc_method_base.html)，我演示了一个消息转发的示例，下面我把动态方法决议部分去除，把消息转发部分添加进来：
+```objc
+// Proxy
+@interface Proxy : NSObject
+
+-(void)MissMethod;
+
+@end
+
+@implementation Proxy
+
+-(void)MissMethod
+{
+    NSLog(@" >> MissMethod() called in Proxy.");
+}
+
+@end
+
+// Foo
+@interface Foo : NSObject
+
+-(void)Bar;
+
+@end
+
+@implementation Foo
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+{
+    SEL name = [anInvocation selector];
+    NSLog(@" >> forwardInvocation for selector %@", NSStringFromSelector(name));
+    
+    Proxy * proxy = [[[Proxy alloc] init] autorelease];
+    if ([proxy respondsToSelector:name]) {
+        [anInvocation invokeWithTarget:proxy];
+    }
+    else {
+        [super forwardInvocation:anInvocation];
+    }
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [Proxy instanceMethodSignatureForSelector:aSelector];
+}
+
+-(void)Bar
+{
+    NSLog(@" >> Bar() in Foo.");
+}
+
+@end
+```
+运行测试代码，输出如下：
+```
+  >> Bar() in Foo.
+  >> forwardInvocation for selector MissMethod
+  >> MissMethod() called in Proxy.
+```
+
+如果我把动态方法决议部分代码也加入进来输出又是怎样呢？下面只列出了 Foo 的实现代码，其他代码不变动。
+```objc
+@implementation Foo
+
++(BOOL)resolveInstanceMethod:(SEL)name
+{
+    NSLog(@" >> Instance resolving %@", NSStringFromSelector(name));
+    
+    if (name == @selector(MissMethod)) {
+        class_addMethod([self class], name, (IMP)dynamicMethodIMP, "v@:");
+        return YES;
+    }
+    
+    return [super resolveInstanceMethod:name];
+}
+
++(BOOL)resolveClassMethod:(SEL)name
+{
+    NSLog(@" >> Class resolving %@", NSStringFromSelector(name));
+    return [super resolveClassMethod:name];
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+{
+    SEL name = [anInvocation selector];
+    NSLog(@" >> forwardInvocation for selector %@", NSStringFromSelector(name));
+    
+    Proxy * proxy = [[[Proxy alloc] init] autorelease];
+    if ([proxy respondsToSelector:name]) {
+        [anInvocation invokeWithTarget:proxy];
+    }
+    else {
+        [super forwardInvocation:anInvocation];
+    }
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    return [Proxy instanceMethodSignatureForSelector:aSelector];
+}
+
+-(void)Bar
+{
+    NSLog(@" >> Bar() in Foo.");
+}
+
+@end
+```

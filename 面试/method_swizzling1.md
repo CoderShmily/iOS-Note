@@ -1,0 +1,98 @@
+钩子(Hook)，是Windows消息处理机制的一个平台，应用程序可以在上面设置子程以监视指定窗口的某种消息，而且所监视的窗口可以是其他进程所创建的。当消息到达后，在目标窗口处理函数之前处理它。钩子机制允许应用程序截获处理window消息或特定事件
+
+那ios中我们就用Method Swizzling来实现，为什么说是内部钩子呢，因为需要在工程里实现，我改天会分享外部的。
+
+先了解一下SEL和IMP的概念，
+
+SEL可以理解为函数名的意思，我们常用的@selector()就是通过字符串获得SEL
+
+IMP可以理解成函数指针的意思，是能正确读取到函数的内容
+一般是这样的：盗个图
+![](Snip20150921_5.png)
+我们要做的就是把链接线解开，然后连到我们自定义的函数IMP上，如果有需要的话，我们再连回原来的IMP上
+
+就是这样的：
+![](Snip20150921_6.png)
+
+如果在执行完IMPn后还想继续调用IMPc的话，只需要在IMPn中调用selectorN就行了。
+
+具体怎么做呢：
+```
+Method origMethod = class_getInstanceMethod(class, origSelector);  //获取SEL的Method
+
+```
+Method是一个结构体，我们想要的IMP就在里面，看看结构
+```
+struct objc_method {
+    SEL method_name                                          OBJC2_UNAVAILABLE;
+    char *method_types                                       OBJC2_UNAVAILABLE;
+    IMP method_imp                                           OBJC2_UNAVAILABLE;
+}
+```
+```
+IMP origIMP = method_getImplementation(origMethod);  //获取Method中的IMP
+```
+ok，IMP获取到了，连接SEL到别的IMP呢
+```
+BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);  //先增加新方法名SEL+原来的IMP
+IMP method_setImplementation(Method m, IMP imp);//然后将原来的method(SEL)重新分配新的IMP
+
+```
+```
+void method_exchangeImplementations(Method m1, Method m2) //或者可以使用method的交换方法
+
+```
+
+实战，假设我们想知道app跳转都传送了什么值（如应用调用QQ分享什么的），那么我们可以勾取UIApplication的OpenUrl方法
+```
+#import "KHookObjectWrapper.h"
+#import "UIKit/UIKit.h"
+#import <objc/objc.h>
+#import <objc/runtime.h>
+ 
+@implementation KHookObjectWrapper
+ 
++ (void)setup
+{
+    //openURL
+    Method m = class_getInstanceMethod([UIApplication class], @selector(openURL:));
+    class_addMethod([UIApplication class], @selector(hook_openURL:), method_getImplementation(m), method_getTypeEncoding(m));
+    method_setImplementation(m, class_getMethodImplementation([self class], @selector(hook_openURL:)));
+}
+ 
+- (BOOL)hook_openURL:(NSURL *)url
+{
+    NSLog(@"hook_openURL:%@", [url absoluteString]);
+    return [self hook_openURL:url];
+}
+
+```
+
+使用method的交换方法实现：
+```
+#import "KHookObjectWrapper.h"
+#import "UIKit/UIKit.h"
+#import <objc/objc.h>
+#import <objc/runtime.h>
+ 
+@implementation KHookObjectWrapper
+ 
++ (void)setup
+{
+    //openURL
+    Method m = class_getInstanceMethod([UIApplication class], @selector(openURL:));
+    Method m2 = class_getInstanceMethod([self class], @selector(hook_openURL:));
+     
+    class_addMethod([UIApplication class], @selector(hook_openURL:), method_getImplementation(m), method_getTypeEncoding(m)); //为什么要有这句的，因为UIApplication没有hook_openURL方法会奔溃，大家觉得可以讲self的hook_openURL改名成openURL，大家可以试试，也是不行的
+     
+    method_exchangeImplementations(m, m2);
+}
+ 
+- (BOOL)hook_openURL:(NSURL *)url
+{
+    NSLog(@"hook_openURL:%@", [url absoluteString]);
+    return [self hook_openURL:url];
+}
+ 
+@end
+```

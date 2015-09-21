@@ -1,30 +1,62 @@
+Runtime方法列表:
 ```objc
-class_getInstanceMethod();
+Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
+BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 听过方法名SEL+原来的IMP实现给类添加新方法
 
-// 通过class_addMethod方法将一个函数加入到类的方法中
-class_addMethod(__unsafe_unretained Class cls, SEL name, IMP imp, const char *types);
+const char *method_getTypeEncoding(Method m);// 获得types
+IMP method_getImplementation(Method m);//获取Method中的IMP
+method_exchangeImplementations(Method m1, Method m2); //或者可以使用method的交换方法
+IMP method_setImplementation(Method m, IMP imp);// 原来的method(SEL)重新分配新的IMP
 
-method_getImplementation();
-method_getTypeEncoding();
-method_exchangeImplementations;
+objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);//Sets an associated value for a given object using a given key and association policy.
+id objc_getAssociatedObject(id object, const void *key);// Returns the value associated with a given object for a given key.
+objc_removeAssociatedObjects(id object);// 注意:Removes all associations for a given object.
+
+Class object_getClass(id obj);//Returns the class of an object.
+const char *object_getClassName(id obj);//Returns the class name of a given object.
+id object_getIvar(id obj, Ivar ivar);//Reads the value of an instance variable in an object.
+BOOL object_isClass(id obj);//Returns whether an object is a class object.
+
+Class object_setClass(id obj, Class cls);//Sets the class of an object.
+object_setIvar(id obj, Ivar ivar, id value);//Sets the value of an instance variable in an object.
+
+objc_msgSend(id obj, SEL name);//发送消息
+```
+#### 获取列表(属性、方法、协议) 
 
 ```
+#import <objc/runtime.h>
 
-```objc
-objc_setAssociatedObject
-objc_getAssociatedObject
-objc_removeAssociatedObjects
+ unsigned int count;
+    //获取属性列表
+    objc_property_t *propertyList = class_copyPropertyList([self class], &count);
+    for (unsigned int i=0; i<count; i++) {
+        const char *propertyName = property_getName(propertyList[i]);
+        NSLog(@"property---->%@", [NSString stringWithUTF8String:propertyName]);
+    }
 
-object_getClass(id obj);
-object_getClassName(id obj);
-object_getIvar(id obj, Ivar ivar);
-object_isClass(id obj)
-     
-object_setClass(id obj, __unsafe_unretained Class cls)
-object_setIvar(id obj, Ivar ivar, id value)
+    //获取方法列表
+    Method *methodList = class_copyMethodList([self class], &count);
+    for (unsigned int i; i<count; i++) {
+        Method method = methodList[i];
+        NSLog(@"method---->%@", NSStringFromSelector(method_getName(method)));
+    }
 
-objc_send(id, SEL, ...) //发送消息
-objc_msgSend(id, SEL);
+    //获取成员变量列表
+    Ivar *ivarList = class_copyIvarList([self class], &count);
+    for (unsigned int i; i<count; i++) {
+        Ivar myIvar = ivarList[i];
+        const char *ivarName = ivar_getName(myIvar);
+        NSLog(@"Ivar---->%@", [NSString stringWithUTF8String:ivarName]);
+    }
+
+    //获取协议列表
+    __unsafe_unretained Protocol **protocolList = class_copyProtocolList([self class], &count);
+    for (unsigned int i; i<count; i++) {
+        Protocol *myProtocal = protocolList[i];
+        const char *protocolName = protocol_getName(myProtocal);
+        NSLog(@"protocol---->%@", [NSString stringWithUTF8String:protocolName]);
+    }
 ```
 
 #### 相关的定义
@@ -64,42 +96,7 @@ struct objc_class {
 } OBJC2_UNAVAILABLE;
 /* Use `Class` instead of `struct objc_class *` */
 ```
-#### 获取列表(属性、方法、协议) 
 
-```
-#import <objc/runtime.h>
-
- unsigned int count;
-    //获取属性列表
-    objc_property_t *propertyList = class_copyPropertyList([self class], &count);
-    for (unsigned int i=0; i<count; i++) {
-        const char *propertyName = property_getName(propertyList[i]);
-        NSLog(@"property---->%@", [NSString stringWithUTF8String:propertyName]);
-    }
-
-    //获取方法列表
-    Method *methodList = class_copyMethodList([self class], &count);
-    for (unsigned int i; i<count; i++) {
-        Method method = methodList[i];
-        NSLog(@"method---->%@", NSStringFromSelector(method_getName(method)));
-    }
-
-    //获取成员变量列表
-    Ivar *ivarList = class_copyIvarList([self class], &count);
-    for (unsigned int i; i<count; i++) {
-        Ivar myIvar = ivarList[i];
-        const char *ivarName = ivar_getName(myIvar);
-        NSLog(@"Ivar---->%@", [NSString stringWithUTF8String:ivarName]);
-    }
-
-    //获取协议列表
-    __unsafe_unretained Protocol **protocolList = class_copyProtocolList([self class], &count);
-    for (unsigned int i; i<count; i++) {
-        Protocol *myProtocal = protocolList[i];
-        const char *protocolName = protocol_getName(myProtocal);
-        NSLog(@"protocol---->%@", [NSString stringWithUTF8String:protocolName]);
-    }
-```
 #### 方法调用在运行时的过程
 
 - 如果调用实例方法，会到实例的isa指针指向的对象（也就是类对象）操作。

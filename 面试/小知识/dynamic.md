@@ -159,3 +159,92 @@ int main(int argc, const char * argv[])
 Objective-C 的运行时只要发现你调用了@dynamic标注的属性的
 setter、getter 方法，就会自动到resolveInstanceMethod 里去寻找真实的实现。实际上除了@dynamic标注的属性之外，如果你调用了类型中不存在的方法，也会被resolveInstanceMethod或者
 resolveClassMethod截获，但由于你没有处理，所以会报告不能识别的消息的错误。一般Objective-C的运行时编程用到的并不多，除非你想设计一个动态化的功能，譬如：从网络下载一个升级包，不需要退出原有的程序，就可以动态的替换掉旧的功能等类似的需求。
+
+
+让我们来看看运行时系统是如何进行动态方法决议的，下面的代码来自苹果官方公开的源码 objc-class.mm，我在其中添加了中文注释：
+
+1，首先是判断是不是要进行类方法决议，如果不是或决议失败，则进行实例方法决议
+```objc
+/**********************************************************/
+* _class_resolveMethod
+* Call +resolveClassMethod or +resolveInstanceMethod and return 
+* the method added or NULL. 
+* Assumes the method doesn't exist already.
+***********************************************************/
+__private_extern__ Method _class_resolveMethod(Class cls, SEL sel)
+{
+    Method meth = NULL;
+
+    if (_class_isMetaClass(cls)) {
+        meth = _class_resolveClassMethod(cls, sel);
+    }
+    if (!meth) {
+        meth = _class_resolveInstanceMethod(cls, sel);
+    }
+
+    if (PrintResolving  &&  meth) {
+        _objc_inform("RESOLVE: method %c[%s %s] dynamically resolved to %p", 
+                     class_isMetaClass(cls) ? '+' : '-', 
+                     class_getName(cls), sel_getName(sel), 
+                     method_getImplementation(meth));
+    }
+    
+    return meth;
+}
+```
+2，类方法决议与实例方法决议大体相似，在这里就只看实例方法决议部分了：
+```objc
+ /***********************************************************************
+ * _class_resolveInstanceMethod
+ * Call +resolveInstanceMethod and return the method added or NULL.
+ * cls should be a non-meta class.
+ * Assumes the method doesn't exist already.
+ **********************************************************************/
+static Method _class_resolveInstanceMethod(Class cls, SEL sel)
+{
+    BOOL resolved;
+    Method meth = NULL;
+    
+    // 是否实现了 resolveInstanceMethod，如果没有返回 NULL
+    if (!look_up_method(((id)cls)->isa, SEL_resolveInstanceMethod, 
+                        YES /*cache*/, NO /*resolver*/))
+    {
+        return NULL;
+    }
+    
+    // 调用 resolveInstanceMethod，并获取返回值
+    resolved = ((BOOL(*)(id, SEL, SEL))objc_msgSend)((id)cls, SEL_resolveInstanceMethod, sel);
+    
+    if (resolved) {
+        // 返回值为 YES，表示 resolveInstanceMethod 声称它已经成功添加实现，则再次查找 method list 
+        // +resolveClassMethod adds to self
+        meth = look_up_method(cls, sel, YES/*cache*/, NO/*resolver*/);
+        
+        if (!meth) {
+            // resolveInstanceMethod 使诈了，它声称成功添加实现了，但实际没有，给出警告信息，并返回 NULL
+            // Method resolver didn't add anything?
+            _objc_inform("+[%s resolveInstanceMethod:%s] returned YES, but "
+                         "no new implementation of %c[%s %s] was found", 
+                         class_getName(cls),
+                         sel_getName(sel), 
+                         class_isMetaClass(cls) ? '+' : '-', 
+                         class_getName(cls), 
+                         sel_getName(sel));
+            return NULL;
+        }
+    }
+    
+    // 其他情况下返回 NULL
+    return meth;
+}  
+```
+
+这段代码很容易理解：
+1. 首先判断是否实现了 resolveInstanceMethod，如果没有实现，返回 NULL，进入下一步处理；
+2. 如果实现了，调用 resolveInstanceMethod，获取返回值；
+3. 如果返回值为 YES，表示 resolveInstanceMethod 声称它已经提供了 selector 的实现，因此再次查找 method list，如果依然找到对应的IMP，则返回该实现，否则提示警告信息，返回 NULL，进入下一步处理；
+4. 如果返回值为 NO，返回 NULL，进入下一步处理；
+
+#### 加入消息转发
+
+在前文[《深入浅出Cocoa之消息》](http://www.cnblogs.com/kesalin/archive/2011/08/15/objc_method_base.html)，我演示了一个消息转发的示例，下面我把动态方法决议部分去除，把消息转发部分添加进来：

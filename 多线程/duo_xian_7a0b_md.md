@@ -149,6 +149,7 @@ dispatch_queue_create(const char *label,dispatch_queue_attr_t attr);
 dispatch_queue_t queue = dispatch_queue_create("com.520it.queue", DISPATCH_QUEUE_CONCURRENT);
 
 # 获得全局并发队列
+// 参数一般直接传(0,0)
 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); 
 ```
 ##### 全局并发队列的优先级

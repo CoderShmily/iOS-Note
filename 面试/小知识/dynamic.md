@@ -6,13 +6,11 @@
 
 - @dynamic
 告诉编译器，不自动生成getter/setter方法，避免编译期间产生警告
-然后由自己实现存取方法或存取方法在运行时动态创建绑定：主要使用在CoreData的实现NSManagedObject子类时使用，由CoreData框架在程序运行的时动态生成子类属性
+然后由自己实现存取方法或存取方法在运行时动态创建绑定。
 
 由于使用@dynamic，我们需要自己提供setter和getter方法。一般有两种方法：
-- 1)自己提供setter和getter方法，将编译器自动生成的setter和getter方法手动再写一遍；
-- 2)动态方法决议(DynamicMethod Resolution)，在运行时提供setter和getter对应实现的C函数。
-    
-对于第一种方法，需要在类中显式提供实例变量，因为@dynamic不能像@synthesize那样向实现文件(.m)提供实例变量。
+
+1). 自己提供setter和getter方法，将编译器自动生成的setter和getter方法手动再写一遍；<br>注意：需要在类中显式提供实例变量，因为@dynamic不能像@synthesize那样向实现文件(.m)提供实例变量。
 
 ```objc
 #import <Foundation/Foundation.h>
@@ -60,6 +58,9 @@ int main(int argc, const char * argv[])
     return 0;
 } // main
 ```
+2). 动态方法决议(DynamicMethod Resolution)，在运行时提供setter和getter对应实现的C函数。
+
+
 第二种方法，在运行时决定setter和getter对应实现的C函数，使用了NSObject提供的resolveInstanceMethod:方法。在C函数中不能直接使用实例变量，需要将ObjC对象self转成C中的结构体，因此在Person类同样需要显式声明实例变量而且访问级别是@public，为了隐藏该实例变量，将声明放在扩展(extension)中
 ```
 #import <Foundation/Foundation.h>

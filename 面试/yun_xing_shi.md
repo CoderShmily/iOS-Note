@@ -131,12 +131,12 @@ struct objc_class {
 有一个办法是根据传进来的SEL类型的selector动态添加一个方法。
 
 首先从外部隐式调用一个不存在的方法：
-```
+```objc
 //隐式调用方法
 [target performSelector:@selector(resolveAdd:) withObject:@"test"];
 ```
 然后，在target对象内部重写拦截调用的方法，动态添加方法。
-```
+```objc
 void runAddMethod(id self, SEL _cmd, NSString *string){
     NSLog(@"add C IMP ", string);
 }
@@ -160,7 +160,7 @@ void runAddMethod(id self, SEL _cmd, NSString *string){
 这种情况的一般解决办法就是继承。<br>
 但是，只增加一个属性，就去继承一个类，总是觉得太麻烦类。<br>
 这个时候，runtime的关联属性就发挥它的作用了。
-```
+```objc
 //首先定义一个全局变量，用它的地址作为关联对象的key
 static char associatedObjectKey;
 //设置关联对象
@@ -174,3 +174,28 @@ objc_setAssociatedObject的四个参数：
 2. const void *key关联对象唯一的key，获取时会用到。
 3. id value关联对象。
 4. objc_AssociationPolicy关联策略，有以下几种策略：
+
+```
+enum {
+    OBJC_ASSOCIATION_ASSIGN = 0,
+    OBJC_ASSOCIATION_RETAIN_NONATOMIC = 1, 
+    OBJC_ASSOCIATION_COPY_NONATOMIC = 3,
+    OBJC_ASSOCIATION_RETAIN = 01401,
+    OBJC_ASSOCIATION_COPY = 01403 
+};
+```
+objc_getAssociatedObject的两个参数。
+1. id object获取谁的关联对象。
+2. const void *key根据这个唯一的key获取关联对象。
+
+其实，你还可以把添加和获取关联对象的方法写在你需要用到这个功能的类的类别中，方便使用。
+```objc
+//添加关联对象
+- (void)addAssociatedObject:(id)object{
+    objc_setAssociatedObject(self, @selector(getAssociatedObject), object, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+//获取关联对象
+- (id)getAssociatedObject{
+    return objc_getAssociatedObject(self, _cmd);
+}
+```

@@ -1,3 +1,4 @@
+
 #### Runtime方法列表:
 ```objc
 Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
@@ -112,11 +113,11 @@ struct objc_class {
 
 拦截调用就是，在找不到调用的方法程序崩溃之前，你有机会通过重写NSObject的四个方法来处理。
 ```
-// 决议/解析 类方法
+// 动态决议/解析 类方法
 + (BOOL)resolveClassMethod:(SEL)sel;
-// 决议/解析 实例方法
+// 动态决议/解析 实例方法
 + (BOOL)resolveInstanceMethod:(SEL)sel;
-//后两个方法需要转发消息到其他类时要同时实现
+// 后两个方法需要转发消息到其他类时要同时实现
 - (id)forwardingTargetForSelector:(SEL)aSelector;
 - (void)forwardInvocation:(NSInvocation *)anInvocation;
 ```
@@ -263,3 +264,4 @@ Run起来看看输出吧！
 - 既然是切面，就一定不要忘记，交换完再调回自己。<br>
 - 一定要保证只交换一次，否则就会很乱。<br>
 - 最后，据说这个技术很危险，谨慎使用。<br>
+

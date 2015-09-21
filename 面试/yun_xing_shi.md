@@ -67,6 +67,8 @@ struct objc_class {
 - 获取列表(属性、方法、协议) 
 
 ```
+#import <objc/runtime.h>
+
  unsigned int count;
     //获取属性列表
     objc_property_t *propertyList = class_copyPropertyList([self class], &count);

@@ -125,3 +125,32 @@ struct objc_class {
 - 第二个方法和第一个方法相似，只不过处理的是实例方法。
 - 第三个方法是将你调用的不存在的方法重定向到一个其他声明了这个方法的类，只需要你返回一个有这个方法的target。
 - 第四个方法是将你调用的不存在的方法打包成NSInvocation传给你。做完你自己的处理后，调用invokeWithTarget:方法让某个target触发这个方法。
+
+#### 动态添加方法
+重写了拦截调用的方法并且返回了YES，我们要怎么处理呢？<br>
+有一个办法是根据传进来的SEL类型的selector动态添加一个方法。
+
+首先从外部隐式调用一个不存在的方法：
+```
+//隐式调用方法
+[target performSelector:@selector(resolveAdd:) withObject:@"test"];
+```
+然后，在target对象内部重写拦截调用的方法，动态添加方法。
+```
+void runAddMethod(id self, SEL _cmd, NSString *string){
+    NSLog(@"add C IMP ", string);
+}
++ (BOOL)resolveInstanceMethod:(SEL)sel{
+
+    //给本类动态添加一个方法
+    if ([NSStringFromSelector(sel) isEqualToString:@"resolveAdd:"]) {
+        class_addMethod(self, sel, (IMP)runAddMethod, "v@:*");
+    }
+    return YES;
+}
+```
+其中class_addMethod的四个参数分别是：<br>
+1.Class cls 给哪个类添加方法，本例中是self<br>
+2.SEL name 添加的方法，本例中是重写的拦截调用传进来的selector。<br>
+3.IMP imp 方法的实现，C方法的方法实现可以直接获得。如果是OC方法，可以用<br>+ (IMP)instanceMethodForSelector:(SEL)aSelector;获得方法的实现。<br>
+4."v@:*"方法的签名，代表有一个参数的方法。

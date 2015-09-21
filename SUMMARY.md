@@ -57,7 +57,7 @@
        * [Runtime(六)](面试/runtime516d29.md)
    * [KVC 和 KVO深入](面试/kvc_he_kvo_shen_ru.md)
    * [OC 对象模型](面试/oc_dui_xiang_mo_xing.md)
-   * [小知识](面试/小知识/xiao_zhi_shi.md)
+   * [分类 和 关联对象](面试/小知识/xiao_zhi_shi.md)
        * [@dynamic 和 Category原理浅析](面试/小知识/dynamic.md)
    * [Method Swizzling](面试/method_swizzling.md)
        * [Method Swizzling(一)](面试/method_swizzling1.md)

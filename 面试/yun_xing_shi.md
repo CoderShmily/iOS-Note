@@ -1,4 +1,4 @@
-Runtime方法列表:
+#### Runtime方法列表:
 ```objc
 Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
 BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 听过方法名SEL+原来的IMP实现给类添加新方法
@@ -112,9 +112,11 @@ struct objc_class {
 
 拦截调用就是，在找不到调用的方法程序崩溃之前，你有机会通过重写NSObject的四个方法来处理。
 ```
+// 决议/解析 类方法
 + (BOOL)resolveClassMethod:(SEL)sel;
+// 决议/解析 实例方法
 + (BOOL)resolveInstanceMethod:(SEL)sel;
-//后两个方法需要转发到其他的类处理
+//后两个方法需要转发消息到其他类时要同时实现
 - (id)forwardingTargetForSelector:(SEL)aSelector;
 - (void)forwardInvocation:(NSInvocation *)anInvocation;
 ```

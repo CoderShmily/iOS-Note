@@ -105,11 +105,11 @@ struct objc_class {
 - 如果调用实例方法，会到实例的isa指针指向的对象（也就是类对象）操作。
 - 如果调用的是类方法，会到类对象的isa指针指向的对象（也就是元类对象）中操作。
 
-    1) 在相应操作的对象中的缓存方法列表中找调用的方法，如果找到，转向相应实现并执行。<br>
-    2) 如果没找到，在相应操作的对象中的方法列表中找调用的方法，如果找到，转向相应实现执行<br>
-    3) 如果没找到，去父类指针所指向的对象中执行1，2.<br>
-    4) 以此类推，如果一直到根类还没找到，转向`拦截调用`。<br>
-    5) 如果没有重写`拦截调用`的方法，程序报错。<br>
+    1. 在相应操作的对象中的缓存方法列表中找调用的方法，如果找到，转向相应实现并执行。<br>
+    2. 如果没找到，在相应操作的对象中的方法列表中找调用的方法，如果找到，转向相应实现执行<br>
+    3. 如果没找到，去父类指针所指向的对象中执行1，2.<br>
+    4. 以此类推，如果一直到根类还没找到，转向`拦截调用`。<br>
+    5. 如果没有重写`拦截调用`的方法，程序报错。<br>
 
 #### 拦截调用
 
@@ -150,7 +150,27 @@ void runAddMethod(id self, SEL _cmd, NSString *string){
 }
 ```
 其中class_addMethod的四个参数分别是：<br>
-1.Class cls 给哪个类添加方法，本例中是self<br>
-2.SEL name 添加的方法，本例中是重写的拦截调用传进来的selector。<br>
-3.IMP imp 方法的实现，C方法的方法实现可以直接获得。如果是OC方法，可以用<br>+ (IMP)instanceMethodForSelector:(SEL)aSelector;获得方法的实现。<br>
-4."v@:*"方法的签名，代表有一个参数的方法。
+1. Class cls 给哪个类添加方法，本例中是self<br>
+2. SEL name 添加的方法，本例中是重写的拦截调用传进来的selector。<br>
+3. IMP imp 方法的实现，C方法的方法实现可以直接获得。如果是OC方法，可以用<br>+ (IMP)instanceMethodForSelector:(SEL)aSelector;获得方法的实现。<br>
+4. "v@:*"方法的签名，代表有一个参数的方法。
+
+#### 关联对象
+现在你准备用一个系统的类，但是系统的类并不能满足你的需求，你需要额外添加一个属性。<br>
+这种情况的一般解决办法就是继承。<br>
+但是，只增加一个属性，就去继承一个类，总是觉得太麻烦类。<br>
+这个时候，runtime的关联属性就发挥它的作用了。
+```
+//首先定义一个全局变量，用它的地址作为关联对象的key
+static char associatedObjectKey;
+//设置关联对象
+objc_setAssociatedObject(target, &associatedObjectKey, @"添加的字符串属性", OBJC_ASSOCIATION_RETAIN_NONATOMIC); //获取关联对象
+NSString *string = objc_getAssociatedObject(target, &associatedObjectKey);
+NSLog(@"AssociatedObject = %@", string);
+```
+objc_setAssociatedObject的四个参数：
+
+1. id object给谁设置关联对象。
+2. const void *key关联对象唯一的key，获取时会用到。
+3. id value关联对象。
+4. objc_AssociationPolicy关联策略，有以下几种策略：

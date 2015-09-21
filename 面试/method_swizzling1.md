@@ -96,3 +96,16 @@ void method_exchangeImplementations(Method m1, Method m2) //或者可以使用me
  
 @end
 ```
+
+另外再加一点，假如你只是想重写类的某些方法，分类也是不错的选择，分类一旦加入工程，不需要包含头文件有会生效，所以请慎重使用
+```
+@implementation UIApplication (test)
+ 
+- (BOOL)openURL:(NSURL*)url {
+    NSLog(@"!!!!!%@", [url absoluteString]);
+    return YES;
+}
+ 
+@end
+```
+当然你没办法重新在掉回原来的IMP了！

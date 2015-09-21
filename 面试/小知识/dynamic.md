@@ -353,3 +353,46 @@ static Method _class_resolveInstanceMethod(Class cls, SEL sel)
 
 @end
 ```
+
+此时，输出为：
+```
+  >> Bar() in Foo.
+  >> Instance resolving MissMethod
+  >> dynamicMethodIMP called.
+  >> Instance resolving _doZombieMe
+```
+注意到了没，消息转发没有进行！在前文中说过，消息转发只有在对象无法正常处理消息时才会调用，而在这里我在动态方法决议中为 selector 提供了实现，使得对象可以处理该消息，所以消息转发不会继续了。官方文档中说：
+```
+If you implement resolveInstanceMethod: but want particular selectors to actually be forwarded via the forwarding mechanism, you return NO for those selectors.
+```
+文档里的说法其实并不准确，只有在 resolveInstanceMethod 的实现中没有真正为 selector 提供实现，并返回 NO 的情况下才会进入消息转发流程；否则绝不会进入消息转发流程，程序要么调用正确的动态方法，要么 crash。这也与前面的源码不太一致，我猜测在比上面源码的更高层次的地方，再次查找了 method list，如果提供了实现就能够找到该实现。
+
+下面我把 resolveInstanceMethod 方法中为 selector 添加实现的那一行屏蔽了，消息转发就应该会进行:
+```
+//class_addMethod([self class], name, (IMP)dynamicMethodIMP, "v@:");
+```
+再次编译运行，此时输出正如前面所推断的那样：
+```
+  >> Bar() in Foo.
+  >> Instance resolving MissMethod
+  objc[1618]: +[Foo resolveInstanceMethod:MissMethod] returned YES, but no new implementation of -[Foo MissMethod] was found
+  >> forwardInvocation for selector MissMethod
+  >> MissMethod() called in Proxy.
+  >> Instance resolving _doZombieMe
+```
+进行了消息转发！而且编译器很善意地提示（见前面源码剖析）：哎呀，你不能欺骗我嘛，你说添加了实现（返回YES），其实还是没有呀！然后编译器就无奈地去看能不能消息转发了。当然如果把返回值修改为 NO 就不会有该警告出现，其他的输出不变。
+
+#### 总结
+
+从上面的示例演示可以看出，动态方法决议是先于消息转发的。
+
+如果向一个 Objective C 对象对象发送它无法处理的消息（selector），那么编译器会按照如下次序进行处理：
+```
+1  首先看是否为该 selector 提供了动态方法决议机制，如果提供了则转到2；如果没有提供则转到 3；
+
+2. 如果动态方法决议真正为该selector 提供了实现,那么就调用该实现,完成消息发送流程,消息转发就不会进行了;如果没有提供,则转到 3；
+
+3. 其次看是否为该 selector 提供了消息转发机制，如果提供了消息了则进行消息转发，此时，无论消息转发是怎样实现的，程序均不会crash。（因为消息调用的控制权完全交给消息转发机制处理，即使消息转发并没有做任何事情，运行也不会有错误，编译器更不会有错误提示。）；如果没提供消息转发机制，则转到 4；
+
+4. 运行报错：无法识别的 selector，程序 crash；
+```

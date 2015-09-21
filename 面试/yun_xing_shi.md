@@ -27,7 +27,7 @@ objc_send(id, SEL, ...) //发送消息
 objc_msgSend(id, SEL);
 ```
 
-- 相关的定义
+#### 相关的定义
 
 ```objc
 /// 描述类中的一个方法
@@ -42,7 +42,7 @@ typedef struct objc_category *Category;
 /// 类中声明的属性
 typedef struct objc_property *objc_property_t;
 ```
-- 类在runtime中的表示
+#### 类在runtime中的表示
 
 ```
 struct objc_class {
@@ -64,7 +64,7 @@ struct objc_class {
 } OBJC2_UNAVAILABLE;
 /* Use `Class` instead of `struct objc_class *` */
 ```
-- 获取列表(属性、方法、协议) 
+#### 获取列表(属性、方法、协议) 
 
 ```
 #import <objc/runtime.h>
@@ -100,13 +100,28 @@ struct objc_class {
         NSLog(@"protocol---->%@", [NSString stringWithUTF8String:protocolName]);
     }
 ```
-- 方法调用在运行时的过程
+#### 方法调用在运行时的过程
 
-    - 如果调用实例方法，会到实例的isa指针指向的对象（也就是类对象）操作。
-    - 如果调用的是类方法，会到类对象的isa指针指向的对象（也就是元类对象）中操作。
+- 如果调用实例方法，会到实例的isa指针指向的对象（也就是类对象）操作。
+- 如果调用的是类方法，会到类对象的isa指针指向的对象（也就是元类对象）中操作。
 
     1) 在相应操作的对象中的缓存方法列表中找调用的方法，如果找到，转向相应实现并执行。<br>
     2) 如果没找到，在相应操作的对象中的方法列表中找调用的方法，如果找到，转向相应实现执行<br>
     3) 如果没找到，去父类指针所指向的对象中执行1，2.<br>
-    4) 以此类推，如果一直到根类还没找到，转向拦截调用。<br>
-    5) 如果没有重写拦截调用的方法，程序报错。<br>
+    4) 以此类推，如果一直到根类还没找到，转向`拦截调用`。<br>
+    5) 如果没有重写`拦截调用`的方法，程序报错。<br>
+
+#### 拦截调用
+
+拦截调用就是，在找不到调用的方法程序崩溃之前，你有机会通过重写NSObject的四个方法来处理。
+```
++ (BOOL)resolveClassMethod:(SEL)sel;
++ (BOOL)resolveInstanceMethod:(SEL)sel;
+//后两个方法需要转发到其他的类处理
+- (id)forwardingTargetForSelector:(SEL)aSelector;
+- (void)forwardInvocation:(NSInvocation *)anInvocation;
+```
+- 第一个方法是当你调用一个不存在的类方法的时候，会调用这个方法，默认返回NO，你可以加上自己的处理然后返回YES。
+- 第二个方法和第一个方法相似，只不过处理的是实例方法。
+- 第三个方法是将你调用的不存在的方法重定向到一个其他声明了这个方法的类，只需要你返回一个有这个方法的target。
+- 第四个方法是将你调用的不存在的方法打包成NSInvocation传给你。做完你自己的处理后，调用invokeWithTarget:方法让某个target触发这个方法。

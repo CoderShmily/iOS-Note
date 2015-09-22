@@ -22,12 +22,13 @@ BOOL object_isClass(id obj);//Returns whether an object is a class object.
 Class object_getClass(id obj);//Returns the class of an object.
 const char *object_getClassName(id obj);//Returns the class name of a given object.
 Class object_setClass(id obj, Class cls);//Sets the class of an object.
+Class objc_getMetaClass(const char *name);// 原类
 
 // 实例变量
 id object_getIvar(id obj, Ivar ivar);//Reads the value of an instance variable in an object.
 object_setIvar(id obj, Ivar ivar, id value);//Sets the value of an instance variable in an object.
 
-// Changes the value of an instance variable of a class instance
+// Changes the value of an 实例变量 of a 实例
 Ivar object_getInstanceVariable(id obj, const char *name, void **outValue)
 Ivar object_setInstanceVariable(id obj, const char *name, void *value);
 

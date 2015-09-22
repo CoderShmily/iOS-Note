@@ -2,12 +2,12 @@
 #### Runtime方法列表:
 ```objc
 Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
-BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 听过方法名SEL+原来的IMP实现给类添加新方法
+BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 通过方法名SEL+原来的IMP实现给类添加新方法
 
-const char *method_getTypeEncoding(Method m);// 获得types
+const char *method_getTypeEncoding(Method m);// Returns a string describing a method's parameter and return types.
 IMP method_getImplementation(Method m);//获取Method中的IMP
-method_exchangeImplementations(Method m1, Method m2); //或者可以使用method的交换方法
-IMP method_setImplementation(Method m, IMP imp);// 原来的method(SEL)重新分配新的IMP
+method_exchangeImplementations(Method m1, Method m2); //Returns a string describing a method's parameter and return types.
+IMP method_setImplementation(Method m, IMP imp);// Sets the implementation of a method.
 
 objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);//Sets an associated value for a given object using a given key and association policy.
 id objc_getAssociatedObject(id object, const void *key);// Returns the value associated with a given object for a given key.

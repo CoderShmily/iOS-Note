@@ -59,7 +59,7 @@
    * [OC 对象模型](面试/oc_dui_xiang_mo_xing.md)
    * [分类 和 关联对象](面试/小知识/xiao_zhi_shi.md)
        * [@dynamic 和 Category原理浅析(一)](面试/小知识/dynamic.md)
-       * 面试/@dynamic 和 Category原理浅析(二)
+       * [面试/@dynamic 和 Category原理浅析(二)](面试/mian_8bd5_dynamic_he_category_yuan_li_qian_679028_4e8c29.md)
    * [Method Swizzling](面试/method_swizzling.md)
        * [Method Swizzling(一)](面试/method_swizzling1.md)
        * [Method Swizzling(二)](面试/method_swizzling4e8c29.md)

@@ -13,12 +13,12 @@ objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationP
 id objc_getAssociatedObject(id object, const void *key);// Returns the value associated with a given object for a given key.
 objc_removeAssociatedObjects(id object);// 注意:Removes all associations for a given object.
 
+BOOL object_isClass(id obj);//Returns whether an object is a class object.
 Class object_getClass(id obj);//Returns the class of an object.
 const char *object_getClassName(id obj);//Returns the class name of a given object.
-id object_getIvar(id obj, Ivar ivar);//Reads the value of an instance variable in an object.
-BOOL object_isClass(id obj);//Returns whether an object is a class object.
-
 Class object_setClass(id obj, Class cls);//Sets the class of an object.
+
+id object_getIvar(id obj, Ivar ivar);//Reads the value of an instance variable in an object.
 object_setIvar(id obj, Ivar ivar, id value);//Sets the value of an instance variable in an object.
 
 objc_msgSend(id obj, SEL name);//发送消息

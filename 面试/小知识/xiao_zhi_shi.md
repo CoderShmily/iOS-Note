@@ -1,4 +1,4 @@
-#### Associated Objects 主要有以下三个使用场景：
+###Associated Objects 主要有以下三个使用场景：
 
 - 为现有的类添加私有变量以帮助实现细节；
 - 为现有的类添加公有属性；
@@ -34,3 +34,4 @@ void objc_removeAssociatedObjects(id object);
 - 关联对象的释放时机与移除时机并不总是一致，比如实验中用关联策略 OBJC_ASSOCIATION_ASSIGN - 进行关联的对象，很早就已经被释放了，但是并没有被移除，而再使用这个关联对象时就会造成 Crash 。
 ---
 
+## Category 的实现原理

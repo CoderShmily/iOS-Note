@@ -36,7 +36,7 @@ objc_msgSend(id obj, SEL name);//发送消息
 ```
 #### 获取列表(属性、方法、协议) 
 
-```
+```objc
 #import <objc/runtime.h>
 
  unsigned int count;
@@ -88,7 +88,7 @@ typedef struct objc_property *objc_property_t;
 ```
 #### 类在runtime中的表示
 
-```
+```objc
 struct objc_class {
     Class isa;//指针，顾名思义，表示是一个什么，
     //实例的isa指向类对象，类对象的isa指向元类
@@ -123,7 +123,7 @@ struct objc_class {
 #### 拦截调用
 
 拦截调用就是，在找不到调用的方法程序崩溃之前，你有机会通过重写NSObject的四个方法来处理。
-```
+```objc
 // 动态决议/解析 类方法
 + (BOOL)resolveClassMethod:(SEL)sel;
 // 动态决议/解析 实例方法
@@ -186,7 +186,7 @@ objc_setAssociatedObject的四个参数：
 3. id value关联对象。
 4. objc_AssociationPolicy关联策略，有以下几种策略：
 
-```
+```objc
 enum {
     OBJC_ASSOCIATION_ASSIGN = 0,
     OBJC_ASSOCIATION_RETAIN_NONATOMIC = 1, 
@@ -216,7 +216,7 @@ objc_getAssociatedObject的两个参数。
 #### 方法交换
 方法交换，就是将两个方法的实现交换。例如，将A方法和B方法交换，调用A方法的时候，就会执行B方法中的代码，反之亦然。<br>
 话不多说，这是参考Mattt大神在NSHipster上的文章自己写的代码。
-```
+```objc
 #import "UIViewController+swizzling.h"
 #import <objc/runtime.h>
 
@@ -261,7 +261,7 @@ objc_getAssociatedObject的两个参数。
 @end
 ```
 在一个自己定义的viewController中重写viewWillAppear
-```
+```objc
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSLog(@"viewWillAppear");

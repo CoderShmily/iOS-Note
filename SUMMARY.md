@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](SUMMARY.md)
+* [Introduction](README.md)
 * [其他](其他/qi_ta_md.md)
    * [自动布局](autoresizing/autoresizingmd.md)
    * [Xib 布局文件](xib_file/xibfile_md.md)

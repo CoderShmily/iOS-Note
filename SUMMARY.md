@@ -56,5 +56,5 @@
    * [常量和变量](Swift/chang_liang_he_bian_liang.md)
    * [逻辑和分支](Swift/luo_ji_he_fen_zhi.md)
    * [循环](Swift/xun_huan.md)
-   * 数组
+   * [数组](Swift/shu_zu.md)
 

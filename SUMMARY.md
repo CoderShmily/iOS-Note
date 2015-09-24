@@ -57,4 +57,5 @@
    * [逻辑和分支](Swift/luo_ji_he_fen_zhi.md)
    * [循环](Swift/xun_huan.md)
    * [数组](Swift/shu_zu.md)
+   * 字符串
 

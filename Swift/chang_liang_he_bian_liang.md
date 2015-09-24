@@ -18,7 +18,8 @@ let j = 20
 
 ## 定义 `OC` 对象
 ```swift
-let testView = UIView(frame: CGRectMake(0, 0, 100, 100))
+// UIView *view = [[UIView alloc] initWithFrame:];
+let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 testView.backgroundColor = UIColor.redColor()
 view.addSubview(testView)
 ```

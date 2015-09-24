@@ -18,10 +18,21 @@ let j = 20
 
 ## 定义 `OC` 对象
 ```swift
-// UIView *view = [[UIView alloc] initWithFrame:];
-let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+// UIView *testView = [[UIView alloc] initWithFrame:];
+let testView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+
 testView.backgroundColor = UIColor.redColor()
 view.addSubview(testView)
+```
+```swift
+/*
+结构体:
+OC: CGPointMake()
+Swift: CGPoint()
+*/
+let btn = UIButton(type: UIButtonType.ContactAdd)
+btn.center = CGPoint(x: 50, y: 50)
+view.addSubview(btn)
 ```
 
 * 阶段性小结

@@ -1,7 +1,7 @@
 <font color=red> 内容 </font>
 
 
-# 目录
+# Summary
 
 * [Introduction](README.md)
 * [其他](其他/qi_ta_md.md)
@@ -25,13 +25,10 @@
    * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [多媒体播放](duo_mei_ti_bo_fang/duomei_ti_bo_fang_md.md)
    * [代码管理(Svn & Git)](code_manger/codemanger_md.md)
-* [项目](xiang_mu/xiangmu_md.md)
-   * [项目：生日管家笔记](birthdaymanager/birthdaymanagermd.md)
-   * [QQ音乐](qqyin_le/qqyinle_md.md)
 * [网络多线程](wang_luo_duo_xian_cheng/wangluo_duo_xian_cheng.md)
    * [HTML5](HTML5/html5.md)
    * [多线程](多线程/duo_xian_7a0b_md.md)
-* [面试](面试/mian_8bd5_md.md)
+* [面试资料](面试/mian_8bd5_md.md)
    * [单例](面试/dan_li.md)
    * [深浅copy strong](面试/shen_qian_copy_strong__md.md)
    * [KVC 和 KVO深入](面试/kvc_he_kvo_shen_ru.md)
@@ -49,14 +46,23 @@
    * [Method Swizzling](面试/method_swizzling.md)
        * [Method Swizzling(一)](面试/method_swizzling1.md)
        * [Method Swizzling(二)](面试/method_swizzling4e8c29.md)
-* [小技术](小技术/xiao_ji_zhu.md)
+* [开发知识点](小技术/xiao_ji_zhu.md)
+   * [项目](xiang_mu/xiangmu_md.md)
+       * [项目：生日管家笔记](birthdaymanager/birthdaymanagermd.md)
+       * [QQ音乐](qqyin_le/qqyinle_md.md)
    * [字符串处理](小技术/zi_fu_chuan_chu_li.md)
    * [硬件信息的获取](小技术/ying_jian_xin_xi_de_huo_qu.md)
    * [NSLog](小技术/nslog.md)
    * [Pch文件](小技术/pchwen_jian.md)
-
-
-
-
-
+   * [OC 和 CF对象相互转换](小技术/oc_he_cf_dui_xiang_xiang_hu_zhuan_huan.md)
+* [Swift开发](Swift/swiftkai_guan.md)
+   * [常量和变量](Swift/chang_liang_he_bian_liang.md)
+   * [逻辑和分支](Swift/luo_ji_he_fen_zhi.md)
+   * [循环](Swift/xun_huan.md)
+   * [数组](Swift/shu_zu.md)
+   * [字符串](Swift/zi_fu_chuan.md)
+   * [函数](Swift/han_shu.md)
+   * [闭包](Swift/bi_bao.md)
+   * [懒加载](Swift/lan_jia_zai.md)
+   * [getter和setter](Swift/getterhe_setter.md)
 

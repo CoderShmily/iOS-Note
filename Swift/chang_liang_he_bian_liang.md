@@ -46,18 +46,22 @@ view.addSubview(btn)
 
 ## 变量类型
 ```swift
+/*:
+自动类型推导
+* 如果是在定义的同时初始化, 那么可以不用写数据类型, 编译器会根据右边的内容自动推导出当前的数据类型
+* 技巧: 在做Swift开发中会经常使用 option + click 查看文档
+*/
 var x = 10
 var y = 10.5
 var z: Double = 20
 
+// 注意: 在Swift中Double和CGFloat也是需要转换的
 print(Double(x) + y)
 print(x + Int(y))
 print(y + z)
 ```
 
 * 阶段性小结
-    * 初次接触 `Swift` 中会因为简单的 `var` `let` 误以为 `Swift` 中的类型非常松散
-    * 其实所有变量的准确类型都是在赋值的同时自动推导的
     * `Swift` 是对类型要求非常严格的一门语言，`一个值永远不会被自动转换成其他类型`
     * 如果要转换，必须显示转换，Swift 中
         * 小数默认是 `Double` 类型

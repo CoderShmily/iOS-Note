@@ -124,12 +124,18 @@ struct objc_class {
 
 拦截调用就是，在找不到调用的方法程序崩溃之前，你有机会通过重写NSObject的四个方法来处理。
 ```objc
-// 动态决议/解析 类方法
+1.
+// 动态解析 类方法
 + (BOOL)resolveClassMethod:(SEL)sel;
-// 动态决议/解析 实例方法
+// 动态解析 实例方法
 + (BOOL)resolveInstanceMethod:(SEL)sel;
+ 2.
+ // 当某个对象不能接受某个selector时，将对该selector的调用转发给另一个对象
+ - (id)forwardingTargetForSelector:(SEL)aSelector
+3.
 // 后两个方法需要转发消息到其他类时要同时实现
-- (id)forwardingTargetForSelector:(SEL)aSelector;
+//传入参数NSInvocation对象对前一个接口返回的方法对象是有依赖，前一个接口的NSMethodSignature对象返回nil，则消息转发流程即告结束
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 - (void)forwardInvocation:(NSInvocation *)anInvocation;
 ```
 - 第一个方法是当你调用一个不存在的类方法的时候，会调用这个方法，默认返回NO，你可以加上自己的处理然后返回YES。

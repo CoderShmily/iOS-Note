@@ -58,4 +58,5 @@
    * [循环](Swift/xun_huan.md)
    * [数组](Swift/shu_zu.md)
    * [字符串](Swift/zi_fu_chuan.md)
+   * 函数
 

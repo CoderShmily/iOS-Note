@@ -61,5 +61,5 @@
    * [函数](Swift/han_shu.md)
    * [闭包](Swift/bi_bao.md)
    * [懒加载](Swift/lan_jia_zai.md)
-   * getter和setter
+   * [getter和setter](Swift/getterhe_setter.md)
 

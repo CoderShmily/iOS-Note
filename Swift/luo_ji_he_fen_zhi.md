@@ -15,6 +15,7 @@ if i > 0 {
     * 在逻辑判断时必须显示地指明具体的判断条件
     * `if` 语句条件的 `()` 可以省略
     * 但是 `{}` 不能省略
+    * Swift中提供了真正的Bool类型, true/false, 条件表达式的值必须是true/false
 
 ## 三目
 
@@ -29,6 +30,28 @@ print(result)
 * 阶段性小结
     * `Swift` 中的 `三目` 运算保持了和 OC 一致的风格
 
+```swift
+/*:
+Switch
+* switch后面的圆括号可以省略
+* 如果是在OC中每个case后面不写break, 导致穿透. 而在Swift中不会
+* 如果是在OC中想在case后面定义变量, 必须加上{}说明作用域, 而在Swift中不用说明作用域
+* 如果是在OC中default的位置可以随便写, 而在Swift中不允许
+* 如果是在OC中default可以不用写, 而在Swift中大部分情况下是必须写的
+*/
+let value = 3
+switch value
+{
+case 0:
+    print("0")
+    var i = 10
+case 1:
+    print("1")
+default:
+    print("other")
+
+}
+```
 ## 可选项
 
 ### 演练 1

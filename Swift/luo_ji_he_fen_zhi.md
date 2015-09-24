@@ -25,3 +25,12 @@ var b = 50
 var result = a > b ? a : b
 print(result)
 ```
+
+* 阶段性小结
+    * `Swift` 中的 `三目` 运算保持了和 OC 一致的风格
+
+## 可选项
+
+### 演练 1
+```swift
+let url = NSURL(string: "http://ww.baidu.com/")

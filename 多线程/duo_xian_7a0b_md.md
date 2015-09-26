@@ -32,7 +32,7 @@ NSThread *current = [NSThread currentThread];
 - 阻塞(Blocked)
 - 死亡(Dead)
 
-
+****
 ### 控制线程状态
 ```objc
 1. 启动线程

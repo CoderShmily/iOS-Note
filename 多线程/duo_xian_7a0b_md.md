@@ -1,12 +1,5 @@
 # NSThread
 
-### 线程状态
-- 新建(New) 需要start才能进入就绪
-- 就绪(Runnable)
-- 运行(Running)
-- 阻塞(Blocked)
-- 死亡(Dead)
-
 
 ### 创建线程的方法
 
@@ -32,6 +25,13 @@
 ```objc
 NSThread *current = [NSThread currentThread];
 ```
+### 线程状态
+- 新建(New) 需要start才能进入就绪
+- 就绪(Runnable)
+- 运行(Running)
+- 阻塞(Blocked)
+- 死亡(Dead)
+
 
 ### 控制线程状态
 ```objc

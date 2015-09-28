@@ -57,6 +57,8 @@ array.removeAll(keepCapacity: true)
 print(array.capacity)
 
 // 注意数组容量的变化
+// 注意点: 数组添加容量永远是在原有容量的基础上*2
+// 放得下继续放,放不下时,在此时的capacity * 2
 for i in 0..<10 {
     array.append("\(i)")
     print("\(array) --- \(array.capacity)")

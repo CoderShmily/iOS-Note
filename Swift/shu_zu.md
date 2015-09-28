@@ -23,6 +23,7 @@ print(arr as NSArray)
 let arr = ["zhangsan", "lisi"]
 
 // 数组中保存的是 NSObject
+// 特点: 自动将基本数据类型转换为对象类型
 let arr1 = ["zhangsan", 1]
 ```
 

@@ -30,9 +30,15 @@ let arr1 = ["zhangsan", 1]
 ```objc
 // 定义只能保存字符串类型数组
 var array: [String]
-
-# 初始化数组
+// 初始化数组
 array = ["zhangsan"]
+
+# 实例化新的数组
+// 实例化一个空数组
+var array2 = [String]()
+// var array2:[String] = []
+array2.append("1")
+array2.append("2")
 
 # 添加元素
 array.append("lisi")
@@ -55,17 +61,10 @@ for i in 0..<10 {
     print("\(array) --- \(array.capacity)")
 }
 
-# 实例化新的数组
-// 实例化一个空数组
-var array2 = [String]()
-// var array2:[String] = []
-array2.append("1")
-array2.append("2")
-
 # 拼接数组 数组类型要相同
 array += array2
 
-// 遍历每一个元素
+# 遍历
 for a in arr {
     print(a)
     // 像 OC 一样打印

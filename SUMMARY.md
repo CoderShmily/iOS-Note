@@ -63,4 +63,5 @@
    * [闭包](Swift/bi_bao.md)
    * [懒加载](Swift/lan_jia_zai.md)
    * [getter和setter](Swift/getterhe_setter.md)
+   * 属性和方法
 

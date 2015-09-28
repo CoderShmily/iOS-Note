@@ -69,6 +69,29 @@ var title: String {
 
 如果在构造方法中给属性赋了初始值, 那么就可以不用写?了,因为只要创建对象就一定会调用构造
 方法, 只要调用构造方法那么属性就一定有值
+
+在Swift中, 如果重写父类的方法, 需要加上override修饰
+```
+
+```
+    // 在Swift中, 如果重写父类的方法, 需要加上override修饰
+    override init() {
+        name = "lnj"
+        age = 3
+    }
+
+
+    // 自定义构造方法
+    // 只要自定义了构造方法, 那么系统自带的默认构造方法就会失效
+    init(name: String, age: Int)
+    {
+//        注意: Swift语法规定, 一定要初始化完当前类之后才能初始化父类
+        self.name = name
+        self.age = age
+    // 注意: 系统悄悄的帮我们调用了一次super.init()
+    // 因为默认的init没了,所以要override init
+       
+    }
 ```
 
 ```swift

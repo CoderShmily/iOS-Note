@@ -89,7 +89,7 @@ var title: String {
         self.name = name
         self.age = age
     // 注意: 系统悄悄的帮我们调用了一次super.init()
-    // 因为默认的init没了,所以要override init
+    // 因为默认的init没了,所以要用默认的init(),要override init
        
     }
 ```

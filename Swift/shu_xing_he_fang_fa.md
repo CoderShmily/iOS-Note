@@ -147,4 +147,15 @@ deinit {
     print("88")
 }
 ```
+## 重写description
+```swift
+// 重写打印对象属性
+// 如果是计算型的属性, 可以简写
+let properties = ["name", "age"]
+override var description: String{
+//        return "name = \(name), age = \(age)"
+   let dict = dictionaryWithValuesForKeys(properties)
+   return "\(dict)"
+}
+```
 

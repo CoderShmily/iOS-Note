@@ -62,5 +62,5 @@
    * [闭包](Swift/bi_bao.md)
    * [懒加载](Swift/lan_jia_zai.md)
    * [getter和setter](Swift/getterhe_setter.md)
-   * [字典](Swift/字典.md)
+   * [字典](Swift/zi_5178_md.md)
 

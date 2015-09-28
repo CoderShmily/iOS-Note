@@ -1,15 +1,5 @@
 # 数组
 
-## 简单体验
-
-```swift
-let arr = ["zhangsan", "lisi"]
-print(arr)
-
-
-
-```
-
 ## 数组中保存的对象类型
 
 ```swift

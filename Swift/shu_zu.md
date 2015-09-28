@@ -52,6 +52,7 @@ array.removeAtIndex(1)
 print(array)
 
 # 删除所有元素
+// keepCapacity: 删除数组中的元素, 是否需要保持数组原有的容量, 如果传入false代表不保持容量
 array.removeAll(keepCapacity: true)
 print(array.capacity)
 

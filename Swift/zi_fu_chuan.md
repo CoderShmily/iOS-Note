@@ -27,6 +27,8 @@ let str1 = "zhangsan"
 let str2 = "lisi"
 let i = 10
 
+// 注意: Swift的print函数不支持%i/%@等占位符
+// Swift中拼接内容使用 \(需要拼接的数据)
 print(str1 + str2)
 print("\(str1) \(str2) \(i)")
 ```
@@ -63,6 +65,9 @@ print(subStr)
 ### 建议写法
 
 ```swift
+// 建议: 在Swift开发中如果要截取字符串,
+// 或者以前在OC中使用的方法在Swift字符串中没有,
+// 建议先将Swift字符串转换为OC字符串之后再使用
 let str1: NSString = "xiaomage"
 print(str1.substringWithRange(NSMakeRange(0, 3)))
 ```

@@ -19,25 +19,14 @@ int UIApplicationMain(int argc, char *argv[], NSString *principalClassName, NSSt
 4. 加载info.plist文件，判断是否有Main.storyboard,如果有就会去加载。
 有Main.storyboard才会执行第5步
 5. 加载Main.storyboard，
-    - 创建窗口
-    - 加载Main.storyboard，初始化storyboard描述的控制器
-    - 设置窗口的根控制器，并且显示窗口
+    - 5.1 创建窗口
+    - 5.2 加载Main.storyboard，初始化storyboard描述的控制器
+    - 5.3 设置窗口的根控制器，并且显示窗口
 
 #### 1. UIApplicationMain
 ![](./UIApplicationMain.png)
 ![](./UIApplicationMain2.png)
 
-
-
-
-
-二、窗口，应用程序创建的第一个控件。
-1.添加子控件，一般把窗口的根控制器添加上去，通过设置rootViewController就可以把根控制器的view添加到窗口上。
-2.介绍窗口如何显示。
-2.1 设置窗口的hiddle属性
-3.应用程序是有主窗口，通常调用makeKeyAndVisible
-4.windons属性，可以识别应用程序中哪些控件还是窗口，有一个比较特殊，状态栏。
-5.window层级，alert(2000) > statusBar(1000) > normal(0)
 
 #### 2. UIWindow
 -  UIWindow是一种特殊的UIView，通常在一个app中只会有一个UIWindow
@@ -46,6 +35,14 @@ int UIApplicationMain(int argc, char *argv[], NSString *principalClassName, NSSt
 
 - 一个iOS程序之所以能显示到屏幕上，完全是因为它有UIWindow
     也就说，没有UIWindow，就看不见任何UI界面
+
+窗口，应用程序创建的第一个控件。
+1. 添加子控件，一般把窗口的根控制器添加上去，通过设置rootViewController就可以把根控制器的view添加到窗口上。
+2. 介绍窗口如何显示。
+    - 2.1 设置窗口的hiddle属性
+3. 应用程序是有主窗口，通常调用makeKeyAndVisible
+4. windons属性，可以识别应用程序中哪些控件还是窗口，有一个比较特殊，状态栏。
+5. window层级，alert(2000) > statusBar(1000) > normal(0)
 ![](./UIWindow1.png)
 1.UIWindow的获得
 ![](./UIWindow2.png)

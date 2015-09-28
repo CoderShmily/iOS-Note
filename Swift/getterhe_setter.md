@@ -73,24 +73,24 @@ var title: String {
 ```
 
 ```objc
-    // 在Swift中, 如果重写父类的方法, 需要加上override修饰
-    override init() {
-        name = "lnj"
-        age = 3
-    }
+// 在Swift中, 如果重写父类的方法, 需要加上override修饰
+override init() {
+    name = "lnj"
+    age = 3
+}
 
 
-    // 自定义构造方法
-    // 只要自定义了构造方法, 那么系统自带的默认构造方法就会失效
-    init(name: String, age: Int)
-    {
-//        注意: Swift语法规定, 一定要初始化完当前类之后才能初始化父类
-        self.name = name
-        self.age = age
+// 自定义构造方法
+// 只要自定义了构造方法, 那么系统自带的默认构造方法就会失效
+init(name: String, age: Int)
+{
+    //        注意: Swift语法规定, 一定要初始化完当前类之后才能初始化父类
+    self.name = name
+    self.age = age
     // 注意: 系统悄悄的帮我们调用了一次super.init()
-    # 因为默认的init没了,所以要用默认的init(),要override init
-       
-    }
+# 因为默认的init没了,所以创建对象要用默认的init(),要override init
+    
+}
 ```
 
 ```swift

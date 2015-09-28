@@ -64,6 +64,12 @@ func sum(a: Int, b: Int)
 }
 sum(10, b: 20)
 
+# 已经弃用,代表a/b既是内部参数也是外部参数
+func sum(#a: Int, #b: Int)
+{
+    print("sum = \(a + b)")
+}
+
 ```
 
 

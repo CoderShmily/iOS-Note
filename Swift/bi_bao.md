@@ -52,11 +52,10 @@ loadData {
 }
 ```
 
-```swift
+```objc
 loadData {
-    print("收到执行完毕的通知")
-    // 如果在闭包中使用到了外界对象, 必须加上self
-//            self.view.backgroundColor = UIColor.redColor()
+# 如果在闭包中使用到了外界对象, 必须加上self
+// self.view.backgroundColor = UIColor.redColor()
     weakSelf!.view.backgroundColor = UIColor.redColor()
 }
 

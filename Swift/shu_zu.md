@@ -34,23 +34,24 @@ let arr1 = ["zhangsan", 1]
 
 ## 常见数组操作
 
-```swift
+```objc
 // 定义只能保存字符串类型数组
 var array: [String]
 
-// 初始化数组
+# 初始化数组
 array = ["zhangsan"]
 
-// 添加元素
+# 添加元素
 array.append("lisi")
 
 print(array)
 
-// 删除元素
+# 删除元素
+// 删除, 数组的删除方法会将被删除的元素返回给我们
 array.removeAtIndex(1)
 print(array)
 
-// 删除所有元素
+# 删除所有元素
 array.removeAll(keepCapacity: true)
 print(array.capacity)
 
@@ -60,12 +61,12 @@ for i in 0..<10 {
     print("\(array) --- \(array.capacity)")
 }
 
-// 实例化新的数组
+# 实例化新的数组
 var array2 = [String]()
 array2.append("1")
 array2.append("2")
 
-// 拼接数组
+# 拼接数组
 array += array2
 
 print(array)

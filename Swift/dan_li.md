@@ -32,10 +32,5 @@ class NetworkTools: NSObject {
     {
         return instance
     }
-    
-    override init() {
-        print("我被调用了")
-    }
-    
 }
 ```

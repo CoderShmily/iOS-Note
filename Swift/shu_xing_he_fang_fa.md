@@ -140,6 +140,17 @@ init(dict: [NSObject: AnyObject]) {
     name = dict["name"] as? String
     age = dict["age"] as? Int
 }
+
+init(dict:[String: AnyObject])
+{
+    // 注意: 在构造方法中使用KVC必须先调用super.init()之后才能使用
+    // 只有调用了super.init系统才会为属性分配存储空间
+    super.init()
+    
+    // 特点: 字典的key必须和模型的属性一一对应
+    setValuesForKeysWithDictionary(dict)
+}
+
 ```
 
 ## 析构函数

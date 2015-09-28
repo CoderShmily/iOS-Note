@@ -57,8 +57,6 @@ func getMax() ->Int
 {}
 
 # 没有返回值有参数的
-// - (void)sum:(int)a b:(int)b;
-// [self sum:10 b: 20];
 // 从Swift2.0开始, 会自动将第二个参数开始的参数名称作为方法的标签
 func sum(a: Int, b: Int)
 {

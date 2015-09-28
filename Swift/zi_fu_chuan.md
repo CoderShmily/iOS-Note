@@ -15,7 +15,7 @@
 ```swift
 let str = "我要飞的更High"
 
-for s in str {
+for s in str.characters {
     print(s)
 }
 ```

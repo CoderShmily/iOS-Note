@@ -159,6 +159,8 @@ override func setValue(value: AnyObject?, forUndefinedKey key: String) {
 ## 析构函数
 
 ```swift
+// 相当于OC中的dealloc方法, 对象释放的时候就会调用该方法,
+// 这个方法中主要进行一些资源的释放操作
 deinit {
     print("88")
 }

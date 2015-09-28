@@ -61,6 +61,7 @@ let res2 = String(format: "%02d-%02d-%02d", arguments: [15, 9, 7])
 ```swift
 let str: String = "xiaomage"
 
+// 没写完整,很麻烦
 var subStr = str.substringWithRange(Range<String.Index>(start: str.startIndex, end: str.endIndex))
 print(subStr)
 ```

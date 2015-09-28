@@ -6,13 +6,7 @@
 let arr = ["zhangsan", "lisi"]
 print(arr)
 
-// 遍历每一个元素
-for a in arr {
-    print(a)
-}
 
-// 像 OC 一样打印
-print(arr as NSArray)
 
 ```
 
@@ -71,6 +65,13 @@ array2.append("2")
 # 拼接数组 数组类型要相同
 array += array2
 
+// 遍历每一个元素
+for a in arr {
+    print(a)
+    // 像 OC 一样打印
+    // print(arr as NSArray)
+
+}
 ```
 
 * 阶段性小结

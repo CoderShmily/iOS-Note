@@ -62,7 +62,9 @@ for i in 0..<10 {
 }
 
 # 实例化新的数组
+// 实例化一个空数组
 var array2 = [String]()
+// var array2:[String] = []
 array2.append("1")
 array2.append("2")
 

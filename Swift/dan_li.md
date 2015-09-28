@@ -1,4 +1,5 @@
-1. 笨写法
+1.笨写法
+
 ```
 class NetworkTools: NSObject {
 // USB写法
@@ -22,7 +23,7 @@ class func shareNetworkTools() -> NetworkTools
 ```
 
 
-2. 标准写法
+2.标准写法
 ```
 class NetworkTools: NSObject {
     // 这样写也是懒加载的

@@ -3,7 +3,7 @@
 ![](./ios-start.png)
 - 程序启动过程
 
-main -》 UIApplicationMain -》 通知代理做事情
+main -> UIApplicationMain -> 通知代理做事情
 
 
 UIApplicationMain底层实现:

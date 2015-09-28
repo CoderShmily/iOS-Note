@@ -53,6 +53,7 @@ loadData {
 ```
 
 ```swift
+// Swift中推荐能不写self就不写self, 一般情况下self只会出现在闭包中
 weak var weakSelf = self
 demo("zhangsan") { (_) -> Int in
     print(weakSelf?.view.backgroundColor)

@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [iOS基础](其他/qi_ta_md.md)
+* [iOS基础](iOS基础/qi_ta_md.md)
    * [自动布局](autoresizing/autoresizingmd.md)
    * [Xib 布局文件](xib_file/xibfile_md.md)
    * [iOS7中的状态栏](ios7_status/ios7status_md.md)

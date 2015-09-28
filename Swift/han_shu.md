@@ -31,6 +31,25 @@ func sum2(a: Int, _ b: Int) -> Int {
     return a + b
 }
 ```
+```objc
+
+#没有返回值没有参数的
+func say() -> Void
+{}
+say()
+
+#如果没有返回值还可以简写
+// Void == ()
+func say2() -> ()
+{}
+
+# 如果没有返回值, 那么返回值类型可以省略
+func say3()
+{
+    print("xiaomage")
+}
+say3()
+```
 
 
 

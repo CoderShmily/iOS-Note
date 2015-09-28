@@ -150,7 +150,10 @@ init(dict:[String: AnyObject])
     // 特点: 字典的key必须和模型的属性一一对应
     setValuesForKeysWithDictionary(dict)
 }
-
+    
+// 利用KVC赋值时, 只要找不到对应的key就会调用这个属性
+override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+}
 ```
 
 ## 析构函数

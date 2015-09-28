@@ -53,11 +53,44 @@ loadData {
 ```
 
 ```swift
-// Swift中推荐能不写self就不写self, 一般情况下self只会出现在闭包中
-weak var weakSelf = self
-demo("zhangsan") { (_) -> Int in
-    print(weakSelf?.view.backgroundColor)
+loadData {
+    print("收到执行完毕的通知")
+    // 如果在闭包中使用到了外界对象, 必须加上self
+//            self.view.backgroundColor = UIColor.redColor()
+    weakSelf!.view.backgroundColor = UIColor.redColor()
+}
 
-    return 20
+loadData { [weak self] () -> () in
+    print("收到执行完毕的通知")
+    self!.view.backgroundColor = UIColor.redColor()
+}
+
+// Swift中推荐能不写self就不写self,  
+
+// OC中weak特点: 如果对象被释放之后会自动赋值给nil
+// OC中的__unsafe_unretained特点: 如果对象被释放之后不会自动赋值为nil
+// unowned 相当于OC中的__unsafe_unretained, 并且特点一致
+loadData { [unowned self] () -> () in
+    print("收到执行完毕的通知")
+    self.view.backgroundColor = UIColor.redColor()
+}
+}
+
+func loadData(finished: ()->())
+{
+// 0.保存闭包
+over = finished
+
+// 1.执行耗时操作
+print("耗时操作")
+
+// 2.回调通知调用者执行完毕
+finished()
+}
+
+// 相当于OC中的dealloc方法, 对象释放的时候就会调用该方法
+// 在这个方法中主要进行一些资源的释放操作
+deinit{
+print("滚")
 }
 ```

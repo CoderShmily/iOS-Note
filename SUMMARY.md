@@ -63,5 +63,5 @@
    * [闭包](Swift/bi_bao.md)
    * [懒加载](Swift/lan_jia_zai.md)
    * [属性和方法](Swift/shu_xing_he_fang_fa.md)
-   * 单例
+   * [单例](Swift/dan_li.md)
 

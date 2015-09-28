@@ -69,10 +69,9 @@ var array2 = [String]()
 array2.append("1")
 array2.append("2")
 
-# 拼接数组
+# 拼接数组 数组类型要相同
 array += array2
 
-print(array)
 ```
 
 * 阶段性小结

@@ -57,10 +57,10 @@
    * [逻辑和分支](Swift/luo_ji_he_fen_zhi.md)
    * [循环](Swift/xun_huan.md)
    * [数组](Swift/shu_zu.md)
+   * [字典](Swift/zi_5178_md.md)
    * [字符串](Swift/zi_fu_chuan.md)
    * [函数](Swift/han_shu.md)
    * [闭包](Swift/bi_bao.md)
    * [懒加载](Swift/lan_jia_zai.md)
    * [getter和setter](Swift/getterhe_setter.md)
-   * [字典](Swift/zi_5178_md.md)
 

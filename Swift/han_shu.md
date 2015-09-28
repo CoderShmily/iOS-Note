@@ -64,11 +64,28 @@ func sum(a: Int, b: Int)
 }
 sum(10, b: 20)
 
+# 有返回值有参数的
+func sum5(a: Int, b: Int) -> Int
+{
+    return a + b
+}
+
 # 已经弃用,代表a/b既是内部参数也是外部参数
 func sum(#a: Int, #b: Int)
 {
     print("sum = \(a + b)")
 }
+
+# 默认值
+// 如果指定了默认值, 那么调用的时候可以忽略, 如果忽略会使用默认值
+// 在其它语言中其实早就有默认值的概念了, 在其它语言中的默认值只能写在形参列表的最后面
+// 但是Swift中的默认值可以写在任意地方
+func sum3(a: Int, b: Int = 110)
+{
+    print("sum = \(a  + b)")
+}
+
+
 
 ```
 

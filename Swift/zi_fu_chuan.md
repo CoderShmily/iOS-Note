@@ -73,6 +73,11 @@ print(subStr)
 // 或者以前在OC中使用的方法在Swift字符串中没有,
 // 建议先将Swift字符串转换为OC字符串之后再使用
 let str1: NSString = "xiaomage"
+//let str3 = str2 as NSString
+//let str3: NSString = str2
 print(str1.substringWithRange(NSMakeRange(0, 3)))
+
+let str5:NSString = "user/desktop/abc.txt"
+str5.pathExtension
 ```
 

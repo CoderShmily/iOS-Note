@@ -94,6 +94,7 @@ init(name: String, age: Int)
 ```
 
 ```swift
+// 传入字典构造
 init(dict: [NSObject: AnyObject]) {
     name = dict["name"] as? String
     age = dict["age"] as? Int

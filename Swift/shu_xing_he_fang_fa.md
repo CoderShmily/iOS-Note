@@ -37,7 +37,7 @@ var age: Int?{
 }
 ```
 
-# getter & setter
+# getter 和 setter
 
 ## 自定义 Person 类
 

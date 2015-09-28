@@ -45,9 +45,7 @@ func say2() -> ()
 
 # 如果没有返回值, 那么返回值类型可以省略
 func say3()
-{
-    print("xiaomage")
-}
+{}
 say3()
 ```
 

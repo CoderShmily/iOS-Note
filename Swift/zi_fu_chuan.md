@@ -45,6 +45,9 @@ for _ in 0...10 {
     let str = String(format: "zhangsan - %04d", arguments: [arc4random_uniform(100)])
     print(str)
 }
+
+// 15-09-07
+let res2 = String(format: "%02d-%02d-%02d", arguments: [15, 9, 7])
 ```
 
 * 阶段性小结

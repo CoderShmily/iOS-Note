@@ -1,5 +1,5 @@
-```
 1. 笨写法
+```
 class NetworkTools: NSObject {
 // USB写法
 static var onceToken: dispatch_once_t = 0
@@ -22,7 +22,7 @@ class func shareNetworkTools() -> NetworkTools
 ```
 
 
-
+2. 标准写法
 ```
 class NetworkTools: NSObject {
     // 这样写也是懒加载的

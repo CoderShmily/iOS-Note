@@ -13,7 +13,7 @@
     NSString *tempPath = NSTemporaryDirectory();
 
     // 获取Document文件夹路径
-//    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+//    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]; // last获取
 
     // 拼接文件全路径
     NSString *filePath = [tempPath stringByAppendingPathComponent:@"person.data"];

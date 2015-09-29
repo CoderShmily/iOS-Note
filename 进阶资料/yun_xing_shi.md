@@ -1,19 +1,19 @@
 
 #### Runtime方法列表:
 ```objc
-<!--class-->
+# class
 Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
 BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 通过方法名SEL+原来的IMP实现给类添加新方法
 
 使用class_copyPropertyList及property_getName获取类的属性列表及每个属性的名称
 
-<!--method-->
+# method
 const char *method_getTypeEncoding(Method m);// Returns a string describing a method's parameter and return types.
 IMP method_getImplementation(Method m);//获取Method中的IMP
 method_exchangeImplementations(Method m1, Method m2); //Returns a string describing a method's parameter and return types.
 IMP method_setImplementation(Method m, IMP imp);// Sets the implementation of a method.
 
-<!--objc-->
+# objc
 # 关联对象
 objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);//Sets an associated value for a given object using a given key and association policy.
 id objc_getAssociatedObject(id object, const void *key);// Returns the value associated with a given object for a given key.
@@ -34,7 +34,7 @@ object_setIvar(id obj, Ivar ivar, id value);//Sets the value of an instance vari
 Ivar object_getInstanceVariable(id obj, const char *name, void **outValue)
 Ivar object_setInstanceVariable(id obj, const char *name, void *value);
 
-#发送消息
+# 发送消息
 objc_msgSend(id obj, SEL name);
 ```
 #### 获取列表(属性、方法、协议) 

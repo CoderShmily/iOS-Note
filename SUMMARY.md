@@ -14,7 +14,7 @@
        * [NSTimer](timer/nstimermd.md)
    * [数据存储](data_save/datasave_md.md)
        * [1.plist存储](data_save/plistmd.md)
-       * [偏好设置存储](data_save/preferencemd.md)
+       * [2.偏好设置存储](data_save/preferencemd.md)
        * [归档](data_save/archivingmd.md)
    * [百度地图](baidumap/baidumapmd.md)
    * [Core Animation](core_animation/coreanimation_md.md)

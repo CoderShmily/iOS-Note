@@ -13,7 +13,7 @@
 
 ![](Snip20150930_3.png)
 ```
-集合类对象是指NSArray、NSDictionary、NSSet ... 之类的对象<br>
+集合类对象是指NSArray、NSDictionary、NSSet ... 之类的对象
 非集合类对象指的是 NSString, NSNumber ... 之类的对象
 ```
 <font color = red>

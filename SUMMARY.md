@@ -28,7 +28,7 @@
    * [多线程](多线程/duo_xian_7a0b_md.md)
 * [iOS进阶](进阶资料/mian_8bd5_md.md)
    * [单例](进阶资料/dan_li.md)
-   * [深浅Copy & strong](进阶资料/shen_qian_copy_strong__md.md)
+   * [深浅Copy](进阶资料/shen_qian_copy_strong__md.md)
    * [KVC 和 KVO深入](进阶资料/kvc_he_kvo_shen_ru.md)
    * [OC 对象模型](进阶资料/oc_dui_xiang_mo_xing.md)
    * [runtime](进阶资料/yun_xing_shi.md)

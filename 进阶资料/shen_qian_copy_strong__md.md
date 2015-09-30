@@ -15,4 +15,8 @@
 ---
 
 ### 执行真正的深拷贝
-![](Snip20150930_4.png)
+```objc
+ // 下面两个写法:生成的类型跟array无关,alloc已经决定类型和地址,向对象都发送copy消息
+ NSArray *array1= [[NSArray alloc] initWithArray:array copyItems:YES];
+ NSMutableArray *array1 = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
+```

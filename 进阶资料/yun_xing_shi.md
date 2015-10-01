@@ -21,22 +21,22 @@ objc_getAssociatedObject -> id objc_getAssociatedObject(id object, const void *k
 objc_removeAssociatedObjects -> objc_removeAssociatedObjects(id object);// 注意:Removes all associations for a given object.
 
 # 类
-BOOL object_isClass(id obj);//Returns whether an object is a class object.
-Class object_getClass(id obj);//Returns the class of an object.
-const char *object_getClassName(id obj);//Returns the class name of a given object.
-Class object_setClass(id obj, Class cls);//Sets the class of an object.
-Class objc_getMetaClass(const char *name);// 原类
+object_isClass -> BOOL object_isClass(id obj);//Returns whether an object is a class object.
+object_getClass -> Class object_getClass(id obj);//Returns the class of an object.
+object_getClassName -> const char *object_getClassName(id obj);//Returns the class name of a given object.
+object_setClass -> Class object_setClass(id obj, Class cls);//Sets the class of an object.
+objc_getMetaClass -> Class objc_getMetaClass(const char *name);// 原类
 
 # 实例变量
-id object_getIvar(id obj, Ivar ivar);//Reads the value of an instance variable in an object.
-object_setIvar(id obj, Ivar ivar, id value);//Sets the value of an instance variable in an object.
+object_getIvar -> id object_getIvar(id obj, Ivar ivar);//Reads the value of an instance variable in an object.
+object_setIvar -> object_setIvar(id obj, Ivar ivar, id value);//Sets the value of an instance variable in an object.
 
 // Changes the value of an 实例变量 of a 实例
-Ivar object_getInstanceVariable(id obj, const char *name, void **outValue)
-Ivar object_setInstanceVariable(id obj, const char *name, void *value);
+object_getInstanceVariable -> Ivar object_getInstanceVariable(id obj, const char *name, void **outValue)
+object_setInstanceVariable -> Ivar object_setInstanceVariable(id obj, const char *name, void *value);
 
 # 发送消息
-objc_msgSend(id obj, SEL name);
+objc_msgSend -> objc_msgSend(id obj, SEL name);
 ```
 #### 获取列表(属性、方法、协议) 
 

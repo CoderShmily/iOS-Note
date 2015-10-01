@@ -2,7 +2,7 @@
 #### Runtime方法列表:
 ```objc
 # class
-class_getInstanceMethod -> Method class_getInstanceMethod -> class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
+class_getInstanceMethod -> Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
 class_addMethod -> BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 通过方法名SEL+原来的IMP实现给类添加新方法
 
 class_copyPropertyList -> objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount) // 获取类的属性列表

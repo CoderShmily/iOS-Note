@@ -2,23 +2,23 @@
 #### Runtime方法列表:
 ```objc
 # class
-Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
-BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 通过方法名SEL+原来的IMP实现给类添加新方法
+class_getInstanceMethod -> Method class_getInstanceMethod -> class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
+class_addMethod -> BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 通过方法名SEL+原来的IMP实现给类添加新方法
 
-objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount) // 获取类的属性列表
-const char *property_getName(objc_property_t property) // 传入上面的数组(指针)获取每个属性的名称
+class_copyPropertyList -> objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount) // 获取类的属性列表
+property_getName -> const char *property_getName(objc_property_t property) // 传入上面的数组(指针)获取每个属性的名称
 
 # method
-const char *method_getTypeEncoding(Method m);// Returns a string describing a method's parameter and return types.
-IMP method_getImplementation(Method m);//获取Method中的IMP
-method_exchangeImplementations(Method m1, Method m2); //Returns a string describing a method's parameter and return types.
-IMP method_setImplementation(Method m, IMP imp);// Sets the implementation of a method.
+method_getTypeEncoding -> const char *method_getTypeEncoding(Method m);// Returns a string describing a method's parameter and return types.
+method_getImplementation -> IMP method_getImplementation(Method m);//获取Method中的IMP
+method_exchangeImplementations -> method_exchangeImplementations(Method m1, Method m2); //Returns a string describing a method's parameter and return types.
+method_setImplementation -> IMP method_setImplementation(Method m, IMP imp);// Sets the implementation of a method.
 
 # objc
 # 关联对象
-objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);//Sets an associated value for a given object using a given key and association policy.
-id objc_getAssociatedObject(id object, const void *key);// Returns the value associated with a given object for a given key.
-objc_removeAssociatedObjects(id object);// 注意:Removes all associations for a given object.
+objc_setAssociatedObject -> objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);//Sets an associated value for a given object using a given key and association policy.
+objc_getAssociatedObject -> id objc_getAssociatedObject(id object, const void *key);// Returns the value associated with a given object for a given key.
+objc_removeAssociatedObjects -> objc_removeAssociatedObjects(id object);// 注意:Removes all associations for a given object.
 
 # 类
 BOOL object_isClass(id obj);//Returns whether an object is a class object.

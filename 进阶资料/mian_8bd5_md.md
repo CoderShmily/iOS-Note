@@ -86,8 +86,8 @@ NSData *data = [NSData dataWithContentsOfURL:url];
 NSData *data2 = [NSData dataWithContentsOfFile:@"path"];
 NSData *data3 = [@"string" dataUsingEncoding:NSUTF8StringEncoding];
 
-NSString *str = [NSString stringWithContentsOfFile:@"path" encoding:NSUTF8StringEncoding error:nil]; // 从文件读取字符串
-NSString *str2 = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil]; // 从URL资源读取字符串
+NSString *str = [NSString stringWithContentsOfFile:@"path" encoding:NSUTF8StringEncoding error:nil]; // 把文件内容读取到字符串
+NSString *str2 = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil]; // 把URL资源内容读取到字符串
 NSString *str = url.absoluteString; // 完整的URL字符串
    
 UIImage *image =[UIImage imageNamed:@"minion_02"];

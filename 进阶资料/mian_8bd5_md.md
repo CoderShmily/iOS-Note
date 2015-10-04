@@ -39,6 +39,9 @@ NSString *_test1; // 默认@protected,可以修改
 @end
 
 @interface Person () // 类扩展
+{
+NSString *_test1; // 默认@private
+}
 @property (nonatomic, copy) NSString *test5; // 默认是@private
 @end
 

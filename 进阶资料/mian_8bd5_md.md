@@ -13,7 +13,7 @@
   };
 ```
 ```objc
-4. #import @class区别
+4. #import 和 @class区别
 
 1>  #import编译阶段拷贝"1.h"内容
     @class只是告诉编译器这是一个类,并不导入类里面的东西

@@ -89,6 +89,7 @@ NSData *data3 = [@"string" dataUsingEncoding:NSUTF8StringEncoding];
 NSString *str = [NSString stringWithContentsOfFile:@"path" encoding:NSUTF8StringEncoding error:nil]; // 把文件内容读取到字符串
 NSString *str2 = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil]; // 把URL资源内容读取到字符串
 NSString *str = url.absoluteString; // 完整的URL字符串
+[@"string" writeToFile:@"/usr/test.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil]; // 写入字符串到文件,YES代表写入过程错误,不会生成文件
    
 UIImage *image =[UIImage imageNamed:@"minion_02"];
 NSData *data = UIImagePNGRepresentation(image);

@@ -79,8 +79,8 @@ typedef int (^MyBlock)(int ,int);
 ```objc
 9. 常用数据类型转换
 
-NSURL *url = [NSURL URLWithString:@"url"];
-NSURL *url2 = [NSURL fileURLWithPath:@"filePath"];
+NSURL *url = [NSURL URLWithString:@"协议://../"]; // 要有http:// file:// 等协议头
+NSURL *url2 = [NSURL fileURLWithPath:@"/a/b"]; // 已经添加了file协议,直接上路径
     
 NSData *data = [NSData dataWithContentsOfURL:url];
 NSData *data2 = [NSData dataWithContentsOfFile:@"path"];

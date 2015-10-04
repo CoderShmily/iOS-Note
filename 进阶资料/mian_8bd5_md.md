@@ -76,3 +76,20 @@ typedef int (^MyBlock)(int ,int);
 ```objc
 8. [error localizedDescription]; // 精确输出error的错误,没有其他乱七八糟的
 ```
+```objc
+9. 常用数据类型转换
+
+NSURL *url = [NSURL URLWithString:@"url"];
+NSURL *url2 = [NSURL fileURLWithPath:@"filePath"];
+    
+NSData *data = [NSData dataWithContentsOfURL:url];
+NSData *data2 = [NSData dataWithContentsOfFile:@"path"];
+NSData *data3 = [@"string" dataUsingEncoding:NSUTF8StringEncoding];
+
+NSString *str = [NSString stringWithContentsOfFile:@"path" encoding:NSUTF8StringEncoding error:nil];
+NSString *str2 = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+NSString *str = url.absoluteString;
+   
+UIImage *image =[UIImage imageNamed:@"minion_02"];
+NSData *data = UIImagePNGRepresentation(image);
+```

@@ -26,6 +26,25 @@
 ```
 ```objc
 5.循环retain
+一端用retain,一端用assign
+```
+```objc
+6.OC有没有私有方法,私有变量?
+@interface Person : NSObject
+{
+NSString *_test1; // 默认@protected,可以修改
+@public NSString *_test2; // @public
+}
+@property (nonatomic, copy) NSString *test3; // @public 
+@end
+
+@interface Person ()
+@property (nonatomic, copy) NSString *test5; // 默认是@private
+@end
+@implementation Person
+{
+NSString *_test4; // 默认是@private,改不了
+}
 
 ```
 

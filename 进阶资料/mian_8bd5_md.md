@@ -25,11 +25,11 @@
 使用:头文件@class引入类,.m文件再#import,使用类的相关属性和方法
 ```
 ```objc
-5.循环retain
+5. 循环retain
 一端用retain,一端用assign
 ```
 ```objc
-6.OC有没有私有方法,私有变量?
+6. OC有没有私有方法,私有变量?
 @interface Person : NSObject // 类声明
 {
 NSString *_test1; // 默认@protected,可以修改
@@ -59,8 +59,20 @@ NSString *_test4; // 默认是@private,改不了
 3.@private （私有的）只能在当前类的对象方法中才能直接访问
 4.@package (框架级别的)作用域介于私有和公开之间，只要处于同一个框架中就可以直接通过变量名问。
 5.@interface中的声明的成员变量默认是public,@implatation中声明的成员变量默认是private
+```
 
+```objc
+7. block的定义
+
+int (^block)(int ,int) = ^(int a, int b)
+{
+	return 0;
+}
+// 类型重定义
+typedef int (^MyBlock)(int ,int);
 
 ```
 
-
+```objc
+8. [error localizedDescription]; // 精确输出error的错误,没有其他乱七八糟的
+```

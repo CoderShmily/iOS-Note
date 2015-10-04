@@ -4,7 +4,7 @@
 
 2. @property (nonatomic, copy, getter=isRich) BOOL rich; // 指定getter方法
 
-3. 枚举的写法
+3. 枚举的写法 类型:CYLSex
   typedef NS_ENUM(NSInteger, CYLSex) {
       CYLSexMan,
       CYLSexWoman

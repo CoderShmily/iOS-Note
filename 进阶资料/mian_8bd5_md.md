@@ -13,8 +13,8 @@
   };
 ```
 ```objc
-4. #import @class
-区别
+4. #import @class区别
+
 1>  #import编译阶段拷贝"1.h"内容
     @class只是告诉编译器这是一个类,并不导入类里面的东西
 2> 如果"1.h"改变,所有包含#import "1.h"的都要重新编译

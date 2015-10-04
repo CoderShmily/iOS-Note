@@ -1,15 +1,18 @@
 0 - 笔记
 ```objc
 1. [super dealloc]; // 要调用super的此方法,要在MRC下
-
+```
+```objc
 2. @property (nonatomic, copy, getter=isRich) BOOL rich; // 指定getter方法
-
+```
+```objc
 3. 枚举的写法 类型:CYLSex
   typedef NS_ENUM(NSInteger, CYLSex) {
       CYLSexMan,
       CYLSexWoman
   };
-
+```
+```objc
 4. #import @class
 区别
 1>  #import编译阶段拷贝"1.h"内容

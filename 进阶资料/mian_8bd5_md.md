@@ -30,7 +30,7 @@
 ```
 ```objc
 6.OC有没有私有方法,私有变量?
-@interface Person : NSObject
+@interface Person : NSObject // 类声明
 {
 NSString *_test1; // 默认@protected,可以修改
 @public NSString *_test2; // @public
@@ -38,14 +38,15 @@ NSString *_test1; // 默认@protected,可以修改
 @property (nonatomic, copy) NSString *test3; // @public 
 @end
 
-@interface Person ()
+@interface Person () // 类扩展
 @property (nonatomic, copy) NSString *test5; // 默认是@private
 @end
-@implementation Person
+
+@implementation Person // 类实现
 {
 NSString *_test4; // 默认是@private,改不了
 }
-
+@end
 ```
 
 

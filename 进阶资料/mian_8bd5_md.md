@@ -40,7 +40,7 @@ NSString *_test1; // 默认@protected,可以修改
 
 @interface Person () // 类扩展
 {
-NSString *_test1; // 默认@private
+NSString *_test1; // 默认@private,改不了
 }
 @property (nonatomic, copy) NSString *test5; // 默认是@private
 @end
@@ -52,8 +52,15 @@ NSString *_test4; // 默认是@private,改不了
 @end
 
 分类中不能放实例变量
-分类中的@property只会生成getter和setter方法的声明,没有下划线
-变量
+分类中的@property只会生成getter和setter方法的声明,没有生成下划线变量
+
+1.@public (公开的)在有对象的前提下，任何地方都可以直接访问。
+2.@protected （受保护的）只能在当前类和子类的对象方法中访问
+3.@private （私有的）只能在当前类的对象方法中才能直接访问
+4.@package (框架级别的)作用域介于私有和公开之间，只要处于同一个框架中就可以直接通过变量名问。
+5.@interface中的声明的成员变量默认是public,@implatation中声明的成员变量默认是private
+
+
 ```
 
 

@@ -9,7 +9,10 @@
       CYLSexMan,
       CYLSexWoman
   };
-4. 
+4. #import "1.h"
+编译阶段拷贝"1.h"内容
+如果"1.h"改变,所有包含的都要重新编译
+头文件@class引入类,.m文件再#import "1.h"
 ```
 
 

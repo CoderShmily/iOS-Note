@@ -79,8 +79,18 @@ typedef int (^MyBlock)(int ,int);
 ```objc
 9. 常用数据类型转换
 
-NSURL *url = [NSURL URLWithString:@"协议://../"]; // 要有http:// file:// 等协议头
 NSURL *url2 = [NSURL fileURLWithPath:@"/a/b"]; // 已经添加了file协议,直接上路径
+NSURL *url = [NSURL URLWithString:@"http://www.baidu.com/search?id=1"]; // 要有http:// file:// 等协议头
+NSLog(@"scheme:%@", [url scheme]); //协议 http
+NSLog(@"host:%@", [url host]);     //域名 www.baidu.com
+NSLog(@"absoluteString:%@", [url absoluteString]); //完整的url字符串 http://www.baidu.com:8080/search?id=1   (刚才在真机上跑了一下，并没有打印出来端口 8080 啊)
+NSLog(@"relativePath: %@", [url relativePath]); //相对路径 search
+NSLog(@"port :%@", [url port]);  // 端口 8080
+NSLog(@"path: %@", [url path]);  // 路径 search
+NSLog(@"pathComponents:%@", [url pathComponents]); // search
+NSLog(@"Query:%@", [url query]);  //参数 id=1
+
+
     
 NSData *data = [NSData dataWithContentsOfURL:url];
 NSData *data2 = [NSData dataWithContentsOfFile:@"path"];
@@ -94,3 +104,4 @@ NSString *str = url.absoluteString; // 完整的URL字符串
 UIImage *image =[UIImage imageNamed:@"minion_02"];
 NSData *data = UIImagePNGRepresentation(image);
 ```
+

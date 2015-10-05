@@ -1,6 +1,33 @@
 # 二维码
 
 ```swift
+ 
+import UIKit
+import AVFoundation // 导入框架
+
+class QRCodeViewController: UIViewController, UITabBarDelegate {
+    
+    @IBOutlet weak var scanlineView: UIImageView!
+    
+    @IBOutlet weak var containerHeightCons: NSLayoutConstraint!
+    @IBOutlet weak var scanlineTopCons: NSLayoutConstraint!
+    
+    /// 监听关闭按钮点击
+    @IBAction func closeItemClick(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    /// 自定义工具条
+    @IBOutlet weak var customTabBar: UITabBar!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // 1.设置tabbar
+        customTabBar.selectedItem = customTabBar.items![0]
+        customTabBar.delegate = self
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         // 1.执行扫描动画
@@ -109,4 +136,5 @@ extension QRCodeViewController: AVCaptureMetadataOutputObjectsDelegate
         NJLog(metadataObjects.last?.stringValue)
     }
 }
+
 ```

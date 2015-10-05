@@ -1,4 +1,4 @@
-0 - 笔记
+# iOS进阶 - 笔记
 ```objc
 1. [super dealloc]; // 要调用super的此方法,要在MRC下
 ```

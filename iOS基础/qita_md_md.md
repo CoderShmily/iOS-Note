@@ -1,7 +1,9 @@
 # iOS基础 - 笔记
+
 ```objc
 1. [super dealloc]; // 要调用super的此方法,要在MRC下
 ```
+
 ```objc
 2. @property (nonatomic, copy, getter=isRich) BOOL rich; // 指定getter方法
 ```

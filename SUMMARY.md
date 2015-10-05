@@ -22,7 +22,7 @@
    * [KVC--KVO](kvc--kvo/kvc--kvomd.md)
    * [多媒体播放](duo_mei_ti_bo_fang/duomei_ti_bo_fang_md.md)
    * [代码管理(Svn & Git)](code_manger/codemanger_md.md)
-   * [网络多线程](wang_luo_duo_xian_cheng/wangluo_duo_xian_cheng.md)
+   * [网络请求](wang_luo_duo_xian_cheng/wangluo_duo_xian_cheng.md)
    * [多线程](多线程/duo_xian_7a0b_md.md)
    * [HTML5](HTML5/html5.md)
    * [地图](baidumap/baidumapmd.md)

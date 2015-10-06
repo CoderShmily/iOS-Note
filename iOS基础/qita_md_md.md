@@ -1,5 +1,10 @@
 # iOS基础 - 笔记
 
+[25](https://github.com/ChenYilong/iOSInterviewQuestions/blob/master/01.md#25wc)
+
+
+
+
 ```objc
 1. [super dealloc]; // 要调用super的此方法,要在MRC下
 ```
@@ -107,3 +112,4 @@ UIImage *image =[UIImage imageNamed:@"minion_02"];
 NSData *data = UIImagePNGRepresentation(image);
 ```
 
+###25wc

@@ -1,5 +1,5 @@
 
-#### Runtime方法列表:
+### Runtime方法列表:
 ```objc
 # class
 class_getInstanceMethod -> Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
@@ -38,7 +38,7 @@ object_setInstanceVariable -> Ivar object_setInstanceVariable(id obj, const char
 # 发送消息
 objc_msgSend -> objc_msgSend(id obj, SEL name);
 ```
-#### 获取列表(属性、方法、协议) 
+### 获取列表(属性、方法、协议) 
 
 ```objc
 #import <objc/runtime.h>
@@ -75,7 +75,7 @@ objc_msgSend -> objc_msgSend(id obj, SEL name);
     }
 ```
 
-#### 相关的定义
+### 相关的定义
 
 ```objc
 /// 描述类中的一个方法
@@ -90,7 +90,7 @@ typedef struct objc_category *Category;
 /// 类中声明的属性
 typedef struct objc_property *objc_property_t;
 ```
-#### 类在runtime中的表示
+### 类在runtime中的表示
 
 ```objc
 struct objc_class {
@@ -113,7 +113,7 @@ struct objc_class {
 /* Use `Class` instead of `struct objc_class *` */
 ```
 
-#### 方法调用在运行时的过程
+### 方法调用在运行时的过程
 
 - 如果调用实例方法，会到实例的isa指针指向的对象（也就是类对象）操作。
 - 如果调用的是类方法，会到类对象的isa指针指向的对象（也就是元类对象）中操作。
@@ -221,9 +221,9 @@ objc_getAssociatedObject的两个参数。
 }
 ```
 
-###### 注意：这里面我们把getAssociatedObject方法的地址作为唯一的key，_cmd代表当前调用方法的地址。
+##### 注意：这里面我们把getAssociatedObject方法的地址作为唯一的key，_cmd代表当前调用方法的地址。
 
-#### 方法交换
+### 方法交换
 方法交换，就是将两个方法的实现交换。例如，将A方法和B方法交换，调用A方法的时候，就会执行B方法中的代码，反之亦然。<br>
 话不多说，这是参考Mattt大神在NSHipster上的文章自己写的代码。
 ```objc
@@ -277,7 +277,6 @@ objc_getAssociatedObject的两个参数。
     NSLog(@"viewWillAppear");
 }
 ```
-Run起来看看输出吧！
 
 我的理解：
 

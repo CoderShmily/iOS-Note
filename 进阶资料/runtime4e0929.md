@@ -138,4 +138,4 @@ SEL sel_getUid ( const char *str );
 // 比较两个选择器
 BOOL sel_isEqual ( SEL lhs, SEL rhs );
 ```
-
+- sel_registerName函数：在我们将一个方法添加到类定义时，我们必须在Objective-C Runtime系统中注册一个方法名以获取方法的选择器。

@@ -1,177 +1,123 @@
-###Objective-C
-Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石.
+##Objective-C Runtime 运行时之一：类与对象
 
-Objective-C 是一个动态语言，这意味着它不仅需要一个编译器，也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发。理解 Objective-C 的 Runtime 机制可以帮我们更好的了解这个语言，适当的时候还能对语言进行扩展，从系统层面解决项目中的一些设计或技术问题。了解 Runtime ，要先了解它的核心 - `消息传递`（Messaging）。
+Objective-C语言是一门动态语言，它将很多静态语言在编译和链接时期做的事放到了运行时来处理。这种动态语言的优势在于：我们写代码时更具灵活性，如我们可以把消息转发给我们想要的对象，或者随意交换一个方法的实现等。
+
+这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。对于Objective-C来说，这个运行时系统就像一个操作系统一样：它让所有的工作可以正常的运行。这个运行时系统即Objc Runtime。Objc Runtime其实是一个Runtime库，它基本上是用C和汇编写的，这个库使得C语言有了面向对象的能力。
+
+Runtime库主要做下面几件事：
+
+1.封装：在这个库中，对象可以用C语言中的结构体表示，而方法可以用C函数来实现，另外再加上了一些额外的特性。这些结构体和函数被runtime函数封装后，我们就可以在程序运行时创建，检查，修改类、对象和它们的方法了。
+
+2.找出方法的最终执行代码：当程序执行[object doSomething]时，会向消息接收者(object)发送一条消息(doSomething)，runtime会根据消息接收者是否能响应该消息而做出不同的反应。这将在后面详细介绍。
+
+
+在这一系列文章中，我们将介绍runtime的基本工作原理，以及如何利用它让我们的程序变得更加灵活。在本文中，我们先来介绍一下类与对象，这是面向对象的基础，我们看看在Runtime中，类是如何实现的。
 
 ---
 
-### 消息传递
+### 类与对象基础数据结构
 
-在很多语言，比如 C ，调用一个方法其实就是跳到内存中的某一点并开始执行一段代码。没有任何动态的特性，因为这在编译时就决定好了。而在 Objective-C 中，[object foo] 语法并不会立即执行 foo 这个方法的代码。它是在运行时给 object 发送一条叫 foo 的消息。这个消息，也许会由 object 来处理，也许会被转发给另一个对象，或者不予理睬假装没收到这个消息。多条不同的消息也可以对应同一个方法实现。这些都是在程序运行的时候决定的。
+**Class**
 
-事实上，在编译时你写的 Objective-C 函数调用的语法都会被翻译成一个 C 的函数调用` - objc_msgSend()` 。比如，下面两行代码就是等价的：
+Objective-C类是由Class类型来表示的，它实际上是一个指向objc_class结构体的指针。它的定义如下：
 
-```objc
-[array insertObject:foo atIndex:5];
+typedef struct objc_class *Class;
+查看objc/runtime.h中objc_class结构体的定义如下：
 
-objc_msgSend(array, @selector(insertObject:atIndex:), foo, 5);
-```
-消息传递的关键藏于 `objc_object` 中的 isa 指针和 `objc_class` 中的 class dispatch table。
+struct objc_class {
 
-## `objc_object, objc_class `以及` Ojbc_method`
-在 Objective-C 中，类、对象和方法都是一个 C 的结构体，从 objc/objc.h 头文件中，我们可以找到他们的定义：
-
-```objc
-struct objc_object {  
     Class isa  OBJC_ISA_AVAILABILITY;
-};
 
-struct objc_class {  
-    Class isa  OBJC_ISA_AVAILABILITY;
+
+
 #if !__OBJC2__
-    Class super_class;
-    const char *name;
-    long version;
-    long info;
-    long instance_size;
-    struct objc_ivar_list *ivars;
-    **struct objc_method_list **methodLists**;
-    **struct objc_cache *cache**;
-    struct objc_protocol_list *protocols;
+
+    Class super_class                       OBJC2_UNAVAILABLE;  // 父类
+
+    const char *name                        OBJC2_UNAVAILABLE;  // 类名
+
+    long version                            OBJC2_UNAVAILABLE;  // 类的版本信息，默认为0
+
+    long info                               OBJC2_UNAVAILABLE;  // 类信息，供运行期使用的一些位标识
+
+    long instance_size                      OBJC2_UNAVAILABLE;  // 该类的实例变量大小
+
+    struct objc_ivar_list *ivars            OBJC2_UNAVAILABLE;  // 该类的成员变量链表
+
+    struct objc_method_list **methodLists   OBJC2_UNAVAILABLE;  // 方法定义的链表
+
+    struct objc_cache *cache                OBJC2_UNAVAILABLE;  // 方法缓存
+
+    struct objc_protocol_list *protocols    OBJC2_UNAVAILABLE;  // 协议链表
+
 #endif
+
+
+
+} OBJC2_UNAVAILABLE;
+在这个定义中，下面几个字段是我们感兴趣的
+
+isa：需要注意的是在Objective-C中，所有的类自身也是一个对象，这个对象的Class里面也有一个isa指针，它指向metaClass(元类)，我们会在后面介绍它。
+super_class：指向该类的父类，如果该类已经是最顶层的根类(如NSObject或NSProxy)，则super_class为NULL。
+cache：用于缓存最近使用的方法。一个接收者对象接收到一个消息时，它会根据isa指针去查找能够响应这个消息的对象。在实际使用中，这个对象只有一部分方法是常用的，很多方法其实很少用或者根本用不上。这种情况下，如果每次消息来时，我们都是methodLists中遍历一遍，性能势必很差。这时，cache就派上用场了。在我们每次调用过一个方法后，这个方法就会被缓存到cache列表中，下次调用的时候runtime就会优先去cache中查找，如果cache没有，才去methodLists中查找方法。这样，对于那些经常用到的方法的调用，但提高了调用的效率。
+version：我们可以使用这个字段来提供类的版本信息。这对于对象的序列化非常有用，它可是让我们识别出不同类定义版本中实例变量布局的改变。
+针对cache，我们用下面例子来说明其执行过程：
+
+NSArray *array = [[NSArray alloc] init];
+其流程是：
+
+[NSArray alloc]先被执行。因为NSArray没有+alloc方法，于是去父类NSObject去查找。
+检测NSObject是否响应+alloc方法，发现响应，于是检测NSArray类，并根据其所需的内存空间大小开始分配内存空间，然后把isa指针指向NSArray类。同时，+alloc也被加进cache列表里面。
+接着，执行-init方法，如果NSArray响应该方法，则直接将其加入cache；如果不响应，则去父类查找。
+在后期的操作中，如果再以[[NSArray alloc] init]这种方式来创建数组，则会直接从cache中取出相应的方法，直接调用。
+objc_object与id
+
+objc_object是表示一个类的实例的结构体，它的定义如下(objc/objc.h)：
+
+struct objc_object {
+
+    Class isa  OBJC_ISA_AVAILABILITY;
+
 };
 
-struct objc_method_list {  
-    struct objc_method_list *obsolete;
-    int method_count;
+typedef struct objc_object *id;
+可以看到，这个结构体只有一个字体，即指向其类的isa指针。这样，当我们向一个Objective-C对象发送消息时，运行时库会根据实例对象的isa指针找到这个实例对象所属的类。Runtime库会在类的方法列表及父类的方法列表中去寻找与消息对应的selector指向的方法。找到后即运行这个方法。
 
-#ifdef __LP64__
-    int space;
-#endif
+当创建一个特定类的实例对象时，分配的内存包含一个objc_object数据结构，然后是类的实例变量的数据。NSObject类的alloc和allocWithZone:方法使用函数class_createInstance来创建objc_object数据结构。
 
-    /* variable length structure */
-    struct objc_method method_list[1];
+另外还有我们常见的id，它是一个objc_object结构类型的指针。它的存在可以让我们实现类似于C++中泛型的一些操作。该类型的对象可以转换为任何一种对象，有点类似于C语言中void *指针类型的作用。
+
+objc_cache
+
+上面提到了objc_class结构体中的cache字段，它用于缓存调用过的方法。这个字段是一个指向objc_cache结构体的指针，其定义如下：
+
+struct objc_cache {
+
+    unsigned int mask /* total = mask + 1 */                 OBJC2_UNAVAILABLE;
+
+    unsigned int occupied                                    OBJC2_UNAVAILABLE;
+
+    Method buckets[1]                                        OBJC2_UNAVAILABLE;
+
 };
+该结构体的字段描述如下：
 
-struct objc_method {  
-    SEL method_name;
-    char *method_types;    /* a string representing argument/return types */
-    IMP method_imp;
-};
-```
-`objc_method_list` 本质是一个有 `objc_method` 元素的可变长度的数组。一个 `objc_method` 结构体中有函数名，也就是SEL，有表示函数类型的字符串 (见 Type Encoding) ，以及函数的实现IMP。
+mask：一个整数，指定分配的缓存bucket的总数。在方法查找过程中，Objective-C runtime使用这个字段来确定开始线性查找数组的索引位置。指向方法selector的指针与该字段做一个AND位操作(index = (mask & selector))。这可以作为一个简单的hash散列算法。
+occupied：一个整数，指定实际占用的缓存bucket的总数。
+buckets：指向Method数据结构指针的数组。这个数组可能包含不超过mask+1个元素。需要注意的是，指针可能是NULL，表示这个缓存bucket没有被占用，另外被占用的bucket可能是不连续的。这个数组可能会随着时间而增长。
+元类(Meta Class)
 
-从这些定义中可以看出发送一条消息也就 `objc_msgSend` 做了什么事。举 `objc_msgSend(obj, foo)` 这个例子来说：
+在上面我们提到，所有的类自身也是一个对象，我们可以向这个对象发送消息(即调用类方法)。如：
 
-1.首先，通过 obj 的 isa 指针找到它的 class ;
+NSArray *array = [NSArray array];
+这个例子中，+array消息发送给了NSArray类，而这个NSArray也是一个对象。既然是对象，那么它也是一个objc_object指针，它包含一个指向其类的一个isa指针。那么这些就有一个问题了，这个isa指针指向什么呢？为了调用+array方法，这个类的isa指针必须指向一个包含这些类方法的一个objc_class结构体。这就引出了meta-class的概念
 
-2.在 class 的 method list 找 foo ;
+meta-class是一个类对象的类。
+当我们向一个对象发送消息时，runtime会在这个对象所属的这个类的方法列表中查找方法；而向一个类发送消息时，会在这个类的meta-class的方法列表中查找。
 
-3.如果 class 中没到 foo，继续往它的 superclass 中找 ;
+meta-class之所以重要，是因为它存储着一个类的所有类方法。每个类都会有一个单独的meta-class，因为每个类的类方法基本不可能完全相同。
 
-4.一旦找到 foo 这个函数，就去执行它的实现IMP .
+再深入一下，meta-class也是一个类，也可以向它发送一个消息，那么它的isa又是指向什么呢？为了不让这种结构无限延伸下去，Objective-C的设计者让所有的meta-class的isa指向基类的meta-class，以此作为它们的所属类。即，任何NSObject继承体系下的meta-class都使用NSObject的meta-class作为自己的所属类，而基类的meta-class的isa指针是指向它自己。这样就形成了一个完美的闭环。
 
-但这种实现有个问题，效率低。但一个 class 往往只有 20% 的函数会被经常调用，可能占总调用次数的 80% 。每个消息都需要遍历一次 `objc_method_list` 并不合理。如果把经常被调用的函数缓存下来，那可以大大提高函数查询的效率。这也就是 `objc_class` 中另一个重要成员 `objc_cache` 做的事情 - 再找到 foo 之后，把 foo 的 `method_name` 作为 key ，`method_imp` 作为 value 给存起来。当再次收到 foo 消息的时候，可以直接在 cache 里找到，避免去遍历 `objc_method_list`.
-
----
-### 动态方法解析和转发
-在上面的例子中，如果 foo 没有找到会发生什么？通常情况下，程序会在运行时挂掉并抛出 `unrecognized selector sent to … `的异常。但在异常抛出前，Objective-C 的运行时会给你三次拯救程序的机会：
-
-- Method resolution
-- Fast forwarding
-- Normal forwarding
-
-###Method Resolution
-
-首先，Objective-C 运行时会调用` +resolveInstanceMethod:` 或者 `+resolveClassMethod:`，让你有机会提供一个函数实现。如果你添加了函数并返回 YES， 那运行时系统就会重新启动一次消息发送的过程。还是以 foo 为例，你可以这么实现：
-```objc
-void fooMethod(id obj, SEL _cmd)  
-{
-    NSLog(@"Doing foo");
-}
-
-+ (BOOL)resolveInstanceMethod:(SEL)aSEL
-{
-    if(aSEL == @selector(foo:)){
-        class_addMethod([self class], aSEL, (IMP)fooMethod, "v@:");
-        return YES;
-    }
-    return [super resolveInstanceMethod];
-}
-```
-Core Data 有用到这个方法。NSManagedObjects 中 properties 的 getter 和 setter 就是在运行时动态添加的。
-
-如果 resolve 方法返回 NO ，运行时就会移到下一步：`消息转发（Message Forwarding）`。
-
-上面的例子可以重写成：
-```objc
-IMP fooIMP = imp_implementationWithBlock(^(id _self) {  
-    NSLog(@"Doing foo");
-});
-
-class_addMethod([self class], aSEL, fooIMP, "v@:");  
-```
-
-### Fast forwarding
-如果目标对象实现了 -forwardingTargetForSelector: ，Runtime 这时就会调用这个方法，给你把这个消息转发给其他对象的机会。
-```objc
-- (id)forwardingTargetForSelector:(SEL)aSelector
-{
-    if(aSelector == @selector(foo:)){
-        return alternateObject;
-    }
-    return [super forwardingTargetForSelector:aSelector];
-}
-```
-只要这个方法返回的不是 nil 和 self，整个消息发送的过程就会被重启，当然发送的对象会变成你返回的那个对象。否则，就会继续 Normal Fowarding 。
-
-这里叫 Fast ，只是为了区别下一步的转发机制。因为这一步不会创建任何新的对象，但下一步转发会创建一个 NSInvocation 对象，所以相对更快点。
-
-###Normal forwarding
-这一步是 Runtime 最后一次给你挽救的机会。首先它会发送 `-methodSignatureForSelector: `消息获得函数的参数和返回值类型。如果 `-methodSignatureForSelector: `返回 nil ，Runtime 则会发出 `-doesNotRecognizeSelector:` 消息，程序这时也就挂掉了。如果返回了一个函数签名，Runtime 就会创建一个 NSInvocation 对象并发送 `-forwardInvocation: `消息给目标对象。
-
-
-NSInvocation 实际上就是对一个消息的描述，包括selector 以及参数等信息。所以你可以在` -forwardInvocation: `里修改传进来的 NSInvocation 对象，然后发送` -invokeWithTarget:` 消息给它，传进去一个新的目标：
-```objc
-- (NSMethodSignature*)methodSignatureForSelector:(SEL)selector
-{
-    NSMethodSignature* signature = [super methodSignatureForSelector:selector];
-    
-    if (!signature)
-    signature = [alternateObject methodSignatureForSelector:selector];
-
-    return signature;
-}
-```
-```objc
-- (void)forwardInvocation:(NSInvocation *)invocation
-{
-    SEL sel = invocation.selector;
-
-    if([alternateObject respondsToSelector:sel]) {
-        [invocation invokeWithTarget:alternateObject];
-    } 
-    else {
-        [self doesNotRecognizeSelector:sel];
-    }
-}
-```
-Cocoa 里很多地方都利用到了消息传递机制来对语言进行扩展，如 Proxies、NSUndoManager 跟 Responder Chain。NSProxy 就是专门用来作为代理转发消息的；NSUndoManager 截取一个消息之后再发送；而 Responder Chain 保证一个消息转发给合适的响应者。
-
----
-
-##总结
-Objective-C 中给一个对象发送消息会经过以下几个步骤：
-
-1.在对象类的 dispatch table 中尝试找到该消息。如果找到了，跳到相应的函数IMP去执行实现代码；
-
-2.如果没有找到，Runtime 会发送 `+resolveInstanceMethod: `或者 `+resolveClassMethod: `尝试去 resolve 这个消息；
-
-3.如果 resolve 方法返回 NO，Runtime 就发送` -forwardingTargetForSelector:` 允许你把这个消息转发给另一个对象；
-
-4.如果没有新的目标对象返回， Runtime 就会发送` -methodSignatureForSelector:` 和` -forwardInvocation: `消息。你可以发送 `-invokeWithTarget:` 消息来手动转发消息或者发送` -doesNotRecognizeSelector: `抛出异常。
-
-利用 Objective-C 的 runtime特性，我们可以自己来对语言进行扩展，解决项目开发中的一些设计和技术问题。下一篇文章，我会介绍 `Method Swizzling` 技术以及如何利用 `Method Swizzling` 做 Logging。
-
-
+通过上面的描述，再加上对objc_class结构体中super_class指针的分析，我们就可以描绘出类及相应meta-class类的一个继承体系了，如下图所示：
 

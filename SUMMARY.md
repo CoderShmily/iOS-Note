@@ -9,7 +9,7 @@
 <h2 id="2">锚点2跳转处</h2>
 
 
-[ 25.](https://github.com/ChenYilong/iOSInterviewQuestions/blob/master/01.md#25)
+[25](https://github.com/ChenYilong/iOSInterviewQuestions/blob/master/01.md#25)
 
 ###25
 

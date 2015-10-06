@@ -1,22 +1,3 @@
-<font color=red> 内容 </font>
-
-<a href="#1">锚点1</a>  
-
-<a href="#2">锚点2</a>  
-
-
-<a name="1">锚点1跳转处</a>
-<h2 id="2">锚点2跳转处</h2>
-
-
-[hello`这里面可加修饰符`](https://1.md#25w)
-#25w
-##25w
-
-
-
-
-
 # Summary
 
 * [Introduction](README.md)
@@ -51,7 +32,6 @@
    * [单例](进阶资料/dan_li.md)
    * [深浅Copy](进阶资料/shen_qian_copy_strong__md.md)
    * [KVC 和 KVO深入](进阶资料/kvc_he_kvo_shen_ru.md)
-   * [OC 对象模型](进阶资料/oc_dui_xiang_mo_xing.md)
    * [runtime](进阶资料/yun_xing_shi.md)
        * [Runtime(一)](进阶资料/runtime4e0029.md)
        * [Runtime(二)](进阶资料/runtime4e8c29.md)

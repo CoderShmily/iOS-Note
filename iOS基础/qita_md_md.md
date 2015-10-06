@@ -1,6 +1,6 @@
 # iOS基础 - 笔记
 
-[25](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/qita_md_md.md#25wc)
+
 
 
 
@@ -111,5 +111,3 @@ NSString *str = url.absoluteString; // 完整的URL字符串
 UIImage *image =[UIImage imageNamed:@"minion_02"];
 NSData *data = UIImagePNGRepresentation(image);
 ```
-
-#25wc

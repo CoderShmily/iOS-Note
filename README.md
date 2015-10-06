@@ -1,4 +1,10 @@
 <font color=red> 内容 </font>
+<a href="#1">锚点1</a>  
+<a href="#2">锚点2</a>  
+
+
+<a name="1">锚点1跳转处</a>
+<h2 id="2">锚点2跳转处</h2>
 
 
 # Summary

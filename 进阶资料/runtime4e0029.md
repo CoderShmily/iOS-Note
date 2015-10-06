@@ -72,3 +72,106 @@ struct objc_method {
 4.一旦找到 foo 这个函数，就去执行它的实现IMP .
 
 但这种实现有个问题，效率低。但一个 class 往往只有 20% 的函数会被经常调用，可能占总调用次数的 80% 。每个消息都需要遍历一次 `objc_method_list` 并不合理。如果把经常被调用的函数缓存下来，那可以大大提高函数查询的效率。这也就是 `objc_class` 中另一个重要成员 `objc_cache` 做的事情 - 再找到 foo 之后，把 foo 的 `method_name` 作为 key ，`method_imp` 作为 value 给存起来。当再次收到 foo 消息的时候，可以直接在 cache 里找到，避免去遍历 `objc_method_list`.
+
+---
+### 动态方法解析和转发
+在上面的例子中，如果 foo 没有找到会发生什么？通常情况下，程序会在运行时挂掉并抛出 `unrecognized selector sent to … `的异常。但在异常抛出前，Objective-C 的运行时会给你三次拯救程序的机会：
+
+- Method resolution
+- Fast forwarding
+- Normal forwarding
+
+###Method Resolution
+
+首先，Objective-C 运行时会调用` +resolveInstanceMethod:` 或者 `+resolveClassMethod:`，让你有机会提供一个函数实现。如果你添加了函数并返回 YES， 那运行时系统就会重新启动一次消息发送的过程。还是以 foo 为例，你可以这么实现：
+```objc
+void fooMethod(id obj, SEL _cmd)  
+{
+    NSLog(@"Doing foo");
+}
+
++ (BOOL)resolveInstanceMethod:(SEL)aSEL
+{
+    if(aSEL == @selector(foo:)){
+        class_addMethod([self class], aSEL, (IMP)fooMethod, "v@:");
+        return YES;
+    }
+    return [super resolveInstanceMethod];
+}
+```
+Core Data 有用到这个方法。NSManagedObjects 中 properties 的 getter 和 setter 就是在运行时动态添加的。
+
+如果 resolve 方法返回 NO ，运行时就会移到下一步：`消息转发（Message Forwarding）`。
+
+上面的例子可以重写成：
+```objc
+IMP fooIMP = imp_implementationWithBlock(^(id _self) {  
+    NSLog(@"Doing foo");
+});
+
+class_addMethod([self class], aSEL, fooIMP, "v@:");  
+```
+
+### Fast forwarding
+如果目标对象实现了 -forwardingTargetForSelector: ，Runtime 这时就会调用这个方法，给你把这个消息转发给其他对象的机会。
+```objc
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+    if(aSelector == @selector(foo:)){
+        return alternateObject;
+    }
+    return [super forwardingTargetForSelector:aSelector];
+}
+```
+只要这个方法返回的不是 nil 和 self，整个消息发送的过程就会被重启，当然发送的对象会变成你返回的那个对象。否则，就会继续 Normal Fowarding 。
+
+这里叫 Fast ，只是为了区别下一步的转发机制。因为这一步不会创建任何新的对象，但下一步转发会创建一个 NSInvocation 对象，所以相对更快点。
+
+###Normal forwarding
+这一步是 Runtime 最后一次给你挽救的机会。首先它会发送 `-methodSignatureForSelector: `消息获得函数的参数和返回值类型。如果 `-methodSignatureForSelector: `返回 nil ，Runtime 则会发出 `-doesNotRecognizeSelector:` 消息，程序这时也就挂掉了。如果返回了一个函数签名，Runtime 就会创建一个 NSInvocation 对象并发送 `-forwardInvocation: `消息给目标对象。
+
+
+NSInvocation 实际上就是对一个消息的描述，包括selector 以及参数等信息。所以你可以在` -forwardInvocation: `里修改传进来的 NSInvocation 对象，然后发送` -invokeWithTarget:` 消息给它，传进去一个新的目标：
+```objc
+- (NSMethodSignature*)methodSignatureForSelector:(SEL)selector
+{
+    NSMethodSignature* signature = [super methodSignatureForSelector:selector];
+    
+    if (!signature)
+    signature = [alternateObject methodSignatureForSelector:selector];
+
+    return signature;
+}
+```
+```objc
+- (void)forwardInvocation:(NSInvocation *)invocation
+{
+    SEL sel = invocation.selector;
+
+    if([alternateObject respondsToSelector:sel]) {
+        [invocation invokeWithTarget:alternateObject];
+    } 
+    else {
+        [self doesNotRecognizeSelector:sel];
+    }
+}
+```
+Cocoa 里很多地方都利用到了消息传递机制来对语言进行扩展，如 Proxies、NSUndoManager 跟 Responder Chain。NSProxy 就是专门用来作为代理转发消息的；NSUndoManager 截取一个消息之后再发送；而 Responder Chain 保证一个消息转发给合适的响应者。
+
+---
+
+##总结
+Objective-C 中给一个对象发送消息会经过以下几个步骤：
+
+1.在对象类的 dispatch table 中尝试找到该消息。如果找到了，跳到相应的函数IMP去执行实现代码；
+
+2.如果没有找到，Runtime 会发送 +resolveInstanceMethod: 或者 +resolveClassMethod: 尝试去 resolve 这个消息；
+
+3.如果 resolve 方法返回 NO，Runtime 就发送 -forwardingTargetForSelector: 允许你把这个消息转发给另一个对象；
+
+4.如果没有新的目标对象返回， Runtime 就会发送 -methodSignatureForSelector: 和 -forwardInvocation: 消息。你可以发送 -invokeWithTarget: 消息来手动转发消息或者发送 -doesNotRecognizeSelector: 抛出异常。
+
+利用 Objective-C 的 runtime特性，我们可以自己来对语言进行扩展，解决项目开发中的一些设计和技术问题。下一篇文章，我会介绍 Method Swizzling 技术以及如何利用 Method Swizzling 做 Logging。
+
+
+

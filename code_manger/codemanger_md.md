@@ -113,3 +113,21 @@ git pull：下载远程仓库的最新信息到本地仓库
 git push：将本地的仓库信息推送到远程仓库
 
 ```
+
+
+
+## Github 创建一个repository以后 
+#### 1.create a new repository on the command line
+```
+echo "# iOS-" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:CoderShmily/iOS-.git
+git push -u origin master
+```
+#### 2.push an existing repository from the command line
+```
+git remote add origin git@github.com:CoderShmily/iOS-.git
+git push -u origin master
+```

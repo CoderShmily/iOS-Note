@@ -165,13 +165,13 @@ Objective-C 中给一个对象发送消息会经过以下几个步骤：
 
 1.在对象类的 dispatch table 中尝试找到该消息。如果找到了，跳到相应的函数IMP去执行实现代码；
 
-2.如果没有找到，Runtime 会发送 +resolveInstanceMethod: 或者 +resolveClassMethod: 尝试去 resolve 这个消息；
+2.如果没有找到，Runtime 会发送 `+resolveInstanceMethod: `或者 `+resolveClassMethod: `尝试去 resolve 这个消息；
 
-3.如果 resolve 方法返回 NO，Runtime 就发送 -forwardingTargetForSelector: 允许你把这个消息转发给另一个对象；
+3.如果 resolve 方法返回 NO，Runtime 就发送` -forwardingTargetForSelector:` 允许你把这个消息转发给另一个对象；
 
-4.如果没有新的目标对象返回， Runtime 就会发送 -methodSignatureForSelector: 和 -forwardInvocation: 消息。你可以发送 -invokeWithTarget: 消息来手动转发消息或者发送 -doesNotRecognizeSelector: 抛出异常。
+4.如果没有新的目标对象返回， Runtime 就会发送` -methodSignatureForSelector:` 和` -forwardInvocation: `消息。你可以发送 `-invokeWithTarget:` 消息来手动转发消息或者发送` -doesNotRecognizeSelector: `抛出异常。
 
-利用 Objective-C 的 runtime特性，我们可以自己来对语言进行扩展，解决项目开发中的一些设计和技术问题。下一篇文章，我会介绍 Method Swizzling 技术以及如何利用 Method Swizzling 做 Logging。
+利用 Objective-C 的 runtime特性，我们可以自己来对语言进行扩展，解决项目开发中的一些设计和技术问题。下一篇文章，我会介绍 `Method Swizzling` 技术以及如何利用 `Method Swizzling` 做 Logging。
 
 
 

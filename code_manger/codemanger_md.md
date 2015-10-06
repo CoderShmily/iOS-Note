@@ -116,7 +116,7 @@ git push：将本地的仓库信息推送到远程仓库
 
 
 
-## Github 创建一个iOS- repository以后 
+## Github 创建一个iOS-的repository以后 
 #### 1.create a new repository on the command line
 ```
 echo "# iOS-" >> README.md

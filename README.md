@@ -68,9 +68,3 @@
    * [属性和方法](Swift/shu_xing_he_fang_fa.md)
    * [单例](Swift/dan_li.md)
    
-   
-
-<a name="1">锚点1跳转处</a>
-
-<h2 id="2">锚点2跳转处</h2>
-

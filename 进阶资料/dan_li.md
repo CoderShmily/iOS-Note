@@ -148,7 +148,7 @@ return _instance; \
 
 - 使用宏定义
 
-```
+```objc
 //  FileTools.h
 
 #import <Foundation/Foundation.h>
@@ -161,7 +161,7 @@ interfaceSingle(FileTools);
 
 ```
 
-```
+```objc
 //  FileTools.m
 
 #import "FileTools.h"

@@ -30,7 +30,7 @@ sudo gem uninstall cocoapods
 ```objc
 查找框架
 pod search AFNetworking
-NSLog(@"");
+
 // 工程目录下创建Podfile
 touch Podfile
 
@@ -38,7 +38,7 @@ touch Podfile
 platform :ios, "8.0" 		8.0代表兼容的ios版本
 pod 'Reachability' 		框架名用'' 或者""都行  
 pod 'JSONKit', '~> 1.4' 	不指定版本,默认下载最新版
-    CALayer *layer = [CALayer layer];
+
 初次下载使用
 pod install --no-repo-update
 

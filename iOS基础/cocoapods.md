@@ -30,8 +30,8 @@ sudo gem uninstall cocoapods
 pod search AFNetworking
 
 Podfile
-platform :ios, “8.0” 		8.0代表兼容的ios版本
-pod ‘Reachability’ 		框架名用’’ 或者””都行  
+platform :ios, "8.0" 		8.0代表兼容的ios版本
+pod 'Reachability' 		框架名用'' 或者""都行  
 pod 'JSONKit', '~> 1.4' 	不指定版本,默认下载最新版
 
 初次下载使用

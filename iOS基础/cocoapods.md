@@ -22,7 +22,7 @@ pod setup
 
 pod --version
 
-卸载󿲸󿲴CocoaPods
+卸载CocoaPods
 sudo gem uninstall cocoapods
 ```
 ```

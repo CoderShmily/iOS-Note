@@ -1,5 +1,12 @@
 # Summary
 
+<font color=red> 内容 </font>
+
+<a href="#1">锚点1</a>  
+
+<a href="#2">锚点2</a>  
+
+
 * [Introduction](README.md)
 * [iOS基础](iOS基础/qita_md_md.md)
    * [自动布局](autoresizing/autoresizingmd.md)
@@ -67,4 +74,10 @@
    * [懒加载](Swift/lan_jia_zai.md)
    * [属性和方法](Swift/shu_xing_he_fang_fa.md)
    * [单例](Swift/dan_li.md)
+   
+   
+
+<a name="1">锚点1跳转处</a>
+
+<h2 id="2">锚点2跳转处</h2>
 

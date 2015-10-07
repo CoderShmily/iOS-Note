@@ -26,6 +26,7 @@
 1.用initWithArray:copyItems: 将第二个参数设置为YES即可深复制
 ```objc
 # 下面两个写法:生成的类型跟array无关,alloc已经决定类型和地址,向对象都发送copy消息
+
  NSArray *array1= [[NSArray alloc] initWithArray:array copyItems:YES];
  NSMutableArray *array1 = [[NSMutableArray alloc] initWithArray:array copyItems:YES];
 ```

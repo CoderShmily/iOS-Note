@@ -1,6 +1,3 @@
-
-
-
 <font color=red> 内容 </font>
 
 <a href="#1">锚点1</a>  

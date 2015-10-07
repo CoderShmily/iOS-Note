@@ -46,7 +46,7 @@ static Tools *_instance;
 
 <font color=red>除了添加上面ARC实现的代码,再添加下面代码</font>
 
-```
+```objc
 #pragma mark - MRC
 #if __has_feature(objc_arc)
 // 如果是ARC什么都不添加

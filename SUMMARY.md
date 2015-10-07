@@ -33,7 +33,7 @@
    * [单例](进阶资料/dan_li.md)
    * [深浅Copy](进阶资料/shen_qian_copy_strong__md.md)
    * [KVC 和 KVO深入](进阶资料/kvc_he_kvo_shen_ru.md)
-   * [runtime](进阶资料/yun_xing_shi.md)
+   * [Runtime](进阶资料/yun_xing_shi.md)
        * [Runtime(一)](进阶资料/runtime4e0029.md)
        * [Runtime(二)](进阶资料/runtime4e8c29.md)
        * [Runtime(三)](进阶资料/runtime4e0929.md)

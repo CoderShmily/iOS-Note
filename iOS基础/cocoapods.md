@@ -25,7 +25,7 @@ pod --version
 卸载CocoaPods
 sudo gem uninstall cocoapods
 ```
-```
+```objc
 查找框架
 pod search AFNetworking
 

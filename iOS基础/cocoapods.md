@@ -1,6 +1,7 @@
 # CocoaPods
 
 ---
+
 ```
 安装cocoapods
 
@@ -17,7 +18,7 @@ pod repo remove master
 pod repo add master https://gitcafe.com/akuandev/Specs.git
 pod repo update
 
-// du -sh *
+// du -sh * 查看下载进度
 pod setup
 
 pod --version
@@ -37,7 +38,7 @@ touch Podfile
 platform :ios, "8.0" 		8.0代表兼容的ios版本
 pod 'Reachability' 		框架名用'' 或者""都行  
 pod 'JSONKit', '~> 1.4' 	不指定版本,默认下载最新版
-
+    CALayer *layer = [CALayer layer];
 初次下载使用
 pod install --no-repo-update
 
@@ -47,8 +48,8 @@ pod update --no-repo-update
 更新框架
 pod repo update
 ```
-```
 
+```
 如果提示关于gem的东西找不到:
 sudo gem uninstall --all
 sudo gem install cocoapods

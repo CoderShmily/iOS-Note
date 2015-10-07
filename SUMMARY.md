@@ -28,7 +28,7 @@
    * [HTML5](HTML5/html5.md)
    * [地图](baidumap/baidumapmd.md)
    * [二维码](iOS基础/iOS基础/er_wei_ma.md)
-   * CocoaPods
+   * [CocoaPods](iOS基础/cocoapods.md)
 * [iOS进阶](进阶资料/mian_8bd5_md.md)
    * [单例](进阶资料/dan_li.md)
    * [深浅Copy](进阶资料/shen_qian_copy_strong__md.md)

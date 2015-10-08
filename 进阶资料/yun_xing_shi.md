@@ -34,7 +34,7 @@ object_getInstanceVariable -> Ivar object_getInstanceVariable(id obj, const char
 object_setInstanceVariable -> Ivar object_setInstanceVariable(id obj, const char *name, void *value);
 
 # 属性
-property_getName -> const char *property_getName(objc_property_t property)
+property_getName -> const char *property_getName(objc_property_t property) // 传入上面的数组(指针)获取每个属性的名称
 property_getAttributes -> const char *property_getAttributes(objc_property_t property) // 返回属性的名称和@encode类型字符串
 
 

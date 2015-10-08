@@ -38,6 +38,9 @@ object_setInstanceVariable -> Ivar object_setInstanceVariable(id obj, const char
 # 属性
 property_getName -> const char *property_getName(objc_property_t property)
 
+property_getAttributes -> const char *property_getAttributes(objc_property_t property) // 返回属性的名称和@encode类型字符串
+
+
 # 发送消息
 objc_msgSend -> objc_msgSend(id obj, SEL name);
 

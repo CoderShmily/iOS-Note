@@ -35,8 +35,12 @@ object_setIvar -> object_setIvar(id obj, Ivar ivar, id value);//Sets the value o
 object_getInstanceVariable -> Ivar object_getInstanceVariable(id obj, const char *name, void **outValue)
 object_setInstanceVariable -> Ivar object_setInstanceVariable(id obj, const char *name, void *value);
 
+# 属性
+property_getName -> const char *property_getName(objc_property_t property)
+
 # 发送消息
 objc_msgSend -> objc_msgSend(id obj, SEL name);
+
 ```
 ### 获取列表(属性、方法、协议) 
 

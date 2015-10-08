@@ -4,9 +4,7 @@
 # class
 class_getInstanceMethod -> Method class_getInstanceMethod(Class cls, SEL name);// 返回给定类的指定的实例方法
 class_addMethod -> BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);// 通过方法名SEL+原来的IMP实现给类添加新方法
-
 class_copyPropertyList -> objc_property_t *class_copyPropertyList(Class cls, unsigned int *outCount) // 获取类的属性列表
-property_getName -> const char *property_getName(objc_property_t property) // 传入上面的数组(指针)获取每个属性的名称
 
 # method
 method_getTypeEncoding -> const char *method_getTypeEncoding(Method m);// Returns a string describing a method's parameter and return types.
@@ -37,7 +35,6 @@ object_setInstanceVariable -> Ivar object_setInstanceVariable(id obj, const char
 
 # 属性
 property_getName -> const char *property_getName(objc_property_t property)
-
 property_getAttributes -> const char *property_getAttributes(objc_property_t property) // 返回属性的名称和@encode类型字符串
 
 

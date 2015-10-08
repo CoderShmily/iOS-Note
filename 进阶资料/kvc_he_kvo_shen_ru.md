@@ -13,6 +13,11 @@ valueForKey:首先查找以键-key或-isKey命名的getter方法。如果不存�
 - KVC按键值路径取值时，如果对象不包含指定的键值，那么就会自动进入对象内部，查找对象属性。
 - KVC可以嵌套按照键值路径取值。
 
+值得注意的是这个不仅可以访问作为对象属性，而且也能访问一些标量（例如 int 和 CGFloat）和 struct（例如 CGRect）
+```objc
+[object setValue:@(20) forKey:@"height"];
+```
+
 #### 3.KVC和KVO有什么区别？
 KVO是建立在KVC之上的，KVO能够观察一个对象的KVC key-path值的变化。
 

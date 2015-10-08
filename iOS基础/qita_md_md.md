@@ -95,6 +95,11 @@ NSData *data = [NSData dataWithContentsOfURL:url];
 NSData *data2 = [NSData dataWithContentsOfFile:@"path"];
 NSData *data3 = [@"string" dataUsingEncoding:NSUTF8StringEncoding];
 
+NSNumber *number = @‘X’;//字符型
+NSNumber *number = @12.3;//双浮点型
+NSNumber *number = @11111ll;//long long
+NSNumber *number = @YES;//布尔值
+
 // 把文件内容读取到字符串
 NSString *str = [NSString stringWithContentsOfFile:@"path" encoding:NSUTF8StringEncoding error:nil];
 // 把URL资源内容读取到字符串

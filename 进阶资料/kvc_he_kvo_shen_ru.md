@@ -164,7 +164,7 @@ Sark
 (lldb) po object_getClass(sark)
 Sark
 ```
-上面的结果说明，在sark对象被观察时,framework使用runtime动态创建了一个Sark类的子类`NSKVONotifying_Sark`而且为了隐藏这个行为,`NSKVONotifying_Sark`重写了-class方法返回之前的类,就好像什么也没发生过一样但是使用object_getClass()时就暴露了, 因为这个方法返回的是这个对象的`isa指针`，`这个指针指向的一定是个这个对象的类对象`.
+上面的结果说明，在sark对象被观察时,framework使用runtime动态创建了一个Sark类的子类`NSKVONotifying_Sark`而且为了隐藏这个行为,`NSKVONotifying_Sark`重写了-class方法返回之前的类,就好像什么也没发生过一样但是使用object_getClass()时就暴露了,因为这个方法返回的是这个对象的`isa指针`，`这个指针指向的一定是个这个对象的类对象`.
 
 然后来偷窥一下这个动态类实现的方法，这里请出一个NSObject的扩展NSObject+DLIntrospection，它封装了打印一个类的方法、属性、协议等常用调试方法，一目了然。
 ```objc

@@ -1,11 +1,12 @@
 # KVC概述
 
 #### 1.什么是KVC？
-KVC即NSKeyValueCoding，就是键-值编码的意思。一个非正式的 Protocol，是一种间接访问对象的属性使用字符串来标识属性，而不是通过调用存取方法，直接或通过实例变量访问的机制。
 
-键/值编码中的基本调用包括-valueForKey:和-setValue:forKey:。以字符串的形式向对象发送消息，这个字符串是我们关注的属性的关键。
+KVC即NSKeyValueCoding,键/值编码,一个非正式的Protocol,以字符串的形式向对象发送消息，而不是通过调用存取方法，直接或通过实例变量访问的机制。
+
 valueForKey:首先查找以键-key或-isKey命名的getter方法。如果不存在getter方法（假如我们没有通过@synthesize提供存取方法），它将在对象内部查找名为_key或key的实例变量。
 对于KVC，Cocoa自动放入和取出标量值（int，float和struct）放入NSNumber或NSValue中；当使用-setValue:ForKey:时，它自动将标量值从这些对象中取出。仅KVC具有这种自动包装功能，常规方法调用和属性语法不具备该功能。
+
 -setValue:ForKey:的工作方式和-valueForKey:相同。它首先查找名称的setter方法，如果不存在setter方法，它将在类中查找名为_key或key的实例变量。
 
 #### 2.使用KVC说明

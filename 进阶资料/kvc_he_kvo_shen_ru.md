@@ -46,6 +46,78 @@ KVO是Key-Value Observing的缩写。KVO是Cocoa提供的一种称为键－值�
 # KVO 进阶
 KVO(Key Value Observing)，是观察者模式在Foundation中的实现
 
+# KVO Compliance（KVO兼容）
+
+有两种方法可以保证变更通知被发出。自动发送通知是NSObject提供的，并且一个类中的所有属性都默认支持，只要是符合KVO的。一般情况你使用自动变更通知，你不需要写任何代码。
+人工变更通知需要些额外的代码，但也对通知发送提供了额外的控制。你可以通过重写子类automaticallyNotifiesObserversForKey:方法的方式控制子类一些属性的自动通知。
+- Automatic Change Notification（自动通知）
+    下面代码中的方法都能导致KVO变更消息发出
+
+```objc
+// Call the accessor method.
+[account setName:@"Savings"];
+ 
+// Use setValue:forKey:.
+[account setValue:@"Savings" forKey:@"name"];
+ 
+// Use a key path, where 'account' is a kvc-compliant property of 'document'.
+[document setValue:@"Savings" forKeyPath:@"account.name"];
+ 
+// Use mutableArrayValueForKey: to retrieve a relationship proxy object.
+Transaction *newTransaction = <#Create a new transaction for the account#>;
+NSMutableArray *transactions = [account mutableArrayValueForKey:@"transactions"];
+[transactions addObject:newTransaction];
+```
+- Manual Change Notification（手动通知）
+
+    下面的代码为openingBalance属性开启了人工通知，并让父类决定其他属性的通知方式。
+
+```objc
++ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey {
+ 
+    BOOL automatic = NO;
+    if ([theKey isEqualToString:@"openingBalance"]) {
+        automatic = NO;
+    }
+    else {
+        automatic = [super automaticallyNotifiesObserversForKey:theKey];
+    }
+    return automatic;
+}
+```
+要实现人工观察者通知，你要执行在变更前执行willChangeValueForKey:方法，在变更后执行didChangeValueForKey:方法：
+
+```objc
+- (void)setOpeningBalance:(double)theBalance {
+    [self willChangeValueForKey:@"openingBalance"];
+    _openingBalance = theBalance;
+    [self didChangeValueForKey:@"openingBalance"];
+}
+```
+
+为了使不必要的通知最小化我们应该在变更前先检查一下值是否变了：
+```objc
+- (void)setOpeningBalance:(double)theBalance {
+    if (theBalance != _openingBalance) {
+        [self willChangeValueForKey:@"openingBalance"];
+        _openingBalance = theBalance;
+        [self didChangeValueForKey:@"openingBalance"];
+    }
+}
+```
+如果一个操作导致了多个键的变化，你必须嵌套变更通知：
+
+```objc
+- (void)setOpeningBalance:(double)theBalance {
+    [self willChangeValueForKey:@"openingBalance"];
+    [self willChangeValueForKey:@"itemChanged"];
+    _openingBalance = theBalance;
+    _itemChanged = _itemChanged+1;
+    [self didChangeValueForKey:@"itemChanged"];
+    [self didChangeValueForKey:@"openingBalance"];
+}
+```
+
 #### KVO的原理
 
 简而言之就是：

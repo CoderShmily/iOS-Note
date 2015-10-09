@@ -245,7 +245,7 @@ static Method _class_resolveInstanceMethod(Class cls, SEL sel)
 这段代码很容易理解：
 1. 首先判断是否实现了 resolveInstanceMethod，如果没有实现，返回 NULL，进入下一步处理；
 2. 如果实现了，调用 resolveInstanceMethod，获取返回值；
-3. 如果返回值为 YES，表示 resolveInstanceMethod 声称它已经提供了 selector 的实现，因此再次查找 method list，如果依然找到对应的IMP，则返回该实现，否则提示警告信息，返回 NULL，进入下一步处理；
+3. 如果返回值为 YES，表示 resolveInstanceMethod 声称它已经提供了 selector 的实现，因此再次查找 method list，如果找到对应的IMP，则返回该实现，否则提示警告信息，返回 NULL，进入下一步处理；
 4. 如果返回值为 NO，返回 NULL，进入下一步处理；
 
 #### 加入消息转发

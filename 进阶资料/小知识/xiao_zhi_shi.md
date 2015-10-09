@@ -5,7 +5,7 @@
 - 为 KVO 创建一个关联的观察者。
 
 ##### 相关函数
-```
+```objc
 void objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);
 id objc_getAssociatedObject(id object, const void *key);
 void objc_removeAssociatedObjects(id object);

@@ -160,6 +160,9 @@ Objective-C 的运行时只要发现你调用了@dynamic标注的属性的
 setter、getter 方法，就会自动到resolveInstanceMethod 里去寻找真实的实现。实际上除了@dynamic标注的属性之外，如果你调用了类型中不存在的方法，也会被resolveInstanceMethod或者
 resolveClassMethod截获，但由于你没有处理，所以会报告不能识别的消息的错误。一般Objective-C的运行时编程用到的并不多，除非你想设计一个动态化的功能，譬如：从网络下载一个升级包，不需要退出原有的程序，就可以动态的替换掉旧的功能等类似的需求。
 
+---
+
+##动态方法决议
 
 让我们来看看运行时系统是如何进行动态方法决议的，下面的代码来自苹果官方公开的源码 objc-class.mm，我在其中添加了中文注释：
 

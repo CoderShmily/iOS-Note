@@ -389,7 +389,7 @@ If you implement resolveInstanceMethod: but want particular selectors to actuall
 
 从上面的示例演示可以看出，动态方法决议是先于消息转发的。
 
-如果向一个 Objective C 对象对象发送它无法处理的消息（selector），那么编译器会按照如下次序进行处理：
+如果向一个 Objective C 对象发送它无法处理的消息（selector），那么编译器会按照如下次序进行处理：
 ```
 1  首先看是否为该 selector 提供了动态方法决议机制，如果提供了则转到2；如果没有提供则转到 3；
 

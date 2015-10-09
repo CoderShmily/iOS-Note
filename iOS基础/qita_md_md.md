@@ -59,10 +59,10 @@ NSString *_test4; // 默认是@private,改不了
 2.@protected （受保护的）只能在当前类和子类的对象方法中访问
 3.@private （私有的）只能在当前类的对象方法中才能直接访问
 4.@package (框架级别的)作用域介于私有和公开之间，只要处于同一个框架中就可以直接通过变量名问。
-5.@interface中的声明的成员变量默认protected，属性默认是public,@implatation中声明的成员变量默认是private
+5.@interface中的声明的成员变量默认protected，属性默认是public,@implementation中声明的成员变量默认是private
 
 方法有在@interface声明的默认public
-只在类@implatation实现的是private
+只在类@implementation实现的是private
 ```
 
 ```objc

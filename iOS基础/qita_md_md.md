@@ -5,6 +5,7 @@
 ```
 ```objc
 2. @property (nonatomic, copy, getter=isRich) BOOL rich; // 指定getter方法
+
 @implementation ViewController
 @synthesize var = _var; // 指定生成下划线变量
 @end

@@ -18,12 +18,13 @@ IMP可以理解成函数指针的意思，是能正确读取到函数的内容
 如果在执行完IMPn后还想继续调用IMPc的话，只需要在IMPn中调用selectorN就行了。
 
 具体怎么做呢：
-```
+
+```objc
 Method origMethod = class_getInstanceMethod(class, origSelector);  //获取SEL的Method
 
 ```
 Method是一个结构体，我们想要的IMP就在里面，看看结构
-```
+```objc
 struct objc_method {
     SEL method_name                     OBJC2_UNAVAILABLE;
     char *method_types                  OBJC2_UNAVAILABLE;
@@ -34,18 +35,19 @@ struct objc_method {
 IMP origIMP = method_getImplementation(origMethod);  //获取Method中的IMP
 ```
 ok，IMP获取到了，连接SEL到别的IMP呢
-```
+```objc
 BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);  //先增加新方法名SEL+原来的IMP
 IMP method_setImplementation(Method m, IMP imp);//然后将原来的method(SEL)重新分配新的IMP
 
 ```
-```
+
+```objc
 void method_exchangeImplementations(Method m1, Method m2) //或者可以使用method的交换方法
 
 ```
 
 实战，假设我们想知道app跳转都传送了什么值（如应用调用QQ分享什么的），那么我们可以勾取UIApplication的OpenUrl方法
-```
+```objc
 #import "KHookObjectWrapper.h"
 #import "UIKit/UIKit.h"
 #import <objc/objc.h>
@@ -70,7 +72,7 @@ void method_exchangeImplementations(Method m1, Method m2) //或者可以使用me
 ```
 
 使用method的交换方法实现：
-```
+```objc
 #import "KHookObjectWrapper.h"
 #import "UIKit/UIKit.h"
 #import <objc/objc.h>
@@ -99,7 +101,7 @@ void method_exchangeImplementations(Method m1, Method m2) //或者可以使用me
 ```
 
 另外再加一点，假如你只是想重写类的某些方法，分类也是不错的选择，分类一旦加入工程，不需要包含头文件有会生效，所以请慎重使用
-```
+```objc
 @implementation UIApplication (test)
  
 - (BOOL)openURL:(NSURL*)url {

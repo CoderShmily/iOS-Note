@@ -62,7 +62,7 @@ int main(int argc, const char * argv[])
 
 
 第二种方法，在运行时决定setter和getter对应实现的C函数，使用了NSObject提供的resolveInstanceMethod:方法。在C函数中不能直接使用实例变量，需要将ObjC对象self转成C中的结构体，因此在Person类同样需要显式声明实例变量而且访问级别是@public，为了隐藏该实例变量，将声明放在扩展(extension)中
-```
+```objc
 #import <Foundation/Foundation.h>
 #import <objc/objc-runtime.h> // for class_addMethod()
 
@@ -368,7 +368,7 @@ If you implement resolveInstanceMethod: but want particular selectors to actuall
 文档里的说法其实并不准确，只有在 resolveInstanceMethod 的实现中没有真正为 selector 提供实现，并返回 NO 的情况下才会进入消息转发流程；否则绝不会进入消息转发流程，程序要么调用正确的动态方法，要么 crash。这也与前面的源码不太一致，我猜测在比上面源码的更高层次的地方，再次查找了 method list，如果提供了实现就能够找到该实现。
 
 下面我把 resolveInstanceMethod 方法中为 selector 添加实现的那一行屏蔽了，消息转发就应该会进行:
-```
+```objc
 //class_addMethod([self class], name, (IMP)dynamicMethodIMP, "v@:");
 ```
 再次编译运行，此时输出正如前面所推断的那样：

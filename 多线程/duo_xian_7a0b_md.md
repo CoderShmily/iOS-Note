@@ -229,7 +229,7 @@ dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index){
 ### 队列组
 若有此需求：分别异步执行2个耗时的操作,等2个异步操作都执行完毕后，再回到主线程执行操作
 
-```
+```objc
 dispatch_group_t group =  dispatch_group_create();
 dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     // 执行1个耗时的异步操作

@@ -1,7 +1,7 @@
 # archiving
-
-#### 归档:自定义对象想要存储到沙盒（文件夹），必须通过归档。
-`自定义对象要归档，必须要遵守NSCoding协议`
+###NSKeyedArchiver
+####`归档:自定义对象想要存储到沙盒（文件夹），必须通过归档。`
+####`自定义对象要归档，必须要遵守NSCoding协议`
 ```objc
 - (IBAction)save:(id)sender {
 
@@ -90,6 +90,7 @@
 @end
 ```
 #### initWithCoder补充
+####`只要父类遵守了NSCoding协议，就需要调用[super initWithCoder:aDecoder]`
 
 ```objc
 #import "RedView.h"

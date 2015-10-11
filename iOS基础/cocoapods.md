@@ -36,7 +36,7 @@ pod search AFNetworking
 touch Podfile
 
 // 内容格式
-platform :ios, "8.0" 		8.0代表兼容的ios版本
+platform :ios, "8.0" 		8.0代表兼容的ios版本 不指定会用最新的框架
 pod 'SVProgressHUD' 		框架名用'' 或者""都行  
 pod 'JSONKit', '~> 1.4' 	不指定版本,默认下载最新版
 

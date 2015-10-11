@@ -1,17 +1,3 @@
-<font color=red> 内容 </font>
-
-<a href="#1">锚点1</a>  
-
-<a href="#2">锚点2</a>  
-
-
-<a name="1">锚点1跳转处</a>
-
-<h2 id="2">锚点2跳转处</h2>
-
-
-[hello`这里面可加修饰符`](https://1.md#25w)
-
 # Summary
 
 * [Introduction](README.md)
@@ -31,6 +17,7 @@
        * [2.偏好设置存储](data_save/preferencemd.md)
        * [3.归档](data_save/archivingmd.md)
        * [存储路径获取](iOS基础/cun_chu_lu_jing.md)
+       * SQLite3
    * [Core Animation](core_animation/coreanimation_md.md)
    * [Quartz2D](quartz2d/quartz2dmd.md)
    * [KVC--KVO](kvc--kvo/kvc--kvomd.md)

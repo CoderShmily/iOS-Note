@@ -6,6 +6,7 @@
 安装cocoapods
 
 sudo gem install cocoapods
+// 新版本要有问题试试 sudo gem install -n /usr/local/bin cocoapods
  
 建议先更新下gem
 sudo gem update --system

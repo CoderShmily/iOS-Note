@@ -1,6 +1,6 @@
-```
+```objc
 #import "NSString+NJ.h"
-
+// Library 目录：这个目录下有两个子目录：Caches 和 Preferences
 @implementation NSString (NJ)
 
 // Cache目录

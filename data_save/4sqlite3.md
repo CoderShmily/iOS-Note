@@ -76,3 +76,98 @@ SQL语句种类:
  // 删除t_student表中年龄小于等于10 或者 年龄大于30的记录 
  delete from t_student where age <= 10 or age > 30 ;
  ```
+ 查询语句(DQL):
+
+    select * from t_student where age > 10 ;  //  条件查询条件语句:
+
+主键约束:
+
+    每张表都必须有一个主键,用来标识记录的唯一性.
+
+什么是主键:
+
+    主键(Primary Key,简称PK),用来唯一的标识某一条记录.
+
+    例如t_student可以增加一个id字段作为主键,相当于人的身份证.
+
+    主键可以是一个字段或多个字段.
+
+外键约束:
+
+    利用外键约束可以来建立表与表之间的联系.
+
+    外键的一般情况是:一张表的某个字段引用着另一张表的主键字段.
+
+打开,关闭数据库
+
+```objc
+创建或打开数据库:
+
+// path为：~/Documents/person.db
+sqlite3 *db;
+int result = sqlite3_open([path UTF8String], &db);
+
+代码解析:
+
+    sqlite3_open()将根据文件路径打开数据库,如果不存在,则会创建一个新的数据库.如果result等于常量SQLITE_OK,则表示成功打开数据库.
+
+    sqlite *db:一个打开的数据库实例.
+
+    数据库文件的路径必须以C字符串(而非NSString)传入.
+```
+```objc
+关闭数据库:sqlite3_close(db)
+执行不返回语句的SQL语句
+
+char *errorMsg;  // 用来存储错误信息
+char *sql = "create table if not exists t_person(id integer primary key autoincrement, name text, age integer);";
+int result = sqlite3_exec(db, sql, NULL, NULL, &errorMsg);
+
+代码解析:
+
+    sqlite3_exec()可以执行任何SQL语句,比如创表, 更新, 插入和删除操作.但是一般不用它执行查询语句,因为它不会返回查询到得数据.
+
+    sqlite3_exec()还可以执行的语句:
+
+    1> 开启事务:begain transaction;
+
+    2> 回滚事务:rollback
+
+    3> 提交事务:commit
+```
+SQLite函数总结:
+```objc
+1.打开数据库
+int sqlite3_open(
+    const char *filename,   // 数据库的文件路径
+    sqlite3 **ppDb          // 数据库实例
+);
+ 
+2.执行任何SQL语句
+int sqlite3_exec(
+    sqlite3*,                                  // 一个打开的数据库实例
+    const char *sql,                           // 需要执行的SQL语句
+    int (*callback)(void*,int,char**,char**),  // SQL语句执行完毕后的回调
+    void *,                                    // 回调函数的第1个参数
+    char **errmsg                              // 错误信息
+);
+ 
+3.检查SQL语句的合法性（查询前的准备）
+int sqlite3_prepare_v2(
+    sqlite3 *db,            // 数据库实例
+    const char *zSql,       // 需要检查的SQL语句
+    int nByte,              // SQL语句的最大字节长度
+    sqlite3_stmt **ppStmt,  // sqlite3_stmt实例，用来获得数据库数据
+    const char **pzTail
+);
+ 
+4.查询一行数据
+int sqlite3_step(sqlite3_stmt*); // 如果查询到一行数据，就会返回SQLITE_ROW
+ 
+5.利用stmt获得某一字段的值（字段的下标从0开始）
+double sqlite3_column_double(sqlite3_stmt*, int iCol);  // 浮点数据
+int sqlite3_column_int(sqlite3_stmt*, int iCol); // 整型数据
+sqlite3_int64 sqlite3_column_int64(sqlite3_stmt*, int iCol); // 长整型数据
+const void *sqlite3_column_blob(sqlite3_stmt*, int iCol); // 二进制文本数据
+const unsigned char *sqlite3_column_text(sqlite3_stmt*, int iCol);  // 字符串数据
+```

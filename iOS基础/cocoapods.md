@@ -2,7 +2,7 @@
 
 ---
 
-```
+```objc
 安装cocoapods
 
 sudo gem install cocoapods
@@ -46,11 +46,11 @@ pod install --no-repo-update
 修改后更新用
 pod update --no-repo-update
 
-更新框架
+更新本地框架库
 pod repo update
 ```
 
-```
+```objc
 如果提示关于gem的东西找不到:
 sudo gem uninstall --all
 sudo gem install cocoapods

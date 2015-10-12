@@ -213,7 +213,7 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), 
 ```
 
 #### 一次性代码
-```
+```objc
 // 使用dispatch_once函数能保证某段代码在程序运行过程中只被执行1次
 static dispatch_once_t onceToken;
 dispatch_once(&onceToken, ^{

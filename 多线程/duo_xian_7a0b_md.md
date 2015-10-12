@@ -206,9 +206,9 @@ dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     // 2秒后执行这里的代码...
 });
-```objc
-- 使用NSTimer
 ```
+- 使用NSTimer
+```objc
 [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(test) userInfo:nil repeats:NO];
 ```
 

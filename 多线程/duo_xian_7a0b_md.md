@@ -164,7 +164,7 @@ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAU
 
 ##### GCD中获得串行有2种途径
 - 使用dispatch_queue_create函数创建串行队列
-```
+```objc
 // 创建串行队列（队列类型传递NULL或者DISPATCH_QUEUE_SERIAL）
 dispatch_queue_t queue = dispatch_queue_create("com.520it.queue", NULL); 
 ```

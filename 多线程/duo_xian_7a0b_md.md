@@ -197,16 +197,16 @@ dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
 #### 延时执行
 - 调用NSObject的方法
-```
+```objc
 [self performSelector:@selector(run) withObject:nil afterDelay:2.0];
 // 2秒后再调用self的run方法
 ```
 - 使用GCD函数
-```
+```objc
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
     // 2秒后执行这里的代码...
 });
-```
+```objc
 - 使用NSTimer
 ```
 [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(test) userInfo:nil repeats:NO];

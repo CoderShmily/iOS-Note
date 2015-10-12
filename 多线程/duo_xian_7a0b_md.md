@@ -183,7 +183,7 @@ dispatch_queue_t queue = dispatch_get_main_queue();
 
 #### 线程间通信示例
 
-```
+```objc
 // 从子线程回到主线程
 dispatch_async(
 dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

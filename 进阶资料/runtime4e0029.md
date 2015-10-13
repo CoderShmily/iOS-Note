@@ -137,18 +137,6 @@ meta-class之所以重要，是因为它存储着一个类的所有类方法。�
 
 通过上面的描述，再加上对objc_class结构体中super_class指针的分析，我们就可以描绘出类及相应meta-class类的一个继承体系了，如下图所示：
 ![](yaun.png)
-1. 类C的类对象(class object)的super_class都指向了类C父类的类对象(class object), NSObject的类对像的super_class指向0x0
 
-　　2. 类C的类对象(class object)的isa指针都指向他的元类对象(metaclass object)
-
-　　3. 类C的元类对象(metaclass object)的super_class指针指向父类的元类对象(metaclass object), 例外：NSObject的元类对象(metaclass object)的super_class指向NSObject的类对象(class object).
-
-　　4. 类C的元类对象(metaclass object)的isa指针指都指向NSObject的元类对象(metaclass object)
-
-　　NSObject的实例对象(虽然它没有实例变量和实例方法但这个对象仍然存在)其super_class指向地址0x0，因为NSObject没有父类, 这满足上面的结论1。
-
-　　NSObject的实例对象的isa指向了NSObject的元类对象(metaclass object)，这满足上面结论2。
-
-　　NSObject的元类对象(metaclass object)指向了自己，这也满足上面结论4。
 
 

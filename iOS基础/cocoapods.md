@@ -49,6 +49,9 @@ pod update --no-repo-update
 
 更新本地框架库
 pod repo update
+
+不集成到工程，只下载
+pod install --no-integrate
 ```
 
 ```objc

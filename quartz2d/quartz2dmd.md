@@ -359,8 +359,8 @@ void CGContextClip(CGContextRef c)
 ```objc
   - (void)viewDidLoad {
     [super viewDidLoad];
-    // 图片水印 -》生成一张新的带有logo,文字的图片
-    // 生成图片 -》 位图上下文
+    // 图片水印 ->生成一张新的带有logo,文字的图片
+    // 生成图片 -> 位图上下文
     UIImage *image = [UIImage imageNamed:@"小黄人"];
 
     // 创建位图上下文

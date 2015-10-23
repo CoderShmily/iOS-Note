@@ -17,7 +17,7 @@
    CornerStone看到生成的xcshareddata xcuserdata相关的
    文件夹显示?的右键ignore.
 4. commit其余的目录文件
-```
+``` 
 
 ####在工程路径下创建相关目录结构
 ```objc

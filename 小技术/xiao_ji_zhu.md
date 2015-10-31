@@ -26,3 +26,31 @@ iOS多线程的应用场景
 这将允许程序和网络基础框架之间相互独立，不会发生干扰。每个NSURLSession对象都由一个NSURLSessionConfiguration对象来进行初始化，后者指定了刚才提到的那些策略以及一些用来增强移动设备上性能的新选项。
 
 - 相比较NSURLConnection的返回处理，NSURLSession提供了灵活的数据返回方式，可以使用简单的block方式来处理返回数据，也可以使用更强大的delegate.
+
+NSURLSession提供的功能:
+
+    1> 通过URL将数据下载到内存;    
+
+    2> 通过URL将数据下载到文件系统;
+
+    3> 将数据上传到指定的URL;
+
+    4> 在后台完成上述功能.
+
+    5> 支持下载,断点续传,后台上传/下载,后台上传/下载任务跟进
+    
+NSURLSessionTask
+
+    NSURLSession使用NSURLSessionTask来具体执行网络请求的任务.
+
+    NSURLSessionTask支持网络请求的取消、暂停和恢复，比如下载文件暂停之后再恢复就能够自动从上次的进度继续下载 .
+
+    NSURLSessionTask还能获取数据的读取进度 .
+
+    NSURLSessionTask的三种类型:
+
+    1> NSURLSessionDataTask 处理一般的NSData数据对象, 比如通过GET或POST方式从服务器获取JSON或XML返回等等, 但不支持后台获取.
+
+    2> NSURLSessionUploadTask 用于上传文件, 支持后台上传 .
+
+    3> NSURLSessionDownloadTask 用于下载文件, 支持后台下载 .

@@ -57,12 +57,14 @@ NSURLSessionTask
     
     
     
-## iOS设计模式（常用的）
+## iOS设计模式
 设计模式的好处：我们可以写出容易理解，重用度很高的代码。降低代码的耦合度，符合软件工程的思想。
 
 设计模式主要分为三类：
-- `创造型的`：单例和抽象工厂。
-- `结构类型的`：MVC  Decorator, Adapter, Facade and Composite.等这几种模式
-- `行为性的`：Observer, Memento, Chain of Responsibility and Command.
+- `创造型的`：`单例`和`抽象工厂`。
+- `结构类型的`：`MVC`  Decorator, Adapter, Facade and Composite.等这几种模式
+- `行为性的`：`Observer`, Memento, Chain of Responsibility and Command.
+
+#### iOS设计模式（常用的）
 - 单例设计模式
 - 装饰设计模式的代理设计模式

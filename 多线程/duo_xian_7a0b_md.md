@@ -221,7 +221,7 @@ dispatch_once(&onceToken, ^{
 });
 ```
 #### 快速迭代
-```
+```objc
 // 使用dispatch_apply函数能进行快速迭代遍历
 dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index){
     // 执行10次代码，index顺序不确定

@@ -243,6 +243,37 @@ dispatch_group_notify(group, dispatch_get_main_queue(), ^{
 });
 ```
 
+### 后台运行
+GCD的另一个用处是可以让程序在后台较长久的运行。
+
+在没有使用GCD时，当app被按home键退出后，app仅有最多5秒钟的时候做一些保存或清理资源的工作。但是在使用GCD后，app最多有10分钟的时间在后台长久运行。这个时间可以用来做清理本地缓存，发送统计数据等工作。
+
+让程序在后台长久运行的示例代码如下：
+```objc
+// AppDelegate.h文件 
+@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundUpdateTask; 
+ 
+// AppDelegate.m文件 
+- (void)applicationDidEnterBackground:(UIApplication *)application 
+{ 
+    [self beingBackgroundUpdateTask]; 
+    // 在这里加上你需要长久运行的代码 
+    [self endBackgroundUpdateTask]; 
+} 
+ 
+- (void)beingBackgroundUpdateTask 
+{ 
+    self.backgroundUpdateTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{ 
+        [self endBackgroundUpdateTask]; 
+    }]; 
+} 
+ 
+- (void)endBackgroundUpdateTask 
+{ 
+    [[UIApplication sharedApplication] endBackgroundTask: self.backgroundUpdateTask]; 
+    self.backgroundUpdateTask = UIBackgroundTaskInvalid; 
+} 
+```
 
 
 

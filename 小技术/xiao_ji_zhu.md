@@ -54,3 +54,8 @@ NSURLSessionTask
     2> NSURLSessionUploadTask 用于上传文件, 支持后台上传 .
 
     3> NSURLSessionDownloadTask 用于下载文件, 支持后台下载 .
+    
+    
+    
+## iOS设计模式（常用的）
+- 装饰设计模式的代理设计模式

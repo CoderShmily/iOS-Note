@@ -133,3 +133,8 @@ NSString *str = url.absoluteString; // 完整的URL字符串
 UIImage *image =[UIImage imageNamed:@"minion_02"];
 NSData *data = UIImagePNGRepresentation(image);
 ```
+
+
+iOS多线程的应用场景
+- 单例模式
+- 

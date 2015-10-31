@@ -12,11 +12,10 @@ iPhone OS下的主线程的堆栈大小是1M，第二个线程开始就是512KB�
 iOS多线程的应用场景
 - `单例模式`
 - `可以将耗时的执行路径(如网络请求)放在其他线程中执行`
-- 
 
 
 
- ##NSURLSession  
+ ##NSURLSession 和 NSURLConnection
  当程序在前台时,NSURLSession和NSURLConnection大部分可以互相替代.
  
 - `NSURLSession支持后台网络操作,除非用户强行关闭`.

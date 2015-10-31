@@ -110,3 +110,9 @@ iOS mailcore2 学习 （一）
 
 
    了解了邮件格式后，下面就可以开始正式学习使用mailcore2来构建邮件客户端了。
+   
+   
+   [使用MailCore创建iOS邮件客户端(一)](http://blog.csdn.net/kmyhy/article/details/8258733)
+   
+   
+   

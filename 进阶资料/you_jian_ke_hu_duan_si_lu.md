@@ -95,9 +95,9 @@ iOS mailcore2 学习 （一）
 
    mime消息头：
 
-      1.content－type    字段内容以“主类型／子类型;boundarty="分隔符”的形式出现。主类型：text,image,multipart等，multipart主类型表示mime组合消息。mime组合消息有三种组合关系：混合，关联，选择，混合（multipart/mixed）表示消息体中有文本，附件等组成。关联（multipart／related）表示关联组合类型，如html代码内嵌引用的图片等资源。选择类型（multipart/alternative）表示该邮件内容既可以用纯文本表示，也可以用html格式表示，如果邮件阅读程序不支持html文本的话，就可以用纯文本表示。
+   1.content－type    字段内容以“主类型／子类型;boundarty="分隔符”的形式出现。主类型：text,image,multipart等，multipart主类型表示mime组合消息。mime组合消息有三种组合关系：混合，关联，选择，混合（multipart/mixed）表示消息体中有文本，附件等组成。关联（multipart／related）表示关联组合类型，如html代码内嵌引用的图片等资源。选择类型（multipart/alternative）表示该邮件内容既可以用纯文本表示，也可以用html格式表示，如果邮件阅读程序不支持html文本的话，就可以用纯文本表示。
 
-    2.content-transfer-encoding     表示二进制内容编码的方式。
+   2.content-transfer-encoding     表示二进制内容编码的方式。
 
    3.content－disposition     指定邮件阅读程序处理数据内容的方式。inline直接处理，attachment当附件处理，
 
@@ -113,7 +113,8 @@ iOS mailcore2 学习 （一）
    
 ```
 
-[使用MailCore创建iOS邮件客户端(一)](http://blog.csdn.net/kmyhy/article/details/8258733)
+[MailCore专栏](http://blog.csdn.net/column/details/mailcore.html)
+MailCore是一个Mac和iOS下的email库。使用它能轻易发送email，并隐藏了MIME的具体细节。只需要调用一个方法即可进行邮件发送。
    
    
    

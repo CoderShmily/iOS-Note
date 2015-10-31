@@ -17,4 +17,6 @@ iOS多线程的应用场景
 
 
  ##URLSession  
- 当程序在前台时,NSURLSession和NSURLConnection大部分可以互相替代.NSURLSession支持后台网络操作,除非用户强行关闭.
+ 当程序在前台时,NSURLSession和NSURLConnection大部分可以互相替代.`NSURLSession支持后台网络操作,除非用户强行关闭`.
+ session支持后台有block等，自己查
+NSURLConnection相比，NSURLsession最直接的改进就是可以配置每个session的缓存，协议，cookie，以及证书策略（credential policy），甚至跨程序共享这些信息。这将允许程序和网络基础框架之间相互独立，不会发生干扰。每个NSURLSession对象都由一个NSURLSessionConfiguration对象来进行初始化，后者指定了刚才提到的那些策略以及一些用来增强移动设备上性能的新选项。

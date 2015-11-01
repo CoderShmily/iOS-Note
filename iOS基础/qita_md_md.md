@@ -130,6 +130,10 @@ NSString *str = url.absoluteString; // 完整的URL字符串
 // 写入字符串到文件,YES代表写入过程错误,不会生成文件
 [@"string" writeToFile:@"/usr/test.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
    
-UIImage *image =[UIImage imageNamed:@"minion_02"];
+// NSData转换为UIImage
+NSData *imageData = [NSData dataWithContentsOfFile: imagePath];
+UIImage *image = [UIImage imageWithData: imageData];
+   
+// UIImage转换为NSData
 NSData *data = UIImagePNGRepresentation(image);
 ```

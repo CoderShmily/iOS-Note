@@ -136,4 +136,6 @@ UIImage *image = [UIImage imageWithData: imageData];
    
 // UIImage转换为NSData
 NSData *data = UIImagePNGRepresentation(image);
+NSData *imagedata=UIImageJEPGRepresentation(image,1.0);
+[imagedata writeToFile:savedImagePath atomically:YES];
 ```

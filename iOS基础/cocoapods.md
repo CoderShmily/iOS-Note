@@ -18,6 +18,7 @@ gem sources -l
 
 pod repo remove master 
 pod repo add master https://gitcafe.com/akuandev/Specs.git
+// 网址暂时404了，去git.oschina.net搜 cocoapods源
 pod repo update
 
 // du -sh * 查看下载进度

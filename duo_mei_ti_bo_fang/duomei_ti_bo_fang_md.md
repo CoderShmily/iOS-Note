@@ -112,7 +112,7 @@ NSAssert(self.url, @"URL不能为空");
 ```
 
 #### 常用监听通知事件
-```
+```objc
 // 状态变化
 MPMoviePlayerPlaybackStateDidChangeNotification
 // 播放结束

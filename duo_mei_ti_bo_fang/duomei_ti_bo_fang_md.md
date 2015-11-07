@@ -94,7 +94,7 @@ https://github.com/videolan/vlc
 ```
 #### MPMoviePlayerController的使用
 
-```
+```objc
 # 加载视频资源(注意，如果url为nil同样可以加载)
 
 NSAssert(self.url, @"URL不能为空");

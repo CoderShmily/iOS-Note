@@ -3,23 +3,22 @@ json string --》 json data --> json id
 
 - 保存设备信息到初始化设置 
 
-```
+```objc
 [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 ```
 
 - 登陆成功或注册后 DBManager存储账户密码到偏好设置
 
-```
+```objc
 NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
 NSString *name = [defaults objectForKey:@"userName"];//根据键值取出name
 NSString *phone = [defaults objectForKey:@"userPhone"];//根据键值取出name
 NSString *password = [defaults objectForKey:@"password"];//根据键值取出password
-
 ```
 
 - 保存用户相关信息到 NSDocumentDirectory的loginModel.txt
 
-```
+```objc
 @property (nonatomic ,strong)NSDictionary* lodgerInfo;
 @property (nonatomic ,strong)NSString* cardBack;
 @property (nonatomic ,strong)NSString* cardFont;
@@ -36,9 +35,11 @@ NSString *password = [defaults objectForKey:@"password"];//根据键值取出pas
 @property (nonatomic ,strong)NSString* password2;
 @property (nonatomic ,strong)NSString* salt;
 ```
+---
 
+- 控制器架构
 
-```
+```objc
 AppointmentViewController *viewController1 = [[AppointmentViewController alloc] init];
 viewController1.title = @"First";
 

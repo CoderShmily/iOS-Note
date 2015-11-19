@@ -14,7 +14,7 @@ NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 
 ```
 
-- 保存设备信息到初始化设置 
+- 保存硬件设备环境 信息到初始化设置 
 
 ```objc
 [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];

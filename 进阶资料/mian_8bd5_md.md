@@ -1,10 +1,24 @@
 json string --》 json data --> json id
 
 
+- 异常处理
+
+```objc
+void uncaughtExceptionHandler(NSException *exception) {
+    NSLog(@"CRASH: %@", exception);
+    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
+    // Internal error reporting
+}
+
+NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+
+```
+
 - 保存设备信息到初始化设置 
 
 ```objc
 [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+
 ```
 
 - 登陆成功或注册后 DBManager存储账户密码到偏好设置

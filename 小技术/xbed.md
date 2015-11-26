@@ -7,7 +7,7 @@
 #define IS_IPHONE_5_5Inche (IS_IPHONE && [UIScreen mainScreen].bounds.size.width == 414 &&[UIScreen mainScreen].bounds.size.height == 736)
 ```
 ```objc
-// 
+// 带有navigationController的从导航栏下面开始布局
 self.navigationController.navigationBar.translucent = NO;
 
 ```

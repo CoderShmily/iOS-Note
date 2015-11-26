@@ -15,7 +15,7 @@ self.automaticallyAdjustsScrollViewInsets = NO;
 
 self.edgesForExtendedLayout = UIRectEdgeNone;
 
-// 手动布局要用 masonry默认设置
+// 手动布局要用 masonry默认设置了
 self.translatesAutoresizingMaskIntoConstraints = NO;
 ```
 

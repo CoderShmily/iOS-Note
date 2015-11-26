@@ -10,5 +10,7 @@
 // 带有navigationController的从导航栏下面开始布局
 self.navigationController.navigationBar.translucent = NO;
 
+
+self.automaticallyAdjustsScrollViewInsets = NO;
 ```
 

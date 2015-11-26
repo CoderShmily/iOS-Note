@@ -6,5 +6,9 @@
 #define IS_IPHONE_4_7Inche (IS_IPHONE && [UIScreen mainScreen].bounds.size.width == 375 &&[UIScreen mainScreen].bounds.size.height == 667)
 #define IS_IPHONE_5_5Inche (IS_IPHONE && [UIScreen mainScreen].bounds.size.width == 414 &&[UIScreen mainScreen].bounds.size.height == 736)
 ```
+```objc
+// 
+self.navigationController.navigationBar.translucent = NO;
 
+```
 

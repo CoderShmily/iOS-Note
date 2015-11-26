@@ -12,5 +12,10 @@ self.navigationController.navigationBar.translucent = NO;
 
 
 self.automaticallyAdjustsScrollViewInsets = NO;
+
+self.edgesForExtendedLayout = UIRectEdgeNone;
+
+// 手动布局要用 masonry默认设置
+self.translatesAutoresizingMaskIntoConstraints = NO;
 ```
 

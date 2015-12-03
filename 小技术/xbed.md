@@ -26,3 +26,49 @@ watchpoint set variable self->_test->_var   注意写法，一定要用->而且�
 再配合条件断点，在某些情况下，调试起来非常有效：下面demo显示了：“在_var == 2的时候才断点”的用法
 watchpoint set variable
 
+```objc
++(void)AFRequestWithURL:(NSString *)URLString method:(NSString *)httpMethod
+             parameters:(NSMutableDictionary*)paramDic
+                success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:paramDic options:kNilOptions error:nil];
+    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setValue:jsonStr forKey:@"json_data"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    if ([httpMethod isEqualToString:GET]) {
+        [manager GET:URLString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            NSLog(@"JSON: %@", string);
+            NSDictionary* dic = [NSDictionary dictionaryWithDictionary:[string JSONValue]];
+            NSInteger retcode = [[dic objectForKey:@"retcode"] integerValue];
+            if (retcode > 0) {
+                success(operation,dic);
+            }else{
+                NSError* error = [NSError errorWithDomain:[dic objectForKey:@"retmsg"] code:retcode userInfo:nil];
+                failure(operation,error);
+            }
+        } failure:failure];
+    }else if ([httpMethod isEqualToString:POST]){
+        [manager POST:URLString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            NSLog(@"JSON: %@", string);
+            NSDictionary* dic = [NSDictionary dictionaryWithDictionary:[string JSONValue]];
+            NSInteger retcode = [[dic objectForKey:@"retcode"] integerValue];
+            if (retcode > 0) {
+                success(operation,dic);
+            }else{
+                NSError* error = [NSError errorWithDomain:[dic objectForKey:@"retmsg"] code:retcode userInfo:nil];
+                failure(operation,error);
+            }
+        } failure:failure];
+    }
+}
+
+```

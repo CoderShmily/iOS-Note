@@ -10,7 +10,6 @@ JIRA hao.zhang
 企业邮箱 zhangh@xbed.com.cn
 13660781804
 
-
 微信平台 xbedmobile@sina.com  fighting
 友盟enterprise@xbed.com.cn Xbed2015
 

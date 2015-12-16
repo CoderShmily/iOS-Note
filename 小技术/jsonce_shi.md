@@ -1,5 +1,5 @@
 # JSON测试
-
+```
 json字符串测试
 {
     "favorited" : true,
@@ -581,3 +581,4 @@ json字符串测试
     "in_reply_to_user_id" : "",
     "original_pic" : "http://ww4.sinaimg.cn/large/eb8fce65jw1ew466loxu0j20hs0dc755.jpg"
 }
+```

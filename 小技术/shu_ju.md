@@ -1,20 +1,10 @@
 # 数据
 
 ```
-wifi密码 office xbed2048 office2 xbed1024 
-
-gwmc42@163.com密码Dd112211   已购买里面搜索surge，只登录Appstore别登录iCloud别登录iCloud别登录iCloud！！
 surge可以抓包 charles只能抓http(https比较麻烦)
+
 git@120.25.106.243:/apps/repo/xbed_ios.git
 项目管理系统JIRA ： http://192.168.1.10:8080
-
-
-
-
-http://192.168.1.11/xbedservice/app/roommgnt/list
-
-新的API文档系统 内网发布上线。 http://192.168.1.2:8001/org/index.do
-
 smb://192.168.1.10/share
 JIRA hao.zhang
 企业邮箱 zhangh@xbed.com.cn

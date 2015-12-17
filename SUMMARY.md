@@ -65,6 +65,7 @@
        * [JSON测试](小技术/jsonce_shi.md)
        * [屏幕适配](小技术/ping_mu_shi_pei.md)
        * [数据](小技术/shu_ju.md)
+       * SSH
 * [Swift开发](Swift/swiftkai_guan.md)
    * [常量和变量](Swift/chang_liang_he_bian_liang.md)
    * [逻辑和分支](Swift/luo_ji_he_fen_zhi.md)

@@ -119,10 +119,36 @@ dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
 ```
 - GCD中还有个用来执行任务的函数
+
 ```objc
 dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
 # 在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行
 # 这个queue不能是全局的并发队列
+
+    dispatch_queue_t barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(barrierQueue, ^{
+        NSLog(@"--------------");
+        NSLog(@"11---  %@",[NSThread currentThread]);
+    });
+    // dispatch_barrier_async和dispatch_barrier_sync
+    都能保证执行顺序，前者
+    dispatch_barrier_async(barrierQueue, ^{
+        NSLog(@"--------------");
+        NSLog(@"22---  %@",[NSThread currentThread]);
+    });
+//    dispatch_barrier_sync(barrierQueue, ^{
+//        NSLog(@"--------------");
+//        NSLog(@"22---  %@",[NSThread currentThread]);
+//    });
+    
+    
+    dispatch_async(barrierQueue, ^{
+        NSLog(@"--------------");
+        NSLog(@"33---  %@",[NSThread currentThread]);
+        
+    });
+    
 ```
 
 #### GCD的队列可以分为2大类型

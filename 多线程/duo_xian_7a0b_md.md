@@ -132,7 +132,7 @@ dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
         NSLog(@"11---  %@",[NSThread currentThread]);
     });
     // dispatch_barrier_async和dispatch_barrier_sync
-    都能保证执行顺序，前者
+    都能保证执行顺序，后者的栅栏block在主线程执行
     dispatch_barrier_async(barrierQueue, ^{
         NSLog(@"--------------");
         NSLog(@"22---  %@",[NSThread currentThread]);

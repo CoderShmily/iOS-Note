@@ -149,7 +149,7 @@ dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
         
     });
     
-    
+   --------------------------------------------- 
     
  // 并发读取缓存：
  - (id)cacheObjectForKey: (id)key

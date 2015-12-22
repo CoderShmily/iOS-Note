@@ -149,6 +149,25 @@ dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
         
     });
     
+    
+    
+ // 并发读取缓存：
+ - (id)cacheObjectForKey: (id)key
+{
+    __block obj;
+    dispatch_sync(_queue, ^{
+        obj = [[_cache objectForKey: key] retain];
+    });
+    return [obj autorelease];
+}
+
+// 一个线程互斥的写缓存
+- (void)setCacheObject: (id)obj forKey: (id)key
+{
+    dispatch_barrier_async(_queue, ^{
+        [_cache setObject: obj forKey: key];
+    });
+}
 ```
 
 #### GCD的队列可以分为2大类型

@@ -11,4 +11,7 @@ view(VC)若一致就写基类baseView，不一致就写共同基类的分类 处
 
 ```objc
 !block ? : block();
+
+// 获取父视图
+self.superview
 ```

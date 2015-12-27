@@ -8,3 +8,7 @@ view(VC)若一致就写基类baseView，不一致就写共同基类的分类 处
 2.左侧的view初始化为UITabBarController的View
 2.右侧view移动的距离 按比例移动左侧view
 ```
+
+```objc
+!block ? : block();
+```

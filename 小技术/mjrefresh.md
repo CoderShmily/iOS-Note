@@ -12,6 +12,8 @@ view加在x=0 ,w=superW ,y=-h ,h=MJRefreshHeaderHeight(54);
 
 3.用了UIScrollView+MJRefresh里的一个category，为UIScrollView增加了属性header和footer。
 这里用到了关联对象的技巧（AssociatedObject），因为category通常情况下是不能直接添加实例变量的.
+
+4.设置了alwaysBounceVertical，这样才能确保UIScrollView可以下拉，否则需要处理contentSize才能拉得动，就麻烦了很多
 ```
 ```objc
 1.NSUserDefaults

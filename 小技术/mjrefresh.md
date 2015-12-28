@@ -19,7 +19,7 @@ view加在x=0, y=-h, w=superW, h=MJRefreshHeaderHeight(54);
 __unsafe_unretained UITableView *tableView = self.tableView; // weak
 
 [tableView insertSubview:mj_header atIndex:0]; // header
-[tableView addSubview:mj_footer];
+[tableView addSubview:mj_footer]; // footer
 
 /** mj_header mj_footer  弱引用super scrollView*/
 __weak UIScrollView *_scrollView;

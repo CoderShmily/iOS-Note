@@ -11,7 +11,7 @@ view加在x=0 ,w=superW ,y=-h ,h=MJRefreshHeaderHeight(54);
 2.跳转到下一个控制器时，contentInset可能会变 记得考虑
 
 3.用了UIScrollView+MJRefresh里的一个category，为UIScrollView增加了属性header和footer。
-这里用到了关联对象的技巧（AssociatedObject），因为category通常情况下是不能直接添加实例变量的
+这里用到了关联对象的技巧（AssociatedObject），因为category通常情况下是不能直接添加实例变量的.
 ```
 ```objc
 1.NSUserDefaults

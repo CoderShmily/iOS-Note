@@ -18,6 +18,7 @@ view加在x=0 ,w=superW ,y=-h ,h=MJRefreshHeaderHeight(54);
 CGFloat insetT = - self.scrollView.mj_offsetY > _scrollViewOriginalInset.top ? - self.scrollView.mj_offsetY : _scrollViewOriginalInset.top;
 insetT = insetT > self.mj_h + _scrollViewOriginalInset.top ? self.mj_h + _scrollViewOriginalInset.top : insetT;
 self.scrollView.mj_insetT = insetT;
+
 // sectionheader停留解决 摘自网络
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat sectionHeaderHeight = 50;

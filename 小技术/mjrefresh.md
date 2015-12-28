@@ -7,8 +7,13 @@
 而大部分的下拉刷新控件，都是将自己放在UIScrollView的上方，起始y设置成负数，所以平时不会显示出来，只有下拉的时候才会出现，放开又会弹回去。然后在loading的时候，临时把contentInset增大，相当于把UIScrollView往下挤，于是下拉刷新的控件就会显示出来，然后刷新完成之后，再把contentInset改回原来的值，实现回弹的效果
 
 // header
+MJRefreshNormalHeader：MJRefreshStateHeader：MJRefreshHeader：MJRefreshComponent：UIView
+MJRefreshNormalHeader 负责箭头、圆圈图片状态展示
+MJRefreshStateHeader 负责title、date状态展示
+MJRefreshHeader 基类
 view加在x=0(基类), y=-h(layoutSubviews -> placeSubviews), w=superW(基类), h=MJRefreshHeaderHeight(54);
-
+// footer-back   footer-auto
+MJRefreshBackNormalFooter：MJRefreshBackStateFooter：MJRefreshBackFooter：MJRefreshFooter：MJRefreshComponent：UIView
 2.跳转到下一个控制器时，contentInset可能会变 记得考虑
 
 3.用了UIScrollView+MJRefresh里的一个category，为UIScrollView增加了属性header和footer。

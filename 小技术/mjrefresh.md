@@ -13,8 +13,11 @@ MJRefreshNormalHeader 负责箭头、圆圈图片状态展示
 MJRefreshStateHeader 负责title、date状态展示
 MJRefreshHeader 基类
 view加在x=0(基类), y=-h(layoutSubviews -> placeSubviews), w=superW(基类), h=MJRefreshHeaderHeight(54);
+
 // footer-back   footer-Auto
 MJRefreshBackNormalFooter：MJRefreshBackStateFooter：MJRefreshBackFooter：MJRefreshFooter：MJRefreshComponent：UIView
+作用同上
+
 2.跳转到下一个控制器时，contentInset可能会变 记得考虑
 
 3.用了UIScrollView+MJRefresh里的一个category，为UIScrollView增加了属性header和footer。

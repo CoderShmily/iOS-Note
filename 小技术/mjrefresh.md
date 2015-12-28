@@ -16,7 +16,7 @@ view加在x=0 ,w=superW ,y=-h ,h=MJRefreshHeaderHeight(54);
 4.设置了alwaysBounceVertical，这样才能确保UIScrollView可以下拉，否则需要处理contentSize才能拉得动，就麻烦了很多
 
 5.传递给mj_header mj_footer若引用
-__unsafe_unretained UITableView *tableView = self.tableView;
+__unsafe_unretained UITableView *tableView = self.tableView; // weak
 ```
 ```objc
 1.NSUserDefaults

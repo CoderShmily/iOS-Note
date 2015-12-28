@@ -22,6 +22,8 @@ __unsafe_unretained UITableView *tableView = self.tableView; // weak
 
 /** mj_header mj_footer  弱引用super scrollView*/
 __weak UIScrollView *_scrollView;
+
+6. KVO监听
 ```
 ```objc
 1.NSUserDefaults

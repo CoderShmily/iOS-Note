@@ -6,7 +6,7 @@
 默认情况下，如果下拉一个UIScrollView，在松手之后，会弹回初始的位置（导航栏下方）。
 而大部分的下拉刷新控件，都是将自己放在UIScrollView的上方，起始y设置成负数，所以平时不会显示出来，只有下拉的时候才会出现，放开又会弹回去。然后在loading的时候，临时把contentInset增大，相当于把UIScrollView往下挤，于是下拉刷新的控件就会显示出来，然后刷新完成之后，再把contentInset改回原来的值，实现回弹的效果
 
-view加在x=0(基类), y=-h, w=superW(基类), h=MJRefreshHeaderHeight(54);
+view加在x=0(基类), y=-h(layoutSubviews -> placeSubviews), w=superW(基类), h=MJRefreshHeaderHeight(54);
 
 2.跳转到下一个控制器时，contentInset可能会变 记得考虑
 

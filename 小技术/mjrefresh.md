@@ -9,17 +9,18 @@
 view加在x=0 ,w=superW ,y=-h ,h=MJRefreshHeaderHeight(54);
 ```
 ```objc
-1.
+1.NSUserDefaults
 // NSUserDefaults 用时记得 synchronize
 [[NSUserDefaults standardUserDefaults] setObject:nil forKey:nil];
 [[NSUserDefaults standardUserDefaults] synchronize];
-2.
-// sectionheader停留解决（部分）
+
+2.sectionheader停留解决
+//（部分）
 CGFloat insetT = - self.scrollView.mj_offsetY > _scrollViewOriginalInset.top ? - self.scrollView.mj_offsetY : _scrollViewOriginalInset.top;
 insetT = insetT > self.mj_h + _scrollViewOriginalInset.top ? self.mj_h + _scrollViewOriginalInset.top : insetT;
 self.scrollView.mj_insetT = insetT;
 
-// sectionheader停留解决 摘自网络
+// 摘自网络
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat sectionHeaderHeight = 50;
     if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {

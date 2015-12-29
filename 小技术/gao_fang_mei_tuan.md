@@ -39,6 +39,11 @@ content-type: text/plain 最好添加manager.responseSerializer = [AFHTTPRespons
      AFPropertyListResponseSerializer   PList 
      AFImageResponseSerializer          Image 
      AFCompoundResponseSerializer       组合 
+     
+     
+    // AFHTTPResponseSerializer就是正常的HTTP请求响应结果:NSData  
+    // 当请求的返回数据不是JSON,XML,PList,UIImage之外,使用AFHTTPResponseSerializer  
+    // 例如返回一个html,text...  
  */  
 
 //header 设置

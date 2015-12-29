@@ -15,7 +15,7 @@ MJRefreshHeader 基类
 
 // header_frame :
 x=0 // MJRefreshComponent
-y=-h  // MJRefreshHeader(layoutSubviews -> placeSubviews)
+y=-h // MJRefreshHeader(layoutSubviews -> placeSubviews)
 w=superW // MJRefreshComponent
 h=MJRefreshHeaderHeight(54) // MJRefreshHeader
 

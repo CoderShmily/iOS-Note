@@ -14,7 +14,7 @@ MJRefreshStateHeader 负责title、date状态展示
 MJRefreshHeader 基类
 
 // header_frame :
-x=0(基类MJRefreshComponent), y=-h(layoutSubviews -> placeSubviews), w=superW(基类), h=MJRefreshHeaderHeight(54);
+x=0(基类MJRefreshComponent), y=-h(layoutSubviews -> placeSubviews), w=superW(基类), h=MJRefreshHeaderHeight(54)(MJRefreshHeader);
 
 // footer-back   footer-Auto
 MJRefreshFooterHeight = 44.0

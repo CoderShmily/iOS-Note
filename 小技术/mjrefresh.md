@@ -20,11 +20,13 @@ w=superW // MJRefreshComponent
 h=MJRefreshHeaderHeight(54) // MJRefreshHeader
 
 // footer-back   footer-Auto
-MJRefreshFooterHeight = 44.0
 MJRefreshBackNormalFooter：MJRefreshBackStateFooter：MJRefreshBackFooter：MJRefreshFooter：MJRefreshComponent：UIView
 作用同上
 
 // foot_frame:x 
+x=0 // MJRefreshComponent
+w=superW // MJRefreshComponent
+h = MJRefreshFooterHeight(44) // MJRefreshFooter(prepare)
 
 2.跳转到下一个控制器时，contentInset可能会变 记得考虑
 

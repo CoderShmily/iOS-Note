@@ -12,6 +12,35 @@ manager.requestSerializer=[AFJSONRequestSerializer serializer];//申明请求的
 content-type: text/plain 最好添加manager.responseSerializer = [AFHTTPResponseSerializer serializer];//使用这个将得到的是NSData
 尽量不改acceptableContentTypes
 
+/** 
+ 要使用常规的AFN网络访问 
+  
+ 1. AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager]; 
+  
+    所有的网络请求,均有manager发起 
+  
+ 2. 需要注意的是,默认提交请求的数据是二进制的,返回格式是JSON 
+  
+    1> 如果提交数据是JSON的,需要将请求格式设置为AFJSONRequestSerializer 
+    2> 如果返回格式不是JSON的, 
+  
+ 3. 请求格式 
+  
+     AFHTTPRequestSerializer            二进制格式 
+     AFJSONRequestSerializer            JSON 
+     AFPropertyListRequestSerializer    PList(是一种特殊的XML,解析起来相对容易) 
+  
+ 4. 返回格式 
+  
+     AFHTTPResponseSerializer           二进制格式 
+     AFJSONResponseSerializer           JSON 
+     AFXMLParserResponseSerializer      XML,只能返回XMLParser,还需要自己通过代理方法解析 
+     AFXMLDocumentResponseSerializer (Mac OS X) 
+     AFPropertyListResponseSerializer   PList 
+     AFImageResponseSerializer          Image 
+     AFCompoundResponseSerializer       组合 
+ */  
+
 //header 设置
     [manager.requestSerializer setValue:K_PASS_IP forHTTPHeaderField:@"Host"];
     [manager.requestSerializer setValue:@"max-age=0" forHTTPHeaderField:@"Cache-Control"];

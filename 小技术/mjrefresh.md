@@ -19,7 +19,7 @@ y=-h // MJRefreshHeader(layoutSubviews -> placeSubviews)
 w=superW // MJRefreshComponent
 h=MJRefreshHeaderHeight(54) // MJRefreshHeader
 
-// footer-back   footer-Auto
+// footer-back(用此类说明)   footer-Auto
 MJRefreshBackNormalFooter：MJRefreshBackStateFooter：MJRefreshBackFooter：MJRefreshFooter：MJRefreshComponent：UIView
 作用同上
 

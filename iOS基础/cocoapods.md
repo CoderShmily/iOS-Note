@@ -43,7 +43,7 @@ pod 'SVProgressHUD' 		框架名用'' 或者""都行
 pod 'JSONKit', '~> 1.4' 	不指定版本,默认下载最新版
 
 platform :ios, "8.0"        
-pod 'Masonary'
+pod 'Masonry'
 
 初次下载使用
 pod install --no-repo-update

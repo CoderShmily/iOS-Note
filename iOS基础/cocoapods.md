@@ -42,6 +42,9 @@ platform :ios, "8.0" 		8.0代表兼容的ios版本 不指定会用最新的框�
 pod 'SVProgressHUD' 		框架名用'' 或者""都行  
 pod 'JSONKit', '~> 1.4' 	不指定版本,默认下载最新版
 
+platform :ios, "8.0"        
+pod 'Masonary'
+
 初次下载使用
 pod install --no-repo-update
 

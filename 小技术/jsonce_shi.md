@@ -1,5 +1,6 @@
 # JSON测试
 ```
+http://120.25.251.184:8080/xbedservice/app/ordmgnt/queryrooms
 json字符串测试
 {
     "favorited" : true,

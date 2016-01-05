@@ -6,9 +6,10 @@ surge可以抓包 charles只能抓http(https比较麻烦)
 git@120.25.106.243:/apps/repo/xbed_ios.git
 项目管理系统JIRA ： http://192.168.1.10:8080
 smb://192.168.1.10/share
-JIRA hao.zhang
-企业邮箱 zhangh@xbed.com.cn
-13660781804
+
+git@120.25.106.243:/apps/repo/xbed_ios.git
+id_rsa  id_rsa.pub
+chmod  600  id_rsa chmod  644  id_rsa.pub
 
 微信平台 xbedmobile@sina.com  fighting
 友盟enterprise@xbed.com.cn Xbed2015

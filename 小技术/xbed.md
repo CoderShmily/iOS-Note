@@ -73,6 +73,4 @@ watchpoint set variable
     }
 }
 
-
-sd_setImageWithURL
 ```

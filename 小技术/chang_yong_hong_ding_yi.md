@@ -10,4 +10,9 @@
 #endif
 ```
 
+
+- ##### 判断设备的操作系统
+```objc
+#define IOS7   (  [[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0] )
+```
 - ##### 硬件信息的获取

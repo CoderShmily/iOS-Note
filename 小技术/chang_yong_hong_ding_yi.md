@@ -41,11 +41,15 @@
 #endif
 ```
 ```objc
-#if TARGET_IPHONE_SIMULATOR
-// 模拟器
-#elif TARGET_OS_IPHONE
-// 
-#endif
+    if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {
+        // iPhone
+    }
+    if ([[[UIDevice currentDevice] model] isEqualToString:@"IPod Touch"]) {
+        // iPod touch
+    }
+    if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
+        // iPhone Simulator
+    }
 ```
 ```objc
 // 设备型号iPhone5

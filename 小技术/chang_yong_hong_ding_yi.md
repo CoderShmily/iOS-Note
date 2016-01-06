@@ -66,6 +66,11 @@ if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
 } else {
     // iPad style UI
 }
+
+// 当前系统支持的最小版本
+__IPHONE_OS_VERSION_MIN_REQUIRED;
+// 当前系统支持的最大版本
+__IPHONE_OS_VERSION_MAX_ALLOWED;
 ```
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)

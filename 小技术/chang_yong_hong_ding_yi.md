@@ -42,12 +42,12 @@
 ```
 
 ```objc
-#if TARGET_OS_IPHONE
-    // iPhone Device
-#endif
 #if TARGET_IPHONE_SIMULATOR
-    // iPhone Simulator
+    NSLog(@"模拟器");
+#else
+    NSLog(@"真机");
 #endif
+
 
 // 或者
 if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {

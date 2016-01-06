@@ -17,13 +17,11 @@
 #endif
 ```
 - ##### 判断是否是OC语言
-
 ```objc
 #ifdef __OBJC__
 #endif
 ```
 - ##### 判断是ARC还是MRC
-
 ```objc
 #if __has_feature(objc_arc)
 // 如果是ARC什么都不添加

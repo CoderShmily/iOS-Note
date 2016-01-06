@@ -33,6 +33,14 @@
 ```objc
 // 是否大于iOS7
 #define IOS7 ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])
+```
+```objc
+// 
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+```
+```objc
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)
 ```

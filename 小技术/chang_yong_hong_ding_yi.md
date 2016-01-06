@@ -20,6 +20,6 @@
 
 // 设备型号
 判断当前设备是不是iPhone5
-1.#define kScreenIphone5    (([[UIScreen mainScreen] bounds].size.height)>=568)
+#define kScreenIphone5    (([[UIScreen mainScreen] bounds].size.height)>=568)
 ```
 - ##### 硬件信息的获取

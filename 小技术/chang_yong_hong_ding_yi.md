@@ -42,7 +42,7 @@
 ```
 ```objc
 #if TARGET_IPHONE_SIMULATOR
-//
+// 模拟器
 #elif TARGET_OS_IPHONE
 // 
 #endif

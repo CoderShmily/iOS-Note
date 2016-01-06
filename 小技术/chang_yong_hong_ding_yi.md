@@ -39,6 +39,16 @@
 #ifndef __IPHONE_8_0
 #warning "This project uses features only available in iOS SDK 4.0 and later."
 #endif
+
+// 当前系统支持的最小版本
+__IPHONE_OS_VERSION_MIN_REQUIRED;
+// 当前系统支持的最大版本
+__IPHONE_OS_VERSION_MAX_ALLOWED;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_2_2
+    // iPhone OS SDK 3.0 以后版本的处理
+#else
+    // iPhone OS SDK 3.0 之前版本的处理
+#endif
 ```
 
 ```objc
@@ -61,17 +71,8 @@ if ([[[UIDevice currentDevice] model] isEqualToString:@"iPad"]) {
     // iPad
     NSLog(@"%@", [[UIDevice currentDevice] model]);
 }
-
-// 当前系统支持的最小版本
-__IPHONE_OS_VERSION_MIN_REQUIRED;
-// 当前系统支持的最大版本
-__IPHONE_OS_VERSION_MAX_ALLOWED;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_2_2
-    // iPhone OS SDK 3.0 以后版本的处理
-#else
-    // iPhone OS SDK 3.0 之前版本的处理
-#endif
 ```
+
 ```objc
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)

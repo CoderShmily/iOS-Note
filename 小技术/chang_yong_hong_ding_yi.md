@@ -16,10 +16,10 @@
 
 ```objc
 // iOS版本号
-#define IOS7   ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])
+#define IOS7 ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])
 
 // 设备型号
 判断当前设备是不是iPhone5
-#define kScreenIphone5    (([[UIScreen mainScreen] bounds].size.height)>=568)
+#define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height)>=568)
 ```
 - ##### 硬件信息的获取

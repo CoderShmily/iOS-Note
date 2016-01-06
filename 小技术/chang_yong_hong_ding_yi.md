@@ -87,7 +87,6 @@ __IPHONE_OS_VERSION_MAX_ALLOWED;
     return platform;
 }
 
-
 + (NSString *)getPlatformString
 {
     NSString *platform = [self getDeviceVersion];

@@ -56,9 +56,6 @@ if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {
 if ([[[UIDevice currentDevice] model] isEqualToString:@"IPod Touch"]) {
     // iPod touch
 }
-if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
-    // iPhone Simulator
-}
 
 // 当前系统支持的最小版本
 __IPHONE_OS_VERSION_MIN_REQUIRED;

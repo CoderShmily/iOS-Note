@@ -5,7 +5,7 @@
 //
 ```
 
-- ##### 根据版本是debug还是release禁用NSLog
+- ##### 1.根据版本是debug还是release禁用NSLog
 ```objc
 /** 日志输出 */
 #ifdef DEBUG // 开发
@@ -14,12 +14,12 @@
 #define XMGLog(...)
 #endif
 ```
-- ##### 判断是否是OC语言
+- ##### 2.判断是否是OC语言
 ```objc
 #ifdef __OBJC__
 #endif
 ```
-- ##### 判断是ARC还是MRC
+- ##### 3.判断是ARC还是MRC
 ```objc
 #if __has_feature(objc_arc)
 // 如果是ARC什么都不添加
@@ -27,7 +27,7 @@
 #endif
 ```
 
-- ##### 判断iOS版本和设备
+- ##### 4.判断iOS版本和设备
 ```objc
 // 是否大于iOS7
 #define IOS7 ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])

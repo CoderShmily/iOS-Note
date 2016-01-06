@@ -10,7 +10,7 @@
 
 - 格式化输出
 
-```
+```objc
 //常用打印语句
   NSLog(@"字符串:%@",name);
   NSLog(@"字符:%c",a);
@@ -35,4 +35,3 @@
     NSStringFromSelector(SEL aSelector);// SEL _cmd打印
     
 ```
-![](格式化输出.png)

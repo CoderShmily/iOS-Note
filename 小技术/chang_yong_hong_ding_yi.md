@@ -60,13 +60,6 @@ if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
     // iPhone Simulator
 }
 
-// 或者
-if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    // iPhone and iPod touch style UI
-} else {
-    // iPad style UI
-}
-
 // 当前系统支持的最小版本
 __IPHONE_OS_VERSION_MIN_REQUIRED;
 // 当前系统支持的最大版本

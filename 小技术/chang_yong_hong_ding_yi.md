@@ -33,8 +33,7 @@
 ```objc
 // 是否大于iOS7
 #define IOS7 ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])
-```
-```objc
+
 // 如果定义此宏，说明iOS SDK大于8.0
 #ifndef __IPHONE_8_0
 #warning "This project uses features only available in iOS SDK 4.0 and later."

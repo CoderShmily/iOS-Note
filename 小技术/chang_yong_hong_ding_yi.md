@@ -77,6 +77,7 @@ if ([[[UIDevice currentDevice] model] isEqualToString:@"iPad"]) {
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)
 
+// 或者
 #import <sys/sysctl.h>
 + (NSString*)getDeviceVersion
 {

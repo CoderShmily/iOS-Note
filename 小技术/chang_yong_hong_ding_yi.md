@@ -41,6 +41,13 @@
 #endif
 ```
 ```objc
+#if TARGET_IPHONE_SIMULATOR
+//
+#elif TARGET_OS_IPHONE
+// 
+#endif
+```
+```objc
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)
 ```

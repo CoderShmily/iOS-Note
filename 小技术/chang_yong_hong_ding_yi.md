@@ -76,32 +76,20 @@ __IPHONE_OS_VERSION_MAX_ALLOWED;
 
 #import <sys/sysctl.h>
 + (NSString*)getDeviceVersion
-
 {
-    
     size_t size;
-    
     sysctlbyname("hw.machine",NULL, &size, NULL,0);
-    
     char *machine = (char*)malloc(size);
-    
     sysctlbyname("hw.machine", machine, &size,NULL, 0);
-    
     NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
-    
     //NSString *platform = [NSStringstringWithUTF8String:machine];二者等效
-    
     free(machine);
-    
     return platform;
-    
 }
 
 
 + (NSString *)getPlatformString
-
 {
-    
     NSString *platform = [self getDeviceVersion];
     
     //iPhone

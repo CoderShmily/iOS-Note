@@ -19,6 +19,6 @@
 #define IOS7 ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])
 
 // 设备型号iPhone5
-#define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height)>=568)
+#define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)
 ```
 - ##### 硬件信息的获取

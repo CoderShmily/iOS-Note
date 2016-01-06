@@ -22,3 +22,36 @@
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)
 ```
 - ##### 硬件信息的获取
+
+
+- pch文件使用前要包含路径
+    - 从工程目录下开始所以可省略为 00000/PrefixHeader.pch
+    - 还有个$(SRCROOT)/pchFile.pch什么的...
+
+![](pch设置.png)
+
+
+- pch常用条件编译
+
+```objc
+/** 判断是否OC语言 */
+#ifdef __OBJC__
+#endif
+
+/** 判断是ARC还是MRC */
+#if __has_feature(objc_arc)
+// 如果是ARC什么都不添加
+#else
+#endif
+```
+
+```objc
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+  #import <UIKit/UIKit.h>
+  #import <Foundation/Foundation.h>
+#endif
+```

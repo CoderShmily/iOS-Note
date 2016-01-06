@@ -58,6 +58,13 @@ if ([[[UIDevice currentDevice] model] isEqualToString:@"IPod Touch"]) {
 if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
     // iPhone Simulator
 }
+// 或者
+if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    // iPhone and iPod touch style UI
+} else {
+    // iPad style UI
+    
+}
 ```
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)

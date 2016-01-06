@@ -48,6 +48,10 @@
     NSLog(@"真机");
 #endif
 
+#if !TARGET_IPHONE_SIMULATOR
+    NSLog(@"真机");
+#endif
+
 
 // 或者
 if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {

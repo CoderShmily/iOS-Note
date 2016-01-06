@@ -16,7 +16,7 @@
 #define XMGLog(...)
 #endif
 ```
-- ##### 判断是否OC语
+- ##### 判断是否是OC语言
 
 ```objc
 #ifdef __OBJC__

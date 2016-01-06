@@ -16,10 +16,11 @@
 #define XMGLog(...)
 #endif
 ```
-- ##### 是否OC语言
+- ##### 判断是否OC语
 
 ```objc
-
+#ifdef __OBJC__
+#endif
 ```
 
 - ##### iOS版本和设备
@@ -44,9 +45,7 @@
 - pch常用条件编译
 
 ```objc
-/** 判断是否OC语言 */
-#ifdef __OBJC__
-#endif
+
 
 /** 判断是ARC还是MRC */
 #if __has_feature(objc_arc)

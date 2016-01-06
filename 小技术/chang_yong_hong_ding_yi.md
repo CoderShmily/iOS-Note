@@ -1,5 +1,11 @@
 # 常用宏定义
 
+- ##### 1
+
+```objc
+
+```
+
 - ##### 根据版本是debug还是release禁用NSLog
 
 ```objc
@@ -10,9 +16,13 @@
 #define XMGLog(...)
 #endif
 ```
+- ##### 是否OC语言
 
+```objc
 
-- ##### 判断iOS版本和设备
+```
+
+- ##### iOS版本和设备
 
 ```objc
 // 是否大于iOS7

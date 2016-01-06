@@ -74,10 +74,10 @@ if ([[[UIDevice currentDevice] model] isEqualToString:@"iPad"]) {
 ```
 
 ```objc
-// 设备型号iPhone5
+// 1.设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)
 
-// 或者
+// 2.真机有型号 模拟器显示一样
 #import <sys/sysctl.h>
 + (NSString*)getDeviceVersion
 {

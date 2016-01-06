@@ -9,3 +9,5 @@
 #define XMGLog(...)
 #endif
 ```
+
+- ##### 硬件信息的获取

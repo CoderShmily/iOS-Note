@@ -52,13 +52,14 @@
     NSLog(@"真机");
 #endif
 
-
-// 或者
+// iPhone iPad
 if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {
     // iPhone
+    NSLog(@"%@", [[UIDevice currentDevice] model]);
 }
-if ([[[UIDevice currentDevice] model] isEqualToString:@"IPod Touch"]) {
-    // iPod touch
+if ([[[UIDevice currentDevice] model] isEqualToString:@"iPad"]) {
+    // iPad
+    NSLog(@"%@", [[UIDevice currentDevice] model]);
 }
 
 // 当前系统支持的最小版本

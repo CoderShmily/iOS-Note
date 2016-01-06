@@ -48,6 +48,7 @@
 #if TARGET_IPHONE_SIMULATOR
     // iPhone Simulator
 #endif
+
 // 或者
 if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {
     // iPhone
@@ -58,6 +59,7 @@ if ([[[UIDevice currentDevice] model] isEqualToString:@"IPod Touch"]) {
 if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
     // iPhone Simulator
 }
+
 // 或者
 if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
     // iPhone and iPod touch style UI

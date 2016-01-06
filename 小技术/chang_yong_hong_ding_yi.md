@@ -9,9 +9,9 @@
 ```objc
 /** 日志输出 */
 #ifdef DEBUG // 开发
-#define XMGLog(...) NSLog(__VA_ARGS__)
+#define MYLog(...) NSLog(__VA_ARGS__)
 #else // 发布
-#define XMGLog(...)
+#define MYLog(...)
 #endif
 ```
 - ##### 2.判断是否是OC语言

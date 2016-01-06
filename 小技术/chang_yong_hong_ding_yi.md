@@ -40,18 +40,26 @@
 #warning "This project uses features only available in iOS SDK 4.0 and later."
 #endif
 ```
+
 ```objc
-    if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {
-        // iPhone
-    }
-    if ([[[UIDevice currentDevice] model] isEqualToString:@"IPod Touch"]) {
-        // iPod touch
-    }
-    if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
-        // iPhone Simulator
-    }
+#if TARGET_OS_IPHONE
+    // iPhone Device
+#endif
+
+#if TARGET_IPHONE_SIMULATOR
+    // iPhone Simulator
+#endif
+// 或者
+if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {
+    // iPhone
+}
+if ([[[UIDevice currentDevice] model] isEqualToString:@"IPod Touch"]) {
+    // iPod touch
+}
+if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone Simulator"]) {
+    // iPhone Simulator
+}
 ```
-```objc
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)
 ```

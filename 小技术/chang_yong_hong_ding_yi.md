@@ -45,7 +45,6 @@
 #if TARGET_OS_IPHONE
     // iPhone Device
 #endif
-
 #if TARGET_IPHONE_SIMULATOR
     // iPhone Simulator
 #endif

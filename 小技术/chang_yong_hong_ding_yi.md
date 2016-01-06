@@ -65,7 +65,6 @@ if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
     // iPhone and iPod touch style UI
 } else {
     // iPad style UI
-    
 }
 ```
 // 设备型号iPhone5

@@ -71,6 +71,11 @@ if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
 __IPHONE_OS_VERSION_MIN_REQUIRED;
 // 当前系统支持的最大版本
 __IPHONE_OS_VERSION_MAX_ALLOWED;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_2_2
+    // iPhone OS SDK 3.0 以后版本的处理
+#else
+    // iPhone OS SDK 3.0 之前版本的处理
+#endif
 ```
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)

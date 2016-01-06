@@ -67,7 +67,7 @@
    * [test](小技术/test.md)
        * [高仿美团](小技术/gao_fang_mei_tuan.md)
        * [MJRefresh](小技术/mjrefresh.md)
-   * [常用宏定义](小技术/chang_yong_hong_ding_yi.md)
+   * [常用宏 代码](小技术/chang_yong_hong_ding_yi.md)
 * [Swift开发](Swift/swiftkai_guan.md)
    * [常量和变量](Swift/chang_liang_he_bian_liang.md)
    * [逻辑和分支](Swift/luo_ji_he_fen_zhi.md)

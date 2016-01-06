@@ -30,11 +30,9 @@
 ```
 
 - ##### 判断iOS版本和设备
-
 ```objc
 // 是否大于iOS7
 #define IOS7 ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])
-
 // 设备型号iPhone5
 #define kScreenIphone5 (([[UIScreen mainScreen] bounds].size.height) >= 568)
 ```

@@ -64,7 +64,7 @@ __IPHONE_OS_VERSION_MAX_ALLOWED;
 
 // iPhone iPad
 if ([[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]) {
-    // iPhone
+    // iPhone 不分真机、模拟器
     NSLog(@"%@", [[UIDevice currentDevice] model]);
 }
 if ([[[UIDevice currentDevice] model] isEqualToString:@"iPad"]) {

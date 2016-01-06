@@ -1,6 +1,7 @@
 # 常用宏定义
 
 - ##### 根据版本是debug还是release禁用NSLog
+
 ```objc
 /** 日志输出 */
 #ifdef DEBUG // 开发
@@ -12,6 +13,7 @@
 
 
 - ##### 判断设备的操作系统
+
 ```objc
 #define IOS7   (  [[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0] )
 ```

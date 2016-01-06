@@ -15,9 +15,10 @@
 - ##### 判断iOS版本和设备
 
 ```objc
-// 判断设备的操作系统版本
+// iOS版本号
 #define IOS7   ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])
 
+// 设备型号
 判断当前设备是不是iPhone5
 1.#define kScreenIphone5    (([[UIScreen mainScreen] bounds].size.height)>=568)
 ```

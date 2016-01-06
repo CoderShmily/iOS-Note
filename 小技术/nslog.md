@@ -22,16 +22,4 @@
   NSLog(@"科学技术法(用最简短的方式):%g",f);
   NSLog(@"同时打印两个整数：i＝%i,f=%f",i,f);
   NSLog(@"%%"); 输出一个%
-  
-// 把结构体转换为NSString打印出来
-
-    NSLog(@"%@", NSStringFromCGRect(rect));
-    // 列出一些....
-    NSStringFromCGRect(CGRect rect);
-    NSStringFromCGSize(CGSize size);
-    NSStringFromCGPoint(CGPoint point);
-    NSStringFromClass(Class  __unsafe_unretained aClass);
-    NSStringFromRange(NSRange range);
-    NSStringFromSelector(SEL aSelector);// SEL _cmd打印
-    
 ```

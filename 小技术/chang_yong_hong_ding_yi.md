@@ -146,9 +146,7 @@ __IPHONE_OS_VERSION_MAX_ALLOWED;
     return platform;
     
 }
-
 ```
-- ##### 硬件信息的获取
 
 
 - pch文件使用前要包含路径

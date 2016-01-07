@@ -44,6 +44,7 @@ iOS8注意
 }
 ```
 #### 3.UIAlertController对alert&actionSheet的封装
+###### 添加按钮、添加文本输入框
 
 #### 4.远程推送
 >####在iOS 8.0中，如果要使用本地通知，需要得到用户的许可
@@ -54,7 +55,6 @@ UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTy
 
 [application registerUserNotificationSettings:settings];
 ```
-###### 添加按钮、添加文本输入框
 ---
 ##iOS9注意
 

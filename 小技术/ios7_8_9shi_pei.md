@@ -47,9 +47,10 @@ iOS8注意
 ###### 添加按钮、添加文本输入框
 
 #### 4.远程推送
->##### 在iOS 8.0中，如果要使用本地通知，需要得到用户的许可,在didFinishLaunchingWithOptions方法中添加如下代码：
+>##### 在iOS8.0中，如果要使用本地通知，需要得到用户的许可,在didFinishLaunchingWithOptions方法中添加如下代码：
 
 ```objc
+// 8.0以前和以后的区别
 UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
 
 [application registerUserNotificationSettings:settings];

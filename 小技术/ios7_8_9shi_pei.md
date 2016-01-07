@@ -7,11 +7,11 @@
 iOS8注意
 ===================
 
-#### 针对屏幕适配应运而生的size classes
+#### 1.针对屏幕适配应运而生的size classes
 
 >##### size classes是为了解决storyboard只能订制一种屏幕样式的问题，它不再是具体的尺寸，而是抽象尺寸通过宽/高 的compact、any、regular 组成了九种组合包含了所有苹果设备的尺寸。
 
-#### 获取用户授权的用户隐私保护
+#### 2.获取用户授权的用户隐私保护
 
 - 地图定位示例
 
@@ -43,7 +43,7 @@ iOS8注意
 
 }
 ```
-####UIAlertController对alert&actionSheet的封装
+#### 3.UIAlertController对alert&actionSheet的封装
 
 ###### 添加按钮、添加文本输入框
 ---

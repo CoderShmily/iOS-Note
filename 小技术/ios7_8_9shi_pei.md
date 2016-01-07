@@ -52,7 +52,6 @@ iOS8注意
 ```objc
 // 8.0以前和以后的区别
 UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
-
 [application registerUserNotificationSettings:settings];
 ```
 ---

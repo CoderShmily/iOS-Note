@@ -44,7 +44,8 @@ iOS8注意
 }
 ```
 ####UIAlertController对alert&actionSheet的封装
-添加按钮
+
+###### 添加按钮、添加文本输入框
 ---
 ##iOS9注意
 

@@ -43,7 +43,8 @@ iOS8注意
 
 }
 ```
-
+####UIAlertController对alert&actionSheet的封装
+添加按钮
 ---
 ##iOS9注意
 

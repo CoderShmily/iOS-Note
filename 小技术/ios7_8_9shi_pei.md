@@ -48,5 +48,11 @@ iOS8注意
 ##iOS9注意
 
 >##### 虽然现在的iOS9已经推送正式版了，但是iOS9使用时还是会感觉到App比以前更加卡顿了，tableView拖动时卡顿显示的最为明显。 并且之前遇到一个bug，原本好的项目用xcode7一编译，tableView刷新出了问题 ，[tableView reloadData]无效，有一行cell明明改变了但是刷新不出来。 感觉可能是这个方法和某种新加的特性冲突了，猜测可能是reloadData的操作被推迟到下一个RunLoop执行最终失效。
-
 解决的方法是，注释[tableView reloadData]，改用局部刷新，问题居然就解决了。
+
+
+---
+##iPad适配
+####iPad适配Slide Over 和 Split View
+
+>##### Over 和 Split View，若想适配multi tasking特性，唯一的建议：弃纯代码，改用storyboard、xib，纵观苹果WWDC所有Demo均是如此。

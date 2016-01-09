@@ -12,10 +12,7 @@ view(VC)若一致就写基类baseView，不一致就写共同基类的分类 处
 ```objc
 !block ? : block();
 ```
-```objc
-// 获取父视图
-self.superview
-```
+
 ```objc
 Masonry小技巧
 1.获取真实frame

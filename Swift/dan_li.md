@@ -1,6 +1,6 @@
 1.笨写法
 
-```
+```swift
 class NetworkTools: NSObject {
 // USB写法
 static var onceToken: dispatch_once_t = 0
@@ -24,7 +24,7 @@ class func shareNetworkTools() -> NetworkTools
 
 
 2.标准写法
-```
+```swift
 class NetworkTools: NSObject {
     // 这样写也是懒加载的
     // 注意: 一定要写let, let本身就是线程安全的, 并且只能赋值一次

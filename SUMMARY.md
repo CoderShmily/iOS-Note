@@ -73,7 +73,7 @@
        * [charles](小技术/charles.md)
        * [AFNetworking](小技术/afnetworking.md)
    * [统计](小技术/tong_ji.md)
-   * 即时通讯
+   * [即时通讯](小技术/ji_shi_tong_xun.md)
 * [Swift开发](Swift/swiftkai_guan.md)
    * [常量和变量](Swift/chang_liang_he_bian_liang.md)
    * [逻辑和分支](Swift/luo_ji_he_fen_zhi.md)

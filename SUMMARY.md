@@ -65,7 +65,6 @@
        * [数据](小技术/shu_ju.md)
        * [SSH](小技术/ssh.md)
    * [test](小技术/test.md)
-       * [高仿美团](小技术/gao_fang_mei_tuan.md)
        * [MJRefresh](小技术/mjrefresh.md)
    * [常用宏 代码](小技术/chang_yong_hong_ding_yi.md)
    * [App安全](小技术/appan_quan.md)

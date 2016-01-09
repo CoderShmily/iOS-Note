@@ -72,7 +72,7 @@
    * [iOS7 8 9适配](小技术/ios7_8_9shi_pei.md)
    * [网络多线程](小技术/wang_luo_duo_xian_cheng.md)
        * [charles](小技术/charles.md)
-       * AFNetworking
+       * [AFNetworking](小技术/afnetworking.md)
    * [统计](小技术/tong_ji.md)
 * [Swift开发](Swift/swiftkai_guan.md)
    * [常量和变量](Swift/chang_liang_he_bian_liang.md)

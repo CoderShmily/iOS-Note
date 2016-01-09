@@ -35,7 +35,7 @@ func sum2(a: Int, _ b: Int) -> Int {
     return a + b
 }
 ```
-```objc
+```swift
 
 #没有返回值没有参数的
 func say() -> Void

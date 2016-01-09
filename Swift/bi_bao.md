@@ -26,7 +26,7 @@
 正解:    var finished: (()->())?
 ```
 
-```objc
+```swift
 # 简写:
 func loadData(finished: ()->())
 {
@@ -46,7 +46,7 @@ loadData {
 }
 ```
 
-```objc
+```swift
 loadData {
 # 如果在闭包中使用到了外界对象, 必须加上self
 // self.view.backgroundColor = UIColor.redColor()

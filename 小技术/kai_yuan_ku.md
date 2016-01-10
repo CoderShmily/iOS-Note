@@ -21,5 +21,7 @@
 | [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) | 键盘自适应 |
 | **数据存储** |
 | [SSKeychain](https://github.com/soffes/sskeychain) | 账号密码的钥匙串存取 |
+| **其他** |
+| [YYKit](https://github.com/ibireme/YYKit) | 90后大牛的一系列框架集合，YYKit is a collection of iOS components. |
 
 

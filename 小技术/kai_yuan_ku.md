@@ -19,5 +19,6 @@
 | [Masonry](https://github.com/SnapKit/Masonry) | AutoLayout的封装 |
 | [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) | 键盘自适应 |
 | **数据存储** |
+| [SSKeychain](https://github.com/soffes/sskeychain) | 账号密码的钥匙串存取 |
 
 

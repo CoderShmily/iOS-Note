@@ -22,6 +22,6 @@
 | **数据存储** |
 | [SSKeychain](https://github.com/soffes/sskeychain) | 账号密码的钥匙串存取 |
 | **其他** |
-| [YYKit](https://github.com/ibireme/YYKit) | 90后大牛的一系列框架集合，非常值得学习。YYKit is a collection of iOS components. |
+| [YYKit](https://github.com/ibireme/YYKit) | 90后大牛郭曜源的一系列框架集合，非常值得学习。YYKit is a collection of iOS components. |
 
 

@@ -6,8 +6,7 @@
 | [AFNetworking](https://github.com/AFNetworking/AFNetworking) | 网络通信库 |
 | [SDWebImage](https://github.com/rs/SDWebImage) | 网络图片&缓存,很棒,很多App都在用 |
 | [asi-http-request](https://github.com/pokeb/asi-http-request) | [http://allseeing-i.com/ASIHTTPRequest](http://allseeing-i.com/ASIHTTPRequest) 一款极其强劲的HTTP访问开源项目。让简单的ＡＰＩ完成复杂的功能，如：异步请求，队列请求，GZIP压缩，缓存，断点续传，进度跟踪，上传文件，HTTP认证在新的版本中，还加入了Objective-C闭包Block的支持，让我们的代码更加轻简灵活。|
-| Reachability | 判断设备网络情况 和苹果的很像 用ARC、GCD |
-| SDReachability | 判断设备网络情况 和苹果的很像，更友好？ |
+| [Reachability](https://github.com/tonymillion/Reachability) | 判断设备网络情况 和苹果的很像 用ARC、GCD |
 | **动画** |
 | pop | Facebook Paper的动画库，支持弹簧动画，支持实时交互 |
 | popping | 一个DemoApp，演示用pop实现的各种效果 |

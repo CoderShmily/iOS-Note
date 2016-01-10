@@ -113,10 +113,10 @@
 | [YYKit](https://github.com/ibireme/YYKit) | 90后大牛郭曜源的一系列框架集合，非常值得学习。YYKit is a collection of iOS components. |
 | [UITableView-FDTemplateLayoutCell](https://github.com/CoderShmily/UITableView-FDTemplateLayoutCell) |  sunnyxx和团队的优化UITableViewCell高度计算框架 |
 
-First Header | Second Header | Third Header
------------- | ------------- | ------------
-Content Cell | Content Cell  | Content Cell
-Content Cell | Content Cell  | Content Cell
+First Header | Second Header
+------------ | -------------
+Content Cell | Content Cell
+Content Cell | Content Cell
 If you wish, you can add a leading and tailing pipe to each line of the table:
 
 | First Header | Second Header | Third Header |

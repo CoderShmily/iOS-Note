@@ -121,18 +121,6 @@ Content Cell | Content Cell
 | [asi-http-request](https://github.com/pokeb/asi-http-request) | [http://allseeing-i.com/ASIHTTPRequest](http://allseeing-i.com/ASIHTTPRequest) 一款极其强劲的HTTP访问开源项目。让简单的ＡＰＩ完成复杂的功能，如：异步请求，队列请求，GZIP压缩，缓存，断点续传，进度跟踪，上传文件，HTTP认证在新的版本中，还加入了Objective-C闭包Block的支持，让我们的代码更加轻简灵活。|
 | [Reachability](https://github.com/tonymillion/Reachability) | 判断设备网络情况 和苹果的很像 用ARC、GCD |
 | **动画** |
-If you wish, you can add a leading and tailing pipe to each line of the table:
-
-| First Header | Second Header | Third Header |
-| ------------ | ------------- | ------------ |
-| [SDWebImage](https://github.com/rs/SDWebImage) | [SDWebImage](https://github.com/rs/SDWebImage)  | Content Cell |
-| Content Cell | Content Cell  | Content Cell |
-Specify alignement for each column by adding colons to separator lines:
-
-First Header | Second Header | Third Header
-:----------- | :-----------: | -----------:
-Left         | Center        | Right
-Left         | Center        | Right
 
 
 

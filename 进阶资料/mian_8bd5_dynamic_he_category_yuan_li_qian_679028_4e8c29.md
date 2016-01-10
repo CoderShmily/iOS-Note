@@ -1,5 +1,5 @@
 ### Associated Objects
-```
+```objc
 #import <objc/runtime.h>
 ```
 Objective-C开发者在遇到上面这条“咒语”相关的一些东西时，会不自觉的变的非常谨慎。一个主要原因是：弄乱Objective-C运行时可能会改变整个实现结构，因为所有的代码都是运行在它之上的。
@@ -18,7 +18,7 @@ Associated Objects（关联对象）或者叫作关联引用（Associative Refer
 为什么这几个方法很有用呢？因为开发者可以通过它们**在分类中给已存在的类中添加自定义属性。**
 
 #### NSObject+AssociatedObject.h
-```
+```objc
 @interface NSObject (AssociatedObject)
 @property (nonatomic, strong) id associatedObject;
 @end
@@ -37,7 +37,7 @@ Associated Objects（关联对象）或者叫作关联引用（Associative Refer
 }
 ```
 通常推荐key使用static char类型——使用指针或许更好，key值是一个唯一的常量，并只在getters和setters方法内部使用：
-```
+```objc
 static char kAssociatedObjectKey;
 
 objc_getAssociatedObject(self, &kAssociatedObjectKey);

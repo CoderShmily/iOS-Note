@@ -49,12 +49,32 @@
 ```objc
 // 是否大于iOS7
 #define IOS7 ([[[UIDevice currentDevice].systemVersion doubleValue] >= 7.0])
+```
+```objc
+//检查系统版本
 
+//等于一个版本
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+
+//大于一个版本
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+
+//大于等于一个版本
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+//小于一个版本
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+//小于等于一个版本
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+```
+```objc
 // 如果定义此宏，说明iOS SDK大于8.0
 #ifndef __IPHONE_8_0
 #warning "This project uses features only available in iOS SDK 4.0 and later."
 #endif
-
+```
+```objc
 // 当前系统支持的最小版本
 __IPHONE_OS_VERSION_MIN_REQUIRED;
 // 当前系统支持的最大版本

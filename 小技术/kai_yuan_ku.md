@@ -21,6 +21,7 @@
 | [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) | 键盘自适应 |
 | [MJRefresh](https://github.com/CoderMJLee/MJRefresh) | 上下拉刷新 |
 | [Mantle](https://github.com/Mantle/Mantle) | 模型框架 for Cocoa and Cocoa Touch |
+| [MJExtension](https://github.com/CoderMJLee/MJExtension) | JSON 模型框架 |
 | **数据存储** |
 | [SSKeychain](https://github.com/soffes/sskeychain) | 账号密码的钥匙串存取 |
 | **其他** |

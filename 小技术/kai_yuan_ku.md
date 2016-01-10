@@ -5,11 +5,10 @@
 
 | AFNet | 1:0 |
 | -- | -- |
-|  AFNetworking | 网络通信库 |
-| 0:3 | 1:3 |
+| AFNetworking | 网络通信库 |
+| SDWebImage | 网络图片&缓存,很棒,很多App都在用 |
 | Reachability | 判断设备网络情况 和苹果的很像 用ARC、GCD |
-| 0:3 | 1:3 |
-| 0:3 | 1:3 |
+| SDReachability | 判断设备网络情况 和苹果的很像，更友好？ |
 | 0:3 | 1:3 |
 | 0:3 | 1:3 |
 | 0:3 | 1:3 |

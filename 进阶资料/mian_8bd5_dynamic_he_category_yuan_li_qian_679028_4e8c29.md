@@ -24,7 +24,7 @@ Associated Objects（关联对象）或者叫作关联引用（Associative Refer
 @end
 ```
 #### NSObject+AssociatedObject.m
-```
+```objc
 @implementation NSObject (AssociatedObject)
 @dynamic associatedObject;
 

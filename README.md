@@ -113,10 +113,14 @@ OC常用Github框架 | 介绍
 | [YYKit](https://github.com/ibireme/YYKit) | 90后大牛郭曜源的一系列框架集合，非常值得学习。YYKit is a collection of iOS components. |
 | [UITableView-FDTemplateLayoutCell](https://github.com/CoderShmily/UITableView-FDTemplateLayoutCell) |  sunnyxx和团队的优化UITableViewCell高度计算框架 |
 
-First Header | Second Header
+OC常用Github框架 | 介绍
 ------------ | -------------
 Content Cell | Content Cell
 [SDWebImage](https://github.com/rs/SDWebImage) | Content Cell
+| [SDWebImage](https://github.com/rs/SDWebImage) | 网络图片&缓存,很棒,很多App都在用 |
+| [asi-http-request](https://github.com/pokeb/asi-http-request) | [http://allseeing-i.com/ASIHTTPRequest](http://allseeing-i.com/ASIHTTPRequest) 一款极其强劲的HTTP访问开源项目。让简单的ＡＰＩ完成复杂的功能，如：异步请求，队列请求，GZIP压缩，缓存，断点续传，进度跟踪，上传文件，HTTP认证在新的版本中，还加入了Objective-C闭包Block的支持，让我们的代码更加轻简灵活。|
+| [Reachability](https://github.com/tonymillion/Reachability) | 判断设备网络情况 和苹果的很像 用ARC、GCD |
+| **动画** |
 If you wish, you can add a leading and tailing pipe to each line of the table:
 
 | First Header | Second Header | Third Header |

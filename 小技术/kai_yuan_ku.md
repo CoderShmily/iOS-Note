@@ -10,7 +10,7 @@
 | Reachability | 判断设备网络情况 和苹果的很像 用ARC、GCD |
 | SDReachability | 判断设备网络情况 和苹果的很像，更友好？ |
 | 0:3 | 1:3 |
-| 0:3 | 1:3 |
 | pop | Facebook Paper的动画库，支持弹簧动画，支持实时交互 |
+| popping | 一个DemoApp，演示用pop实现的各种效果 |
 | KILabel | iOS 7 简单易用的 UILabel 替代品，提供链接自动检测，类似 URLs，twitter 类型的用户名和 hashtags。 |
 

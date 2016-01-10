@@ -5,7 +5,7 @@
 
 | AFNet | 1:0 |
 | -- | -- |
-|  AFNetworking | 很棒的HTTP网络通信库 |
+|  AFNetworking | 网络通信库 |
 | 0:3 | 1:3 |
 | 0:3 | 1:3 |
 | 0:3 | 1:3 |

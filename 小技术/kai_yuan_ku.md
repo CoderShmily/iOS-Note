@@ -20,4 +20,3 @@
 | Masonry | AutoLayout的封装 |
 | IQKeyboardManager | 键盘自适应 |
 | iCarousel | 3D 切换动画 A simple, highly customisable, data-driven 3D carousel for iOS and Mac OS |
-| 1 | 1 |

@@ -12,5 +12,6 @@
 | 0:3 | 1:3 |
 | pop | Facebook Paper的动画库，支持弹簧动画，支持实时交互 |
 | popping | 一个DemoApp，演示用pop实现的各种效果 |
+| MBProgressHUD | 一个HUD 用得很广泛 无阴影 全屏模态 |
 | KILabel | iOS 7 简单易用的 UILabel 替代品，提供链接自动检测，类似 URLs，twitter 类型的用户名和 hashtags。 |
 

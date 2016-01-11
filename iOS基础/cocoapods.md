@@ -14,8 +14,9 @@ gem sources --remove https://rubygems.org/
 gem sources -a https://ruby.taobao.org/
 gem sources -l
 
-sudo gem install cocoapods
 // 新版本要有问题试试 sudo gem install -n /usr/local/bin cocoapods
+// sudo gem install cocoapods
+
 
 pod repo remove master 
 pod repo add master https://gitcafe.com/akuandev/Specs.git

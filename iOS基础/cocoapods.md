@@ -5,8 +5,7 @@
 ```objc
 安装cocoapods
 
-sudo gem install cocoapods
-// 新版本要有问题试试 sudo gem install -n /usr/local/bin cocoapods
+
  
 建议先更新下gem
 sudo gem update --system
@@ -14,6 +13,9 @@ sudo gem update --system
 gem sources --remove https://rubygems.org/
 gem sources -a https://ruby.taobao.org/
 gem sources -l
+
+sudo gem install cocoapods
+// 新版本要有问题试试 sudo gem install -n /usr/local/bin cocoapods
 
 pod repo remove master 
 pod repo add master https://gitcafe.com/akuandev/Specs.git

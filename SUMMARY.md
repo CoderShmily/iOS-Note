@@ -70,7 +70,7 @@
    * [网络多线程](小技术/wang_luo_duo_xian_cheng.md)
        * [charles](小技术/charles.md)
        * [AFNetworking](小技术/afnetworking.md)
-   * [统计](小技术/tong_ji.md)
+   * [0统计](小技术/tong_ji.md)
    * [即时通讯](小技术/ji_shi_tong_xun.md)
    * [开源库](小技术/kai_yuan_ku.md)
    * [carlinksone](小技术/carlinksone.md)

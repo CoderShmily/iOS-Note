@@ -1,5 +1,7 @@
 # iOS基础 - 笔记
 ```objc
+!rightBlock ? : rightBlock();
+
 typedef NSString *(^completionBlock)(int a);
 [... completionBlock:^NSString *(int a) {
          a = 10;

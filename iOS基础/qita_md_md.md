@@ -1,5 +1,12 @@
 # iOS基础 - 笔记
+```objc
+typedef NSString *(^completionBlock)(int a);
+[... completionBlock:^NSString *(int a) {
+         a = 10;
+         return @"";
+     }];
 
+```
 ```
 
 <font color=red> 内容 </font>

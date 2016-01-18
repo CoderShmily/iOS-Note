@@ -34,6 +34,7 @@ UPLOAD_PIC_URL = "http://192.168.2.20:8080/imweb";
 APP ID:8a48b5515018a0f401505aa20b1779e7
 APP TOKEN:6445ae12051e3bf7bfe17771f9a16861
 
+TOKEN_EXPIRE= 2002  "Token失效或者用户未登陆！token每次登陆会变
 
 id @(20094)
 //    @"app_id" : @"2015000002"

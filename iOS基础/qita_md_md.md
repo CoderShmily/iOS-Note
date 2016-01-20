@@ -8,7 +8,7 @@ typedef NSString *(^completionBlock)(int a);
          return @"";
      }];
      
-// 带参数的block
+// 带参数的block  参数是是传给block调用者得
 - (void)initBlock:(void (^)(NSString *str))block;
 
 ```

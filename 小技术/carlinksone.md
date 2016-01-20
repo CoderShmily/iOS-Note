@@ -131,7 +131,7 @@ completion(nil,error);
 
 
 
-出现这种状态是因为键盘的frame导致的UITableView的frame发生变化
+#出现这种状态是因为键盘的frame导致的UITableView的frame发生变化
 
 解决办法
 - (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView {

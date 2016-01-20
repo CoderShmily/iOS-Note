@@ -8,6 +8,8 @@ typedef NSString *(^completionBlock)(int a);
          return @"";
      }];
 
+typedef void(^CompletionBlock)(NSString *date);
+@property (nonatomic, copy) CompletionBlock compBlock;
 
 @property (nonatomic,copy) void(^block)(NSString *str);
 

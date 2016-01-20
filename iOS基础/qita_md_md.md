@@ -7,7 +7,7 @@ typedef NSString *(^completionBlock)(int a);
          a = 10;
          return @"";
      }];
-
+// 类型定义 block
 typedef void(^CompletionBlock)(NSString *date);
 @property (nonatomic, copy) CompletionBlock compBlock;
 

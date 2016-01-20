@@ -11,6 +11,7 @@ typedef NSString *(^completionBlock)(int a);
 typedef void(^CompletionBlock)(NSString *date);
 @property (nonatomic, copy) CompletionBlock compBlock;
 
+// 属性
 @property (nonatomic,copy) void(^block)(NSString *str);
 
 // 带参数的block  参数是是传给block调用者得

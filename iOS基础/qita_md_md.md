@@ -7,6 +7,8 @@ typedef NSString *(^completionBlock)(int a);
          a = 10;
          return @"";
      }];
+     
+- (void)initBlock:(void (^)(NSString *))block;
 
 ```
 ```

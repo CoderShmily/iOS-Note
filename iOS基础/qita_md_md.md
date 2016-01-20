@@ -8,7 +8,8 @@ typedef NSString *(^completionBlock)(int a);
          return @"";
      }];
      
-- (void)initBlock:(void (^)(NSString *))block;
+// 带参数的block
+- (void)initBlock:(void (^)(NSString *str))block;
 
 ```
 ```

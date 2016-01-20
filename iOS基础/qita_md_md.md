@@ -7,7 +7,10 @@ typedef NSString *(^completionBlock)(int a);
          a = 10;
          return @"";
      }];
-     
+
+
+@property (nonatomic,copy) void(^block)(NSString *str);
+
 // 带参数的block  参数是是传给block调用者得
 - (void)initBlock:(void (^)(NSString *str))block;
 

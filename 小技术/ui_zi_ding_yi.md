@@ -10,6 +10,17 @@
 // 此方法不能修改高度
 self.tabBar.frame = CGRectMake(0,0,0,0);
 
+// 3.修改UITabBar的高度
+- (void)viewWillLayoutSubviews{
+    CGRect tabFrame = self.tabBar.frame; //self.TabBar is IBOutlet of your TabBar
+    tabFrame.size.height = 80;
+    tabFrame.origin.y = self.view.frame.size.height - 80;
+    self.tabBar.frame = tabFrame;
+}
+// 如果想要添加的工具条点击事件生效请在viewWillLayoutSubviews添加此代码
+[self.tabBar bringSubviewToFront:self.bottomToolView];
+
+
 // 3.UITabBar布局子控件
 - (void)layoutSubviews
 {

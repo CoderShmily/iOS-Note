@@ -19,7 +19,6 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
 // 如果想要添加的工具条点击事件生效请在viewWillLayoutSubviews添加此代码
 [self.tabBar bringSubviewToFront:self.bottomToolView];
 
-
 // 4.UITabBar布局子控件
 - (void)layoutSubviews
 {

@@ -32,7 +32,6 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
         tabBarButton.width = buttonW;
         tabBarButton.x = i * buttonW;
         if (i > 1) tabBarButton.x += buttonW;
-        
         i++;
     }
 }

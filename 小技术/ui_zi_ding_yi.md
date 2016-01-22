@@ -9,7 +9,5 @@
 self.tabBar.frame = CGRectMake(0,0,0,0);
 3.
 ```
-    self.tabBar.width = 100;
-    NSLog(@"%@", NSStringFromCGRect(self.tabBar.frame));
-    self.tabBar.y -= 50;
+
     ```

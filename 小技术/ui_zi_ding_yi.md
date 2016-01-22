@@ -21,7 +21,7 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
 [self.tabBar bringSubviewToFront:self.bottomToolView];
 
 
-// 3.UITabBar布局子控件
+// 4.UITabBar布局子控件
 - (void)layoutSubviews
 {
     [super layoutSubviews];

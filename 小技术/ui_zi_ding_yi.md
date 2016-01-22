@@ -14,11 +14,6 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    // 发布按钮
-    self.publishButton.centerX = self.width * 0.5;
-    self.publishButton.centerY = self.height * 0.5;
-    
     // 处理其他按钮
     CGFloat buttonW = self.width / 5;
     CGFloat i = 0;
@@ -34,4 +29,3 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
 }
 ```
 
-    ```

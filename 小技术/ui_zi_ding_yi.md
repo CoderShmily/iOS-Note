@@ -49,10 +49,6 @@ vc.tabBarItem.imageInsets = UIEdgeInsetsMake(8, 0, -8, 0);
 ```
 - ###UItableView
 ```objc
--(void)setExtraCellLineHidden:(UITableView *)tableView
-{
-    UIView *view = [UIView new];
-    view.backgroundColor = [UIColor clearColor];
-    [tableView setTableFooterView:view];
-}
+// 1.去掉多余的cell
+tableView.tableFooterView = [[UIView alloc] init];
 ```

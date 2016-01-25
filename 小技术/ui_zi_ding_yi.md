@@ -1,6 +1,6 @@
 # UI 自定义
 
-- UITabBar
+- ###UITabBar
 
 ```objc
 // 1.使用继承UITabBar的自定义类，在UITabBarController中
@@ -41,3 +41,9 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
 }
 ```
 
+
+- ###UITabBarItem
+```objc
+// 1. 只有图片时，位置显示不正确，调整
+vc.tabBarItem.imageInsets = UIEdgeInsetsMake(8, 0, -8, 0);
+```

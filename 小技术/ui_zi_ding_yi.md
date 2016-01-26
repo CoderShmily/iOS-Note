@@ -72,7 +72,7 @@ searchBar.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
 [searchBar setImage:[UIImage imageNamed:@""] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
 
 #3. 设置输入框（默认距离searchBar左右间距10）
-// 设置背景 给个确定高度的图片可以改输入框高度
+// 设置背景(可以改输入框高度) 给个确定高度的图片可以改输入框高度
 [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
 
     UITextField *searchField = [searchBar valueForKey:@"_searchField"];

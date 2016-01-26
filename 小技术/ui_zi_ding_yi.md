@@ -101,6 +101,6 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
 
 // 搜索控制器出来的时候，searchBar样式背景会变深灰色，如果searchBar单独布局在superView中背景色与superView一致是看不出来的）
 
-
+searchBar.searchBarStyle = UISearchBarStyleMinimal;// 这样输入框和搜索框
 
 ```

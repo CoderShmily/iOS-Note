@@ -75,16 +75,17 @@ searchBar.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
 // 设置背景(可以改输入框高度) 给个确定高度的图片可以改输入框高度，图片宽度要大于1
 [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
 
+// 拿到搜索框内部的UITextField
 UITextField *searchField = [searchBar valueForKey:@"_searchField"];
 //    searchField.backgroundColor = [UIColor whiteColor];
 //    searchField.borderStyle = UITextBorderStyleRoundedRect; // 设置圆角 背景图片什么的失效
 //    searchField.layer.cornerRadius = 10;
 //    searchField.layer.masksToBounds = YES;
 
-// Change search bar text color
+// 修改输入文字颜色
 searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
     
-// Change the search bar placeholder text color
+// 修改占位文字的
 [searchField setValue:COLOR_WITH_RGB(172, 150, 240) forKeyPath:@"_placeholderLabel.textColor"];
 
 # 4.UISearchDisplayController

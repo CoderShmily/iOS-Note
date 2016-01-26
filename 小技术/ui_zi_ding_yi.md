@@ -65,5 +65,6 @@ searchBar.barTintColor = [UIColor redColor];
 // 如果barTintColor设置后底部有一条线，被背景图片
 searchBar.backgroundImage = [UIImage imageNamed:@""];
 
-# 2.
+# 2.设置放大镜图标
+[searchBar setImage:[UIImage imageNamed:@""] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
 ```

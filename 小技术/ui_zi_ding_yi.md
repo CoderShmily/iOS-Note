@@ -58,11 +58,11 @@ tableView.tableFooterView = [[UIView alloc] init];
 UISearchBar *searchBar = [[UISearchBar alloc] init];
 
 # 1.设置searchBar背景色
-// backgroundColor 被遮住了，不行
+// (1)backgroundColor 被遮住了，不行
 searchBar.backgroundColor = [UIColor redColor];
-
+// (2)
 searchBar.barTintColor = [UIColor redColor];
-// 如果barTintColor设置后底部有一条线，被背景图片
+// (3)如果barTintColor设置后底部有一条线，可以用背景图片
 searchBar.backgroundImage = [UIImage imageNamed:@""];
 
 // 去掉背景色只能

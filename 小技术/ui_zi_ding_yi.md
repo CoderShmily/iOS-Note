@@ -20,10 +20,10 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
     self.tabBar.frame = tabFrame;
     self.tabBar.centerX = self.view.centerX;
 }
-# 如果想要添加的工具条点击事件生效请在viewWillLayoutSubviews添加此代码（没啥问题，没试过）
+// 如果想要添加的工具条点击事件生效请在viewWillLayoutSubviews添加此代码（没啥问题，没试过）
 [self.tabBar bringSubviewToFront:self.bottomToolView];
 
-// 4.UITabBar布局子控件
+# 4.UITabBar布局子控件
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -44,12 +44,12 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
 
 - ###UITabBarItem
 ```objc
-// 1. 只有图片时，位置显示不正确，调整
+# 1. 只有图片时，位置显示不正确，调整
 vc.tabBarItem.imageInsets = UIEdgeInsetsMake(8, 0, -8, 0);
 ```
 - ###UItableView
 ```objc
-// 1.去掉多余的cell
+# 1.去掉多余的cell
 tableView.tableFooterView = [[UIView alloc] init];
 ```
 - ###UISearchBar
@@ -64,4 +64,6 @@ searchBar.backgroundColor = [UIColor redColor];
 searchBar.barTintColor = [UIColor redColor];
 // 如果barTintColor设置后底部有一条线，被背景图片
 searchBar.backgroundImage = [UIImage imageNamed:@""];
+
+# 2.
 ```

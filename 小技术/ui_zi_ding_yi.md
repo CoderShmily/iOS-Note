@@ -86,4 +86,19 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
     
 // Change the search bar placeholder text color
 [searchField setValue:COLOR_WITH_RGB(172, 150, 240) forKeyPath:@"_placeholderLabel.textColor"];
+
+# 4.UISearchDisplayController
+
+// 带有导航栏的，搜索控制器出现后向上移问题
+@implementation CXSearchDisplayController
+- (void)setActive:(BOOL)visible animated:(BOOL)animated
+{
+    [super setActive: visible animated: NO]; // 为了去掉切换的时候 导航栏闪过的黑色背景
+    [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
+}
+
+
+@end
+
+
 ```

@@ -88,7 +88,7 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
 [searchField setValue:COLOR_WITH_RGB(172, 150, 240) forKeyPath:@"_placeholderLabel.textColor"];
 
 # 4.UISearchDisplayController
-
+// searchBar都是指自己创建的，不是UISearchDisplayController的searchBar(只读)
 // 带有导航栏的，搜索控制器出现后向上移问题
 @implementation CXSearchDisplayController
 - (void)setActive:(BOOL)visible animated:(BOOL)animated
@@ -99,7 +99,8 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
 }
 @end
 
-// 搜索控制器出来的时候，searchBar样式背景会变深色（赋值给搜索控制器的searchBar背景(或背景图)是clear color时）
+// 搜索控制器出来的时候，searchBar样式背景会变深灰色，如果searchBar单独布局在superView中背景色与superView一致是看不出来的）
+
 
 
 ```

@@ -105,7 +105,7 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
 searchBar.searchBarStyle = UISearchBarStyleMinimal;
 
 ---------------------------以下未测试------------------------------------------------
-    UITextField *searchField;
+    1. UITextField *searchField;
     if ([[[UIDevice currentDevice] systemVersion] floatValue]<7.0)
         searchField=[searchBar.subviews objectAtIndex:1];
     else
@@ -128,4 +128,20 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
         }
     }
     注：修改取消按钮文字颜色及背景图片的代码片段，一定要放到取消按钮会显示代理方法中修改，否则遍历找不着呀，那就修改不了了。
+    
+        /*
+     [self.searchBar setSearchFieldBackgroundPositionAdjustment:UIOffsetMake(30, 30)];// 设置搜索框中文本框的背景的偏移量
+     [self.searchBar setSearchTextPositionAdjustment:UIOffsetMake(30, 0)];// 设置搜索框中文本框的文本偏移量
+     [self.searchBar setInputAccessoryView:your_View];// 提供一个遮盖视图
+     
+     for(id subView in [self.searchBar subviews]){
+     if([subView isKindOfClass:[UIButton class]]){
+     UIButton *btn = (UIButton *)subView;
+     [btn setTitle:@"取消"  forState:UIControlStateNormal];
+     }
+     }
+     
+     //键盘输入完成但未收起键盘
+     - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+     */
 ```

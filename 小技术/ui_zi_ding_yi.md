@@ -85,7 +85,7 @@ UITextField *searchField = [searchBar valueForKey:@"_searchField"];
 // 修改输入文字颜色
 searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
     
-// 修改占位文字的
+// 修改占位文字的颜色
 [searchField setValue:COLOR_WITH_RGB(172, 150, 240) forKeyPath:@"_placeholderLabel.textColor"];
 
 # 4.UISearchDisplayController

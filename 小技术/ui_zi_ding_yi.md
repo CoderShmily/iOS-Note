@@ -52,3 +52,9 @@ vc.tabBarItem.imageInsets = UIEdgeInsetsMake(8, 0, -8, 0);
 // 1.去掉多余的cell
 tableView.tableFooterView = [[UIView alloc] init];
 ```
+- ###UISearchBar
+```objc
+UISearchBar *searchBar = [[UISearchBar alloc] init];
+// 1.设置searchBar背景色
+searchBar.barTintColor = [UIColor redColor];
+```

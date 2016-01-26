@@ -77,7 +77,7 @@ searchBar.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
 
     UITextField *searchField = [searchBar valueForKey:@"_searchField"];
 //    searchField.backgroundColor = [UIColor whiteColor];
-//    searchField.borderStyle = UITextBorderStyleRoundedRect;
+//    searchField.borderStyle = UITextBorderStyleRoundedRect; // 设置圆角 背景图片什么的失效
 //    searchField.layer.cornerRadius = 10;
 //    searchField.layer.masksToBounds = YES;
 //    searchField.width = 70 * titleArr.count;

@@ -94,12 +94,12 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
 - (void)setActive:(BOOL)visible animated:(BOOL)animated
 {
     [super setActive: visible animated: NO]; // 为了去掉切换的时候 导航栏闪过的黑色背景
-    // 禁止
+    // 禁止隐藏导航栏
     [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
 }
-
-
 @end
+
+// 搜索控制器出来的时候，searchBar样式背景会变深色（赋值给搜索控制器的searchBar背景(或背景图)是clear color时）
 
 
 ```

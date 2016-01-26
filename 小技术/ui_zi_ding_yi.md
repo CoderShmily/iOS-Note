@@ -70,4 +70,17 @@ searchBar.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
 
 # 2.设置放大镜图标
 [searchBar setImage:[UIImage imageNamed:@""] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+
+#3. 设置输入框（默认距离左右间距10）
+    UITextField *searchField = [searchBar valueForKey:@"_searchField"];
+//    searchField.backgroundColor = [UIColor whiteColor];
+//    searchField.borderStyle = UITextBorderStyleRoundedRect;
+//    searchField.layer.cornerRadius = 10;
+//    searchField.layer.masksToBounds = YES;
+//    searchField.width = 70 * titleArr.count;
+    // Change search bar text color
+    searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
+    // Change the search bar placeholder text color
+    [searchField setValue:COLOR_WITH_RGB(172, 150, 240) forKeyPath:@"_placeholderLabel.textColor"];
+    [titleView addSubview:searchBar];
 ```

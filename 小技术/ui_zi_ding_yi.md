@@ -104,4 +104,28 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
 // 这样输入框和搜索框同样大小，可以同时改searchBar的高度和setSearchFieldBackgroundImage的高度
 searchBar.searchBarStyle = UISearchBarStyleMinimal;
 
+---------------------------以下未测试------------------------------------------------
+    UITextField *searchField;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue]<7.0)
+        searchField=[searchBar.subviews objectAtIndex:1];
+    else
+        searchField=[((UIView *)[searchBar.subviews objectAtIndex:0]).subviews lastObject];
+    
+    5、修改UISearchBar右侧的取消按钮文字颜色及背景图片
+#pragma mark 搜索框的代理方法，搜索输入框获得焦点（聚焦）
+    -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{	[searchBar setShowsCancelButton:YES animated:YES];
+        // 修改UISearchBar右侧的取消按钮文字颜色及背景图片
+        for (UIView *searchbuttons in [searchBar subviews]){
+            if ([searchbuttons isKindOfClass:[UIButton class]]) {
+                UIButton *cancelButton = (UIButton*)searchbuttons;
+                // 修改文字颜色
+                [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+                // 修改按钮背景
+                [cancelButton setBackgroundImage:[UIImage resizedImage:@"login_btn_login.png"] forState:UIControlStateNormal];
+                [cancelButton setBackgroundImage:nil forState:UIControlStateHighlighted];
+            }
+        }
+    }
+    注：修改取消按钮文字颜色及背景图片的代码片段，一定要放到取消按钮会显示代理方法中修改，否则遍历找不着呀，那就修改不了了。
 ```

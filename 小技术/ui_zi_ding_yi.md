@@ -61,7 +61,7 @@ tableView.tableFooterView = [[UIView alloc] init];
     [tableView setTableFooterView:view];
 }
 
-# 2. UITableView的分割线
+# 2. UITableView的分割线调整左右间距
     UIEdgeInsets edges = UIEdgeInsetsMake(0, 0, 0, 0);
     if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [tableView setSeparatorInset:edges];

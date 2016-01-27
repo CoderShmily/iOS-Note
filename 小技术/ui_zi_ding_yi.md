@@ -104,6 +104,23 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
 // 这样输入框和搜索框同样大小，可以同时改searchBar的高度和setSearchFieldBackgroundImage的高度
 searchBar.searchBarStyle = UISearchBarStyleMinimal;
 
+# 5.禁止取消按钮（UISearchBar 结合UISearchDisplayController使用默认有取消按钮）
+// 在 UISearchBarDelegate中实现
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:NO animated:NO];
+}
+
+// 自定义UISearchDisplayController
+@implementation CXSearchDisplayController
+- (void)setActive:(BOOL)visible animated:(BOOL)animated
+{
+    [super setActive: visible animated: NO]; // 为了去掉切换的时候 导航栏闪过的黑色背景
+    // 禁止隐藏导航栏
+    [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
+}
+
+
 ---------------------------以下未测试------------------------------------------------
     1. UITextField *searchField;
     if ([[[UIDevice currentDevice] systemVersion] floatValue]<7.0)

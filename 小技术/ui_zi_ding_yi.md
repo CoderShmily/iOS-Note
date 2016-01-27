@@ -48,6 +48,7 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
 vc.tabBarItem.imageInsets = UIEdgeInsetsMake(8, 0, -8, 0);
 ```
 - ###UItableView
+
 ```objc
 # 1.去掉多余的cell
 tableView.tableFooterView = [[UIView alloc] init];

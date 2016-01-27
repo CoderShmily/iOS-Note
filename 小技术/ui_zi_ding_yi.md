@@ -60,6 +60,27 @@ tableView.tableFooterView = [[UIView alloc] init];
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
 }
+
+# 2. UITableView的分割线
+    UIEdgeInsets edges = UIEdgeInsetsMake(0, 0, 0, 0);
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [tableView setSeparatorInset:edges];
+    }
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableView setLayoutMargins:edges];
+    }
+
+// 分割线
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPat
+{
+    UIEdgeInsets edges = UIEdgeInsetsMake(0, 0, 0, 0);
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:edges];
+    }
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]){
+        [cell setSeparatorInset:edges];
+    }
+}
 ```
 - ###UISearchBar
 

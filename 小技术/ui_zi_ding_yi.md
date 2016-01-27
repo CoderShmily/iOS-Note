@@ -52,7 +52,7 @@ vc.tabBarItem.imageInsets = UIEdgeInsetsMake(8, 0, -8, 0);
 # 1.去掉多余的cell
 tableView.tableFooterView = [[UIView alloc] init];
 
-// 在cellForRowAtIndexPath中调用
+// 上面不管用的话在cellForRowAtIndexPath中调用
 -(void)setExtraCellLineHidden:(UITableView *)tableView
 {
     UIView *view = [UIView new];

@@ -89,6 +89,7 @@ tableView.tableFooterView = [[UIView alloc] init];
     view.tintColor = COLOR_WITH_RGB(244, 245, 235);
     
     // Text Color
+    // 文字颜色估计是在tableView:tableView titleForHeaderInSection:中设置的文字才行
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     [header.textLabel setTextColor:COLOR_WITH_RGB(172, 150, 240)];
     

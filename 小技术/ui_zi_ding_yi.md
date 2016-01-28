@@ -81,6 +81,21 @@ tableView.tableFooterView = [[UIView alloc] init];
         [cell setSeparatorInset:edges];
     }
 }
+
+# 3.修改UITableViewHeaderView的背景色和文字颜色(FooterView同理也有自己的代理方法)
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Background color
+    view.tintColor = COLOR_WITH_RGB(244, 245, 235);
+    
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:COLOR_WITH_RGB(172, 150, 240)];
+    
+    // Another way to set the background color
+    // Note: does not preserve gradient effect of original header
+    // header.contentView.backgroundColor = [UIColor blackColor];
+}
 ```
 - ###UISearchBar
 

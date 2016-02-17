@@ -58,7 +58,6 @@
    * [OC 和 CF对象相互转换](小技术/oc_he_cf_dui_xiang_xiang_hu_zhuan_huan.md)
    * [图像圆角](小技术/tu_xiang_yuan_jiao.md)
    * [Xbed](小技术/xbed.md)
-       * [JSON测试](小技术/jsonce_shi.md)
        * [屏幕适配](小技术/ping_mu_shi_pei.md)
        * [数据](小技术/shu_ju.md)
        * [SSH](小技术/ssh.md)

@@ -231,3 +231,32 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
      - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
      */
 ```
+- ###UITextField
+
+```objc
+// 设置文本框左边视图
+- (void)setUpTextFieldLeftView:(UITextField *)textField image:(UIImage *)image
+{
+    // 设置账号文本框左边视图
+    // 如果是系统控件中的子控件通常位置是由系统决定，我们不能设置，但是我们可以设置它的尺寸。
+    UIImageView *leftV = [[UIImageView alloc] initWithImage:image];
+    
+    // 设置图片居中
+    leftV.contentMode = UIViewContentModeCenter;
+    
+    CGRect frame = leftV.frame;
+    if (textField == _phoneField) {
+        frame.size.width += 22;
+    }else
+    {
+        frame.size.width += 16;
+    }
+    
+    leftV.frame = frame;
+    
+    // 设置文本框的左边视图
+    textField.leftView = leftV;
+    // 必须要设置左边视图模式，总是显示模式
+    textField.leftViewMode = UITextFieldViewModeAlways;
+}
+```objc

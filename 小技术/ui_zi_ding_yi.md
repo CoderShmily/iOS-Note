@@ -1,5 +1,27 @@
 # UI 自定义
 
+- ### Masonry小技巧
+```objc
+1.获取真实frame
+-(void) layoutSubviews
+{
+    [super layoutSubviews];
+    // code
+}
+
+2.实现动画效果
+[switchBar mas_remakeConstraints:^(MASConstraintMaker *make) {
+    make.right.equalTo(@0);
+    make.bottom.equalTo(@0);
+    make.width.equalTo(toupiaoBtn);
+    make.height.equalTo(@2);
+}];
+
+[UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [switchBar layoutIfNeeded];
+} completion:nil];
+```
+
 - ###UITabBar
 
 ```objc

@@ -56,7 +56,6 @@
    * [字符串处理](小技术/zi_fu_chuan_chu_li.md)
    * [Pch文件](小技术/pchwen_jian.md)
    * [OC 和 CF对象相互转换](小技术/oc_he_cf_dui_xiang_xiang_hu_zhuan_huan.md)
-   * [图像圆角](小技术/tu_xiang_yuan_jiao.md)
    * [Xbed](小技术/xbed.md)
        * [屏幕适配](小技术/ping_mu_shi_pei.md)
        * [数据](小技术/shu_ju.md)

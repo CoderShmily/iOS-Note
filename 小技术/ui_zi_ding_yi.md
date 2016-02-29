@@ -231,6 +231,7 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
      - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
      */
 ```
+
 - ###UITextField
 
 ```objc
@@ -259,4 +260,4 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
     // 必须要设置左边视图模式，总是显示模式
     textField.leftViewMode = UITextFieldViewModeAlways;
 }
-```objc
+```

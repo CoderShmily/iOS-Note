@@ -34,6 +34,9 @@ sudo gem uninstall cocoapods
 ```
 
 ```objc
+<a href="#1">查找框架</a>  
+ 
+<a name="1">锚点1跳转处</a>
 查找框架
 pod search AFNetworking
 

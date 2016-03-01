@@ -18,7 +18,8 @@ typedef void(^CompletionBlock)(NSString *date);
 - (void)initBlock:(void (^)(NSString *str))block;
 ```
 
-<font color=red> 内容 </font>
+<font color=red> github不可用 </font>
+
 <a href="#1">查找框架</a>  
 <a name="1">锚点1跳转处</a>
 

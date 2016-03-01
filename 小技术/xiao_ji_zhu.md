@@ -7,6 +7,7 @@
 
 #### <a href="#2">字符串比较</a> 
 - 常用的几个compre 方法
+
 ```objc
 [value compare:(NSString *)];
 [value compare:(NSString *) options:(NSStringCompareOptions)];

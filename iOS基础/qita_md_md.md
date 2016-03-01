@@ -16,8 +16,6 @@ typedef void(^CompletionBlock)(NSString *date);
 
 // 带参数的block  参数是是传给block调用者得
 - (void)initBlock:(void (^)(NSString *str))block;
-
-```
 ```
 
 <font color=red> 内容 </font>
@@ -29,7 +27,6 @@ typedef void(^CompletionBlock)(NSString *date);
 [hello`这里面可加修饰符`](https://cocoapods.md#1)
 [hello`这里面可加修饰符`](https://1.md#25w)
 
-```
 
 ```objc
 1. [super dealloc]; // 要调用super的此方法,要在MRC下

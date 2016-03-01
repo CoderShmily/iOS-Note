@@ -24,7 +24,7 @@ typedef void(^CompletionBlock)(NSString *date);
 
 <a href="#2">锚点2</a>  
 <h2 id="2">锚点2跳转处</h2>
-[hello`这里面可加修饰符`<h2>锚点2跳转处</h2>](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
+[hello`这里面可加修饰符` #锚点2跳转处](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
 
 
 ```objc

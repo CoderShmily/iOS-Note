@@ -53,7 +53,6 @@
    * [项目](xiang_mu/xiangmu_md.md)
        * [管家笔记](birthdaymanager/birthdaymanagermd.md)
        * [音乐笔记](qqyin_le/qqyinle_md.md)
-   * [字符串处理](小技术/zi_fu_chuan_chu_li.md)
    * [Pch文件](小技术/pchwen_jian.md)
    * [Xbed](小技术/xbed.md)
        * [屏幕适配](小技术/ping_mu_shi_pei.md)

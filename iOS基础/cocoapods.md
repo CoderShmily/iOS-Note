@@ -32,7 +32,7 @@ pod --version
 卸载CocoaPods
 sudo gem uninstall cocoapods
 ```
-[hello`这里面可加修饰符`](https://1.md#25w)
+[hello`这里面可加修饰符`](https://1.md#1)
 ```objc
 
 查找框架
@@ -61,7 +61,8 @@ pod repo update
 不集成到工程，只下载
 pod install --no-integrate
 ```
-
+<a href="#1">查找框架</a>  
+<a name="1">锚点1跳转处</a>
 ```objc
 如果提示关于gem的东西找不到:
 sudo gem uninstall --all

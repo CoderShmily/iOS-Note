@@ -189,6 +189,8 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
     [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
 }
 
+Search Bar 怎样去掉背景的颜色(storyboard里只能设置background颜色，可是发现clear Color无法使用).其实在代码里还是可以设置的，那就是删除背景view
+[[self.searchBar.subviews objectAtIndex: 0 ] removeFromSuperview];
 
 ---------------------------以下未测试------------------------------------------------
     1. UITextField *searchField;

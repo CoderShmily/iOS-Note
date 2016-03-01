@@ -32,7 +32,7 @@ pod --version
 卸载CocoaPods
 sudo gem uninstall cocoapods
 ```
-[hello`这里面可加修饰符`](https://1.md#1)
+
 ```objc
 
 查找框架

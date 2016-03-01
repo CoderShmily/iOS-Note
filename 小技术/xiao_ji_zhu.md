@@ -7,8 +7,8 @@
 <h2 id="2">锚点2跳转处 二级标题</h2>
 
 [hello`这里面可加修饰符`](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
+<a href="#2">#### 字符串比较</a> 
 
-#### 字符串比较
 - 常用的几个compre 方法
 
 ```objc

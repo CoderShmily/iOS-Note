@@ -17,18 +17,13 @@ chmod  600  id_rsa chmod  644  id_rsa.pub
 
 UserDefaults是根据时间戳定时的把缓存中的数据写入本地磁盘，而非即时写入。为了防止数据丢失，我们在对重要的数据保存时使用synchornize方法强制写入。但是也要注意，不用频繁的使用synchornize，这样毕竟影响性能和效率
 
-这个版本更新巨大，不仅带来了 Swift 2.0，OC 的集合类型还增加了对泛型的支持，如数组可以这样申明：
 
-1. @property NSMutableArray<NSDate*> *objects;
 
 ```
 #语法
 ```objc
-edit断点设置 条件
-设置观察点
-watchpoint set variable self->_test->_var   注意写法，一定要用->而且，要用下划线取得变量。不能用" . "。
-再配合条件断点，在某些情况下，调试起来非常有效：下面demo显示了：“在_var == 2的时候才断点”的用法
-watchpoint set variable
+这个版本更新巨大，不仅带来了 Swift 2.0，OC 的集合类型还增加了对泛型的支持，如数组可以这样申明：
+1. @property NSMutableArray<NSDate*> *objects;
 ```
 #调试
 ```objc

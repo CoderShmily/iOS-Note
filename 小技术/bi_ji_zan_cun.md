@@ -40,7 +40,7 @@ liujialin125deMac-mini:~ xbed$ ssh
 ssh          ssh-add      ssh-agent    ssh-keygen   ssh-keyscan  sshd
 liujialin125deMac-mini:~ xbed$ ssh-keygen -t rsa -C "zhangh@xbed.com.cn"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/xbed/.ssh/id_rsa): 
+Enter file in which to save the key (/Users/xbed/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
 Your identification has been saved in /Users/xbed/.ssh/id_rsa.

@@ -12,7 +12,7 @@
 surge可以抓包 charles只能抓http(https比较麻烦)
 ```
 
-#git
+#git 权限
 ```objc
 git@120.25.106.243:/apps/repo/xbed_ios.git
 id_rsa  id_rsa.pub

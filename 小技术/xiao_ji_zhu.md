@@ -5,6 +5,45 @@
 <h2 id="2">锚点2跳转处 二级标题</h2>
 [hello`这里面可加修饰符`](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
 
+
+### <a href="#pch文件路径设置">pch文件路径设置</a>
+
+
+<a href="#1">查找框架</a>  
+<a name="1">锚点1跳转处</a>
+<a href="#2">锚点2</a>  
+<h2 id="2">锚点2跳转处 二级标题</h2>
+[hello`这里面可加修饰符`](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
+
+<a href="#1">查找框架</a>  
+<a name="1">锚点1跳转处</a>
+<a href="#2">锚点2</a>  
+<h2 id="2">锚点2跳转处 二级标题</h2>
+[hello`这里面可加修饰符`](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
+
+
+<a href="#1">查找框架</a>  
+<a name="1">锚点1跳转处</a>
+<a href="#2">锚点2</a>  
+<h2 id="2">锚点2跳转处 二级标题</h2>
+[hello`这里面可加修饰符`](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
+
+
+<a href="#1">查找框架</a>  
+<a name="1">锚点1跳转处</a>
+<a href="#2">锚点2</a>  
+<h2 id="2">锚点2跳转处 二级标题</h2>
+[hello`这里面可加修饰符`](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
+
+
+<a href="#1">查找框架</a>  
+<a name="1">锚点1跳转处</a>
+<a href="#2">锚点2</a>  
+<h2 id="2">锚点2跳转处 二级标题</h2>
+[hello`这里面可加修饰符`](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
+
+
+
 ### <a name="pch文件路径设置">pch文件路径设置</a>
 在Build Settings 找Prefix Header
 - pch文件使用前要包含路径

@@ -5,13 +5,13 @@
 <h2 id="2">锚点2跳转处 二级标题</h2>
 [hello`这里面可加修饰符`](https://github.com/CoderShmily/iOS-Note/blob/master/iOS基础/cocoapods.md#1)
 
-### <a href="#2">pch文件路径</a>
+### <a name="pch文件路径设置">pch文件路径设置</a>
 在Build Settings 找Prefix Header
 - pch文件使用前要包含路径
     - 从工程目录下开始所以可省略为 00000/PrefixHeader.pch
     - 还有个$(SRCROOT)/pchFile.pch什么的...
 
-#### <a href="#2">字符串比较</a> 
+### <a name="字符串比较">字符串比较</a> 
 - 常用的几个compre 方法
 
 ```objc

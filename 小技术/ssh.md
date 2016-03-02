@@ -23,27 +23,7 @@ The key's randomart image is:
 |      .o++       |
 |       .oo       |
 +-----------------+
-liujialin125deMac-mini:~ xbed$ 
-liujialin125deMac-mini:~ xbed$ 
-liujialin125deMac-mini:~ xbed$ 
-liujialin125deMac-mini:~ xbed$ ls
-Desktop		Downloads	Movies		Pictures
-Documents	Library		Music		Public
-liujialin125deMac-mini:~ xbed$ 
-liujialin125deMac-mini:~ xbed$ 
-liujialin125deMac-mini:~ xbed$ ls -a
-.			.gitignore_global	Library
-..			.hgignore_global	Movies
-.CFUserTextEncoding	.ssh			Music
-.DS_Store		.subversion		Pictures
-.Trash			Desktop			Public
-.bash_history		Documents
-.gitconfig		Downloads
 liujialin125deMac-mini:~ xbed$ cd .ssh/
-liujialin125deMac-mini:.ssh xbed$ ls
-id_rsa		id_rsa.pub	known_hosts
-liujialin125deMac-mini:.ssh xbed$ 
-liujialin125deMac-mini:.ssh xbed$ 
 liujialin125deMac-mini:.ssh xbed$ cat id_rsa.pub 
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/+zJhLkEJa+Fez9MpV3xxdXxyK81GE7ZO8eb/Usi9DCPkgWUy9kq2JCdzLF1s7oYeD/7TBQUwB0liBe4gjkGo+xYx+SuAE23fp9Yux/oDH+JxeLwJmhuANnlAHkx9mk7TGVu/b8xB17H697HvJHW6/28ywv3dycy/lAGT4X3UDrzlyhTikQhn8QET45CC3LIpHp+O/m63cPPILWDoNk72DKjXQgTWVjq7IghWPXlZouJ0xDKd/0GfHyKqF+GZwycqjhCDJIqeeC6YbjCoawaCBeSPr7Z3+yNCoo2Lz8JZFZ1PsYp5oqyKeaJ09tLvJRRnaAchSMnsE6hhiRDM20ln zhangh@xbed.com.cn
 ```

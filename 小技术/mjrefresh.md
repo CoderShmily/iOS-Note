@@ -47,12 +47,7 @@ __weak UIScrollView *_scrollView;
 6. KVO监听contentOffset、contentInset、contentSize 标记的state
 ```
 ```objc
-1.NSUserDefaults
-// NSUserDefaults 用时记得 synchronize
-[[NSUserDefaults standardUserDefaults] setObject:nil forKey:nil];
-[[NSUserDefaults standardUserDefaults] synchronize];
-
-2.sectionheader停留解决
+1.sectionheader停留解决
 //（部分）
 CGFloat insetT = - self.scrollView.mj_offsetY > _scrollViewOriginalInset.top ? - self.scrollView.mj_offsetY : _scrollViewOriginalInset.top;
 insetT = insetT > self.mj_h + _scrollViewOriginalInset.top ? self.mj_h + _scrollViewOriginalInset.top : insetT;

@@ -55,7 +55,6 @@
        * [音乐笔记](qqyin_le/qqyinle_md.md)
    * [Pch文件](小技术/pchwen_jian.md)
    * [Xbed](小技术/xbed.md)
-       * [屏幕适配](小技术/ping_mu_shi_pei.md)
        * [数据](小技术/shu_ju.md)
        * [SSH](小技术/ssh.md)
    * [MJRefresh](小技术/mjrefresh.md)

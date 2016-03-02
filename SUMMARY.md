@@ -54,8 +54,6 @@
        * [管家笔记](birthdaymanager/birthdaymanagermd.md)
        * [音乐笔记](qqyin_le/qqyinle_md.md)
    * [Pch文件](小技术/pchwen_jian.md)
-   * [Xbed](小技术/xbed.md)
-       * [SSH](小技术/ssh.md)
    * [MJRefresh](小技术/mjrefresh.md)
    * [常用宏 代码](小技术/chang_yong_hong_ding_yi.md)
    * [App安全](小技术/appan_quan.md)

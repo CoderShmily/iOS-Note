@@ -9,6 +9,11 @@
 - <a href="#文件路径设置">pch文件路径设置</a>
 - <a href="#字符串比较">字符串比</a>
 - <a href="#获取窗口当前显示的控制器">获取窗口当前显示的控制器</a>
+- <a href="#IOS在不打开电话服务的时候，可以响应服务器的推送消息">IOS在不打开电话服务的时候，可以响应服务器的推送消息</a>
+
+
+
+
 
 
 
@@ -99,8 +104,36 @@ enum NSComparisonResult {
     return nil;
 }
 ```
+### <a name="IOS在不打开电话服务的时候，可以响应服务器的推送消息">IOS在不打开电话服务的时候，可以响应服务器的推送消息</a> 
+```objc
+在做即时通讯（基于xmpp框架）的时候遇到这样一个问题，就是在真机测试的时候，你按Home键返回桌面，在你返回桌面的时候，这是你的程序的挂起状态的，在你挂起的时候，
+相当于你的程序是死的，程序的所有进程全部是睡眠状态，所有这时候你做任何操作，都是无用的，手机永远也接收不到你的任何消息推送，因为在这里，手机处于休眠状态，这时候你必须要把他唤醒，才能正常的接收你所推送过来的消息，当时我的应用是打开了电话服务，因为电话服务永远都是让手机保持唤醒状态，所有在你手机处于任何状态的时候，都可以接到电话的，所有这就是电话服务。我当时用的就是这样的一个服务，使我的程序不被睡眠，当我上架AppStore的时候，被苹果拒绝了，所有绞尽脑汁想到了一个解决方法.如图是添加的电话服务，在我添加这样的服务时候，苹果商店不让上架AppStore的。所以我想了别的办法
 
-
+在AppDelegate中。添加上这么一段代码即可。
+- (void)applicationDidEnterBackground:(UIApplication *)application
+ {
+     [[UIApplication sharedApplication]setApplicationIconBadgeNumber:0];//进入前台取消应用消息图标    
+     UIApplication*   app = [UIApplication sharedApplication];     
+     __block    UIBackgroundTaskIdentifier bgTask;
+     bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+         
+         dispatch_async(dispatch_get_main_queue(), ^{
+             if (bgTask != UIBackgroundTaskInvalid)  
+             { 
+                 bgTask = UIBackgroundTaskInvalid; 
+             } 
+         }); 
+     }];
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+         dispatch_async(dispatch_get_main_queue(), ^{
+             if (bgTask != UIBackgroundTaskInvalid)  
+             {  
+                 bgTask = UIBackgroundTaskInvalid; 
+             } 
+         });  
+     });
+ }
+```
 
 
 

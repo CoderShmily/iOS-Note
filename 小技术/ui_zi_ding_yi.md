@@ -118,7 +118,7 @@ tableView.tableFooterView = [[UIView alloc] init];
         [cell setSeparatorInset:edges];
     }
 }
-// 设置没有数据的View显示
+# 3. 设置没有数据的View显示
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_nearByArr.count == 0) {
@@ -142,7 +142,7 @@ tableView.tableFooterView = [[UIView alloc] init];
     // 有数据改回来格式
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 }
-# 3.修改UITableViewHeaderView的背景色和文字颜色(FooterView同理也有自己的代理方法)
+# 4.修改UITableViewHeaderView的背景色和文字颜色(FooterView同理也有自己的代理方法)
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     // Background color

@@ -8,7 +8,7 @@
 ## 目录
 - <a href="#文件路径设置">pch文件路径设置</a>
 - <a href="#字符串比较">字符串比</a>
-
+- <a href="#获取窗口当前显示的控制器">获取窗口当前显示的控制器</a>
 
 
 
@@ -18,7 +18,7 @@
     - 从工程目录下开始所以可省略为 00000/PrefixHeader.pch
     - 还有个$(SRCROOT)/pchFile.pch什么的...
 
-### <a name="字符串比较">字符串比较</a> 
+### <a name="字符串比较">字符串比较</a>
 - 常用的几个compre 方法
 
 ```objc
@@ -57,7 +57,48 @@ enum NSComparisonResult {
 } NSComparisonResult;
 ```
 
+### <a name="获取窗口当前显示的控制器">获取窗口当前显示的控制器</a> 
+```objc
+解决类似网易新闻客户端收到新闻推送后，弹出一个UIAlert，然后跳转到新闻详情页面这种需求
 
+1.提供一个UIView的分类方法，这个方法通过响应者链条获取view所在的控制器
+- (UIViewController *)parentController
+{
+    UIResponder *responder = [self nextResponder];
+    while (responder) {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)responder;
+        }
+        responder = [responder nextResponder];
+    }
+    return nil;
+}
+2.通过控制器的布局视图可以获取到控制器实例对象,modal的展现方式需要取到控制器的根视图
++ (UIViewController *)currentViewController
+{
+    UIWindow *keyWindow = [UIapplication sharedApplication].keyWindow;
+    // modal展现方式的底层视图不同
+    // 取到第一层时，取到的是UITransitionView，通过这个view拿不到控制器
+    UIView *firstView = [keyWindow.subviews firstObject];
+    UIView *secondView = [firstView.subviews firstObject];
+    UIViewController *vc = secondView.parentController;
+    if ([vc isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tab = (UITabBarController *)vc;
+        if ([tab.selectedViewController isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *nav = (UINavigationController *)tab.selectedViewController;
+            return [nav.viewControllers lastObject];
+        } else {
+            return tab.selectedViewController;
+        }
+    } else if ([vc isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = (UINavigationController *)vc;
+        return [nav.viewControllers lastObject];
+    } else {
+        return vc;
+    }
+    return nil;
+}
+```
 
 
 

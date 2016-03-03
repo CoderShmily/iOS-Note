@@ -107,7 +107,7 @@ tableView.tableFooterView = [[UIView alloc] init];
         [tableView setLayoutMargins:edges];
     }
 
-// 分割线
+// 代理
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPat
 {
     UIEdgeInsets edges = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -118,7 +118,30 @@ tableView.tableFooterView = [[UIView alloc] init];
         [cell setSeparatorInset:edges];
     }
 }
+// 设置
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_nearByArr.count == 0) {
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        static NSString *noMessageCellid = @"sessionnomessageCellidentifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:noMessageCellid];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:noMessageCellid];
+            UILabel *noMsgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 100.0f, cell.frame.size.width, 50.0f)];
+            noMsgLabel.centerX = self.view.centerX;
+            noMsgLabel.text = @"暂无数据";
+            noMsgLabel.textColor = [UIColor darkGrayColor];
+            noMsgLabel.textAlignment = NSTextAlignmentCenter;
+            [cell.contentView addSubview:noMsgLabel];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.backgroundColor = [UIColor clearColor];
+        }
+        return cell;
 
+    }
+    // 有数据改回来格式
+    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+}
 # 3.修改UITableViewHeaderView的背景色和文字颜色(FooterView同理也有自己的代理方法)
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {

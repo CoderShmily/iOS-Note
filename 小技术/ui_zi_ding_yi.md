@@ -118,7 +118,7 @@ tableView.tableFooterView = [[UIView alloc] init];
         [cell setSeparatorInset:edges];
     }
 }
-// 设置
+// 设置没有数据的View显示
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_nearByArr.count == 0) {

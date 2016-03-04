@@ -176,8 +176,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 ```objc
 第一张图的方法：
 
-新建testview
-
+//新建testview
     UIImage *image = [UIImageimageNamed:@"photo3.jpg"];
     [self.view.layersetContents:(id)[imageCGImage]];
 
@@ -185,14 +184,11 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     testVW.backgroundColor = [UIColorclearColor];
     testVW.opaque =NO;
     [self.viewaddSubview:testVW];
-
-    view 的背景色一定要设置成clearColor,opaue一定要设置no；
-
-   在testView的类中实现；
+    // view 的背景色一定要设置成clearColor,opaue一定要设置no;
+   // 在testView的类中实现；
    
 - (void)drawRect:(CGRect)rect {
     // Start by filling the area with the blue color
-    
     [[UIColor colorWithWhite:0.0f alpha:0.5f] setFill];//阴影效果 根据透明度来设计
     UIRectFill( rect );
     CGRect holeRectIntersection = CGRectIntersection( holeRect, rect );
@@ -201,7 +197,6 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 }
 
 方法二：
-
     CGRect myRect =CGRectMake(100,100,200, 200);
     int radius = myRect.size.width/2.0;
     UIBezierPath *path = [UIBezierPathbezierPathWithRoundedRect:CGRectMake(0,0, backView.bounds.size.width, backView.bounds.size.height)cornerRadius:0];
@@ -215,8 +210,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     fillLayer.fillColor = [UIColorgrayColor].CGColor;
     fillLayer.opacity =0.5;
     [backView.layeraddSublayer:fillLayer];
-    ```
-
+```
 ```objc
 xcode5（iOS7）? image.xcassets 里面有个lunch文件夹放图片
 

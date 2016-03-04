@@ -10,8 +10,8 @@
 - <a href="#字符串比较">字符串比</a>
 - <a href="#获取窗口当前显示的控制器">获取窗口当前显示的控制器</a>
 - <a href="#IOS在不打开电话服务的时候，可以响应服务器的推送消息">IOS在不打开电话服务的时候，可以响应服务器的推送消息</a>
-- <a href="判断是否显示在屏幕上">判断View是否显示在屏幕上</a>
-- <a href="遮盖层">UIView 遮盖层，中间部分区域透明可视</a>
+- <a href="#View判断是否显示在屏幕上">判断View是否显示在屏幕上</a>
+- <a href="#UIView遮盖层">UIView遮盖层，中间部分区域透明可视</a>
 
 
 
@@ -134,7 +134,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
      });
  }
 ```
-### <a name="判断是否显示在屏幕上">判断View是否显示在屏幕上</a>
+### <a name="View判断是否显示在屏幕上">判断View是否显示在屏幕上</a>
 ```objc
 @implementation UIView (UIScreenDisplaying)
  
@@ -172,7 +172,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 ```
 
 
-### <a name="遮盖层">UIView 遮盖层，中间部分区域透明可视</a>
+### <a name="UIView遮盖层">UIView 遮盖层，中间部分区域透明可视</a>
 
 ```objc
 第一张图的方法：

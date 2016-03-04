@@ -175,7 +175,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 ### <a name="UIView遮盖层">UIView 遮盖层，中间部分区域透明可视</a>
 ![](20141025170931940.gif)![](20141025170950395.gif)
 ```objc
-第一张图的方法：
+方法一：
 
 //新建testview
     UIImage *image = [UIImageimageNamed:@"photo3.jpg"];

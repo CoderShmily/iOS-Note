@@ -172,7 +172,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 ```
 
 
-
+### <a name="UIView遮盖层">UIView 遮盖层，中间部分区域透明可视</a>
 
 
 ```objc

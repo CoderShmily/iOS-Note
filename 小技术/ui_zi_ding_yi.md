@@ -12,6 +12,9 @@ self.edgesForExtendedLayout = UIRectEdgeNone;
 
 // 手动布局要用 masonry默认设置了
 self.translatesAutoresizingMaskIntoConstraints = NO;
+
+ // 禁止当前控制器滑动返回
+self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 ```
 
 - ### Masonry小技巧

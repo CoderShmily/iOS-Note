@@ -173,7 +173,49 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
 
 ### <a name="UIView遮盖层">UIView 遮盖层，中间部分区域透明可视</a>
+```objc
+第一张图的方法：
 
+新建testview
+
+    UIImage *image = [UIImageimageNamed:@"photo3.jpg"];
+    [self.view.layersetContents:(id)[imageCGImage]];
+
+    testView *testVW = [[testViewalloc]initWithFrame:self.view.frame];
+    testVW.backgroundColor = [UIColorclearColor];
+    testVW.opaque =NO;
+    [self.viewaddSubview:testVW];
+
+    view 的背景色一定要设置成clearColor,opaue一定要设置no；
+
+   在testView的类中实现；
+   
+- (void)drawRect:(CGRect)rect {
+    // Start by filling the area with the blue color
+    
+    [[UIColor colorWithWhite:0.0f alpha:0.5f] setFill];//阴影效果 根据透明度来设计
+    UIRectFill( rect );
+    CGRect holeRectIntersection = CGRectIntersection( holeRect, rect );
+    [[UIColor clearColor] setFill];
+    UIRectFill( holeRectIntersection );
+}
+
+方法二：
+
+    CGRect myRect =CGRectMake(100,100,200, 200);
+    int radius = myRect.size.width/2.0;
+    UIBezierPath *path = [UIBezierPathbezierPathWithRoundedRect:CGRectMake(0,0, backView.bounds.size.width, backView.bounds.size.height)cornerRadius:0];
+    UIBezierPath *circlePath = [UIBezierPathbezierPathWithRoundedRect:CGRectMake(100,100,2.0*radius,2.0*radius)cornerRadius:radius];
+    [path appendPath:circlePath];
+    [path setUsesEvenOddFillRule:YES];
+    
+    CAShapeLayer *fillLayer = [CAShapeLayerlayer];
+    fillLayer.path = path.CGPath;
+    fillLayer.fillRule =kCAFillRuleEvenOdd;
+    fillLayer.fillColor = [UIColorgrayColor].CGColor;
+    fillLayer.opacity =0.5;
+    [backView.layeraddSublayer:fillLayer];
+    ```
 
 ```objc
 xcode5（iOS7）? image.xcassets 里面有个lunch文件夹放图片

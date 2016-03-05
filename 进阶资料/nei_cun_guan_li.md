@@ -67,7 +67,7 @@ assign其实页可以用来修饰对象，那么为什么不用它呢？因为�
 ### 8.请说出下面代码是否有问题，如果有问题请修改？
 ```objc
 @autoreleasepool {
-        for (int i=0; i<largeNumber; i++) {
+        for (int i = 0; i < largeNumber; i++) {
             Person *per = [[Person alloc] init];
             [per autorelease];
         }
@@ -78,7 +78,7 @@ assign其实页可以用来修饰对象，那么为什么不用它呢？因为�
 解决方案如下：
 ```objc
 @autoreleasepool {
-        for (int i=0; i<100000; i++) { 
+        for (int i = 0; i < largeNumber; i++) { 
             @autoreleasepool {
             Person *per = [[Person alloc] init];
             [per autorelease];

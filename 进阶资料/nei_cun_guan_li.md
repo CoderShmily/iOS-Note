@@ -54,3 +54,12 @@ retain属性的setter方法是保留新值并释放旧值，然后更新实例�
     _name = [name copy];
 }
 ```
+### 7.说说assign vs weak，_block vs _weak的区别
+
+assign适用于基本数据类型，weak是适用于NSObject对象，并且是一个弱引用。
+
+assign其实页可以用来修饰对象，那么为什么不用它呢？因为被assign修饰的对象在释放之后，指针的地址还是存在的，也就是说指针并没有被置为nil。如果在后续内存分配中，刚才分到了这块地址，程序就会崩溃掉。而weak修饰的对象在释放之后，指针地址会被置为nil。
+
+- _block是用来修饰一个变量，这个变量就可以在block中被修改。
+- _block:使用_block修饰的变量在block代码块中会被retain(ARC下，MRC下不会retain)
+- _weak:使用_weak修饰的变量不会在block代码块中被retain

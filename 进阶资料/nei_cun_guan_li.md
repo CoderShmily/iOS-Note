@@ -63,3 +63,13 @@ assign其实页可以用来修饰对象，那么为什么不用它呢？因为�
 - _block是用来修饰一个变量，这个变量就可以在block中被修改。
 - _block:使用_block修饰的变量在block代码块中会被retain(ARC下，MRC下不会retain)
 - _weak:使用_weak修饰的变量不会在block代码块中被retain
+
+### 8.请说出下面代码是否有问题，如果有问题请修改？
+```objc
+@autoreleasepool {
+        for (int i=0; i<largeNumber; i++) {
+            Person *per = [[Person alloc] init];
+            [per autorelease];
+        }
+    }
+```

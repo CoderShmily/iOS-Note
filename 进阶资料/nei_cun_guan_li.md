@@ -36,3 +36,21 @@ copy此特质所表达的所属关系与strong类似。然而设置方法并不�
 
 “属性”(property)有两大概念：ivar(实例变量)、存取方法(access method=getter)，即@property = ivar + getter + setter。
 以前是@property @synthesize配合使用，现在用@property替代
+
+### 6.分别写一个setter方法用于完成@property (nonatomic,retain)NSString *name和@property (nonatomic,copy) NSString *name
+
+retain属性的setter方法是保留新值并释放旧值，然后更新实例变量，令其指向新值。顺序很重要。假如还未保留新值就先把旧值释放了，而且两个值又指向同一个对象，先执行的release操作就可能导致系统将此对象永久回收。
+```objc
+-(void)setName:(NSString *)name
+{
+    [name retain];
+    [_name release];
+    _name = name;
+}
+-(void)setName:(NSString *)name
+{
+     
+    [_name release];
+    _name = [name copy];
+}
+```

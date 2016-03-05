@@ -73,3 +73,16 @@ assign其实页可以用来修饰对象，那么为什么不用它呢？因为�
         }
     }
 ```
+内存管理的原则：如果对一个对象使用了alloc、copy、retain，那么你必须使用相应的release或者autorelease。咋一看，这道题目有alloc，也有autorelease，两者对应起来，应该没问题。但autorelease虽然会使引用计数减一，但是它并不是立即减一，它的本质功能只是把对象放到离他最近的自动释放池里。当自动释放池销毁了，才会向自动释放池中的每一个对象发送release消息。这道题的问题就在autorelease。因为largeNumber是一个很大的数，autorelease又不能使引用计数立即减一，所以在循环结束前会造成内存溢出的问题。
+
+解决方案如下：
+```objc
+@autoreleasepool {
+        for (int i=0; i<100000; i++) { 
+            @autoreleasepool {
+            Person *per = [[Person alloc] init];
+            [per autorelease];
+        }
+      }
+    }
+```

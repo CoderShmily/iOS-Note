@@ -215,6 +215,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
 ### <a name="UILabel计算宽度高度">UILabel计算宽度、高度</a>
 ```objc
+// 获取字符串在指定的size内(宽度超过150,则换行)所需的的实际高度和宽度.
 CGSize size = [text sizeWithFont:font constrainedToSize:CGSizeMake(150.0f, 1000.0f) lineBreakMode: UILineBreakModeWordWrap];
 
 UIlabel的lineBreakMode也要与之对应

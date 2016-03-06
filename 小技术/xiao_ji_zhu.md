@@ -212,6 +212,26 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     fillLayer.opacity =0.5;
     [backView.layeraddSublayer:fillLayer];
 ```
+
+### <a name="UILabel计算宽度高度">UILabel计算宽度、高度</a>
+```objc
+CGSize size = [text sizeWithFont:font constrainedToSize:CGSizeMake(150.0f, 1000.0f) lineBreakMode: UILineBreakModeWordWrap];
+
+UIlabel的lineBreakMode也要与之对应
+ UILineBreakModeWordWrap = 0,
+ 以单词为单位换行，以单位为单位截断。
+ UILineBreakModeCharacterWrap,
+ 以字符为单位换行，以字符为单位截断。
+ UILineBreakModeClip,
+ 以单词为单位换行。以字符为单位截断。
+ UILineBreakModeHeadTruncation,
+ 以单词为单位换行。如果是单行，则开始部分有省略号。如果是多行，则中间有省略号，省略号后面有4个字符。
+ UILineBreakModeTailTruncation,
+ 以单词为单位换行。无论是单行还是多行，都是末尾有省略号。
+ UILineBreakModeMiddleTruncation,
+ 以单词为单位换行。无论是单行还是多行，都是中间有省略号，省略号后面只有2个字符。
+```
+<a name="UILabel计算宽度高度">UILabel计算宽度、高度</a>
 ```objc
 xcode5（iOS7）? image.xcassets 里面有个lunch文件夹放图片
 

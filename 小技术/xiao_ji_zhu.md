@@ -218,6 +218,15 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 CGSize size = [text sizeWithFont:font constrainedToSize:CGSizeMake(150.0f, 1000.0f) lineBreakMode: UILineBreakModeWordWrap];
 
 UIlabel的lineBreakMode也要与之对应
+typedef enum {
+ UILineBreakModeWordWrap = 0,
+ UILineBreakModeCharacterWrap,
+ UILineBreakModeClip,
+ UILineBreakModeHeadTruncation,
+ UILineBreakModeTailTruncation,
+ UILineBreakModeMiddleTruncation,
+} UILineBreakMode;
+
  UILineBreakModeWordWrap = 0,
  以单词为单位换行，以单位为单位截断。
  UILineBreakModeCharacterWrap,

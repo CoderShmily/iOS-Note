@@ -12,7 +12,7 @@
 - <a href="#获取VIEW的控制器">获取View的控制器</a>
 - <a href="#View判断是否显示在屏幕上">判断View是否显示在屏幕上</a>
 - <a href="#UIView遮盖层">UIView遮盖层，中间部分区域透明可视</a>
-- <a href="#UILabel计算宽度高">UILabel计算宽度、高度</a>
+- <a href="#UILabel计算宽度高度">UILabel计算宽度、高度</a>
 - <a href="#IOS在不打开电话服务的时候，可以响应服务器的推送消息">IOS在不打开电话服务的时候，可以响应服务器的推送消息</a>
 
 

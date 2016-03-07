@@ -9,6 +9,7 @@
 - <a href="#文件路径设置">pch文件路径设置</a>
 - <a href="#字符串比较">字符串比</a>
 - <a href="#获取窗口当前显示的控制器">获取窗口当前显示的控制器</a>
+- <a href="#获取VIEW的控制器">获取View的控制器</a>
 - <a href="#View判断是否显示在屏幕上">判断View是否显示在屏幕上</a>
 - <a href="#UIView遮盖层">UIView遮盖层，中间部分区域透明可视</a>
 - <a href="#UILabel计算宽度高">UILabel计算宽度、高度</a>
@@ -104,6 +105,22 @@ enum NSComparisonResult {
     }
     return nil;
 }
+```
+### <a name="获取VIEW的控制器">获取View的控制器</a>
+```objc
+// UIView的分类
+- (UIViewController *)parentController
+{
+    UIResponder *responder = [self nextResponder];
+    while (responder) {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)responder;
+        }
+        responder = [responder nextResponder];
+    }
+    return nil;
+}
+
 ```
 
 ### <a name="View判断是否显示在屏幕上">判断View是否显示在屏幕上</a>

@@ -229,6 +229,17 @@ typedef enum {
  以单词为单位换行。无论是单行还是多行，都是末尾有省略号。
  UILineBreakModeMiddleTruncation,
  以单词为单位换行。无论是单行还是多行，都是中间有省略号，省略号后面只有2个字符。
+ //以下为测试
+ ```objc
+ temString.boundingRectWithSize(constraint, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes:  [NSFontAttributeName: UIFont.systemFontOfSize(14)],context: nil)
+ ```
+ ```objc
+ label.lineBreakMode = NSLineBreakByCharWrapping;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    CGSize bubbleSize = [_locateDetail.text sizeWithFont:CX_FONT_Z2 constrainedToSize:CGSizeMake(_groupIntroDetail.width, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+#pragma clang diagnostic pop
+```
 ```
 
 ### <a name="IOS在不打开电话服务的时候，可以响应服务器的推送消息">IOS在不打开电话服务的时候，可以响应服务器的推送消息</a> 

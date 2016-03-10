@@ -4,9 +4,11 @@ AFJSONResponseSerializer(AFXMLDocumentResponseSerializer/AFXMLParserResponseSeri
 self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
 //完整的
 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+//如果报接受类型text/plain错误尝试添加，application/octet-stream
 
 manager.responseSerializer = [AFJSONResponseSerializer serializer];//申明返回的结果是json类型
 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];//如果报接受类型不一致请替换一致text/html或别的
+
 manager.requestSerializer=[AFJSONRequestSerializer serializer];//申明请求的数据是json类型
 
 content-type: text/plain 最好添加manager.responseSerializer = [AFHTTPResponseSerializer serializer];//使用这个将得到的是NSData

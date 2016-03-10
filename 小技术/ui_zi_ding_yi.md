@@ -303,3 +303,39 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
     textField.leftViewMode = UITextFieldViewModeAlways;
 }
 ```
+- ###UITextView 
+
+```objc
+// 解决中文输入 限定字数问题
+- (void)textViewDidChange:(UITextView *)textView
+{
+    int kMaxLength = 15;
+
+    NSString *toBeString = textView.text;
+    
+    NSString *lang = [[UITextInputMode currentInputMode] primaryLanguage];
+    
+    if([lang isEqualToString:@"zh-Hans"]){ //简体中文输入，包括简体拼音，健体五笔，简体手写
+        
+        UITextRange *selectedRange = [textView markedTextRange];
+        
+        UITextPosition *position = [textView positionFromPosition:selectedRange.start offset:0];
+        if (!position){//非高亮
+            
+            if (toBeString.length > kMaxLength) {
+
+                _textView.text = [toBeString substringToIndex:kMaxLength];
+                
+            }
+        }
+        
+    }else{//中文输入法以外
+        
+        if (toBeString.length > kMaxLength) {
+            _textView.text = [toBeString substringToIndex:kMaxLength];
+            
+        }
+        
+    }
+}
+```

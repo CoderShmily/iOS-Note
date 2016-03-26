@@ -1,6 +1,8 @@
 # error
 ```objc
 #Warning: Attempt to present <UIImagePickerController: 0x7ca5dc00> on <UIViewController: 0x7b9cac00> which is already presenting (null)
+
+方法1：
 在iOS8以前的方法里，直接在
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 Click的委托事件里处理就好了，但是在iOS8，系统会抛出警告

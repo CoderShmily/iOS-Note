@@ -6,7 +6,7 @@
 // 带有navigationController的从导航栏下面开始布局
 self.navigationController.navigationBar.translucent = NO;
 
-// 根据按所在界面的status bar，navigationbar，与tabbar的高度，自动调整scrollview的 inset,设置为no，不让viewController调整，我们自己修改布局即可
+// 当设置为YES时（默认YES），如果视图里面存在唯一一个UIScrollView或其子类View，那么它会自动设置相应的内边距，这样可以让scroll占据整个视图，又不会让导航栏遮盖。
 self.automaticallyAdjustsScrollViewInsets = NO;
 
 // iOS7当你的容器是navigation controller时，默认的布局将从navigation bar的顶部开始。这就是为什么所有的UI元素都往上漂移了44pt。(主要用于UISearchBar,UISearchDisplayController的搜索view偏移问题)

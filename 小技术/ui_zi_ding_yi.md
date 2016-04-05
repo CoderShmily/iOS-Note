@@ -8,6 +8,7 @@ self.navigationController.navigationBar.translucent = NO;
 
 self.automaticallyAdjustsScrollViewInsets = NO;
 
+// 当你的容器是navigation controller时，默认的布局将从navigation bar的顶部开始。这就是为什么所有的UI元素都往上漂移了44pt。
 self.edgesForExtendedLayout = UIRectEdgeNone;
 
 // 手动布局要用 masonry默认设置了

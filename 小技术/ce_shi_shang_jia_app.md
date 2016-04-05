@@ -2,6 +2,7 @@
 
 
 ##审核相关内容
+#### 评级相关术语
 ```
 Cartoon or Fantasy Violence卡通或幻想暴力
 Realistic Violence 现实暴力

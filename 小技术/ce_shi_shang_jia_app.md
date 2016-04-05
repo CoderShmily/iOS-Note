@@ -1,8 +1,19 @@
 # 测试 上架App
 
 
-
-
+##审核相关内容
+```
+Cartoon or Fantasy Violence卡通或幻想暴力
+Realistic Violence 现实暴力
+Sexual Content or Nudity 色情或裸色内容
+Profanity or Crude Humor 亵渎或低俗幽默
+Alcohol, Tobacco, or Drug Use or References 酒精、烟草或毒品使用或参考信息
+Mature/Suggestive Themes 成人/性暗示主题
+Simulated Gambling 模拟赌博
+Horror/Fear Themes 惊悚/恐怖主题
+Prolonged graphic or sadistic realistic violence持久直白或虐待狂现实暴力
+Graphic sexual content and nudity 直白的色情和裸色内容
+```
 ## 审核不通过常见问题
 
 内容含敏感话题或对苹果不友好的信息（如苹果婊）

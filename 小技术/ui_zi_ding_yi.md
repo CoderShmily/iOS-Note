@@ -9,7 +9,7 @@ self.navigationController.navigationBar.translucent = NO;
 // 根据按所在界面的status bar，navigationbar，与tabbar的高度，自动调整scrollview的 inset,设置为no，不让viewController调整，我们自己修改布局即可
 self.automaticallyAdjustsScrollViewInsets = NO;
 
-// iOS7当你的容器是navigation controller时，默认的布局将从navigation bar的顶部开始。这就是为什么所有的UI元素都往上漂移了44pt。
+// iOS7当你的容器是navigation controller时，默认的布局将从navigation bar的顶部开始。这就是为什么所有的UI元素都往上漂移了44pt。(主要用于UISearchBar,UISearchDisplayController的搜索view偏移问题)
 self.edgesForExtendedLayout = UIRectEdgeNone;
 
 // 手动布局要用 masonry默认设置了

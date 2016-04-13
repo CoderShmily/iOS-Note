@@ -74,7 +74,6 @@ self.tabBar.frame = CGRectMake(0,0,0,0);
     CGFloat i = 0;
     for (UIView *tabBarButton in self.subviews) {
         if (![NSStringFromClass(tabBarButton.class) isEqualToString:@"UITabBarButton"]) continue;
-        
         tabBarButton.width = buttonW;
         tabBarButton.x = i * buttonW;
         if (i > 1) tabBarButton.x += buttonW;
@@ -152,7 +151,6 @@ tableView.tableFooterView = [[UIView alloc] init];
 {
     // Background color
     view.tintColor = COLOR_WITH_RGB(244, 245, 235);
-    
     // Text Color
     // 文字颜色估计是在tableView:tableView titleForHeaderInSection:中设置的文字才行
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
@@ -167,7 +165,6 @@ tableView.tableFooterView = [[UIView alloc] init];
 
 ```objc
 UISearchBar *searchBar = [[UISearchBar alloc] init];
-
 # 1.设置searchBar背景色
 // (1)backgroundColor 被遮住了，不行
 searchBar.backgroundColor = [UIColor redColor];
@@ -178,27 +175,21 @@ searchBar.backgroundImage = [UIImage imageNamed:@""];
 
 // 去掉背景色只能
 searchBar.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
-
 # 2.设置放大镜图标
 [searchBar setImage:[UIImage imageNamed:@""] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
-
 #3. 设置输入框（默认距离searchBar左右间距10）
 // 设置背景(可以改输入框高度) 给个确定高度的图片可以改输入框高度，图片宽度要大于1
 [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-
 // 拿到搜索框内部的UITextField
 UITextField *searchField = [searchBar valueForKey:@"_searchField"];
 //    searchField.backgroundColor = [UIColor whiteColor];
 //    searchField.borderStyle = UITextBorderStyleRoundedRect; // 设置圆角 背景图片什么的失效
 //    searchField.layer.cornerRadius = 10;
 //    searchField.layer.masksToBounds = YES;
-
 // 修改输入文字颜色
 searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
-    
 // 修改占位文字的颜色
 [searchField setValue:COLOR_WITH_RGB(172, 150, 240) forKeyPath:@"_placeholderLabel.textColor"];
-
 # 4.UISearchDisplayController
 // searchBar都是指自己创建的，不是UISearchDisplayController的searchBar(只读)
 // 带有导航栏的，搜索控制器出现后向上移问题
@@ -210,7 +201,6 @@ searchField.textColor = COLOR_WITH_RGB(172, 150, 240);
     [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
 }
 @end
-
 // 搜索控制器出来的时候，searchBar样式背景会变深灰色，如果searchBar单独布局在superView中背景色与superView一致是看不出来的）
 // 这样输入框和搜索框同样大小，可以同时改searchBar的高度和setSearchFieldBackgroundImage的高度
 searchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -261,6 +251,7 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
      //键盘输入完成但未收起键盘
      - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
      */
+     -------------------------------------------------------------
 ```
 
 - ###UITextField
@@ -272,10 +263,8 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
     // 设置账号文本框左边视图
     // 如果是系统控件中的子控件通常位置是由系统决定，我们不能设置，但是我们可以设置它的尺寸。
     UIImageView *leftV = [[UIImageView alloc] initWithImage:image];
-    
     // 设置图片居中
     leftV.contentMode = UIViewContentModeCenter;
-    
     CGRect frame = leftV.frame;
     if (textField == _phoneField) {
         frame.size.width += 22;
@@ -285,7 +274,6 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
     }
     
     leftV.frame = frame;
-    
     // 设置文本框的左边视图
     textField.leftView = leftV;
     // 必须要设置左边视图模式，总是显示模式
@@ -299,32 +287,20 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
 - (void)textViewDidChange:(UITextView *)textView
 {
     int kMaxLength = 15;
-
     NSString *toBeString = textView.text;
-    
     NSString *lang = [[UITextInputMode currentInputMode] primaryLanguage];
-    
     if([lang isEqualToString:@"zh-Hans"]){ //简体中文输入，包括简体拼音，健体五笔，简体手写
-        
         UITextRange *selectedRange = [textView markedTextRange];
-        
         UITextPosition *position = [textView positionFromPosition:selectedRange.start offset:0];
         if (!position){//非高亮
-            
             if (toBeString.length > kMaxLength) {
-
                 _textView.text = [toBeString substringToIndex:kMaxLength];
-                
             }
         }
-        
     }else{//中文输入法以外
-        
         if (toBeString.length > kMaxLength) {
             _textView.text = [toBeString substringToIndex:kMaxLength];
-            
         }
-        
     }
 }
 ```

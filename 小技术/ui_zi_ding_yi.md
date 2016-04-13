@@ -242,6 +242,17 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
         searchField=[((UIView *)[searchBar.subviews objectAtIndex:0]).subviews lastObject];
     
     5、修改UISearchBar右侧的取消按钮文字颜色及背景图片
+    -(void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
+    [_searchBar setShowsCancelButton:YES animated:NO];
+    UIView *topView = controller.searchBar.subviews[0];
+    
+    for (UIView *subView in topView.subviews) {
+        if ([subView isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
+            UIButton *cancelButton = (UIButton*)subView;
+            [cancelButton setTitle:@"取消" forState:UIControlStateNormal];  //@"取消"
+        }
+    }
+}
         /*
      [self.searchBar setSearchFieldBackgroundPositionAdjustment:UIOffsetMake(30, 30)];// 设置搜索框中文本框的背景的偏移量
      [self.searchBar setSearchTextPositionAdjustment:UIOffsetMake(30, 0)];// 设置搜索框中文本框的文本偏移量

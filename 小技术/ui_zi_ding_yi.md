@@ -304,3 +304,11 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
     }
 }
 ```
+- ###UINavigationBar 
+```
+    // 设置返回图标（不会拉伸）
+    navBar.backIndicatorImage = [UIImage imageNamed:@""];
+    navBar.backIndicatorTransitionMaskImage = [UIImage imageNamed:@""];
+    // 取消返回按钮的默认文字
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+```

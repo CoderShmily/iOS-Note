@@ -1,4 +1,5 @@
 # error
+####error1
 ```objc
 #Warning: Attempt to present <UIImagePickerController: 0x7ca5dc00> on <UIViewController: 0x7b9cac00> which is already presenting (null)
 
@@ -31,3 +32,6 @@ here are the delegate methods for dismissing it:
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 ```
+
+####error2
+A页面有输入框输入文字 点击后退出键盘 push进B页面弹窗 点击弹窗按钮会出现键盘，然后消失

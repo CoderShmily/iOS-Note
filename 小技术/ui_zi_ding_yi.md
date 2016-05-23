@@ -304,6 +304,29 @@ searchBar.searchBarStyle = UISearchBarStyleMinimal;
     }
 }
 ```
+-  获取光标的位置  
+```objc
+UITextRange *selectedRange = [textField selectedTextRange];
+```
+- 根据NSRange 转换成 NSTextRange
+```objc
+UITextPosition *beginning = textView.beginningOfDocument;
+UITextPosition *start = [textView positionFromPosition:beginning offset:range.location];   UITextPosition *end = [textView positionFromPosition:start offset:range.length];
+UITextRange *textRange = [textView textRangeFromPosition:start toPosition:end]]; 
+```
+- 根据NSTextRange转换成 NSRange
+
+```objc
+- (NSRange) selectedRange:(UITextField *)textField {
+  UITextPosition* beginning = textField.beginningOfDocument;
+  UITextRange* selectedRange = textField.selectedTextRange;
+  UITextPosition* selectionStart = selectedRange.start;
+  UITextPosition* selectionEnd = selectedRange.end;
+  const NSInteger location = [textField offsetFromPosition:beginning toPosition:selectionStart];     
+  const NSInteger length = [textField offsetFromPosition:selectionStart toPosition:selectionEnd]; } 
+```
+
+
 - ###UINavigationBar 
 ```
     // 设置返回图标（不会拉伸）

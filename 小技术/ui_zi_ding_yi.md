@@ -387,6 +387,7 @@ UITextRange *textRange = [textView textRangeFromPosition:start toPosition:end]];
 ```
 #####方式2：直接设置返回图片
 ```objc
+在+initialize方法中设置所有返回按钮文字的偏移量，其他设置和方式1一致
 [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -100) forBarMetrics:UIBarMetricsDefault];
 ```
 #####方式3：使用按钮覆盖返回图片(这种方式会使返回箭头图片和左边距离加大，但可以用取巧的方式调整)

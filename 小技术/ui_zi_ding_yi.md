@@ -328,10 +328,68 @@ UITextRange *textRange = [textView textRangeFromPosition:start toPosition:end]];
 
 
 - ###UINavigationBar 
+
 ```
     // 设置返回图标（不会拉伸）
     navBar.backIndicatorImage = [UIImage imageNamed:@""];
     navBar.backIndicatorTransitionMaskImage = [UIImage imageNamed:@""];
     // 取消返回按钮的默认文字
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+    
+背景图片
+// barMetrics需要设置成UIBarMetricsDefault
+- (void)setBackgroundImage:(UIImage *)backgroundImage forBarMetrics:(UIBarMetrics)barMetrics;
+
+背景阴影图片
+@property(nonatomic,retain) UIImage *shadowImage
+
+背景颜色
+@property(nonatomic,retain) UIColor *barTintColor
+
+标题文字属性
+@property(nonatomic,copy) NSDictionary *titleTextAttributes;
+
+系统类型按钮文字颜色
+@property(nonatomic,retain) UIColor *tintColor
+
+返回按钮图片
+// 必须要两个都设置，并且图片要设置成不渲染
+@property(nonatomic,retain) UIImage *backIndicatorImage;
+@property(nonatomic,retain) UIImage *backIndicatorTransitionMaskImage;
+
+标题垂直偏移
+- (void)setTitleVerticalPositionAdjustment:(CGFloat)adjustment forBarMetrics:(UIBarMetrics)barMetrics
+```
+####如果有以下需求:去除上面返回按钮上“我是标题”字样，并设置返回图片为白色
+
+图片修改
+#####方式1：设置返回图片颜色
+在-pushViewController:animated:中设置文字 ，在+initialize方法中设置返回图片或改变返回图片颜色
+注意导航栏对图片的渲染
+```objc
+  - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
+
+    [super pushViewController:viewController animated:animated];
+}
+```
+```objc
+// 获取特定类的所有导航条
+    UINavigationBar *navigationBar = [UINavigationBar appearanceWhenContainedIn:self, nil];
+
+    // 方式1：使用自己的图片替换原来的返回图片
+    navigationBar.backIndicatorImage = [UIImage imageNamed:@"NavBack"];
+    navigationBar.backIndicatorTransitionMaskImage = [UIImage imageNamed:@"NavBack"];
+
+    // 方式2：设置返回图片颜色
+    navigationBar.tintColor = [UIColor whiteColor];
+```
+#####方式2：直接设置返回图片
+#####方式3：使用按钮覆盖返回图片(这种方式会使返回箭头图片和左边距离加大，但可以用取巧的方式调整)
+文字修改
+#####方式1：设置控制器navigationItem的backBarButtonItem显示文字为""
+#####方式2：设置返回按钮文字偏移量，使其移出屏幕
+#####方式3：采用控制器navigationItem的leftBarButtonItem进行覆盖
+
 ```

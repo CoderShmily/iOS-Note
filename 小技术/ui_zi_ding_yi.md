@@ -386,8 +386,29 @@ UITextRange *textRange = [textView textRangeFromPosition:start toPosition:end]];
     navigationBar.tintColor = [UIColor whiteColor];
 ```
 #####方式2：直接设置返回图片
+```objc
+[[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -100) forBarMetrics:UIBarMetricsDefault];
+```
 #####方式3：使用按钮覆盖返回图片(这种方式会使返回箭头图片和左边距离加大，但可以用取巧的方式调整)
 文字修改
+```objc
+重写-pushViewController:animated:方法,使用控制器的navigationItem的leftBarButtonItem覆盖返回按钮,需要判断是否为根控制器，如果是根控制器就不添加导航控制器的viewControllers.count不为0即表示传入的为非根控制器。
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (self.viewControllers.count != 0) {
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"NavBack"] style:UIBarButtonItemStyleDone target:self action:@selector(back)];
+    }
+
+    [super pushViewController:viewController animated:animated];
+}
+```
+```objc
+- (void)back
+{
+    [self popViewControllerAnimated:YES];
+} 
+```
 #####方式1：设置控制器navigationItem的backBarButtonItem显示文字为""
 #####方式2：设置返回按钮文字偏移量，使其移出屏幕
 #####方式3：采用控制器navigationItem的leftBarButtonItem进行覆盖

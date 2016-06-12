@@ -414,4 +414,13 @@ UITextRange *textRange = [textView textRangeFromPosition:start toPosition:end]];
 #####方式2：设置返回按钮文字偏移量，使其移出屏幕
 #####方式3：采用控制器navigationItem的leftBarButtonItem进行覆盖
 
+
+通过以下方式可以使按钮向左边靠：采用customView，添加自己定义的UIButton
+```objc
+// 返回按钮内容左靠
+button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+// 让返回按钮内容继续向左边偏移10
+button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+
+viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 ```

@@ -66,27 +66,18 @@ completion(nil,error);
 
 解决办法
 - (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView {
- 
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
- 
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil]; 
 }
- 
- 
  
 - (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView {
  
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide) name:UIKeyboardWillHideNotification object:nil];
  
 }
- 
- 
- 
+
 - (void) keyboardWillHide {
- 
     UITableView *tableView = [[self searchDisplayController] searchResultsTableView];
- 
     [tableView setContentInset:UIEdgeInsetsZero];
- 
     [tableView setScrollIndicatorInsets:UIEdgeInsetsZero];
  
 }

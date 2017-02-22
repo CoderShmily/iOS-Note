@@ -1,8 +1,9 @@
 # Core Animation
 
- 
-###CAReplicatorLayer + CABasicAnimation
+### CAReplicatorLayer + CABasicAnimation
+
 `复制层 + 层动画`
+
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,3 +44,6 @@
 
 }
 ```
+
+
+

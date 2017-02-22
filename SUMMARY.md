@@ -1,8 +1,7 @@
-# SUMMARY
+# Summary
 
 * [Introduction](README.md)
 * [iOS基础](iOS基础/qita_md_md.md)
-  * [自动布局](autoresizing/autoresizingmd.md)
   * [Xib 布局文件](xib_file/xibfile_md.md)
   * [iOS7中的状态栏](ios7_status/ios7status_md.md)
   * [iOS程序的启动过程](ios_start/iosstart_md.md)
@@ -87,6 +86,4 @@
   * [懒加载](Swift/lan_jia_zai.md)
   * [属性和方法](Swift/shu_xing_he_fang_fa.md)
   * [单例](Swift/dan_li.md)
-
-
 

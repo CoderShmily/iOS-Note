@@ -1,13 +1,13 @@
 # Autoresizing
 
-A![](Autoresizing.png)
-Width(中间的横线) 勾选 宽度跟随父控件的宽度等比例伸缩
-// (父控件宽度变化多少倍，这个子控件也变多少倍)
-height(中间的竖线)
+![](Autoresizing.png)  
+Width\(中间的横线\) 勾选 宽度跟随父控件的宽度等比例伸缩  
+// \(父控件宽度变化多少倍，这个子控件也变多少倍\)  
+height\(中间的竖线\)
 
-leftMargin (四周的线) // 距离父控件上方的间距是固定的
-rightMargin
-topMargin
+leftMargin \(四周的线\) // 距离父控件上方的间距是固定的  
+rightMargin  
+topMargin  
 bottomMargin
 
 `总结：`
@@ -18,7 +18,7 @@ bottomMargin
 
 局限性： 只能解决父子控件之间的相对关系
 
-###提示： `点击控制器会调用touchesBegan:withEvent方法`
+### 提示： `点击控制器会调用touchesBegan:withEvent方法`
 
 ```objc
 - UIViewAutoresizingFlexible`Left`Margin   = 1 << 0,
@@ -43,37 +43,46 @@ self.pageControl.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIVie
 
     - `高度`跟随父控件`高度`进行伸缩
 ```
+
 # Autorlayout
 
 ## 2个核心概念
-- 约束
-    - 尺寸约束
-        - width约束
-        - height约束
-    - 位置约束
-        - 间距约束（上下左右间距）
 
-- 参照
-    - 所添加的约束跟哪个控件有关（相对于哪个控件来说）
+* 约束
+
+  * 尺寸约束
+    * width约束
+    * height约束
+  * 位置约束
+    * 间距约束（上下左右间距）
+
+* 参照
+
+  * 所添加的约束跟哪个控件有关（相对于哪个控件来说）
 
 ## 常见单词
-- Leading -> Left -> 左边
-- Trailing -> Right -> 右边
+
+* Leading -&gt; Left -&gt; 左边
+* Trailing -&gt; Right -&gt; 右边
 
 ## UILabel实现包裹内容
-- 设置宽度约束为 <= 固定值
-- 设置位置约束
-- 不用去设置高度约束
-## 注意
-![](./Autolayout1.png)
 
-##补充
-- 通过storyboard创建的控件在勾选自动布局时，
-在- (void)viewDidLoad 方法中不能 改变控件的frame 在其他方法比如- (void)touchesBegan:withEvent: 可以修改
-- 如果去掉storyboard文件自动布局选项,则在- (void)viewDidLoad
-中就可以修改控件的frame
+* 设置宽度约束为 &lt;= 固定值
+* 设置位置约束
+* 不用去设置高度约束
+  ## 注意
+
+  ![](./Autolayout1.png)
+
+## 补充
+
+* 通过storyboard创建的控件在勾选自动布局时，
+  在- \(void\)viewDidLoad 方法中不能 改变控件的frame 在其他方法比如- \(void\)touchesBegan:withEvent: 可以修改
+* 如果去掉storyboard文件自动布局选项,则在- \(void\)viewDidLoad
+  中就可以修改控件的frame
 
 `范例`
+
 ```objc
     // 添加蓝色控件
     UIView *blueView = [[UIView alloc] init];
@@ -96,5 +105,7 @@ self.pageControl.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIVie
 
     // 添加自己的约束 nil  NSLayoutAttributeNotAnAttribute
     NSLayoutConstraint *widthLc = [NSLayoutConstraint constraintWithItem:blueView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0.0 constant:100];
-
 ```
+
+
+

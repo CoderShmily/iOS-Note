@@ -91,4 +91,7 @@ sudo gem install -n /usr/local/bin cocoapods
 cd ~/.cocoapods/
 du -sh *
 到此就可以说是解决了这个问题了。
+
+4. [!] Unable to find a pod with name, author, summary, or description matching `AFNetworking`
+解决：rm ~/Library/Caches/CocoaPods/search_index.json
 ```

@@ -16,8 +16,12 @@ gem sources -a https://ruby.taobao.org/
 gem sources -l
 
 // 新版本要有问题试试
+
+//  sudo gem install cocoapods应该会提示下错误
+// ERROR:  While executing gem ... (Errno::EPERM)   Operation not permitted - /usr/bin/update_rubygems
+试试 gem update -n /usr/local/bin --system
+
 sudo gem install -n /usr/local/bin cocoapods
-// sudo gem install cocoapods
 
 
 pod repo remove master 
@@ -68,4 +72,6 @@ pod install --no-integrate
 如果提示关于gem的东西找不到:
 sudo gem uninstall --all
 sudo gem install cocoapods
+
+brew update失败可以用 /usr/local/bin/brew update --force
 ```

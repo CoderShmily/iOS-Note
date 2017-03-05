@@ -12,6 +12,7 @@ sudo gem update --system
 
 gem sources --remove https://rubygems.org/
 gem sources -a https://ruby.taobao.org/
+// https://gems.ruby-china.org/
 gem sources -l
 
 // 新版本要有问题试试

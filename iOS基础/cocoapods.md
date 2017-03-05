@@ -23,10 +23,8 @@ gem sources -l
 
 sudo gem install -n /usr/local/bin cocoapods
 
-
 pod repo remove master 
 pod repo add master https://gitcafe.com/akuandev/Specs.git
-// 网址暂时404了，去git.oschina.net搜 cocoapods源
 pod repo update
 
 // du -sh * 查看下载进度
@@ -69,9 +67,28 @@ pod install --no-integrate
 <a href="#1">查找框架</a>  
 <a name="1">锚点1跳转处</a>
 ```objc
-如果提示关于gem的东西找不到:
+1. 如果提示关于gem的东西找不到:
 sudo gem uninstall --all
 sudo gem install cocoapods
 
-brew update失败可以用 /usr/local/bin/brew update --force
+2. brew update失败可以用 /usr/local/bin/brew update --force
+
+
+3. 执行sudo gem install cocoapods的时候提示错误
+ERROR:  SSL verification error at depth 1: unable to get local issuer certificate (20)
+ERROR:  You must add /C=IL/O=StartCom Ltd./OU=Secure Digital Certificate Signing/CN=StartCom Certification Authority to your local trusted store
+ERROR:  SSL verification error at depth 2: self signed certificate in certificate chain (19)
+ERROR:  Root certificate is not trusted (/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA)
+
+其实只要是使用gem的都会又ssl证书问题。 下面说下用的新路径
+gem sources --remove https://ruby.taobao.org/
+gem sources -a https://gems.ruby-china.org/
+gem sources -l
+
+sudo gem install -n /usr/local/bin cocoapods
+
+然后就会执行成功了，不过此刻会卡住，其实是在下载文件，你可以用下面的方法查看下载的文件大小。
+cd ~/.cocoapods/
+du -sh *
+到此就可以说是解决了这个问题了。
 ```

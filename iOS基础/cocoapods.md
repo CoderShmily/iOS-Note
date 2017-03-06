@@ -5,8 +5,6 @@
 ```objc
 安装cocoapods
 
-
- 
 建议先更新下gem
 sudo gem update --system
 
@@ -24,12 +22,15 @@ gem sources -l
 sudo gem install -n /usr/local/bin cocoapods
 
 pod repo remove master 
-pod repo add master https://gitcafe.com/akuandev/Specs.git
-pod repo update
+pod repo add master https://gitcafe.com/akuandev/Specs.git 
+// 备用1 pod repo add master https://git.coding.net/CocoaPods/Specs.git
+// 备用2 pod repo add master https://git.oschina.net/akuandev/Specs.git
+// 现在一般执行完pod repo add master  *** 之后又会提示[!] To setup the master specs repo, please run pod setup.
+// 执行手动克隆 git clone https://git.coding.net/CocoaPods/Specs.git ~/.cocoapods/repos/master 然后 pod repo update
 
+// cd ~/.cocoapods然后下面指令    
 // du -sh * 查看下载进度
-pod setup
-
+// pod setup手动克隆就不要执行这个了，不然一会又要死循环了
 pod --version
 
 卸载CocoaPods
@@ -42,7 +43,7 @@ sudo gem uninstall cocoapods
 pod search AFNetworking
 
 // 工程目录下创建Podfile
-touch Podfile
+pod init 自动创建Podfile //手动 touch Podfile
 
 // 内容格式
 platform :ios, "8.0" 		8.0代表兼容的ios版本 不指定会用最新的框架

@@ -97,7 +97,7 @@ typedef void(^CompletionBlock)(NSString *date);
 3. 使用了 @dynamic 时
 4. 在 @protocol 中定义的所有属性
 5. 在 category 中定义的所有属性
-6. 重载的属性，当你在子类中重载了父类中的属性，你必须 使用 @synthesize 来手动合成ivar。
+6. 重载的属性，当你在子类中重载了父类中的属性，如果不去手动定义ivar,那么就要使用 @synthesize 来手动合成ivar。
 
 >除了后三条，对其他几个我们可以总结出一个规律：当你想手动管理 @property 的所有内容时，你就会尝试通过实现 @property 的所有“存取方法”（the accessor methods）或者使用 @dynamic 来达到这个目的，这时编译器就会认为你打算手动管理 @property，于是编译器就禁用了 autosynthesis（自动合成）。
 

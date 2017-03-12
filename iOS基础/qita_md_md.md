@@ -68,7 +68,8 @@ typedef void(^CompletionBlock)(NSString *date);
     
     /*
     #import会导致重新编译2.h、3.h
-    @class则只会重新编译2.h,使用:头文件@class引入类,.m文件再#import,使用类的相关属性和方法
+    @class则只会重新编译2.h
+    使用方法:头文件@class引入类,.m文件再#import,使用类的相关属性和方法
     */
     ```
 

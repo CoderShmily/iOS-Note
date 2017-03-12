@@ -98,8 +98,7 @@ NSString *_test4; // 默认是@private,改不了
 @end
 
 ```
-分类中不能放实例变量
-分类中的@property只会生成getter和setter方法的声明,没有生成下划线变量
+分类中不能放实例变量,分类中的`@property`只会生成getter和setter方法的声明,没有生成下划线变量
 
 1. `@public` (公开的)在有对象的前提下，任何地方都可以直接访问。
 2. `@protected` （受保护的）只能在当前类和子类的对象方法中访问

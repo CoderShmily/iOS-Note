@@ -51,24 +51,3 @@ NSString *password = [defaults objectForKey:@"password"];//根据键值取出pas
 ```
 ---
 
-- 控制器架构
-
-```objc
-AppointmentViewController *viewController1 = [[AppointmentViewController alloc] init];
-viewController1.title = @"First";
-
-MyXbedViewController* viewController3 = [MyXbedViewController getInstance];
-viewController3.title = @"three";
-UINavigationController * navigationController = [[MMNavigationController alloc] initWithRootViewController:viewController1];
-[navigationController setRestorationIdentifier:@"MMExampleCenterNavigationControllerRestorationKey"];
-UINavigationController * leftSideNavController = [[MMNavigationController alloc] initWithRootViewController:viewController3];
-[leftSideNavController setRestorationIdentifier:@"MMExampleLeftNavigationControllerRestorationKey"];
-
-self.drawerController = [[MMDrawerController alloc]
-                      initWithCenterViewController:navigationController
-                      leftDrawerViewController:leftSideNavController
-                      ];XbedRootViewController* root = [[XbedRootViewController getInstance] initWithRootViewController:self.drawerController];
-
-[self.window setRootViewController:root];
-    
-```

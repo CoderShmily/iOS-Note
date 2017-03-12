@@ -89,6 +89,20 @@ typedef void(^CompletionBlock)(NSString *date);
 
 4. 假如 property 名为 foo，存在一个名为 _foo 的实例变量，那么还会自动合成新变量么？ 不会,Xcode会有警告提示。
 ---
+
+###什么情况下不会autosynthesis（自动合成）？
+
+1. 同时重写了 setter 和 getter 时
+2. 重写了只读属性的 getter 时
+3. 使用了 @dynamic 时
+4. 在 @protocol 中定义的所有属性
+5. 在 category 中定义的所有属性
+6. 重载的属性，当你在子类中重载了父类中的属性，你必须 使用 @synthesize 来手动合成ivar。
+
+>除了后三条，对其他几个我们可以总结出一个规律：当你想手动管理 @property 的所有内容时，你就会尝试通过实现 @property 的所有“存取方法”（the accessor methods）或者使用 @dynamic 来达到这个目的，这时编译器就会认为你打算手动管理 @property，于是编译器就禁用了 autosynthesis（自动合成）。
+
+---
+
 ### #import 和 @class区别
 1. \#import编译阶段拷贝"1.h"内容
     @class只是告诉编译器这是一个类,并不导入类里面的东西

@@ -8,6 +8,26 @@
   };
 ```
 ---
+###block的声明
+```objc
+!rightBlock ? : rightBlock();
+
+typedef NSString *(^completionBlock)(int a);
+[... completionBlock:^NSString *(int a) {
+         a = 10;
+         return @"";
+     }];
+// 类型定义 block
+typedef void(^CompletionBlock)(NSString *date);
+@property (nonatomic, copy) CompletionBlock compBlock;
+
+// 属性
+@property (nonatomic,copy) void(^block)(NSString *str);
+
+// 带参数的block  参数是是传给block调用者得
+- (void)initBlock:(void (^)(NSString *str))block;
+```
+---
 ###什么情况使用weak关键字，相比assign有什么不同
 
 1. 在 ARC 中,在有可能出现循环引用的时候,往往要通过让其中一端使用 weak 来解决,比如: delegate 代理属性
@@ -52,26 +72,7 @@
 [mutableObject copy] //单层深复制
 [mutableObject mutableCopy] //单层深复制
 ```
----
-###block的声明
-```objc
-!rightBlock ? : rightBlock();
 
-typedef NSString *(^completionBlock)(int a);
-[... completionBlock:^NSString *(int a) {
-         a = 10;
-         return @"";
-     }];
-// 类型定义 block
-typedef void(^CompletionBlock)(NSString *date);
-@property (nonatomic, copy) CompletionBlock compBlock;
-
-// 属性
-@property (nonatomic,copy) void(^block)(NSString *str);
-
-// 带参数的block  参数是是传给block调用者得
-- (void)initBlock:(void (^)(NSString *str))block;
-```
 ---
 
 ### @synthesize和@dynamic分别有什么作用？

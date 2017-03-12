@@ -10,6 +10,8 @@
 2. assign 可以用非 OC 对象,而 weak 必须用于 OC 对象
 
 
+> runtime 对注册的类， 会进行布局，对于 weak 对象会放入一个 hash 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会 dealloc，假如 weak 指向的对象内存地址是a，那么就会以a为键， 在这个 weak 表中搜索，找到所有以a为键的 weak 对象，从而设置为 nil。
+
 ---
 ### 怎么用 copy 关键字？
 
@@ -108,7 +110,14 @@ NSString *_test4; // 默认是@private,改不了
 6. 方法有在@interface声明的默认`public`，只在类@implementation实现的是`private`
 ---
 
+### @protocol 和 category 中如何使用 @property
+1. 在 protocol 中使用 property 只会生成 setter 和 getter 方法声明,我们使用属性的目的,是希望遵守我协议的对象能实现该属性
 
+2. category 使用 @property 也是只会生成 setter 和 getter 方法的声明,如果我们真的需要给 category 增加属性的实现,需要借助于运行时的两个函数：
+  1. objc_setAssociatedObject
+  2. objc_getAssociatedObject
+  
+---
 ### 常用数据类型转换
 ```objc
 NSURL *url2 = [NSURL fileURLWithPath:@"/a/b"]; // 已经添加了file协议,直接上路径

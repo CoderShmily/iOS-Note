@@ -1,6 +1,8 @@
 # iOS基础 - 笔记
+
+
+###block的声明
 ```objc
-// 
 !rightBlock ? : rightBlock();
 
 typedef NSString *(^completionBlock)(int a);
@@ -18,40 +20,17 @@ typedef void(^CompletionBlock)(NSString *date);
 // 带参数的block  参数是是传给block调用者得
 - (void)initBlock:(void (^)(NSString *str))block;
 ```
-
-
-
-
-```objc
-1. [super dealloc]; // 要调用super的此方法,要在MRC下
-```
-```objc
-2. @property (nonatomic, copy, getter=isRich) BOOL rich; // 指定getter方法
-
-@implementation ViewController
-@synthesize var = _var; // 指定生成下划线变量
-@end
-```
-
-
 ---
-
-
+ ###枚举的写法 类型:CYLSex
 ```objc
-3. 枚举的写法 类型:CYLSex
   typedef NS_ENUM(NSInteger, CYLSex) {
       CYLSexMan,
       CYLSexWoman
   };
 ```
-
-
 ---
-
-
+### #import 和 @class区别
 ```objc
-4. #import 和 @class区别
-
 1>  #import编译阶段拷贝"1.h"内容
     @class只是告诉编译器这是一个类,并不导入类里面的东西
 2> 如果"1.h"改变,所有包含#import "1.h"的都要重新编译
@@ -64,8 +43,8 @@ typedef void(^CompletionBlock)(NSString *date);
 
 
 ---
+### OC有没有私有方法,私有变量?
 ```objc
-6. OC有没有私有方法,私有变量?
 @interface Person : NSObject // 类声明
 {
 NSString *_test1; // 默认@protected,可以修改
@@ -103,10 +82,8 @@ NSString *_test4; // 默认是@private,改不了
 ---
 
 
-
+### 常用数据类型转换
 ```objc
-9. 常用数据类型转换
-
 NSURL *url2 = [NSURL fileURLWithPath:@"/a/b"]; // 已经添加了file协议,直接上路径
 NSURL *url = [NSURL URLWithString:@"http://www.baidu.com:8080/search?id=1"]; // 要有http:// file:// 等协议头
 NSLog(@"scheme:%@", [url scheme]); //协议 http

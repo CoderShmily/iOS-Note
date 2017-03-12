@@ -1,5 +1,13 @@
 # iOS基础 - 笔记
-
+---
+ ###枚举的写法 类型:CYLSex
+```objc
+  typedef NS_ENUM(NSInteger, CYLSex) {
+      CYLSexMan,
+      CYLSexWoman
+  };
+```
+---
 ###什么情况使用weak关键字，相比assign有什么不同
 
 1. 在 ARC 中,在有可能出现循环引用的时候,往往要通过让其中一端使用 weak 来解决,比如: delegate 代理属性
@@ -12,7 +20,9 @@
 ---
 ### weak的其他问题
 ###### 1. weak属性需要在dealloc中置nil么？
-> 不需要。在ARC环境无论是强指针还是弱指针都无需在 dealloc 设置为 nil ， ARC 会自动帮我们处理。
+> 不需要。在ARC环境无论是强指针还是弱指针都无需在 dealloc 设置为 nil ， ARC 会自动帮我们处理。根据`runtime实现 weak 属性方式`，即便是编译器不帮我们做这些，weak也不需要在 dealloc 中置nil。
+
+正如上文的： 中提到的：
 
 ###### 2. weak的底层实现
 > runtime 对注册的类， 会进行布局，对于 weak 对象会放入一个 hash 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会 dealloc，假如 weak 指向的对象内存地址是a，那么就会以a为键， 在这个 weak 表中搜索，找到所有以a为键的 weak 对象，从而设置为 nil。
@@ -25,13 +35,20 @@
 2. block 也经常使用 copy 关键字. block 使用 copy 是从 MRC 遗留下来的“传统”,在 MRC 中,方法内部的 block 是在栈区的,使用 copy 可以把它放到堆区.在 ARC 中写不写都行：对于 block 使用 copy 还是 strong 效果是一样的，但写上 copy 也无伤大雅，还能时刻提醒我们：编译器自动对 block 进行了 copy 操作。
 
 
-例如下面这个写法会出什么问题： 
+###### 下面这个写法会出什么问题： 
 ```objc
 @property (copy) NSMutableArray *array;
 ```
 两个问题：
 1. 添加,删除,修改数组内的元素的时候,程序会因为找不到对应的方法而崩溃.因为 copy 就是复制一个不可变 NSArray 的对象；
 2. 使用了 atomic 属性会严重影响性能 ；一般情况下并不要求属性必须是“原子的”，因为这并不能保证“线程安全” ( thread safety)，若要实现“线程安全”的操作，还需采用更为深层的锁定机制才行。例如，一个线程在连续多次读取某属性值的过程中有别的线程在同时改写该值，那么即便将属性声明为 atomic，也还是会读到不同的属性值。
+###### 总结copy的浅复制和深复制
+```objc
+[immutableObject copy] // 浅复制
+[immutableObject mutableCopy] //单层深复制
+[mutableObject copy] //单层深复制
+[mutableObject mutableCopy] //单层深复制
+```
 ---
 ###block的声明
 ```objc
@@ -53,13 +70,11 @@ typedef void(^CompletionBlock)(NSString *date);
 - (void)initBlock:(void (^)(NSString *str))block;
 ```
 ---
- ###枚举的写法 类型:CYLSex
-```objc
-  typedef NS_ENUM(NSInteger, CYLSex) {
-      CYLSexMan,
-      CYLSexWoman
-  };
-```
+
+### @synthesize和@dynamic分别有什么作用？
+1. @property有两个对应的词，一个是 @synthesize，一个是 @dynamic。如果 @synthesize和 @dynamic都没写，那么默认的就是`@syntheszie var = _var`;
+2. @synthesize 的语义是如果你没有手动实现 setter 方法和 getter 方法，那么编译器会自动为你加上这两个方法。
+3. @dynamic 告诉编译器：属性的 setter 与 getter 方法由用户自己实现，不自动生成。（当然对于 readonly 的属性只需提供 getter 即可）。假如一个属性被声明为 @dynamic var，然后你没有提供 @setter方法和 @getter 方法，编译的时候没问题，但是当程序运行到 `instance.var = someVar`，由于缺 setter 方法会导致程序崩溃；或者当运行到 `someVar = var` 时，由于缺 getter 方法同样会导致崩溃。编译时没问题，运行时才执行相应的方法，这就是所谓的动态绑定。
 ---
 ### #import 和 @class区别
 1. \#import编译阶段拷贝"1.h"内容

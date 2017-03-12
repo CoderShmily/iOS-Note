@@ -32,6 +32,11 @@ typedef void(^CompletionBlock)(NSString *date);
 @synthesize var = _var; // 指定生成下划线变量
 @end
 ```
+
+
+---
+
+
 ```objc
 3. 枚举的写法 类型:CYLSex
   typedef NS_ENUM(NSInteger, CYLSex) {
@@ -39,6 +44,11 @@ typedef void(^CompletionBlock)(NSString *date);
       CYLSexWoman
   };
 ```
+
+
+---
+
+
 ```objc
 4. #import 和 @class区别
 
@@ -51,10 +61,9 @@ typedef void(^CompletionBlock)(NSString *date);
 
 使用:头文件@class引入类,.m文件再#import,使用类的相关属性和方法
 ```
-```objc
-5. 循环retain
-一端用retain,一端用assign
-```
+
+
+---
 ```objc
 6. OC有没有私有方法,私有变量?
 @interface Person : NSObject // 类声明
@@ -91,21 +100,10 @@ NSString *_test4; // 默认是@private,改不了
 只在类@implementation实现的是private
 ```
 
-```objc
-7. block的定义
+---
 
-int (^block)(int ,int) = ^(int a, int b)
-{
-	return 0;
-}
-// 类型重定义
-typedef int (^MyBlock)(int ,int);
 
-```
 
-```objc
-8. [error localizedDescription]; // 精确输出error的错误,没有其他乱七八糟的
-```
 ```objc
 9. 常用数据类型转换
 

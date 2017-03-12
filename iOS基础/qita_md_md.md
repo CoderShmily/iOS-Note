@@ -1,11 +1,12 @@
 # iOS基础 - 笔记
 ---
- ###枚举的写法 类型:CYLSex
+ ###枚举的写法 
 ```objc
-  typedef NS_ENUM(NSInteger, CYLSex) {
-      CYLSexMan,
-      CYLSexWoman
-  };
+// 类型:CYLSex
+typedef NS_ENUM(NSInteger, CYLSex) {
+    CYLSexMan,
+    CYLSexWoman
+};
 ```
 ---
 ###block的声明

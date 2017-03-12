@@ -97,13 +97,12 @@ Quartz2D提供了以下几种类型的Graphics Context：
  注意：调用setNeedsDisplay并不会马上触发drawRect方法，仅仅是给当前这个view设置一个重新绘制的标志，等下一次屏幕刷新的时候才会去调用drawRect
 
     -  1.获取上下文 2.拼接路径 3.把路径添加到上下文 4.渲染上下文
+
 ###6. Quartz2D须知
 
-Quartz2D的API是纯C语言的
+- Quartz2D的API是纯C语言的
 
-Quartz2D的API来自于Core Graphics框架
-
-数据类型和函数基本都以CG作为前缀
+- Quartz2D的API来自于Core Graphics框架,数据类型和函数基本都以CG作为前缀
 - CGContextRef
 - CGPathRef
 - CGContextStrokePath(ctx);

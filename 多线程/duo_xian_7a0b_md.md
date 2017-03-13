@@ -380,7 +380,14 @@ NSBlockOperation *blockOpera = [NSBlockOperation blockOperationWithBlock:^{
 }];
 
 NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init]; // 非主队列
+[blockOpera addExecutionBlock:^{
+        // 在 子 线程执行。
+}];
 [operaQueue addOperation:blockOpera];// 内部已经调用start，添加进去的任务，子线程并发执行
+
+[operaQueue addOperationWithBlock:^{
+      // 在 子 线程执行。  
+}];
 
 ```
 

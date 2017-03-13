@@ -340,7 +340,24 @@ GCD的另一个用处是可以让程序在后台较长久的运行。
     self.backgroundUpdateTask = UIBackgroundTaskInvalid; 
 } 
 ```
-
+### NSOperation
+---
+NSOperation抽象类的的两个子类`NSInvocationOperation`和`NSBlockOperation`的使用
+```objc
+    // NSInvocationOperation不配合NSOperationQueue使用，不开线程，在主线程执行。
+    NSInvocationOperation *invocation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(fun) object:nil];
+    [invocation start]; // 在主线程执行。
+    
+    // NSBlockOperation不配合NSOperationQueue使用，不开线程，在主线程执行。
+    NSBlockOperation *blockOpera = [NSBlockOperation blockOperationWithBlock:^{
+        // 在主线程执行。
+    }];
+    [blockOpera start];
+    
+    [blockOpera addExecutionBlock:^{
+       // 在 子 线程执行。
+    }];
+```
 
 
 

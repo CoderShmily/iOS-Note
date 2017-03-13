@@ -344,19 +344,43 @@ GCD的另一个用处是可以让程序在后台较长久的运行。
 ---
 NSOperation抽象类的的两个子类`NSInvocationOperation`和`NSBlockOperation`的使用
 ```objc
-    // NSInvocationOperation不配合NSOperationQueue使用，不开线程，在主线程执行。
-    NSInvocationOperation *invocation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(fun) object:nil];
-    [invocation start]; // 在主线程执行。
-    
-    // NSBlockOperation不配合NSOperationQueue使用，不开线程，在主线程执行。
-    NSBlockOperation *blockOpera = [NSBlockOperation blockOperationWithBlock:^{
-        // 在主线程执行。
-    }];
-    [blockOpera start];
-    
-    [blockOpera addExecutionBlock:^{
-       // 在 子 线程执行。
-    }];
+// NSInvocationOperation不配合NSOperationQueue使用，不开线程，在主线程执行。
+NSInvocationOperation *invocation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(fun) object:nil];
+[invocation start]; // 在主线程执行。
+
+// NSBlockOperation不配合NSOperationQueue使用，不开线程，在主线程执行。
+NSBlockOperation *blockOpera = [NSBlockOperation blockOperationWithBlock:^{
+  // 在主线程执行。
+}];
+[blockOpera start];
+
+[blockOpera addExecutionBlock:^{
+ // 在 子 线程执行。
+}];
+```
+
+- GCD的队列类型 自己创建的串行、并行对列，主队列，全局并发队列。
+- NSOperationQueue只有主队列，非主队列
+
+```objc
+[NSOperationQueue mainQueue]; // 主队列
+[[NSOperationQueue alloc] init]; // 非主队列,同时具备串行和并发功能，默认情况是并发队列。
+```
+
+```objc
+NSInvocationOperation *invocation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(fun) object:nil];
+
+NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init]; // 非主队列
+[operaQueue addOperation:invocation];// 内部已经调用start，添加进去的任务，子线程并发执行
+
+
+
+NSBlockOperation *blockOpera = [NSBlockOperation blockOperationWithBlock:^{
+}];
+
+NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init]; // 非主队列
+[operaQueue addOperation:blockOpera];// 内部已经调用start，添加进去的任务，子线程并发执行
+
 ```
 
 

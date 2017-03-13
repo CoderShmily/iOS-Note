@@ -372,7 +372,7 @@ NSBlockOperation *blockOpera = [NSBlockOperation blockOperationWithBlock:^{
 NSInvocationOperation *invocation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(fun) object:nil];
 
 NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init]; // 非主队列
-[operaQueue addOperation:invocation];// 内部已经调用start，添加进去的任务，子线程并发执行
+[operaQueue addOperation:invocation];// 内部已经调用[invocation start]，添加进去的任务，子线程并发执行
 
 
 // NSBlockOperation

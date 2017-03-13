@@ -406,6 +406,7 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 // maxConcurrentOperationCount > 1 那么就是并发队列
 // maxConcurrentOperationCount == 1 那就是串行队列
 // maxConcurrentOperationCount == 0 不会执行任务
+// maxConcurrentOperationCount == -1 默认值，最大值
 @property NSInteger maxConcurrentOperationCount;
 
 @property (getter=isSuspended) BOOL suspended;

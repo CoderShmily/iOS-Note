@@ -118,6 +118,11 @@ dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 ```objc
 dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
 ```
+
+<font color=red>注意:可以使用dispatch_async_f用函数而不是block去执行任务</font>
+```
+dispatch_async_f(queue, void * _Nullable context, func);
+```
 - GCD中还有个用来执行任务的函数
 
 <font color=red>注意:使用dispatch_barrier_async, 苹果文档规定这个queue不能是全局的并发队列，只能是手动创建的并发队列</font>

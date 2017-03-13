@@ -398,6 +398,15 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 ```
 <font color=red>注意:会自动调用TTOperation的main对象方法，可以在里面做一些配置。</font>
 
+### NSOperationQueue
+```objc
+@property NSInteger maxConcurrentOperationCount;
+
+@property (getter=isSuspended) BOOL suspended;
+
+- (void)cancelAllOperations;
+- (void)waitUntilAllOperationsAreFinished;
+```
 
 
 

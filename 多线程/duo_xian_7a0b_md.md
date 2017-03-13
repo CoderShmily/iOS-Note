@@ -120,6 +120,8 @@ dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
 ```
 - GCD中还有个用来执行任务的函数
 
+<font color=red>注意:使用dispatch_barrier_async, 这个queue不能是全局的并发队列</font>
+
 ```objc
 dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
 # 在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行

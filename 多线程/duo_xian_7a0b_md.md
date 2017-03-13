@@ -409,6 +409,7 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 // maxConcurrentOperationCount == -1 默认值，最大值
 @property NSInteger maxConcurrentOperationCount;
 
+// 可以设置暂停 继续执行
 @property (getter=isSuspended) BOOL suspended;
 
 - (void)cancelAllOperations;

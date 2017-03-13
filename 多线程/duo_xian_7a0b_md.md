@@ -410,8 +410,10 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 @property NSInteger maxConcurrentOperationCount;
 
 // 可以设置暂停 继续执行 不会立即暂停，会把当前任务执行完
+// 可以在任务中 if(Operation.isCancelled) return;早点结束
 @property (getter=isSuspended) BOOL suspended;
 
+// 调用多有Operation的cancel方法
 - (void)cancelAllOperations;
 - (void)waitUntilAllOperationsAreFinished;
 ```

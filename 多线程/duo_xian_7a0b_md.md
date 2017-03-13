@@ -403,6 +403,9 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 // 好像实际最大子线程数都比这个多一
 // 串行执行任务！= 只开一条线程（线程同步）
 // maxConcurrentOperationCount = 1 多条（2条）线程按顺序执行
+// maxConcurrentOperationCount > 1 那么就是并发队列
+// maxConcurrentOperationCount == 1 那就是串行队列
+// maxConcurrentOperationCount == 0 不会执行任务
 @property NSInteger maxConcurrentOperationCount;
 
 @property (getter=isSuspended) BOOL suspended;

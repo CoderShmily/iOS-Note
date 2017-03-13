@@ -401,7 +401,7 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 ### NSOperationQueue 相关属性方法
 ```objc
 // 好像实际最大子线程数都比这个多一
-// 串行执行任务！= 只开一条线程
+// 串行执行任务！= 只开一条线程（线程同步）
 // maxConcurrentOperationCount = 1 多条（2条）线程按顺序执行
 @property NSInteger maxConcurrentOperationCount;
 

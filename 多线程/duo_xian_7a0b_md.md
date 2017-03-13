@@ -390,6 +390,13 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init]; // 非主队列
 }];
 
 ```
+### 自定义NSOperation
+```objc
+TTOperation *op = [[TTOperation alloc] init];
+NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
+[operaQueue addOperation:blockOpera];
+```
+<font color=red>注意:会自动调用TTOperation的main对象方法，可以在里面做一些配置。</font>
 
 
 

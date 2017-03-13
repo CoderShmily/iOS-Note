@@ -277,10 +277,12 @@ dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index){
 ### 队列组
 <font color=red>注意:dispatch_group_notify是异步函数,
 下边有dispatch_async方法可能先执行完毕。</font>
+
 ```objc
 // 直到队列组中的所有任务都执行完毕以后才会执行
 dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 ```
+
 <font color=red>注意:dispatch_group_wait是阻塞的,
 如果下边有dispatch_async方法也会等着，不会先执行。</font>
 

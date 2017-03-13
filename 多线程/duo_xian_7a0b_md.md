@@ -418,7 +418,37 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 - (void)waitUntilAllOperationsAreFinished;
 ```
 
+### NSOperation操作依赖和监听
+```objc
+NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
+    
+}];
 
+NSBlockOperation *blockOp2 = [NSBlockOperation blockOperationWithBlock:^{
+    
+}];
+
+NSBlockOperation *blockOp3 = [NSBlockOperation blockOperationWithBlock:^{
+    
+}];
+
+// blockOp2会在 blockOp 之前执行
+[blockOp addDependency:blockOp2];
+[blockOp3 addDependency:blockOp2];
+
+NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
+NSOperationQueue *operaQueue2 = [[NSOperationQueue alloc] init];
+[operaQueue addOperation:blockOp];
+[operaQueue addOperation:blockOp2];
+// 操作依赖乐意不在一个NSOperationQueue中，blockOp2在blockOp3之前执行
+[operaQueue2 addOperation:blockOp3];
+
+// 操作监听
+blockOp2.completionBlock = ^{
+    
+};
+
+```
 
 
 

@@ -400,6 +400,7 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 
 ### NSOperationQueue 相关属性方法
 ```objc
+// 好像实际最大子线程数都比这个多一
 @property NSInteger maxConcurrentOperationCount;
 
 @property (getter=isSuspended) BOOL suspended;

@@ -275,6 +275,14 @@ dispatch_apply(10, dispatch_get_global_queue(0, 0), ^(size_t index){
 });
 ```
 ### 队列组
+<font color=red>注意:dispatch_group_notify是异步函数,
+下边有dispatch_async方法可能先执行完毕。</font>
+```objc
+// 直到队列组中的所有任务都执行完毕以后才会执行
+dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+```
+
+
 若有此需求：分别异步执行2个耗时的操作,等2个异步操作都执行完毕后，再回到主线程执行操作
 
 ```objc
@@ -282,6 +290,7 @@ dispatch_group_t group =  dispatch_group_create();
 dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     // 执行1个耗时的异步操作
 });
+
 dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     // 执行1个耗时的异步操作
 });

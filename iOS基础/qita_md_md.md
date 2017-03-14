@@ -14,12 +14,6 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     SDWebImageRetryFailed = 1 << 0,
     SDWebImageScaleDownLargeImages = 1 << 1
 };
-
-typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
-
-    SDWebImageRetryFailed = 1 << 0,
-    SDWebImageScaleDownLargeImages = 1 << 1
-};
 ```
 ---
 ###block的声明

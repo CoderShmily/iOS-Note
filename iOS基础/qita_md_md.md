@@ -6,6 +6,16 @@
 typedef NS_ENUM(NSInteger, CYLSex) {
     CYLSexMan,
     CYLSexWoman
+};typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
+
+    SDWebImageRetryFailed = 1 << 0,
+    SDWebImageScaleDownLargeImages = 1 << 1
+};
+
+typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
+
+    SDWebImageRetryFailed = 1 << 0,
+    SDWebImageScaleDownLargeImages = 1 << 1
 };
 ```
 ---

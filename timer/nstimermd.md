@@ -4,7 +4,7 @@
 ```objc
 @property (nonatomic, weak) NSTimer *timer;
 
-// 返回一个自动开始执行任务的定时器，内部会自动添加runloop的NSDefaultRunLoopMode模式
+// 返回一个自动开始执行任务的定时器，内部会自动添加runloop的NSDefaultRunLoopMode模式(如果是子线程，要先自己开启runloop)
 self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(nextPage:) userInfo:@"123" repeats:YES];
 
 // 要手动添加到runloop不然不会执行

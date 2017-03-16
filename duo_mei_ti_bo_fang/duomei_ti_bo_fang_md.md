@@ -36,6 +36,7 @@ AVAudioPlayer对象局部变量不行,需要定义属性强引用,或放到字�
 能播放本地、远程的音频、视频文件
 基于Layer显示，得自己去编写控制面板
 ```objc
+// #import <AVFoundation/AVFoundation.h>
 //    NSURL *url = [NSURL URLWithString:@"/aaa/f"];
 
 //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"1.mp3" ofType:nil];

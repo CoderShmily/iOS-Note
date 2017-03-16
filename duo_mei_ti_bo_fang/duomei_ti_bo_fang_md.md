@@ -36,6 +36,23 @@ AVAudioPlayer对象局部变量不行,需要定义属性强引用,或放到字�
 2> AVPlayer
 能播放本地、远程的音频、视频文件
 基于Layer显示，得自己去编写控制面板
+```objc
+//    NSURL *url = [NSURL URLWithString:@"/aaa/f"];
+
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"1.mp3" ofType:nil];
+//    NSURL *url = [NSURL fileURLWithPath:filePath];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"1.mp3" withExtension:nil];
+    
+    AVPlayerItem *playitem = [[AVPlayerItem alloc] initWithURL:url];
+    
+//    @property (nonatomic, strong) AVPlayer *player;
+    self.player = [[AVPlayer alloc] initWithPlayerItem:playitem];
+    [self.player play];
+    [self.player pause];
+    // 下一首
+    [self.player replaceCurrentItemWithPlayerItem:playitem]; //  [self.player play];
+
+```
 
 3> MPMoviePlayerController
 能播放本地、远程的音频、视频文件

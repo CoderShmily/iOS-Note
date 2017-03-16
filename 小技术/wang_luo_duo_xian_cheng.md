@@ -13,4 +13,36 @@ NSURLConnection *connection = [NSURLConnection connectionWithRequest:request del
 
 //[connection setDelegateQueue:[[NSOperationQueue alloc] init]]; // 默认代理方法在主线程执行， 此处可以设置在子线程执行，此处不能设置为[NSOperationQueue mainQueue];
 ```
-###
+###NSURLSession
+- NSURLSessionTask
+  - NSURLSessionDataTask
+    - NSURLSessionUploadTask
+  - NSURLSessionDownloadTask
+
+```objc
+//1.确定URL
+NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login?username=520it&pwd=520it&type=JSON"];
+
+//2.创建请求对象
+NSURLRequest *request =[NSURLRequest requestWithURL:url];
+
+//3.创建会话对象
+NSURLSession *session = [NSURLSession sharedSession];
+
+//4.创建Task
+/*
+ 第一个参数:请求对象
+ 第二个参数:completionHandler 当请求完成之后调用
+    data:响应体信息
+    response:响应头信息
+    error:错误信息当请求失败的时候 error有值
+ */
+NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+    //6.解析数据
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+}];
+
+//5.执行Task
+[dataTask resume];
+```

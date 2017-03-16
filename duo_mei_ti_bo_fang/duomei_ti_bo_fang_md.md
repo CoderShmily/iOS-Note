@@ -58,6 +58,9 @@ AVAudioPlayer对象局部变量不行,需要定义属性强引用,或放到字�
 3> MPMoviePlayerController
 能播放本地、远程的音频、视频文件
 自带播放控制面板（暂停、播放、播放进度、是否要全屏）
+```objc
+#import <MediaPlayer/MediaPlayer.h>
+```
 
 4> MPMoviePlayerViewController
 能播放本地、远程的音频、视频文件

@@ -13,6 +13,7 @@
 >MPMusicPlayerController
 
 ```
+#import <AVFoundation/AVFoundation.h>
 AVAudioPlayer对象的url属性只读,所以每播放一首歌曲都要创建一个对象,可以用字典把每个对象存储起来
 AVAudioPlayer对象局部变量不行,需要定义属性强引用,或放到字典/数组中强引用
 ```

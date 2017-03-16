@@ -8,7 +8,7 @@ NSURLConnection *connection = [NSURLConnection connectionWithRequest:request del
 
 // NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
-// 最后参数设置为NO时，要调用对象start方法才会发请求
+// 最后参数设置为NO时，要调用对象start方法才会发请求，如果调用了start方法，这个请求可以在子线程运行，因为start方法在内部开启了runloop。
 // NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 
 //[connection setDelegateQueue:[[NSOperationQueue alloc] init]]; // 默认代理方法在主线程执行， 此处可以设置在子线程执行，此处不能设置为[NSOperationQueue mainQueue];

@@ -46,3 +46,31 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completion
 //5.执行Task
 [dataTask resume];
 ```
+```objc
+//1.确定URL
+NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login?username=520it&pwd=520it&type=JSON"];
+
+//2.创建请求对象
+//NSURLRequest *request =[NSURLRequest requestWithURL:url];
+
+//3.创建会话对象
+NSURLSession *session = [NSURLSession sharedSession];
+
+//4.创建Task
+/*
+ 第一个参数:请求路径
+ 第二个参数:completionHandler 当请求完成之后调用
+ data:响应体信息
+ response:响应头信息
+ error:错误信息当请求失败的时候 error有值
+ 注意:dataTaskWithURL 内部会自动的将请求路径作为参数创建一个请求对象(GET)
+ */
+NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+    //6.解析数据
+    NSLog(@"%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+}];
+
+//5.执行Task
+[dataTask resume];
+```

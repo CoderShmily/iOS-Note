@@ -21,7 +21,7 @@ NSURLConnection *connection = [NSURLConnection connectionWithRequest:request del
 
 ```objc
 //1.确定URL
-NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login?username=520it&pwd=520it&type=JSON"];
+NSURL *url = [NSURL URLWithString:@"http://"];
 
 //2.创建请求对象
 NSURLRequest *request =[NSURLRequest requestWithURL:url];
@@ -48,7 +48,7 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completion
 ```
 ```objc
 //1.确定URL
-NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login?username=520it&pwd=520it&type=JSON"];
+NSURL *url = [NSURL URLWithString:@"http://"];
 
 //2.创建请求对象
 //NSURLRequest *request =[NSURLRequest requestWithURL:url];

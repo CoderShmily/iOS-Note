@@ -49,6 +49,7 @@ AVAudioPlayer对象局部变量不行,需要定义属性强引用,或放到字�
     self.player = [[AVPlayer alloc] initWithPlayerItem:playitem];
     [self.player play];
     [self.player pause];
+    self.player.rate = 2.0
     // 下一首
     [self.player replaceCurrentItemWithPlayerItem:playitem]; //  [self.player play];
 

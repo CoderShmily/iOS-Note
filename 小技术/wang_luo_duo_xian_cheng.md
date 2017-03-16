@@ -3,7 +3,7 @@
 ```OBJC
 NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com/"]];
 
-// 该方法内部其实会将connection对象作为一个source添加到当前的runloop中，指定运行模式为默认，所以子线程创建对象时，要先手动开启runloop.
+// 该方法内部其实会将connection对象作为一个source添加到当前的runloop中，指定运行模式为默认，所以子线程创建对象时，要先手动开启runloop,而且模式必须为默认模式.
 NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
 
 // NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];

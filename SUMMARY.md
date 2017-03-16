@@ -59,7 +59,6 @@
    * [图像圆角](小技术/tu_xiang_yuan_jiao.md)
    * [Xbed](小技术/xbedmd.md)
        * [JSON测试](小技术/jsonce_shi.md)
-       * [屏幕适配](小技术/ping_mu_shi_pei.md)
        * [数据](小技术/shu_ju.md)
        * [SSH](小技术/ssh.md)
    * [test](小技术/test.md)

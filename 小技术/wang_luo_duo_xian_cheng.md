@@ -79,7 +79,7 @@ NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:
 ###post请求
 ```objc
 //1.确定URL
-NSURL *url = [NSURL URLWithString:@"http://120.25.226.186:32812/login"];
+NSURL *url = [NSURL URLWithString:@"http://"];
 
 //2.创建请求对象
 NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:url];
@@ -88,7 +88,7 @@ NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:url];
 request.HTTPMethod = @"POST";
 
 //2.2 设置请求体
-request.HTTPBody = [@"username=520it&pwd=520it&type=JSON" dataUsingEncoding:NSUTF8StringEncoding];
+request.HTTPBody = [@"username=xxx" dataUsingEncoding:NSUTF8StringEncoding];
 
 //3.创建会话对象
 NSURLSession *session = [NSURLSession sharedSession];

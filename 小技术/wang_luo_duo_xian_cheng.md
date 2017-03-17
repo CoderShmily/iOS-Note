@@ -1,4 +1,3 @@
-[TOC]
 # 网络多线程
 ###NSURLConnection的代理方法执行线程
 ```OBJC
@@ -306,6 +305,4 @@ NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:reques
 {
     NSLog(@"didCompleteWithError");
 }
-
-
 ```

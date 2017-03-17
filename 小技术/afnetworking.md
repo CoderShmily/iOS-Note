@@ -1,8 +1,5 @@
 # AFNetworking
 ```objc
-/** 
- 要使用常规的AFN网络访问 
-  
  1. AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager]; 
   
     所有的网络请求,均有manager发起 
@@ -35,9 +32,7 @@
      比如是html还要在下面代码添加@"text/html"
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
 //如果报接受类型text/plain错误尝试添加，application/octet-stream
-     
-   
- */  
+
 
 //header 设置
     [manager.requestSerializer setValue:K_PASS_IP forHTTPHeaderField:@"Host"];

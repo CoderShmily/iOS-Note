@@ -5,7 +5,7 @@
 1. 在svn中创建好代码仓库,并设置好对应的Group和user权限
 2. 在CornerStone添加HTTP Server类型的代码仓库
 3. 选中代码仓库,点击右上角的check out同步working copies
-   设置中的版本号一定选择1.7
+   设置中的版本号一定选择1.7 (最高版本)
 
 ```
 ####在working copies目录中创建xcode工程

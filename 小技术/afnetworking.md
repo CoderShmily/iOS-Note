@@ -24,7 +24,7 @@ content-type: text/plain 最好添加manager.responseSerializer = [AFHTTPRespons
  2. 需要注意的是,默认提交请求的数据是二进制的,返回格式是JSON 
   
     1> 如果提交数据是JSON的,需要将请求格式设置为AFJSONRequestSerializer 
-    2> 如果返回格式不是JSON的, 
+    2> 如果返回格式不是JSON的设置responseSerializer为对应类型，不是json\xml的可以用AFHTTPResponseSerializer
   
  3. 请求格式 
   

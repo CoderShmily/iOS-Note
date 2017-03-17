@@ -25,10 +25,13 @@
      AFImageResponseSerializer          Image 
      AFCompoundResponseSerializer       组合 
      
-     1. 默认返回JSON -- AFJSONResponseSerializer
-     2. 返回XML -- AFXMLParserResponseSerializer
+     1. 默认返回JSON
+     manager.responseSerializer = [AFJSONResponseSerializer serializer];
+     2. 返回XML
+     manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
      3. 返回数据不是JSON,XML,比如是html,text等 
-     使用AFHTTPResponseSerializer，此时返回的数据是NSData
+     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+     使用，此时返回的数据是NSData
      比如是html还要在下面代码添加@"text/html"
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
 //如果报接受类型text/plain错误尝试添加，application/octet-stream

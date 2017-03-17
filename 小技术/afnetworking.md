@@ -1,18 +1,9 @@
 # AFNetworking
 ```objc
-AFJSONResponseSerializer(AFXMLDocumentResponseSerializer/AFXMLParserResponseSerializer/AFPropertyListResponseSerializer)
 self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
 //完整的
 manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
 //如果报接受类型text/plain错误尝试添加，application/octet-stream
-
-manager.responseSerializer = [AFJSONResponseSerializer serializer];//申明返回的结果是json类型
-manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];//如果报接受类型不一致请替换一致text/html或别的
-
-manager.requestSerializer=[AFJSONRequestSerializer serializer];//申明请求的数据是json类型
-
-content-type: text/plain 最好添加manager.responseSerializer = [AFHTTPResponseSerializer serializer];//使用这个将得到的是NSData
-尽量不改acceptableContentTypes
 
 /** 
  要使用常规的AFN网络访问 
@@ -24,7 +15,7 @@ content-type: text/plain 最好添加manager.responseSerializer = [AFHTTPRespons
  2. 需要注意的是,默认提交请求的数据是二进制的,返回格式是JSON 
   
     1> 如果提交数据是JSON的,需要将请求格式设置为AFJSONRequestSerializer 
-    2> 如果返回格式不是JSON的设置responseSerializer为对应类型，不是json\xml的可以用AFHTTPResponseSerializer
+    2> 如果返回格式不是JSON的设置responseSerializer为对应类型
   
  3. 请求格式 
   
@@ -42,10 +33,14 @@ content-type: text/plain 最好添加manager.responseSerializer = [AFHTTPRespons
      AFImageResponseSerializer          Image 
      AFCompoundResponseSerializer       组合 
      
+     1. 默认返回JSON -- AFJSONResponseSerializer
+     2. 返回XML -- AFXMLParserResponseSerializer
+     3. 返回数据不是JSON,XML,比如是html,text等 
+     使用AFHTTPResponseSerializer，此时返回的数据是NSData
+     比如是html还要在下面代码添加@"text/html"
+     self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
      
-    // AFHTTPResponseSerializer就是正常的HTTP请求响应结果:NSData  
-    // 当请求的返回数据不是JSON,XML,PList,UIImage之外,使用AFHTTPResponseSerializer  
-    // 例如返回一个html,text...  
+   
  */  
 
 //header 设置

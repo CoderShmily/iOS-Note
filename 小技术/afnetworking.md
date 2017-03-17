@@ -1,10 +1,5 @@
 # AFNetworking
 ```objc
-self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
-//完整的
-manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
-//如果报接受类型text/plain错误尝试添加，application/octet-stream
-
 /** 
  要使用常规的AFN网络访问 
   
@@ -38,7 +33,8 @@ manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"appl
      3. 返回数据不是JSON,XML,比如是html,text等 
      使用AFHTTPResponseSerializer，此时返回的数据是NSData
      比如是html还要在下面代码添加@"text/html"
-     self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
+     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+//如果报接受类型text/plain错误尝试添加，application/octet-stream
      
    
  */  

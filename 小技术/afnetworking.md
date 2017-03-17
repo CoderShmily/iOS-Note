@@ -32,7 +32,7 @@
      3. 返回数据不是JSON,XML,比如是html,text等 
      manager.responseSerializer = [AFHTTPResponseSerializer serializer];
      使用，此时返回的数据是NSData
-     比如是html还要在下面代码添加@"text/html"
+     比如是html还要在下面代码添加@"text/html",告诉AFN能够接收这种类型数据
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
 //如果报接受类型text/plain错误尝试添加，application/octet-stream
 

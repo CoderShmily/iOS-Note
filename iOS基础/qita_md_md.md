@@ -39,6 +39,8 @@ MRC:管理block
 ARC:管理block
     只要block引用外部局部变量,block放在堆里面
     block使用strong.最好不要使用copy
+    
+block造成循环利用:Block会对里面所有强指针变量都强引用一次
 ```
 
 ```objc

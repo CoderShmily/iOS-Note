@@ -58,7 +58,23 @@ ARC:管理block
     
     _block();
 ```
+#### block值传递
+```
+__block int a = 3;
 
+// 如果是局部变量,Block是值传递
+
+// 如果是静态变量,全局变量,__block修饰的变量,block都是指针传递
+
+void(^block)() = ^{
+
+  NSLog(@"%d",a);
+
+};
+
+a = 5;
+
+block();
 ```
 
 ```objc

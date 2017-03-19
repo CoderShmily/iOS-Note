@@ -39,8 +39,26 @@ MRC:管理block
 ARC:管理block
     只要block引用外部局部变量,block放在堆里面
     block使用strong.最好不要使用copy
+```
+#### block造成循环利用:Block会对里面所有强指针变量都强引用一次
+```objc
+    __weak typeof(self) weakSelf = self;
     
-block造成循环利用:Block会对里面所有强指针变量都强引用一次
+    _block = ^{
+//        NSLog(@"%@",weakSelf);
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+             NSLog(@"%@",strongSelf);
+            
+        });
+        
+    };
+    
+    _block();
+```
+
 ```
 
 ```objc

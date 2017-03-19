@@ -17,6 +17,30 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
 ```
 ---
 ###block的声明
+```
+block是不是一个对象?是一个对象
+
+如何判断当前文件是MRC,还是ARC
+1.dealloc 能否调用super,只有MRC才能调用super
+2.能否使用retain,release.如果能用就是MRC
+
+ARC管理原则:只要一个对象没有被强指针修饰就会被销毁,默认局部变量对象都是强指针,存放到堆里面
+
+MRC了解开发常识:1.MRC没有strong,weak,局部变量对象就是相当于基本数据类型
+              2.MRC给成员属性赋值,一定要使用set方法,不能直接访问下划线成员属性赋值
+
+总结:只要block没有引用外部局部变量,block放在全局区
+
+MRC:管理block
+        只要Block引用外部局部变量,block放在栈里面.
+        block只能使用copy,不能使用retain,使用retain,block还是在栈里面
+
+
+ARC:管理block
+    只要block引用外部局部变量,block放在堆里面
+    block使用strong.最好不要使用copy
+```
+
 ```objc
 !rightBlock ? : rightBlock();
 

@@ -18,7 +18,7 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
 ---
 ###block的声明
 ```
-block是不是一个对象?是一个对象
+block是不是一个对象?是一个对象(官方文档说过，所以可以放入集合类)
 
 如何判断当前文件是MRC,还是ARC
 1.dealloc 能否调用super,只有MRC才能调用super

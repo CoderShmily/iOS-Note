@@ -511,7 +511,7 @@ static  NSString const *key1 = @"name";
 ```objc
 /*******************************首页****************************/
 
-extern NSString * const nameKey = @"name";
+UIKIT_EXTERN  NSString * const nameKey;
 
 /*******************************首页****************************/
 ```

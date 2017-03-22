@@ -96,3 +96,6 @@ du -sh *
 4. [!] Unable to find a pod with name, author, summary, or description matching `AFNetworking`
 解决：rm ~/Library/Caches/CocoaPods/search_index.json
 ```
+1.[解决CocoaPods各种慢的方案（gem换源+pod repo换源）](http://blog.csdn.net/nn955/article/details/53043482)
+2.[安装cocopods遇到新问题](http://blog.csdn.net/niceboydo/article/details/53689316)
+3.[cocoapods安装好后repo换源](http://www.cnblogs.com/yfming/p/5965860.html)

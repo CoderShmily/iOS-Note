@@ -225,6 +225,14 @@ NSString *_test4; // 默认是@private,改不了
 4. `@package` (框架级别的)作用域介于私有和公开之间，只要处于同一个框架中就可以直接通过变量名问。
 5. @interface中的声明的成员变量默认`protected`，属性默认是`public`,@implementation中声明的成员变量默认是`private`
 6. 方法有在@interface声明的默认`public`，只在类@implementation实现的是`private`
+
+| | 成员变量 | 属性 | 方法 |
+| -- | -- | -- | -- |
+| @interface中 | @protected | @public  | @public(声明) |
+| 类扩展中 | 默认@private（改不了） | @private | @private(声明) |
+| @implementation中 | 默认@private（改不了） |  | @private(实现) |
+
+
 ---
 
 ### @protocol 和 category 中如何使用 @property

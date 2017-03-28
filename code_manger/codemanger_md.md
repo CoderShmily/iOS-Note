@@ -120,6 +120,13 @@ git push :0.0.1 删除远程的指定tag
 10. git push 403 错误 原因：本地缓存了用户名和密码
 重新设置用户名和密码
 git remote set-url origin https://用户名@XXXtest.git 会让你输入这次对应的用户名的密码
+
+11. 安装本地库
+创建本地代码 git初始化
+pod spec create 库名字
+修改spec文件 （ license 删除多余， soure字段对应 ：git => "" ， source_files 对应的classes目录与库相对应)
+进入项目pod init 
+修改 Podfile  pod '库名字', :path => '找到库对应的本地spec路径'
 ```
 
 

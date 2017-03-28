@@ -127,6 +127,7 @@ pod spec create 库名字
 修改spec文件 （ license 删除多余， soure字段对应 ：git => "" ， source_files 对应的classes目录与库相对应)
 进入项目pod init 
 修改 Podfile  pod '库名字', :path => '找到库对应的本地spec路径'
+pod install
 ```
 
 

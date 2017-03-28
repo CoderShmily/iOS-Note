@@ -116,6 +116,10 @@ git push --tags 把本地所有的tag都提交到远程仓库
 // git push origin 0.0.1 指定的tag提交到远程仓库
 git tag -d 0.0.1 删除指定的tag
 git push :0.0.1 删除远程的指定tag
+
+10. git push 403 错误 原因：本地缓存了用户名和密码
+重新设置用户名和密码
+git remote set-url origin https://用户名@XXXtest.git 会让你输入这次对应的用户名的密码
 ```
 
 

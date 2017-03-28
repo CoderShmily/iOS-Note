@@ -113,6 +113,7 @@ git push：将本地的仓库信息推送到远程仓库
 git tag 查看打包
 git tag -a '0.0.1' -m "打标签"
 git push --tags 把本地所有的tag都提交到远程仓库
+// git push origin 0.0.1
 ```
 
 

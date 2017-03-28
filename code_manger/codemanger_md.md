@@ -135,6 +135,8 @@ pod install
 3. 在宿主工程中, 直接测试, 没有问题后, 直接由外界以本地库的形式使用
 
 13. 远程私有库
+pod lib lint 本地验证
+pod spec lint 远程验证
 ```
 
 

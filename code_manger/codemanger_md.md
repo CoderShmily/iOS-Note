@@ -129,7 +129,7 @@ pod spec create 库名字
 修改 Podfile  pod '库名字', :path => '找到库对应的本地spec路径'
 pod install
 
-
+12. 本地私有库实现方案优化
 1. pod lib create XXX
 2. 拖入代码到 Classes文件夹, 并删除ReplaceMe.m，执行pod install
 3. 在宿主工程中, 直接测试, 没有问题后, 直接由外界以本地库的形式使用

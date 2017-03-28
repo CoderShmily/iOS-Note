@@ -85,7 +85,7 @@ git commit -m "注释"    将修改的内容提交到本地仓库（会有对应
 4.配置远程仓库
 git remote 查看远程仓库
 git remote add origin https://xxx.git 添加远程仓库
-git push origin master   提交到远程的master分支,继续输入账户，密码
+git push origin master   提交到远程的master分支,继续输入账户，密码，用SSH方式时，要添加公钥私钥
 
 5.删除文件
 git rm ⽂件名
@@ -113,7 +113,9 @@ git push：将本地的仓库信息推送到远程仓库
 git tag 查看打包
 git tag -a '0.0.1' -m "打标签"
 git push --tags 把本地所有的tag都提交到远程仓库
-// git push origin 0.0.1
+// git push origin 0.0.1 指定的tag提交到远程仓库
+git tag -d 0.0.1 删除指定的tag
+git push :0.0.1 删除远程的指定tag
 ```
 
 

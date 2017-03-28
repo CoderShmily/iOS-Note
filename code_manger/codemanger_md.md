@@ -111,7 +111,7 @@ git push：将本地的仓库信息推送到远程仓库
 
 9. release打包（tag），tag只是一条记录，不是版本号
 git tag 查看打包
-git tag -a '0.0.1' -m "打标签"
+git tag -a '0.0.1' -m "打标签" // git tag '0.0.1'
 git push --tags 把本地所有的tag都提交到远程仓库
 // git push origin 0.0.1 指定的tag提交到远程仓库
 git tag -d 0.0.1 删除指定的tag

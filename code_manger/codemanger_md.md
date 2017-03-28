@@ -139,8 +139,9 @@ pod lib lint 本地验证
 pod spec lint 远程验证
 pod repo push repo库名字 库名字.podspec
 
-Podfile 添加source '私有索引库地址'
-source 'CocoaPods索引库地址'
+Podfile 添加
+source '私有索引库地址'
+source 'CocoaPods索引库地址' 为了添加其他人的库比如AFNetworking
 ```
 
 

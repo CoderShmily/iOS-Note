@@ -152,8 +152,8 @@ pod install
 13. pod repo push CSPrivateSpec myLib.podspec
 14. pod search myLib 就可以找到了显示在CSPrivateSpec repo
 15. Podfile 开始处添加
-source '私有索引库地址' 
-source 'CocoaPods索引库地址' 为了添加其他人的库比如AFNetworking
+source 'https://git.coding.net/codershmily/CSPrivateSpec.git' 
+source 'https://github.com/CocoaPods/Specs.git' 为了添加其他人的库比如AFNetworking
 ```
 
 

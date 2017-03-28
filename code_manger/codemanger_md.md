@@ -141,11 +141,11 @@ pod install
 3. 如果提示Permission denied (publickey)， ssh-keygen -t rsa -C "953442978@qq.com" 将新生成的公钥添加到https://coding.net
 4. mkdir Test  cd Test  pod lib create myLib 输入相关的参数
 5. 添加需要的库文件到相应文件夹，替换Test/myLib/myLib/Classes/ 目录下的文件
-6. pod lib lint 本地验证 （根据提示修改s.description长度大于s.summary，s.homepage, s.source)
+6. 创建lib私有库，不要添加文件
+6. pod lib lint 本地验证 （根据提示修改s.description长度大于s.summary，把lib信息添加到s.homepage, s.source)
 7. 修改完 git add .    git commit -m "XX"
-8. 创建lib私有库，不要添加文件
-9. git remote add origin https://git.coding.net/codershmily/lib.git
-10. git push origin master
+8. git remote add origin https://git.coding.net/codershmily/lib.git
+9. git push origin master
 pod spec lint 远程验证
 pod repo push repo库名字 库名字.podspec
 ，

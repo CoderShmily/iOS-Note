@@ -155,21 +155,3 @@ pod install
 source 'https://git.coding.net/codershmily/CSPrivateSpec.git' 
 source 'https://github.com/CocoaPods/Specs.git' 为了添加其他人的库比如AFNetworking
 ```
-
-
-
-## Github 创建一个iOS-的repository以后 
-#### 1.create a new repository on the command line
-```
-echo "# iOS-" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin git@github.com:CoderShmily/iOS-.git
-git push -u origin master
-```
-#### 2.push an existing repository from the command line
-```
-git remote add origin git@github.com:CoderShmily/iOS-.git
-git push -u origin master
-```

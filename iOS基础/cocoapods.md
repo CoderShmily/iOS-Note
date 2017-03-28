@@ -56,7 +56,7 @@ pod 'Masonry'
 初次下载使用
 pod install --no-repo-update
 
-修改后更新用
+修改后更新用(会更新到最新版本，多人开发建议用pod install)
 pod update --no-repo-update
 
 更新本地框架库

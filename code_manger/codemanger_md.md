@@ -135,10 +135,20 @@ pod install
 3. 在宿主工程中, 直接测试, 没有问题后, 直接由外界以本地库的形式使用
 
 13. 远程私有库
-pod lib lint 本地验证
+
+1. 创建私有库 CSPrivateSpec
+2. pod repo add CSPrivateSpec git@git.coding.net:codershmily/CSPrivateSpec.git 
+3. 如果提示Permission denied (publickey)， ssh-keygen -t rsa -C "953442978@qq.com" 将新生成的公钥添加到https://coding.net
+4. mkdir Test  cd Test  pod lib create myLib 输入相关的参数
+5. 添加需要的库文件到相应文件夹，替换Test/myLib/myLib/Classes/ 目录下的文件
+6. pod lib lint 本地验证 （根据提示修改s.description长度大于s.summary，s.homepage, s.source)
+7. 修改完 git add .    git commit -m "XX"
+8. 创建lib私有库，不要添加文件
+9. git remote add origin https://git.coding.net/codershmily/lib.git
+10. git push origin master
 pod spec lint 远程验证
 pod repo push repo库名字 库名字.podspec
-
+，
 Podfile 添加
 source '私有索引库地址'
 source 'CocoaPods索引库地址' 为了添加其他人的库比如AFNetworking

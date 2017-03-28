@@ -148,7 +148,7 @@ pod install
 9. git push origin master 
 10. git tag '0.1.0' tag号与myLib.podspec 的s.version要一致
 11. git push --tags
-12. pod spec lint 远程验证
+12. pod spec lint 远程验证，根据错误修改直到成功
 pod repo push repo库名字 库名字.podspec
 ，
 Podfile 添加

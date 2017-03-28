@@ -131,7 +131,7 @@ pod install
 
 
 1. pod lib create XXX
-2. 拖入代码到 Classes文件夹, 并删除ReplaceMe.m
+2. 拖入代码到 Classes文件夹, 并删除ReplaceMe.m，执行pod install
 3. 在宿主工程中, 直接测试, 没有问题后, 直接由外界以本地库的形式使用
 ```
 

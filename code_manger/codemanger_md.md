@@ -60,35 +60,32 @@
 
 ####个人开发(命令行的演示)
 ```
-一. 初始化一个GIT的代码仓库
-git init
-
-二. 配置一个⽤户名和邮箱
+一、 配置(可以跳过)
+1. 配置一个⽤户名和邮箱
 git config (—-global) user.name "why"
 git config (—-global) user.email "why@163.com"
 
-三.开始开发
-1.初始化项目
-touch main.m
-git add main.m : 将代码提交到暂缓区
-git commit -m "注释" : 提及到本地代码仓库
+2. 给GIT命令起别名
+git config (--global) alias.st "status"
+git config (—-global) alias.ci "commit -m"
+
+二、 开始开发
+1.初始化项目,在工程目录下执行git初始化
+git init 
 
 2.查看文件的状态(git status)
  红色:新添加的⽂文件或者修改的文件,该⽂件在⼯作区,还没有被添加到暂缓区
  绿色:⽂件被添加到暂缓区中,但是没有被提交到代码仓库
 
 3.开始开发
-touch person.h person.m
-git add . : 将在工作区的所有的文件一起添加到暂缓区
-git commit -m "注释"
-修改⽂件
-修改person.h : 文件也会显⽰在⼯作区
-git add . : 将修改的文件添加到暂缓区
-git commit -m “将修改的内容提交到本地仓库”
+git add main.m : 将指定文件提交到暂缓区
+// git add . : 将在工作区的所有的文件一起添加到暂缓区
+git commit -m "注释"    将修改的内容提交到本地仓库（会有对应的版本号）
 
-4.给GIT命令起别名
-git config (--global) alias.st "status"
-git config (—-global) alias.ci "commit -m"
+4.配置远程仓库
+git remote 查看远程仓库
+git remote add origin https://xxx.git 添加远程仓库
+git push origin master   提交到远程的master分支,继续输入账户，密码
 
 5.删除文件
 git rm ⽂件名
@@ -112,6 +109,10 @@ git reset —-hard 版本号前七位 : 回到特定的版本
 git pull：下载远程仓库的最新信息到本地仓库
 git push：将本地的仓库信息推送到远程仓库
 
+9. release打包（tag），tag只是一条记录，不是版本号
+git tag 查看打包
+git tag -a '0.0.1' -m "打标签"
+git push --tags 把本地所有的tag都提交到远程仓库
 ```
 
 

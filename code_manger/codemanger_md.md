@@ -128,6 +128,11 @@ pod spec create 库名字
 进入项目pod init 
 修改 Podfile  pod '库名字', :path => '找到库对应的本地spec路径'
 pod install
+
+
+1. pod lib create XXX
+2. 拖入代码到 Classes文件夹, 并删除ReplaceMe.m
+3. 在宿主工程中, 直接测试, 没有问题后, 直接由外界以本地库的形式使用
 ```
 
 

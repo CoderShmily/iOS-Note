@@ -137,7 +137,7 @@ pod install
 13. 远程私有库
 
 1. 创建私有库 CSPrivateSpec
-2. pod repo add CSPrivateSpec git@git.coding.net:codershmily/CSPrivateSpec.git 
+2. pod repo add CSPrivateSpec https://git.coding.net/codershmily/CSPrivateSpec.git 输入用户密码
 3. 如果提示Permission denied (publickey)， ssh-keygen -t rsa -C "953442978@qq.com" 将新生成的公钥添加到https://coding.net
 4. mkdir Test  cd Test  pod lib create myLib 输入相关的参数
 5. 添加需要的库文件到相应文件夹，替换Test/myLib/myLib/Classes/ 目录下的文件
@@ -149,10 +149,10 @@ pod install
 10. git tag '0.1.0' tag号与myLib.podspec 的s.version要一致
 11. git push --tags
 12. pod spec lint 远程验证，根据错误修改直到成功
-pod repo push repo库名字 库名字.podspec
-，
-Podfile 添加
-source '私有索引库地址'
+13. pod repo push CSPrivateSpec myLib.podspec
+14. pod search myLib 就可以找到了显示在CSPrivateSpec repo
+15. Podfile 开始处添加
+source '私有索引库地址' 
 source 'CocoaPods索引库地址' 为了添加其他人的库比如AFNetworking
 ```
 

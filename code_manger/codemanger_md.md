@@ -162,5 +162,5 @@ source 'https://github.com/CocoaPods/Specs.git' 为了添加其他人的库比�
 21. 然后按照12开始操作
 
 22. 如果修改../.cocoapods/repos/CSPrivateSpec 里面文件，比如.gitignore，修改完git提交本地、远程仓库
-
+23. 如果远程有新版本库，本地没有，pod update安装时会更新本地版本库
 ```

@@ -176,6 +176,7 @@ s.subspec 'XXXSub' do |sb|
       sb.source_files = 'myLib2/Classes/XXXSub/**/*'
 end
 
+PodFile安装修改
 pod 'myLib2/XXXSub'
 pod 'myLib2/XXXSub2'
 #pod 'myLib2', :subspecs => ['XXXSub', 'XXXSub2']

@@ -182,9 +182,11 @@ pod 'myLib2/XXXSub2'
 #pod 'myLib2', :subspecs => ['XXXSub', 'XXXSub2']
 
 ## 远程私有库 bundle资源问题
-[NSBundle mainBundle];加载xib应该用[NSBundle bundleForClass:self];
+[NSBundle mainBundle];加载xib应该用[NSBundle bundleForClass:[self class]];
+
 
 ## cartool 工具 获取Assets.car图片加入库中
 把图片放在在myLib/Classes/同级的Assets目录中
 打开s.resource_bundles注释  pod install
+[[NSBundle bundleForClass:[self class]] pathForResource:@"xx@2x.PNG" ofType:nil inDirectory:@"myLib.bundle"]; 要修改对应的Bundle，资源打包在myLib.bundle，所以要指定资源的文件夹路径
 ```

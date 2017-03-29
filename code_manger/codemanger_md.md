@@ -160,4 +160,7 @@ source 'https://github.com/CocoaPods/Specs.git' 为了添加其他人的库比�
 19. 升级的时候添加Classes目录下文件  在Example中pod install 测试，修改s.version，
 20. 修改完 git add .    git commit -m "XX"
 21. 然后按照12开始操作
+
+22. 如果修改../.cocoapods/repos/CSPrivateSpec 里面文件，比如.gitignore，修改完git提交本地、远程仓库
+
 ```

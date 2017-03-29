@@ -150,7 +150,7 @@ pod install
 13. git tag '0.1.0' tag号与myLib.podspec 的s.version要一致
 14. git push --tags
 15. pod spec lint 远程验证，根据错误修改直到成功
-16. pod repo push CSPrivateSpec myLib.podspec
+16. pod repo push CSPrivateSpec myLib.podspec (--allow-warnings忽略警告)
 17. pod search myLib 就可以找到了显示在CSPrivateSpec repo
 18. Podfile 开始处添加
 source 'https://git.coding.net/codershmily/CSPrivateSpec.git' 

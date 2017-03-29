@@ -180,4 +180,7 @@ PodFile安装修改
 pod 'myLib2/XXXSub'
 pod 'myLib2/XXXSub2'
 #pod 'myLib2', :subspecs => ['XXXSub', 'XXXSub2']
+
+## 远程私有库 bundle资源问题
+[NSBundle mainBundle];加载xib应该用[NSBundle bundleForClass:self];
 ```

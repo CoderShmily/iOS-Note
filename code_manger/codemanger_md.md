@@ -135,7 +135,6 @@ pod install
 3. 在宿主工程中, 直接测试, 没有问题后, 直接由外界以本地库的形式使用
 
 13. 远程私有库
-
 1. 创建私有库 CSPrivateSpec
 2. pod repo add CSPrivateSpec https://git.coding.net/codershmily/CSPrivateSpec.git 输入用户密码
 3. 如果提示Permission denied (publickey)， ssh-keygen -t rsa -C "953442978@qq.com" 将新生成的公钥添加到https://coding.net
@@ -167,4 +166,13 @@ source 'https://github.com/CocoaPods/Specs.git' 为了添加其他人的库比�
 
 ## 远程私有库的依赖库
 podspec文件的s.dependency
+
+## 远程私有库子自依赖库
+# s.source_files 注释掉
+s.subspec 'XXXSub' do |sb|
+      sb.dependency '', '~> 1.0.0'
+      sb.public_header_files = '相对路径/**/*.h'
+      sb.resource = "myLib2/Classes/XXXSub/**/*.{bundle,nib,xib}"
+      sb.source_files = 'myLib2/Classes/XXXSub/**/*'
+end
 ```

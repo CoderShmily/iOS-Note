@@ -175,4 +175,8 @@ s.subspec 'XXXSub' do |sb|
       sb.resource = "myLib2/Classes/XXXSub/**/*.{bundle,nib,xib}"
       sb.source_files = 'myLib2/Classes/XXXSub/**/*'
 end
+
+pod 'myLib2/XXXSub'
+pod 'myLib2/XXXSub2'
+#pod 'myLib2', :subspecs => ['XXXSub', 'XXXSub2']
 ```

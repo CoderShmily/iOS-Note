@@ -141,17 +141,19 @@ pod install
 3. 如果提示Permission denied (publickey)， ssh-keygen -t rsa -C "953442978@qq.com" 将新生成的公钥添加到https://coding.net
 4. mkdir Test  cd Test  pod lib create myLib 输入相关的参数
 5. 添加需要的库文件到相应文件夹，替换Test/myLib/myLib/Classes/ 目录下的文件
-6. 创建lib私有库，不要添加文件
-6. pod lib lint 本地验证 （根据提示修改myLib.podspec的s.description长度大于s.summary，把lib信息添加到s.homepage, s.source)
-7. 修改完 git add .    git commit -m "XX"
-8. git remote add origin https://git.coding.net/codershmily/lib.git
-9. git push origin master 
-10. git tag '0.1.0' tag号与myLib.podspec 的s.version要一致
-11. git push --tags
-12. pod spec lint 远程验证，根据错误修改直到成功
-13. pod repo push CSPrivateSpec myLib.podspec
-14. pod search myLib 就可以找到了显示在CSPrivateSpec repo
-15. Podfile 开始处添加
+6. To run the example project, and run `pod install` from the Example directory first.
+7. 创建lib私有库，不要添加文件
+8. 修改myLib.podspec的s.description长度大于s.summary，把lib信息添加到s.homepage, s.source
+9. pod lib lint 本地验证 看有没有错误
+10. 修改完 git add .    git commit -m "XX"
+11. git remote add origin https://git.coding.net/codershmily/lib.git
+12. git push origin master 
+13. git tag '0.1.0' tag号与myLib.podspec 的s.version要一致
+14. git push --tags
+15. pod spec lint 远程验证，根据错误修改直到成功
+16. pod repo push CSPrivateSpec myLib.podspec
+17. pod search myLib 就可以找到了显示在CSPrivateSpec repo
+18. Podfile 开始处添加
 source 'https://git.coding.net/codershmily/CSPrivateSpec.git' 
 source 'https://github.com/CocoaPods/Specs.git' 为了添加其他人的库比如AFNetworking
 ```

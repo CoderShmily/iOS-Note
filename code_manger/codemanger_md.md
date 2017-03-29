@@ -157,5 +157,7 @@ pod install
 source 'https://git.coding.net/codershmily/CSPrivateSpec.git' 
 source 'https://github.com/CocoaPods/Specs.git' 为了添加其他人的库比如AFNetworking
 
-19. 升级的时候添加Classes目录下文件  在Example中pod install 测试，修改s.version，然后按照第10开始提交操作
+19. 升级的时候添加Classes目录下文件  在Example中pod install 测试，修改s.version，
+20. 修改完 git add .    git commit -m "XX"
+21. 然后按照12开始操作
 ```

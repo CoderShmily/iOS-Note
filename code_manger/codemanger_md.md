@@ -170,7 +170,7 @@ podspec文件的s.dependency
 ## 远程私有库子自依赖库
 # s.source_files 注释掉
 s.subspec 'XXXSub' do |sb|
-      sb.dependency '', '~> 1.0.0'
+      sb.dependency 'AFNetworking', '~> 2.3'
       sb.public_header_files = '相对路径/**/*.h'
       sb.resource = "myLib2/Classes/XXXSub/**/*.{bundle,nib,xib}"
       sb.source_files = 'myLib2/Classes/XXXSub/**/*'

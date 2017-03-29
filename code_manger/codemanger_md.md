@@ -190,4 +190,6 @@ pod 'myLib2/XXXSub2'
 打开s.resource_bundles注释  pod install
 [[NSBundle bundleForClass:[self class]] pathForResource:@"xx@2x.PNG" ofType:nil inDirectory:@"myLib.bundle"]; 要修改对应的Bundle，资源打包在myLib.bundle，所以要指定资源的文件夹路径
 xib加载图片myLib.bundle/test.PNG
+
+蘑菇街的中间件、target action、协议
 ```

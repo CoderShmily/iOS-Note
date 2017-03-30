@@ -161,10 +161,9 @@ __block int a = 3; // 加了修饰符，在block内部可以修改a的值
 2. 如果"1.h"改变,所有包含#import "1.h"的都要重新编译
 
 使用方法:头文件`@class`引入类,`.m`文件再`#import`,使用类的相关属性和方法
-```
 
----
 ### OC有没有私有方法,私有变量?
+
 ```objc
 @interface Person : NSObject // 类声明
 {
@@ -448,7 +447,6 @@ static  NSString const *key1 = @"name";
 	*	extern与const组合:只需要定义一份全局变量，多个文件共享。
 *  全局常量正规写法:开发中便于管理所有的全局变量，通常搞一个GlobeConst文件，里面专门定义全局变量，统一管理，要不然项目文件多不好找。
 
-
 * GlobeConst.h
 
 ```objc
@@ -461,6 +459,7 @@ UIKIT_EXTERN  NSString * const nameKey;
 #import <Foundation/Foundation.h>
 NSString * const nameKey = @"name";
 ```
+
 ###常用宏
 ```objc
 //字符串是否为空

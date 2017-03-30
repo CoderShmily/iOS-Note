@@ -1,6 +1,6 @@
 # iOS基础 - 笔记
 ---
- ###枚举的写法 
+###枚举的写法 
  
 ```objc
 // 类型:CYLSex
@@ -41,18 +41,33 @@ ARC:管理block
     只要block引用外部局部变量,block放在堆里面
     block使用strong.最好不要使用copy
 ```
+#### block使用
+
+```objc
+!rightBlock ? : rightBlock();
+// 类型定义 block
+typedef NSString *(^CompletionBlock)(NSInteger a);
+@property (nonatomic, copy) CompletionBlock compBlock;
+
+_compBlock = ^NSString *(NSInteger a){
+    return @"sss";
+}
+
+// 属性
+@property (nonatomic,copy) NSString *(^block)(NSString *str);
+
+// 带参数的block  参数是是传给block调用者得
+- (void)initBlock:(NSString * (^)(NSString *str))block;
+```
 #### block造成循环利用:Block会对里面所有强指针变量都强引用一次
 ```objc
     __weak typeof(self) weakSelf = self;
     
     _block = ^{
-//        NSLog(@"%@",weakSelf);
         __strong typeof(weakSelf) strongSelf = weakSelf;
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-             NSLog(@"%@",strongSelf);
-            
+  
         });
         
     };
@@ -61,41 +76,13 @@ ARC:管理block
 ```
 #### block值传递
 ```
-__block int a = 3;
+__block int a = 3; // 加了修饰符，在block内部可以修改a的值
 
 // 如果是局部变量,Block是值传递
-
 // 如果是静态变量,全局变量,__block修饰的变量,block都是指针传递
 
-void(^block)() = ^{
-
-  NSLog(@"%d",a);
-
-};
-
-a = 5;
-
-block();
 ```
 
-```objc
-!rightBlock ? : rightBlock();
-
-typedef NSString *(^completionBlock)(int a);
-[... completionBlock:^NSString *(int a) {
-         a = 10;
-         return @"";
-     }];
-// 类型定义 block
-typedef void(^CompletionBlock)(NSString *date);
-@property (nonatomic, copy) CompletionBlock compBlock;
-
-// 属性
-@property (nonatomic,copy) void(^block)(NSString *str);
-
-// 带参数的block  参数是是传给block调用者得
-- (void)initBlock:(void (^)(NSString *str))block;
-```
 ---
 ###什么情况使用weak关键字，相比assign有什么不同
 
@@ -108,12 +95,10 @@ typedef void(^CompletionBlock)(NSString *date);
 
 ---
 ### weak的其他问题
-###### 1. weak属性需要在dealloc中置nil么？
+#### 1. weak属性需要在dealloc中置nil么？
 > 不需要。在ARC环境无论是强指针还是弱指针都无需在 dealloc 设置为 nil ， ARC 会自动帮我们处理。根据`runtime实现 weak 属性方式`，即便是编译器不帮我们做这些，weak也不需要在 dealloc 中置nil。
 
-正如上文的： 中提到的：
-
-###### 2. weak的底层实现
+#### 2. weak的底层实现
 > runtime 对注册的类， 会进行布局，对于 weak 对象会放入一个 hash 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会 dealloc，假如 weak 指向的对象内存地址是a，那么就会以a为键， 在这个 weak 表中搜索，找到所有以a为键的 weak 对象，从而设置为 nil。
 
 ---
@@ -124,7 +109,7 @@ typedef void(^CompletionBlock)(NSString *date);
 2. block 也经常使用 copy 关键字. block 使用 copy 是从 MRC 遗留下来的“传统”,在 MRC 中,方法内部的 block 是在栈区的,使用 copy 可以把它放到堆区.在 ARC 中写不写都行：对于 block 使用 copy 还是 strong 效果是一样的，但写上 copy 也无伤大雅，还能时刻提醒我们：编译器自动对 block 进行了 copy 操作。
 
 
-###### 下面这个写法会出什么问题： 
+#### 下面这个写法会出什么问题： 
 ```objc
 @property (copy) NSMutableArray *array;
 ```
@@ -133,7 +118,7 @@ typedef void(^CompletionBlock)(NSString *date);
 2. 使用了 atomic 属性会严重影响性能 ；一般情况下并不要求属性必须是“原子的”，因为这并不能保证“线程安全” ( thread safety)，若要实现“线程安全”的操作，还需采用更为深层的锁定机制才行。例如，一个线程在连续多次读取某属性值的过程中有别的线程在同时改写该值，那么即便将属性声明为 atomic，也还是会读到不同的属性值。
 
 
-###### 总结copy的浅复制和深复制
+#### 总结copy的浅复制和深复制
 在集合类对象中，对 immutable 对象进行 copy，是指针复制， mutableCopy 是内容复制；对 mutable 对象进行 copy 和 mutableCopy 都是内容复制。但是：集合对象的内容复制仅限于对象本身，对象元素仍然是指针复制。用代码简单表示如下：
 ```objc
 [immutableObject copy] // 浅复制
@@ -147,20 +132,17 @@ typedef void(^CompletionBlock)(NSString *date);
 ### @synthesize和@dynamic分别有什么作用？
 1. @property有两个对应的词，一个是 @synthesize，一个是 @dynamic。如果 @synthesize和 @dynamic都没写，那么默认的就是`@syntheszie var = _var`;
 2. @synthesize 的语义是如果你没有手动实现 setter 方法和 getter 方法，那么编译器会自动为你加上这两个方法。
-3. @dynamic 告诉编译器：属性的 setter 与 getter 方法由用户自己实现，不自动生成。（当然对于 readonly 的属性只需提供 getter 即可）。假如一个属性被声明为 @dynamic var，然后你没有提供 @setter方法和 @getter 方法，编译的时候没问题，但是当程序运行到 `instance.var = someVar`，由于缺 setter 方法会导致程序崩溃；或者当运行到 `someVar = var` 时，由于缺 getter 方法同样会导致崩溃。编译时没问题，运行时才执行相应的方法，这就是所谓的动态绑定。
+3. @dynamic 告诉编译器：属性的 setter 与 getter 方法由用户自己实现。（当然对于 readonly 的属性只需提供 getter 即可）。假如一个属性被声明为 @dynamic var，然后你没有提供 @setter方法和 @getter 方法，编译的时候没问题,运行时相应的方法找不到报错，这就是所谓的动态绑定。
 
-#####总结下 @synthesize 合成实例变量的规则，有以下几点：
+####总结下 @synthesize 合成实例变量的规则，有以下几点：
 
 1. 如果指定了成员变量的名称,会生成一个指定的名称的成员变量,如果这个成员已经存在了就不再生成了.
-
 2. 如果是 @synthesize foo; 还会生成一个名称为foo的成员变量，也就是说：如果没有指定成员变量的名称会自动生成一个属性同名的成员变量,
+3. 假如 property 名为 foo，存在一个名为 _foo 的实例变量，那么还会自动合成新变量么？ 不会,Xcode会有警告提示。
 
-3. 如果是 @synthesize foo = _foo; 就不会生成成员变量
-
-4. 假如 property 名为 foo，存在一个名为 _foo 的实例变量，那么还会自动合成新变量么？ 不会,Xcode会有警告提示。
 ---
 
-###什么情况下不会autosynthesis（自动合成）？
+####什么情况下不会autosynthesis（自动合成）？
 
 1. 同时重写了 setter 和 getter 时
 2. 重写了只读属性的 getter 时
@@ -174,23 +156,12 @@ typedef void(^CompletionBlock)(NSString *date);
 ---
 
 ### #import 和 @class区别
-1. \#import编译阶段拷贝"1.h"内容
+1. #import编译阶段拷贝"1.h"内容
     @class只是告诉编译器这是一个类,并不导入类里面的东西
 2. 如果"1.h"改变,所有包含#import "1.h"的都要重新编译
-    ```objc
-    #import3.h
-    #import2.h
-    #import1.h
-    
-    #import2.h
-    #import1.h
-    
-    /*
-    #import会导致重新编译2.h、3.h
-    @class则只会重新编译2.h
-    使用方法:头文件@class引入类,.m文件再#import,使用类的相关属性和方法
-    */
-    ```
+
+使用方法:头文件`@class`引入类,`.m`文件再`#import`,使用类的相关属性和方法
+```
 
 ---
 ### OC有没有私有方法,私有变量?
@@ -223,15 +194,8 @@ NSString *_test4; // 默认是@private,改不了
 2. `@protected` （受保护的）只能在当前类和子类的对象方法中访问
 3. `@private` （私有的）只能在当前类的对象方法中才能直接访问
 4. `@package` (框架级别的)作用域介于私有和公开之间，只要处于同一个框架中就可以直接通过变量名问。
-5. @interface中的声明的成员变量默认`protected`，属性默认是`public`,@implementation中声明的成员变量默认是`private`
-6. 方法有在@interface声明的默认`public`，只在类@implementation实现的是`private`
-
-| | 成员变量 | 属性 | 方法 |
-| -- | -- | -- | -- |
-| @interface中 | @protected | @public  | @public(声明) |
-| 类扩展中 | 默认@private（改不了） | @private | @private(声明) |
-| @implementation中 | 默认@private（改不了） |  | @private(实现) |
-
+5. @interface中的声明的成员变量默认`protected`，属性默认是`public`,方法是`public`。
+6. 在类扩展、@implementation实现的成员变量、属性，方法是`private`
 
 ---
 
@@ -420,7 +384,6 @@ static NSString * const account = @"account";
  
 		2.避免重复定义全局变量
  
- 
  * 	`extern作用`:
  	*	只是用来获取全局变量(包括全局静态变量)的值，不能用于定义变量
  *	`extern工作原理`:
@@ -585,6 +548,7 @@ blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 #define kStartTime CFAbsoluteTime start = CFAbsoluteTimeGetCurrent();
 #define kEndTime   NSLog(@"Time: %f", CFAbsoluteTimeGetCurrent() - start)
 ```
+
 
 
 ```objc

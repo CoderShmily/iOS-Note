@@ -403,7 +403,7 @@ static NSString * const account = @"account";
 @end
 ```
 
-### 四、static和extern简单使用(要使用一个东西，先了解其作用)
+### 四、static和extern简单使用
 
 *	`static作用`:
  	* 修饰局部变量：

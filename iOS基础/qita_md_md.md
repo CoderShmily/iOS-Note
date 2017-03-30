@@ -284,12 +284,6 @@ NSData *imagedata=UIImageJEPGRepresentation(image,1.0);
 ```
 ---
 
-
-
-
-
-
-
 ### const,static,extern简介
 
 ### 一、const与宏的区别（面试题）:
@@ -302,7 +296,6 @@ NSData *imagedata=UIImageJEPGRepresentation(image,1.0);
 ```objc
 // 常见的常量：抽成宏
 #define XMGAccount @"account"
-
 #define XMGUserDefault [NSUserDefaults standardUserDefaults]
 
 // 字符串常量
@@ -310,7 +303,6 @@ static NSString * const account = @"account";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // 偏好设置存储
     // 使用宏
     [XMGUserDefault setValue:@"123" forKey:XMGAccount];
@@ -334,7 +326,6 @@ static NSString * const account = @"account";
     
     // 定义变量
     int a = 1;
-    
     // 允许修改值
     a = 20;
     
@@ -350,9 +341,7 @@ static NSString * const account = @"account";
     // const:修饰指针变量*p，带*的变量，就是指针变量.
     // 定义一个指向int类型的指针变量，指向a的地址
     int *p = &a;
-    
     int c = 10;
-    
     p = &c;
     
     // 允许修改p指向的地址，
@@ -363,21 +352,15 @@ static NSString * const account = @"account";
     // 两种方式一样
     const int *p1; // *p1：常量 p1:变量
     int const *p1; // *p1：常量 p1:变量
-    
+ 
     // const修饰指针变量p1
     int * const p1; // *p1:变量 p1:常量
 
-    
     // 第一个const修饰*p1 第二个const修饰 p1
     // 两种方式一样
     const int * const p1; // *p1：常量 p1：常量
-    
     int const * const p1;  // *p1：常量 p1：常量
-    
-    
-    
 }
-
 ```
 
 
@@ -402,14 +385,11 @@ static NSString * const account = @"account";
     int b;
     // 会报错
     a = &b;
-    
     *a = 2;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
     int a = 10;
     
     // 需求1:提供一个方法，这个方法的参数是地址，里面只能通过地址读取值,不能通过地址修改值。
@@ -420,8 +400,6 @@ static NSString * const account = @"account";
     // 需求2:提供一个方法，这个方法的参数是地址，里面不能修改参数的地址。
     [self test1:&a];
 }
-
-
 @end
 ```
 
@@ -451,10 +429,8 @@ static NSString * const account = @"account";
 ```objc
 // 全局变量：只有一份内存，所有文件共享，与extern联合使用。
 int a = 20;
-
 // static修饰全局变量
 static int age = 20;
-
 - (void)test
 {
     // static修饰局部变量
@@ -465,16 +441,12 @@ static int age = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
     
     [self test];
-    [self test];
-    
+    [self test];    
     extern int age;
     NSLog(@"%d",age);
 }
-I
 ```
 
 ### 五、static与const联合使用

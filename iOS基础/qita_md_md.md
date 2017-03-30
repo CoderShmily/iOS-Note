@@ -473,7 +473,6 @@ static const int a = 20;
 static  NSString * const key = @"name";
 
 // 如果 const修饰 *key1,表示*key1只读，key1还是能改变。
-
 static  NSString const *key1 = @"name";
 
 ```
@@ -490,25 +489,14 @@ static  NSString const *key1 = @"name";
 * GlobeConst.h
 
 ```objc
-/*******************************首页****************************/
-
 UIKIT_EXTERN  NSString * const nameKey;
-
-/*******************************首页****************************/
 ```
 
 * GlobeConst.m
 
 ```objc
 #import <Foundation/Foundation.h>
-
-/*******************************首页****************************/
-
 NSString * const nameKey = @"name";
-
-
-/*******************************首页****************************/
-
 ```
 ###常用宏
 ```objc

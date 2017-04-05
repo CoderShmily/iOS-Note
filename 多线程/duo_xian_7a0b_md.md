@@ -291,7 +291,7 @@ dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
 ```
 
 <font color=red>注意:dispatch_group_wait是阻塞的,
-如果下边有dispatch_async方法也会等着，不会先执行。</font>
+队列组中的所有任务都执行完毕以后才会执行下面代码。</font>
 
 若有此需求：分别异步执行2个耗时的操作,等2个异步操作都执行完毕后，再回到主线程执行操作
 

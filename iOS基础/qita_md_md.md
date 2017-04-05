@@ -511,6 +511,9 @@ NSString * const nameKey = @"name";
 #if TARGET_OS_IPHONE
 //真机
 #endif
+
+#ifdef __OBJC__
+#endif
  
 #if TARGET_IPHONE_SIMULATOR
 //模拟器

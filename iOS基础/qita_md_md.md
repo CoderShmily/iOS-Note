@@ -512,7 +512,14 @@ NSString * const nameKey = @"name";
 //真机
 #endif
 
+// 判断是不是OC
 #ifdef __OBJC__
+#endif
+// 判断是不是ARC
+#if __has_feature(objc_arc)
+
+#else
+
 #endif
  
 #if TARGET_IPHONE_SIMULATOR

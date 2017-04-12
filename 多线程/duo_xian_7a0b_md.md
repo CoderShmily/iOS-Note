@@ -308,7 +308,8 @@ dispatch_group_notify(group, dispatch_get_main_queue(), ^{
     // 等前面的异步操作都执行完毕后，回到主线程...
 });
 
-// 还有NSOperation的addDependency可以添加依赖，依赖的Operation会先执行
+// 还有NSOperation的addDependency可以添加依赖，依赖的Operation会先执行,但是只是会先执行，并不一定是比被依赖的任务先执行完
+// 栅栏函数
 ```
 
 ### 后台运行

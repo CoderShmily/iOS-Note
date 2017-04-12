@@ -440,7 +440,7 @@ NSOperationQueue *operaQueue = [[NSOperationQueue alloc] init];
 NSOperationQueue *operaQueue2 = [[NSOperationQueue alloc] init];
 [operaQueue addOperation:blockOp];
 [operaQueue addOperation:blockOp2];
-// 操作依赖乐意不在一个NSOperationQueue中，blockOp2在blockOp3之前执行
+// 操作依赖可以不在一个NSOperationQueue中，blockOp2在blockOp3之前执行
 [operaQueue2 addOperation:blockOp3];
 
 // 操作监听

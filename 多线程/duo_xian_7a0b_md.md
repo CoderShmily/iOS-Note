@@ -307,6 +307,8 @@ dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DE
 dispatch_group_notify(group, dispatch_get_main_queue(), ^{
     // 等前面的异步操作都执行完毕后，回到主线程...
 });
+
+// 还有NSOperation的addDependency可以添加依赖，依赖的Operation会先执行
 ```
 
 ### 后台运行
